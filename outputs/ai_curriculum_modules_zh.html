@@ -578,13 +578,13 @@ tlms:['Empathy map templates','AI tool with code generation','Browser for live t
 act:['Problem interview with a classmate','Build your first working page live in class','Peer review and fix session','Mini showcase presentation'],
 files:[{ext:'.docx',icon:'ti-file-text',desc:'Design brief template'},{ext:'.html',icon:'ti-world',desc:'Starter HTML template'},{ext:'.pdf',icon:'ti-file-description',desc:'Peer review form'},{ext:'.pptx',icon:'ti-presentation',desc:'Showcase template'}],
 hw:{
-  title:'Build your dream app — full project',
-  mission:'Choose ONE of the following two missions. Next class, we will push your code to GitHub.',
+  title:'作业作业：AI App 设计与开发',
+  mission:'请用你习惯的AI大语言模型（比如DeepSeek、ChatGPT、Solo等），从下面两个主题中任选一个，设计并开发一个有趣的App。下节课上课时，我们要一起尝试GitHub上链流程（把你的代码上传到GitHub并记录版本）。',
   choices:[
-    {title:'Mission A — Vocabulary Survival Island',body:'You are trapped on a desert island and must survive by answering word challenges. Build a game with: resource tracking (food, water), word questions (correct = gain resources, wrong = lose resources), game over when resources hit 0, days-survived counter, and at least one bonus feature (weather events, difficulty levels, leaderboard, pet companion). The game must be fully playable in a browser.'},
-    {title:'Mission B — Dream Pet Academy',body:'Adopt a virtual pet and train it to be a champion. Build an app with: full pet customisation (name, appearance, personality), status tracking (hunger, happiness, energy — all must decrease over time), learning tasks that earn coins and experience, at least one upgrade or unlock system, and an achievements screen. The pet must feel alive — status bars must change! Bonus: pet battles, rare pets, daily rewards.'}
+    {title:'作业1：词汇生存岛',body:'任务：你被困在荒岛，要靠英文单词挑战活下来。\n\n要求：\n显示生命、食物、水的情况\n出单词题，答对得资源，答错扣资源\n可以设定：食物或水为0则游戏结束\n显示存活天数\n\n还可以有：天气事件、宠物伙伴、排行榜、不同难度\n目标：边学单词边活下去。'},
+    {title:'作业2：梦想宠物学院',body:'任务：领养一只虚拟宠物，帮它成为冠军。\n\n要求：\n设计宠物的一切个人设定，设定跟踪饥饿、快乐、精力情况等功能\n设计做学习任务赚金币和经验\n宠物升级、解锁技能等功能\n显示成就和统计\n\n可以有：宠物对战、装饰、稀有宠物、每日奖励\n目标：边养宠边学习，养成好习惯。'}
   ],
-  deliver:['Working HTML/CSS/JS app file','Prompt log: list every AI prompt you used to build it','Reflection: what was hardest? What prompt worked best?','60-second pitch prepared for next class']
+  deliver:['可以运行的App文件或项目文件夹','使用AI大语言模型的提示词记录','下节课用于GitHub上链的代码','60秒展示准备']
 }
 }
 ]},
@@ -613,10 +613,10 @@ tlms:['NotebookLM access','Teacher-prepared source documents in ZIP','Comparison
 act:['Upload provided ZIP and ask 10 questions','Generate audio overview and write 5 key points from listening','NotebookLM vs Google comparison for 5 queries'],
 files:[{ext:'.zip',icon:'ti-file-zip',desc:'Mars lecture materials (Chinese + English)'},{ext:'.pdf',icon:'ti-file-description',desc:'Lecture notes PDF'},{ext:'.docx',icon:'ti-file-text',desc:'Supplementary reading'},{ext:'.pptx',icon:'ti-presentation',desc:'Lecture slides'}],
 hw:{
-  title:'Deep space learning — the astronaut challenge',
-  mission:'You dream of becoming an astronaut. You attended a Mars lecture and received a folder of materials in both Chinese and English. Use NotebookLM to go as deep as possible.',
-  reqs:['Upload all materials from the provided ZIP file into NotebookLM. Explore every feature available.','Generate at least 30 questions about Mars using NotebookLM\'s question feature. Keep going deeper — use answers to form follow-up questions. Document your entire question chain.','Generate the audio overview. Listen to it at least twice. Write a summary in your own words.','Create a mind map of everything you learned (use any tool: paper, MindMeister, Canva, PowerPoint, etc.). It must have at least 4 main branches with sub-branches.','Write a blog post (minimum 300 words) as if you are reporting from a Mars mission briefing. Use only what you learned through NotebookLM.','Bonus: Record a short video (1–2 min) explaining one Mars concept you found most interesting, as if teaching it to a younger student.'],
-  deliver:['Screenshots of your NotebookLM session','30+ question chain document','Audio overview summary','Mind map (submitted as image or file)','Blog post (300+ words)','Bonus: teaching video']
+  title:'NotebookLM 火星资料深度理解任务',
+  mission:'假如你因为梦想成为宇航员，去听了一场关于火星的讲座。讲座非常有趣，于是你向博主索取了更多资料。这些资料包含中英文内容，你有些看不太懂，因此决定使用 NotebookLM 来深入理解。',
+  reqs:['你的任务是：利用 NotebookLM 提出大量问题，不断加深理解。请按照我们今天学习的方法（可回顾 PPT 中的流程来复习），多进行尝试，并记录你的操作过程。','把 Zip 里面提供的素材/链接整理后提供给 NotebookLM。','围绕火星讲座资料不断提问：先问基础问题，再根据回答继续追问，形成一条能看出你理解逐步加深的问题链。','尝试生成并整理 NotebookLM 的博客/音频概览、视频说明和思维导图。','完成后，请提供截图，以及录制的博客、视频和思维导图。'],
+  deliver:['NotebookLM 操作过程截图','问题链记录','博客/音频概览记录','视频录制','思维导图','Zip 素材/链接使用记录']
 }
 }
 ]},
@@ -996,6 +996,7 @@ let allOpen = false;
 
 /* ---------- Helpers ---------- */
 function escapeHTML(str){return String(str).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function formatText(str){return escapeHTML(str).replace(/\n/g,'<br>')}
 function list(items){return '<ul class="list">'+items.map(i=>'<li>'+escapeHTML(i)+'</li>').join('')+'</ul>'}
 function chips(items){return '<div class="chips">'+items.map(i=>{
   if(i && i.ext){const ic=i.icon?'<i class="ti '+i.icon+'"></i>':'';return '<span class="chip">'+ic+'<span class="ext">'+escapeHTML(i.ext)+'</span> '+escapeHTML(i.desc)+'</span>';}
@@ -1059,16 +1060,16 @@ function renderHomework(hw){
   if(!hw) return '';
   let inner='';
   if(hw.choices){
-    inner=hw.choices.map(c=>'<div class="choice"><small>Choose one option</small><strong>'+escapeHTML(c.title)+'</strong><div>'+escapeHTML(c.body)+'</div></div>').join('');
+    inner=hw.choices.map(c=>'<div class="choice"><small>任选一项</small><strong>'+escapeHTML(c.title)+'</strong><div>'+formatText(c.body)+'</div></div>').join('');
   }else{
-    inner='<div class="hw-label" style="margin-top:6px"><i class="ti ti-list-check"></i>Requirements</div>'+hw.reqs.map(r=>'<div class="req">'+escapeHTML(r)+'</div>').join('');
+    inner='<div class="hw-label" style="margin-top:6px"><i class="ti ti-list-check"></i>要求</div>'+hw.reqs.map(r=>'<div class="req">'+formatText(r)+'</div>').join('');
   }
-  const deliver=hw.deliver?'<div class="hw-label" style="margin-top:18px"><i class="ti ti-upload"></i>What to submit</div><div class="deliver">'+hw.deliver.map(d=>'<span>'+escapeHTML(d)+'</span>').join('')+'</div>':'';
+  const deliver=hw.deliver?'<div class="hw-label" style="margin-top:18px"><i class="ti ti-upload"></i>提交内容</div><div class="deliver">'+hw.deliver.map(d=>'<span>'+escapeHTML(d)+'</span>').join('')+'</div>':'';
   return '<div class="panel full"><div class="homework">'
-    +'<span class="hw-tag"><i class="ti ti-lock"></i>Unchanged</span>'
-    +'<div class="hw-label"><i class="ti ti-notebook"></i>Homework assignment</div>'
+    +'<span class="hw-tag"><i class="ti ti-lock"></i>保留作业</span>'
+    +'<div class="hw-label"><i class="ti ti-notebook"></i>作业说明</div>'
     +'<h3 class="serif">'+escapeHTML(hw.title)+'</h3>'
-    +'<p class="mission">'+escapeHTML(hw.mission)+'</p>'+inner+deliver+'</div></div>';
+    +'<p class="mission">'+formatText(hw.mission)+'</p>'+inner+deliver+'</div></div>';
 }
 
 /* ---------- Lesson (subsection) ---------- */

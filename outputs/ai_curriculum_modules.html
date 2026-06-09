@@ -578,13 +578,13 @@ tlms:['Empathy map templates','AI tool with code generation','Browser for live t
 act:['Problem interview with a classmate','Build your first working page live in class','Peer review and fix session','Mini showcase presentation'],
 files:[{ext:'.docx',icon:'ti-file-text',desc:'Design brief template'},{ext:'.html',icon:'ti-world',desc:'Starter HTML template'},{ext:'.pdf',icon:'ti-file-description',desc:'Peer review form'},{ext:'.pptx',icon:'ti-presentation',desc:'Showcase template'}],
 hw:{
-  title:'Build your dream app — full project',
-  mission:'Choose ONE of the following two missions. Next class, we will push your code to GitHub.',
+  title:'JOB JOB: AI App Design and Development',
+  mission:'Please choose one of the following two topics and design and develop an engaging app using your preferred AI large language model (e.g., DeepSeek, ChatGPT, Solo, etc.). In the next class, we are going to try the GitHub rollup process: upload your code to GitHub and record the version.',
   choices:[
-    {title:'Mission A — Vocabulary Survival Island',body:'You are trapped on a desert island and must survive by answering word challenges. Build a game with: resource tracking (food, water), word questions (correct = gain resources, wrong = lose resources), game over when resources hit 0, days-survived counter, and at least one bonus feature (weather events, difficulty levels, leaderboard, pet companion). The game must be fully playable in a browser.'},
-    {title:'Mission B — Dream Pet Academy',body:'Adopt a virtual pet and train it to be a champion. Build an app with: full pet customisation (name, appearance, personality), status tracking (hunger, happiness, energy — all must decrease over time), learning tasks that earn coins and experience, at least one upgrade or unlock system, and an achievements screen. The pet must feel alive — status bars must change! Bonus: pet battles, rare pets, daily rewards.'}
+    {title:'Assignment 1: Vocabulary Survival Island',body:'Mission: You are trapped on a desert island and must survive on a challenge of English words.\n\nRequirements:\nShow conditions for life, food, and water.\nAsk a word question: answer correctly to gain resources; answer incorrectly to lose resources.\nThe game can end when food or water reaches 0.\nShow the number of days alive.\n\nAlso available: weather events, pet companions, rankings, and different difficulties.\nObjective: survive while learning words.'},
+    {title:'Assignment 2: Dream Pet Academy',body:'Mission: Adopt a virtual pet and help it become a champion.\n\nRequirements:\nDesign all personal settings for your pet and track hunger, happiness, energy status, etc.\nDesign learning tasks to earn gold coins and experience.\nInclude pet upgrades, unlockable skills, and more.\nDisplay achievements and statistics.\n\nCan include: pet fights, decor, rare pets, daily rewards.\nObjective: learn while raising your pet and develop good habits.'}
   ],
-  deliver:['Working HTML/CSS/JS app file','Prompt log: list every AI prompt you used to build it','Reflection: what was hardest? What prompt worked best?','60-second pitch prepared for next class']
+  deliver:['Working app file or project folder','Prompt log from the AI large language model','Code ready for GitHub rollup next class','60-second showcase pitch']
 }
 }
 ]},
@@ -613,10 +613,10 @@ tlms:['NotebookLM access','Teacher-prepared source documents in ZIP','Comparison
 act:['Upload provided ZIP and ask 10 questions','Generate audio overview and write 5 key points from listening','NotebookLM vs Google comparison for 5 queries'],
 files:[{ext:'.zip',icon:'ti-file-zip',desc:'Mars lecture materials (Chinese + English)'},{ext:'.pdf',icon:'ti-file-description',desc:'Lecture notes PDF'},{ext:'.docx',icon:'ti-file-text',desc:'Supplementary reading'},{ext:'.pptx',icon:'ti-presentation',desc:'Lecture slides'}],
 hw:{
-  title:'Deep space learning — the astronaut challenge',
-  mission:'You dream of becoming an astronaut. You attended a Mars lecture and received a folder of materials in both Chinese and English. Use NotebookLM to go as deep as possible.',
-  reqs:['Upload all materials from the provided ZIP file into NotebookLM. Explore every feature available.','Generate at least 30 questions about Mars using NotebookLM\'s question feature. Keep going deeper — use answers to form follow-up questions. Document your entire question chain.','Generate the audio overview. Listen to it at least twice. Write a summary in your own words.','Create a mind map of everything you learned (use any tool: paper, MindMeister, Canva, PowerPoint, etc.). It must have at least 4 main branches with sub-branches.','Write a blog post (minimum 300 words) as if you are reporting from a Mars mission briefing. Use only what you learned through NotebookLM.','Bonus: Record a short video (1–2 min) explaining one Mars concept you found most interesting, as if teaching it to a younger student.'],
-  deliver:['Screenshots of your NotebookLM session','30+ question chain document','Audio overview summary','Mind map (submitted as image or file)','Blog post (300+ words)','Bonus: teaching video']
+  title:'NotebookLM Mars Deep Understanding Task',
+  mission:'Imagine you dream of becoming an astronaut and attended a fascinating lecture about Mars. You asked the presenter for more materials. The materials include both Chinese and English content, and some parts are difficult to understand, so you decide to use NotebookLM to study them deeply.',
+  reqs:['Use NotebookLM to ask many questions and keep deepening your understanding. Follow the method learned in class today; you may review the PPT process to help you.','Use the materials and links provided in the ZIP as sources for NotebookLM.','Ask basic questions first, then use each answer to ask stronger follow-up questions. Keep a record of your question chain and operation process.','Try generating and organising NotebookLM outputs such as a blog/audio overview, video explanation, and mind map.','When finished, provide screenshots plus your recorded blog/audio overview, video, and mind map.'],
+  deliver:['NotebookLM process screenshots','Question-chain record','Blog/audio overview record','Recorded video','Mind map','Record of ZIP sources/links used']
 }
 }
 ]},
@@ -996,6 +996,7 @@ let allOpen = false;
 
 /* ---------- Helpers ---------- */
 function escapeHTML(str){return String(str).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function formatText(str){return escapeHTML(str).replace(/\n/g,'<br>')}
 function list(items){return '<ul class="list">'+items.map(i=>'<li>'+escapeHTML(i)+'</li>').join('')+'</ul>'}
 function chips(items){return '<div class="chips">'+items.map(i=>{
   if(i && i.ext){const ic=i.icon?'<i class="ti '+i.icon+'"></i>':'';return '<span class="chip">'+ic+'<span class="ext">'+escapeHTML(i.ext)+'</span> '+escapeHTML(i.desc)+'</span>';}
@@ -1059,16 +1060,16 @@ function renderHomework(hw){
   if(!hw) return '';
   let inner='';
   if(hw.choices){
-    inner=hw.choices.map(c=>'<div class="choice"><small>Choose one option</small><strong>'+escapeHTML(c.title)+'</strong><div>'+escapeHTML(c.body)+'</div></div>').join('');
+    inner=hw.choices.map(c=>'<div class="choice"><small>Choose one option</small><strong>'+escapeHTML(c.title)+'</strong><div>'+formatText(c.body)+'</div></div>').join('');
   }else{
-    inner='<div class="hw-label" style="margin-top:6px"><i class="ti ti-list-check"></i>Requirements</div>'+hw.reqs.map(r=>'<div class="req">'+escapeHTML(r)+'</div>').join('');
+    inner='<div class="hw-label" style="margin-top:6px"><i class="ti ti-list-check"></i>Requirements</div>'+hw.reqs.map(r=>'<div class="req">'+formatText(r)+'</div>').join('');
   }
   const deliver=hw.deliver?'<div class="hw-label" style="margin-top:18px"><i class="ti ti-upload"></i>What to submit</div><div class="deliver">'+hw.deliver.map(d=>'<span>'+escapeHTML(d)+'</span>').join('')+'</div>':'';
   return '<div class="panel full"><div class="homework">'
     +'<span class="hw-tag"><i class="ti ti-lock"></i>Unchanged</span>'
     +'<div class="hw-label"><i class="ti ti-notebook"></i>Homework assignment</div>'
     +'<h3 class="serif">'+escapeHTML(hw.title)+'</h3>'
-    +'<p class="mission">'+escapeHTML(hw.mission)+'</p>'+inner+deliver+'</div></div>';
+    +'<p class="mission">'+formatText(hw.mission)+'</p>'+inner+deliver+'</div></div>';
 }
 
 /* ---------- Lesson (subsection) ---------- */
