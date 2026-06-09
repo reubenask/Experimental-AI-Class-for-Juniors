@@ -620,23 +620,24 @@ hw:{
 }
 }
 ]},
-{id:'m9',phase:'advanced',badge:'Module 9',name:'Agents, APIs and advanced AI tools',sessions:'4–5 sessions',
+{id:'m9',phase:'advanced',badge:'Module 9',name:'Codex, agents, APIs, and automation systems',sessions:'5 sessions',
 subsections:[
-{name:'9.1–9.4 APIs, agents, Claude Code, Cowork, API keys',
-obj:['Explain what an API is using the waiter analogy','Distinguish an agent (multi-step task) from a chatbot (single response)','Use Claude Code or Cowork to make a real edit to a project','Add a simple API call to a web app using a test key','Reflect on the difference between prompting and programming with AI'],
-teach:['API analogy: you are the customer, AI is the kitchen, API is the waiter','Live agent demo: watch AI complete a multi-step task autonomously','Teacher demo of Claude Code editing a file — students observe then try','Walk through a simple API call in code together — no need to write, just understand and run'],
-tlms:['API analogy card','Live agent demo (Claude or AI Studio)','Test API key (teacher-provided)','Starter code snippet with API call pre-written','Claude Code / Cowork demo account'],
-act:['Paper agent design: draw your dream agent with goal, tools, and steps','Add a new feature to M6 app using Claude Code','Run the API starter code and see the AI respond in your own app'],
-files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
+{name:'9.1–9.5 APIs, agents, Codex, n8n, and automation workflows',
+obj:['Explain APIs using the waiter analogy: request, response, endpoint, key, and permission','Distinguish chatbots, agents, Codex-style coding assistants, and n8n/Make/Zapier automation workflows','Observe Codex or Claude Code reading a project, editing a file, showing a diff, and verifying the result','Design an n8n-style automation workflow with trigger, steps, conditions, outputs, and human approval','Understand automation risks: privacy, error spread, secret keys, repeated runs, and human confirmation'],
+teach:['API analogy: user = customer, AI = kitchen, API = waiter, key = pass','Live Codex demo: inspect a web file, propose a change, show the diff, and wait for human approval','Live n8n / Make / Zapier demo: trigger → AI node → condition → email/spreadsheet/notification output','Compare systems: chatbot for answers, Codex for code changes, n8n for connecting tools and automating workflows','Safety discussion: what must require human approval? What data should never enter automation?'],
+tlms:['API analogy card','Codex or Claude Code demo environment','n8n / Make / Zapier workflow screenshots or demo account','Teacher-provided test API key','Prewritten API starter code','Automation safety checklist'],
+act:['Paper agent design: draw a learning agent with goal, tools, steps, memory, and checkpoints','Use Codex or Claude Code to add a small feature to the Module 6 app; record prompts and before/after changes','Design an n8n automation flow, for example: collect learning feedback → AI summary → send to teacher → write to spreadsheet','Run the API starter code and identify request, response, and key-protection boundary','Risk-mark an automation workflow: where can it fail, and where does a human need to approve?'],
+files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n automation workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
 hw:{
-  title:'Build your own AI-powered tool — final project',
-  mission:'This is your capstone. Use everything you have learned — prompting, HTML building, GitHub, APIs — to create something real.',
+  title:'Build your own AI tool, agent, or automation workflow',
+  mission:'This is your advanced project. Use prompting, web building, GitHub, APIs, Codex-style coding assistants, agent design, or n8n-style automation to create something real and demonstrable.',
   choices:[
-    {title:'Option A — AI-powered web app',body:'Extend your app from Module 6 to include a real AI feature using an API call. The AI must do something useful inside your app — answer questions, generate content, give advice. Deploy the final version to GitHub Pages. Record a 2-minute demo video walking through every feature.'},
-    {title:'Option B — My own AI agent design',body:'Design (on paper or digitally) a complete AI agent for a problem you care about. Include: the problem it solves, the tools it would need (search, calendar, email, etc.), a flowchart of how it works step by step, a prototype prompt sequence showing how you would instruct it, and a reflection on what could go wrong and how you would prevent it.'},
-    {title:'Option C — AI tools field guide',body:'Create the ultimate guide to AI tools for a student your age who has never used them. Cover: what LLMs are, the best 5 tools and what each one does best, how to prompt well, how to build an app, how to use NotebookLM, and what APIs and agents are. This guide must be at least 15 pages/slides, include real screenshots, and be something you would actually give to a friend.'}
+    {title:'Option A — AI-powered web app',body:'Extend your Module 6 app with a useful AI feature using an API call: answer questions, generate content, give advice, summarise materials, etc. You may use Codex / Claude Code / ChatGPT to modify the code, but you must record prompts, code changes, and test results. Deploy the final version to GitHub Pages and record a 2-minute demo.'},
+    {title:'Option B — My own AI agent design',body:'Design a complete AI agent for a problem you care about. Include: the problem it solves, tools it needs (search, calendar, email, spreadsheet, web, files, etc.), workflow diagram, prompt sequence, memory/checking mechanism, and a safety note explaining what must require human approval.'},
+    {title:'Option C — n8n automation for learning',body:'Design an n8n / Make / Zapier-style automation workflow that improves learning. Example: collect mistakes → AI summary → generate review list → send to student/teacher → write to spreadsheet. Include trigger, every node, conditions, outputs, what happens if it fails, and privacy/safety checks.'},
+    {title:'Option D — AI tools field guide',body:'Create a practical AI tools guide for students your age. Cover: LLMs, prompting, NotebookLM, Codex/AI coding assistants, APIs, agents, n8n or another automation system. Minimum 15 pages/slides with real screenshots. Explain when each tool is useful and when it is not.'}
   ],
-  deliver:['Completed project (A, B, or C)','Evidence of process (screenshots, prompt logs, drafts)','Final reflection: what do you want to build next?']
+  deliver:['Completed project (A, B, C, or D)','Process evidence: screenshots, prompt logs, code diff, workflow diagram, or drafts','Safety note: data, keys, human approval, and failure handling','Final reflection: what do you want to automate or build next?']
 }
 }
 ]}
@@ -905,21 +906,21 @@ const sessionGuide = [
   ],
   [
     "9.3",
-    "AI coding assistants in a project",
-    "Students use a coding assistant to inspect a file, make a controlled change, and verify the result.",
-    "Project editor with AI assistant proposing changes, highlighted diff, test checklist, and human approval step."
+    "Codex and AI coding assistants",
+    "Students use Codex or a similar coding assistant to inspect a file, make a controlled change, review the diff, and verify the result.",
+    "Project editor with Codex-style AI assistant, highlighted code diff, test checklist, GitHub commit path, and human approval gate."
   ],
   [
     "9.4",
-    "Adding an AI feature safely",
-    "Students run a simple API-powered feature, understand data flow, and avoid publishing secrets.",
-    "Student web app with embedded AI helper, request/response arrows, server boundary, secret key warning, and user-facing output."
+    "n8n automation workflows",
+    "Students design an automation workflow with trigger, AI step, condition, output, error handling, and human confirmation.",
+    "n8n-style workflow canvas with trigger node, AI summary node, spreadsheet/email output nodes, warning badges for privacy, keys, failures, and approval steps."
   ],
   [
     "9.5",
-    "Capstone portfolio showcase",
-    "Students present final product, process evidence, prompt log, deployment link, and responsible-use reflection.",
-    "Portfolio review wall with app demo, QR code, prompt log, GitHub link, video thumbnail, rubric, and reflection card."
+    "Advanced tool showcase",
+    "Students present an AI web app, agent design, Codex-assisted code change, or n8n automation workflow with process evidence and responsible-use reflection.",
+    "Portfolio review wall with app demo, automation workflow diagram, Codex diff screenshot, QR code, GitHub link, video thumbnail, rubric, and reflection card."
   ],
   [
     "10.1",
