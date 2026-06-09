@@ -137,14 +137,14 @@ body{letter-spacing:0}
 html{overflow-x:hidden}
 body{overflow-x:hidden}
 img,svg,canvas,video{max-width:100%;height:auto}
-(max-width:900px){
+@media (max-width:900px){
   .header-inner,.topbar{padding-left:18px;padding-right:18px}
   .wordmark-title{font-size:18px;letter-spacing:.08em}
   .page-nav,.controls,.filters{gap:8px}
   .page-nav a,.chip-btn,.ghost-link{font-size:12px;padding:8px 11px}
   .simple-main,.main,.rubric-page,.phases-page,.hero,.portal-menu{padding-left:18px;padding-right:18px}
 }
-(max-width:640px){
+@media (max-width:640px){
   .wordmark{gap:10px}.crest{width:34px;height:40px;font-size:16px}.wordmark-title{font-size:16px;letter-spacing:.06em}
   .home-screen{padding:18px}.home-actions{left:18px;right:18px;justify-content:flex-end;gap:6px}.home-guide,.lang-link{font-size:11px;padding:7px 8px}.home-brand.brand{font-size:20px;gap:10px}.home-brand .shield{width:48px;height:58px;font-size:20px}
   .portal-hub,.phase-dashboard,.rubric-fit,.rubric-zh{overflow:auto}
@@ -160,6 +160,24 @@ img,svg,canvas,video{max-width:100%;height:auto}
   .module-head{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:16px}.m-tile{width:54px;height:54px}.m-meta h3{font-size:18px}.m-sub{font-size:12px;gap:8px}
   .session-grid,.grid{grid-template-columns:1fr}.homework{padding:16px}.homework h3{max-width:100%;font-size:18px}
 }
+
+/* Shared shell spacing: exact page rhythm across home, portal, phases, modules, and rubric. */
+:root{--shell-max:1120px;--shell-x:26px;--shell-top:40px;--shell-gap:18px;--header-h:74px}
+.site-header{min-height:var(--header-h)}
+.header-inner{min-height:var(--header-h);padding-top:13px;padding-bottom:13px}
+.home-screen{padding:14px var(--shell-x);min-height:100dvh}
+.home-actions{top:42px;right:max(var(--shell-x),calc((100vw - var(--shell-max))/2 + var(--shell-x)));height:48px}
+.home-entry{min-height:calc(100dvh - 28px)}
+.home-brand{transform:none}
+.hero,.simple-main,.phases-page,.rubric-page,.main{max-width:var(--shell-max);padding-left:var(--shell-x);padding-right:var(--shell-x)}
+.portal-hub .hero,.en-hub .hero,.zh-hub .hero{padding-top:var(--shell-top);padding-bottom:18px}
+.simple-main,.phases-page,.rubric-page{padding-top:var(--shell-top)}
+.page-nav{margin:0 0 var(--shell-gap)}
+.controls-wrap{margin-top:0}
+.phase-dashboard .phases-page,.rubric-fit .rubric-page,.rubric-zh .rubric-page{padding-top:var(--shell-top)}
+.portal-menu,.phase-legend{gap:18px}
+@media (max-width:900px){:root{--shell-x:18px;--shell-top:28px}.header-inner{padding-left:var(--shell-x);padding-right:var(--shell-x)}.home-actions{right:var(--shell-x)}}
+@media (max-width:640px){:root{--shell-x:16px;--shell-top:22px;--shell-gap:14px}.home-screen{padding:12px var(--shell-x)}.home-actions{top:18px;left:var(--shell-x);right:var(--shell-x);justify-content:flex-end}.home-entry{min-height:calc(100dvh - 24px)}.header-inner{min-height:64px}.site-header{min-height:64px}.page-nav{gap:8px}.hero,.simple-main,.phases-page,.rubric-page,.main{padding-left:var(--shell-x);padding-right:var(--shell-x)}}
 </style>
 </head>
 <body>
