@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Literacy Curriculum · Modules</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root{
+  --paper:#f3ede1;
+  --paper-2:#f8f3e9;
+  --card:#fffefb;
+  --ink:#221b15;
+  --ink-2:#5d534a;
+  --ink-3:#938777;
+  --line:#e7dccb;
+  --line-2:#d9cbb4;
+  --accent:#8a2331;
+  --accent-deep:#5f141f;
+  --accent-soft:#f6e7e4;
+  --gold:#9a6a1c;
+
+  --foundation:#3a5d86;
+  --exploration:#1d7d6b;
+  --creation:#a26a14;
+  --advanced:#6b3c72;
+
+  --shadow-sm:0 1px 2px rgba(53,33,18,.05),0 2px 6px rgba(53,33,18,.04);
+  --shadow-md:0 6px 24px -10px rgba(53,33,18,.22),0 2px 6px rgba(53,33,18,.05);
+  --shadow-lg:0 24px 60px -24px rgba(53,33,18,.35);
+  --radius:18px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+/* subtle paper grain */
+body:before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(120,90,50,.05) 1px,transparent 1px);
+  background-size:4px 4px;
+}
+body>*{position:relative;z-index:1}
+button{font:inherit;color:inherit}
+a{color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.serif{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(243,237,225,.82);
+  backdrop-filter:saturate(140%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.wordmark{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);font-weight:800;letter-spacing:.08em}
+.crest{
+  width:42px;height:48px;flex:0 0 auto;border-radius:7px 7px 18px 18px;
+  background:linear-gradient(160deg,var(--accent),var(--accent-deep));
+  color:#fff;display:grid;place-items:center;position:relative;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),var(--shadow-sm);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:20px;font-weight:800;letter-spacing:-.04em;
+}
+.wordmark-title{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:23px;font-weight:800;letter-spacing:.12em}
+.header-actions{display:flex;align-items:center;gap:8px}
+.ghost-link{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--card);font-weight:600;font-size:13.5px;
+  cursor:pointer;text-decoration:none;transition:.18s;
+}
+.ghost-link:hover{border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow-sm)}
+.ghost-link i{font-size:16px}
+
+/* ---------- Hero ---------- */
+.hero{max-width:var(--maxw);margin:0 auto;padding:64px 26px 30px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.eyebrow .bar{width:26px;height:2px;background:var(--accent);border-radius:2px}
+.hero h1{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:500;font-size:clamp(38px,6vw,68px);
+  line-height:1.02;letter-spacing:-.015em;margin:0 0 22px;max-width:16ch;
+}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-lead{font-size:18.5px;line-height:1.6;color:var(--ink-2);max-width:62ch;margin:0 0 34px}
+.hero-lead b{color:var(--ink);font-weight:700}
+
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow-sm)}
+.stat{padding:22px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .num{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:38px;line-height:1;color:var(--ink)}
+.stat .lbl{font-size:13px;color:var(--ink-2);margin-top:7px;font-weight:600}
+.stat .lbl b{color:var(--accent);font-weight:800}
+
+.callout{
+  display:flex;gap:15px;align-items:flex-start;margin-top:26px;padding:18px 22px;
+  background:var(--accent-soft);border:1px solid #ecc9c5;border-left:4px solid var(--accent);
+  border-radius:12px;
+}
+.callout i{font-size:21px;color:var(--accent);margin-top:1px}
+.callout p{margin:0;font-size:14.5px;color:#5e3a3a}
+.callout p b{color:var(--accent-deep)}
+
+/* ---------- Phase legend ---------- */
+.phase-legend{max-width:var(--maxw);margin:38px auto 0;padding:0 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.legend-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--lc);border-radius:14px;padding:16px 18px}
+.legend-card .tag{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lc)}
+.legend-card h4{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:17px;margin:7px 0 5px}
+.legend-card p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.45}
+
+/* ---------- Controls ---------- */
+.controls-wrap{position:sticky;top:73px;z-index:40;background:rgba(243,237,225,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:46px}
+.controls{max-width:var(--maxw);margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.search{position:relative;flex:1;min-width:230px}
+.search i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:18px}
+.search input{
+  width:100%;padding:11px 14px 11px 42px;border:1px solid var(--line-2);border-radius:999px;
+  background:var(--card);font-size:14.5px;color:var(--ink);transition:.18s;
+}
+.search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.chip-btn{
+  border:1px solid var(--line-2);background:var(--card);border-radius:999px;padding:9px 15px;
+  font-weight:600;font-size:13.5px;cursor:pointer;transition:.16s;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+}
+.chip-btn .dot{width:8px;height:8px;border-radius:50%;background:var(--cdot,var(--ink-3))}
+.chip-btn:hover{border-color:var(--ink-2)}
+.chip-btn.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip-btn.active .dot{background:#fff}
+.expand-toggle{margin-left:auto;border:0;background:none;color:var(--accent);font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:8px 4px}
+.expand-toggle:hover{text-decoration:underline}
+
+/* ---------- Main ---------- */
+.main{max-width:var(--maxw);margin:0 auto;padding:40px 26px 90px}
+.empty-state{text-align:center;padding:70px 20px;color:var(--ink-2)}
+.empty-state i{font-size:42px;color:var(--ink-3)}
+.empty-state p{margin:14px 0 0;font-size:16px}
+
+/* ---------- Module card ---------- */
+.module{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  margin:0 0 20px;box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .2s,border-color .2s;
+}
+.module.open{box-shadow:var(--shadow-md);border-color:var(--line-2)}
+.module-head{
+  width:100%;border:0;background:none;display:flex;align-items:center;gap:20px;
+  padding:22px 26px;cursor:pointer;text-align:left;position:relative;
+}
+.module-head:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pc)}
+.module-head:hover{background:linear-gradient(90deg,rgba(0,0,0,.012),transparent 40%)}
+.m-tile{width:74px;height:74px;flex:0 0 auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.m-tile svg{display:block;width:100%;height:100%}
+.m-meta{flex:1;min-width:0}
+.m-kicker{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.m-num{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pc)}
+.m-phase{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:2px 9px;border:1px solid var(--line-2);border-radius:999px}
+.m-meta h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:22px;line-height:1.2;margin:0;letter-spacing:-.01em}
+.m-sub{display:flex;align-items:center;gap:14px;margin-top:7px;color:var(--ink-2);font-size:13.5px;flex-wrap:wrap}
+.m-sub span{display:inline-flex;align-items:center;gap:6px}
+.m-sub i{font-size:15px;color:var(--ink-3)}
+.m-chev{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-2);transition:.22s;font-size:20px}
+.module.open .m-chev{transform:rotate(180deg);background:var(--ink);color:#fff;border-color:var(--ink)}
+.module-body{border-top:1px solid var(--line)}
+.module-body[hidden]{display:none}
+.module-body-inner{padding:8px 26px 22px}
+.reveal{animation:reveal .35s ease both}
+@keyframes reveal{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* session overview strip */
+.sessions{margin:18px 0 6px}
+.sessions-label{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+.sessions-label i{font-size:16px;color:var(--pc)}
+.session-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.session-card{display:flex;gap:13px;border:1px solid var(--line);border-radius:13px;background:var(--paper-2);padding:13px;transition:.16s}
+.session-card:hover{border-color:var(--line-2);background:var(--card);box-shadow:var(--shadow-sm)}
+.s-tile{width:52px;height:52px;flex:0 0 auto;border-radius:10px;overflow:hidden}
+.s-tile svg{display:block;width:100%;height:100%}
+.s-body{min-width:0;flex:1}
+.s-code{font-size:11px;font-weight:800;color:var(--pc);letter-spacing:.04em}
+.s-body strong{display:block;font-size:14.5px;line-height:1.3;margin:2px 0 4px;font-weight:700}
+.s-body p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.45}
+.s-brief{margin-top:9px}
+.s-brief summary{cursor:pointer;font-size:11.5px;font-weight:700;color:var(--ink-3);list-style:none;display:inline-flex;align-items:center;gap:5px;letter-spacing:.04em;text-transform:uppercase}
+.s-brief summary::-webkit-details-marker{display:none}
+.s-brief summary i{font-size:14px;transition:.2s}
+.s-brief[open] summary i{transform:rotate(90deg)}
+.s-brief p{margin:8px 0 0;font-size:12.5px;color:var(--ink-2);font-style:italic;border-left:2px solid var(--line-2);padding-left:10px;line-height:1.5}
+
+/* ---------- Subsection (lesson detail) ---------- */
+.lessons{margin-top:24px;border-top:1px dashed var(--line-2);padding-top:8px}
+.subsection{border-bottom:1px solid var(--line)}
+.subsection:last-child{border-bottom:0}
+.sub-head{width:100%;border:0;background:none;display:flex;align-items:center;gap:15px;padding:18px 4px;cursor:pointer;text-align:left}
+.sub-head:hover .sub-num{background:var(--pc);color:#fff;border-color:var(--pc)}
+.sub-num{width:40px;height:40px;flex:0 0 auto;border-radius:11px;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line-2);color:var(--pc);font-weight:800;font-size:14px;transition:.18s}
+.sub-head .sub-t{flex:1;min-width:0}
+.sub-head .sub-t strong{display:block;font-size:16.5px;font-weight:700;line-height:1.3}
+.sub-head .sub-t span{display:block;color:var(--ink-3);font-size:12.5px;margin-top:2px}
+.sub-head .mini-chev{font-size:20px;color:var(--ink-3);transition:.2s}
+.subsection.open .mini-chev{transform:rotate(180deg);color:var(--pc)}
+.sub-body{padding:0 4px 24px}
+.sub-body[hidden]{display:none}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:6px}
+.panel{border:1px solid var(--line);border-radius:13px;background:var(--paper-2);padding:18px}
+.panel.full{grid-column:1/-1}
+.label{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:800;color:var(--ink-3);margin-bottom:13px}
+.label i{font-size:17px;color:var(--pc)}
+.list{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+.list li{padding-left:20px;position:relative;color:var(--ink);font-size:14px;line-height:1.5}
+.list li:before{content:"";position:absolute;left:2px;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--pc)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-2);background:var(--card);border-radius:9px;padding:8px 12px;font-size:13px;color:var(--ink)}
+.chip i{font-size:15px;color:var(--pc)}
+.chip .ext{font-weight:800;color:var(--pc)}
+
+/* ---------- Homework ---------- */
+.homework{border:1px solid #ecc9c5;background:linear-gradient(180deg,var(--accent-soft),#fdf6f4);border-radius:15px;padding:22px 24px;position:relative}
+.hw-tag{position:absolute;top:18px;right:20px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:#fff;border:1px solid #ecc9c5;border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:5px}
+.hw-label{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:10px}
+.hw-label i{font-size:17px}
+.homework h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:21px;margin:0 0 8px;max-width:80%}
+.homework .mission{font-size:15px;color:#4a3530;margin:0 0 18px;line-height:1.55}
+.req{border-left:3px solid var(--accent);padding:10px 0 10px 15px;margin:9px 0;background:rgba(255,255,255,.65);border-radius:0 8px 8px 0;font-size:14px;line-height:1.55}
+.choice{background:#fff;border:1px solid #efd2cf;border-radius:12px;padding:16px 18px;margin:11px 0}
+.choice small{display:block;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:800;margin-bottom:6px;font-size:10.5px}
+.choice strong{display:block;margin-bottom:6px;font-size:15.5px;font-weight:700}
+.choice div{font-size:14px;color:#4a3530;line-height:1.55}
+.deliver{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.deliver span{background:#fff;border:1px solid #efd2cf;color:var(--accent-deep);border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:600}
+
+/* ---------- Assessment section ---------- */
+.section-head{display:flex;align-items:center;gap:18px;margin:54px 0 24px}
+.section-head .line{flex:1;height:1px;background:var(--line-2)}
+.section-head h2{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:30px;margin:0;letter-spacing:-.01em}
+.rubric-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden}
+.rubric-card .rc-head{padding:22px 26px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:16px}
+.rubric-card .rc-head .ico{width:48px;height:48px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:24px;flex:0 0 auto}
+.rubric-card .rc-head h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:20px;margin:0 0 4px}
+.rubric-card .rc-head p{margin:0;color:var(--ink-2);font-size:14px}
+.rubric-scroll{overflow-x:auto}
+.rubric table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+.rubric th,.rubric td{border:1px solid var(--line);padding:13px 15px;text-align:left;vertical-align:top}
+.rubric thead th{background:var(--ink);color:#fff;font-weight:700;letter-spacing:.02em;border-color:var(--ink)}
+.rubric thead th:first-child{border-top-left-radius:0}
+.rubric tbody td:first-child{font-weight:700;background:var(--paper-2);color:var(--ink)}
+.rubric tbody tr:nth-child(even) td:not(:first-child){background:#fdfbf7}
+.rubric td:nth-child(5){color:var(--accent-deep)}
+
+/* ---------- Footer ---------- */
+.site-footer{border-top:1px solid var(--line);background:var(--paper-2)}
+.footer-inner{max-width:var(--maxw);margin:0 auto;padding:34px 26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--ink-2);font-size:13px}
+.footer-inner .fw{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:800;letter-spacing:.08em}
+.footer-inner .fw .crest{width:32px;height:37px;font-size:15px}
+.footer-wordmark-title{font-size:18px;letter-spacing:.12em}
+
+/* ---------- Back to top ---------- */
+.to-top{position:fixed;right:24px;bottom:24px;z-index:60;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;border:0;cursor:pointer;display:grid;place-items:center;font-size:20px;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;transition:.25s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:var(--accent)}
+
+@media(max-width:860px){
+  .phase-legend,.stat-row{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .stat:nth-child(odd){border-right:1px solid var(--line)}
+  .stat:nth-child(even){border-right:0}
+  .session-grid,.grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .header-inner{padding:12px 18px}
+  .wordmark-text .name{font-size:17px}
+  .ghost-link span{display:none}
+  .hero{padding:42px 18px 24px}
+  .controls-wrap{top:65px}
+  .controls{padding:12px 18px}
+  .expand-toggle{margin-left:0}
+  .main{padding:30px 18px 70px}
+  .module-head{padding:18px 18px 18px 20px;gap:15px}
+  .m-tile{width:58px;height:58px}
+  .module-body-inner{padding:6px 18px 18px}
+  .phase-legend{grid-template-columns:1fr}
+  .homework h3{max-width:100%}
+  .hw-tag{position:static;display:inline-flex;margin-bottom:12px}
+}
+
+.portal-menu{max-width:var(--maxw);margin:34px auto 90px;padding:0 26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.portal-card{display:flex;align-items:flex-start;gap:16px;min-height:160px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow-sm);text-decoration:none;transition:.18s}
+.portal-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--accent)}
+.portal-card .ico{width:52px;height:52px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:27px;flex:0 0 auto}
+.portal-card h2{margin:0 0 8px;font-size:24px;line-height:1.1;font-weight:800}
+.portal-card p{margin:0;color:var(--ink-2);font-size:14.5px;line-height:1.5}
+.page-nav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 24px}
+.page-nav a{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;border:1px solid var(--line-2);background:var(--card);font-weight:700;font-size:13.5px;text-decoration:none;box-shadow:var(--shadow-sm)}
+.page-nav a:hover{border-color:var(--accent);color:var(--accent)}
+.page-nav a.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.simple-main{max-width:var(--maxw);margin:0 auto;padding:54px 26px 90px}
+.simple-title{font-size:42px;line-height:1.1;margin:0 0 14px;font-weight:800;letter-spacing:-.03em}
+.simple-lead{font-size:18px;color:var(--ink-2);max-width:720px;margin:0 0 32px}
+@media(max-width:860px){.portal-menu{grid-template-columns:1fr}}
+
+/* Unified typography: match the clean CURRICULUM wordmark style across English and Chinese. */
+:root{--ui-font:Inter,"Noto Sans SC","Microsoft YaHei","PingFang SC","Hiragino Sans GB",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+body,button,input,select,textarea,.serif,.simple-title,.hero h1,.module-title strong,.m-meta h3,.legend-card h4,.section-head h2,.rubric-card .rc-head h3,.portal-card h2{font-family:var(--ui-font)}
+body{letter-spacing:0}
+.hero h1,.simple-title,.m-meta h3,.section-head h2,.rubric-card .rc-head h3{letter-spacing:0}
+.hero h1 em{font-style:normal}
+.wordmark,.brand,.wordmark-title,.footer-wordmark-title{font-family:var(--ui-font)}
+
+/* Responsive deployment polish for phone and iPad. */
+html{overflow-x:hidden}
+body{overflow-x:hidden}
+img,svg,canvas,video{max-width:100%;height:auto}
+(max-width:900px){
+  .header-inner,.topbar{padding-left:18px;padding-right:18px}
+  .wordmark-title{font-size:18px;letter-spacing:.08em}
+  .page-nav,.controls,.filters{gap:8px}
+  .page-nav a,.chip-btn,.ghost-link{font-size:12px;padding:8px 11px}
+  .simple-main,.main,.rubric-page,.phases-page,.hero,.portal-menu{padding-left:18px;padding-right:18px}
+}
+(max-width:640px){
+  .wordmark{gap:10px}.crest{width:34px;height:40px;font-size:16px}.wordmark-title{font-size:16px;letter-spacing:.06em}
+  .home-screen{padding:18px}.home-actions{left:18px;right:18px;justify-content:flex-end;gap:6px}.home-guide,.lang-link{font-size:11px;padding:7px 8px}.home-brand.brand{font-size:20px;gap:10px}.home-brand .shield{width:48px;height:58px;font-size:20px}
+  .portal-hub,.phase-dashboard,.rubric-fit,.rubric-zh{overflow:auto}
+  .portal-hub .hero,.zh-hub .hero,.en-hub .hero{padding:22px 18px 14px}
+  .portal-hub .hero h1,.zh-hub .hero h1,.en-hub .hero h1{font-size:30px;line-height:1.1;max-width:100%}
+  .portal-hub .hero-lead,.zh-hub .hero-lead,.en-hub .hero-lead{font-size:13px;line-height:1.48}
+  .portal-hub .portal-menu,.zh-hub .portal-menu,.en-hub .portal-menu{grid-template-columns:1fr;gap:12px;margin-top:10px}
+  .portal-hub .portal-card,.zh-hub .portal-card,.en-hub .portal-card{min-height:132px;padding:16px}
+  .phase-dashboard .phases-page{padding:18px}.phase-dashboard .phase-legend{grid-template-columns:1fr}.phase-dashboard .legend-card{min-height:150px}.phase-dashboard .legend-card p{max-width:90%}
+  .rubric-fit .rubric-page,.rubric-zh .rubric-page{padding:18px;min-height:auto}.rubric-fit .rubric-scroll,.rubric-zh .rubric-scroll{overflow-x:auto}.rubric-fit .rubric table,.rubric-zh .rubric table{min-width:760px}
+  .simple-title{font-size:34px}.simple-lead{font-size:15px}
+  .controls{align-items:stretch}.search{min-width:100%;flex-basis:100%}.expand-toggle{margin-left:0}
+  .module-head{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:16px}.m-tile{width:54px;height:54px}.m-meta h3{font-size:18px}.m-sub{font-size:12px;gap:8px}
+  .session-grid,.grid{grid-template-columns:1fr}.homework{padding:16px}.homework h3{max-width:100%;font-size:18px}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="ai_curriculum_harvard_style_adjusted.html">
+      <span class="crest">AI</span>
+      <span class="wordmark-title">CURRICULUM</span>
+    </a>
+  </div>
+</header>
+
+<a id="top"></a>
+<main class="simple-main" style="padding-bottom:10px">
+  <nav class="page-nav" aria-label="Page navigation">
+    <a href="ai_curriculum_teaching_portal.html"><i class="ti ti-arrow-left"></i><span>Back to Portal</span></a>
+    <a href="ai_curriculum_phases.html"><i class="ti ti-layout-grid"></i><span>Phases</span></a>
+    <a class="active" href="ai_curriculum_modules.html"><i class="ti ti-books"></i><span>Modules</span></a>
+    <a href="ai_curriculum_rubric.html"><i class="ti ti-clipboard-check"></i><span>Rubric</span></a>
+  </nav>
+  <h1 class="simple-title">Modules</h1>
+  <p class="simple-lead">Browse, search, and expand the curriculum modules. Homework assignments remain preserved from the original syllabus.</p>
+</main>
+<div class="controls-wrap" style="margin-top:0">
+  <div class="controls">
+    <div class="search">
+      <i class="ti ti-search"></i>
+      <input id="searchInput" type="search" placeholder="Search modules, sessions, skills…" aria-label="Search the curriculum">
+    </div>
+    <div class="filters" id="nav" aria-label="Filter by phase"></div>
+    <button class="expand-toggle" id="expandToggle" type="button"><i class="ti ti-arrows-diagonal"></i><span>Expand all</span></button>
+  </div>
+</div>
+<main class="main">
+  <section id="container"></section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="fw">
+      <span class="crest">AI</span>
+      <span class="footer-wordmark-title">CURRICULUM</span>
+    </div>
+    <div id="footMeta"></div>
+  </div>
+</footer>
+<button class="to-top" id="toTop" aria-label="Back to top"><i class="ti ti-arrow-up"></i></button>
+<script>
+const modules = [
+{id:'m1',phase:'foundation',badge:'Module 1',name:'Digital foundations — computers, browsers, files, mouse',sessions:'8–10 sessions',
+subsections:[
+{name:'1.1 Parts of a computer',
+obj:['Name and point to CPU, RAM, storage, monitor, keyboard, mouse, webcam','Explain what each part does in one sentence','Distinguish hardware from software with examples','Understand phones and tablets are computers too'],
+teach:['Show-and-tell with open laptop on projector','Hardware vs software sorting card game in pairs','Quick-fire: teacher points to part, students call the name','Analogy: CPU=brain, RAM=desk, storage=backpack'],
+tlms:['Open laptop for show-and-tell','Hardware vs software sorting cards (30+)','Blank computer outline worksheet','Crash Course CS ep.1 (teacher previews first)'],
+act:['Label the blank diagram — as many parts as possible','Sort 30 cards into Hardware / Software / Both','Quick-fire naming round — fastest correct answer wins'],
+files:[{ext:'.docx',icon:'ti-file-text',desc:'Hardware list doc'},{ext:'.pptx',icon:'ti-presentation',desc:'Parts slideshow'},{ext:'.pdf',icon:'ti-file-description',desc:'Parts reference PDF'},{ext:'.txt',icon:'ti-file',desc:'Notes template'}],
+hw:{
+  title:'My device blueprint',
+  mission:'Choose a computer, tablet, or phone you use at home. Your mission is to become the expert on that device.',
+  reqs:['Draw a detailed diagram of the device and label every part you can identify (aim for at least 8 parts)','Write one paragraph for each part: what does it do? What happens if it breaks?','Find the device specifications online (search "model name + specs"). Write down: processor name, RAM amount, storage size','Create a small poster or slide (using any tool) presenting your device as if you were selling it. Include the hardware specs.','Bonus: Find and list 5 pieces of software installed on the device and explain what each one does.'],
+  deliver:['Labelled diagram','Written paragraphs','Specs research','Mini poster or slide','Bonus: software list']
+}
+},
+{name:'1.2 Mouse skills and navigation',
+obj:['Left-click, double-click, right-click accurately','Click and drag objects to new positions','Use scroll wheel to navigate up and down','Use right-click context menu to rename, copy, delete'],
+teach:['Mouse skills warm-up game in browser (pre-loaded)','Teacher demonstrates each action live on projector','Rename / move / copy file challenge','Drag-and-drop sorting activity'],
+tlms:['Mouse skills practice site (pre-loaded)','Printed left/right/drag/scroll reference card','Projector for demo','Files pre-placed on Desktop for practice'],
+act:['Mouse obstacle course: click 20 targets in order as fast as possible','Rename 5 files using only right-click menu','Drag 10 icons into the correct labelled folder'],
+files:[{ext:'folder',icon:'ti-folder',desc:'Practice folder set'},{ext:'.txt',icon:'ti-file',desc:'5 files to rename'},{ext:'.jpg',icon:'ti-photo',desc:'Images to sort'}],
+hw:{
+  title:'My mouse skills journal',
+  mission:'Over 3 days, complete a mouse skills training log.',
+  reqs:['Day 1: Play a mouse accuracy game for 15 minutes. Screenshot your score and write: what was easy? What was hard?','Day 2: Organise the practice folder your teacher gave you — rename all files clearly and sort them into subfolders by type','Day 3: Right-click on 5 different things on your Desktop or in a folder. For each one, write down 3 options you see in the menu and what you think each option does','Write a short reflection (5–8 sentences): has your mouse control improved? What do you want to get better at?'],
+  deliver:['3-day journal with screenshots','Organised folder (submit the folder)','Right-click menu notes','Reflection paragraph']
+}
+},
+{name:'1.3 Browsers, tabs, windows, bookmarks',
+obj:['Open Chrome, Safari, Edge or Firefox and name the difference','Type a URL vs type a search query — understand the difference','Open and close tabs with + button and Ctrl+T / Ctrl+W','Switch between tabs; understand what a window is vs a tab','Bookmark a page and find it in the bookmarks bar','Use back, forward, refresh buttons correctly','Identify: address bar, search bar, bookmarks bar, tabs, extensions'],
+teach:['Browser anatomy tour on projector — label every part together','Tab challenge: 5 sites in 5 tabs in under 2 minutes','Bookmark race: bookmark 3 sites, find them again fastest','URL vs search demo: type a URL, then search the same thing — compare what happens'],
+tlms:['Projector for browser anatomy tour','Printed browser anatomy diagram (students label)','URL vs search comparison worksheet','List of 5 pre-approved sites for tab challenge'],
+act:['Label the browser anatomy diagram (10 features)','Tab challenge: open 5 sites, switch between them, close 2','Bookmark 3 educational sites and present them to a partner'],
+files:[{ext:'.pdf',icon:'ti-file-description',desc:'Browser anatomy PDF'},{ext:'.docx',icon:'ti-file-text',desc:'URL vs search worksheet'},{ext:'.html',icon:'ti-world',desc:'Practice webpage'}],
+hw:{
+  title:'Browser detective report',
+  mission:'You are a browser investigator. Your job is to test and document 3 different browsers.',
+  reqs:['Open 3 different browsers (e.g. Chrome, Edge, Firefox). For each one: screenshot the homepage and label 5 features you recognise','For each browser, open the same website. Do they look different? Write down any differences you notice.','Create a comparison table: Browser name | Speed (your opinion) | Features you like | Features you dislike','Find and use 2 keyboard shortcuts in each browser that you did not learn in class. Document what they do.','Bonus: Research — what is the most popular browser in the world this year? How many people use it? Use a search engine to find out and cite your source.'],
+  deliver:['3 browser screenshots with labels','Comparison table','Shortcut discoveries','Bonus: research paragraph with source']
+}
+},
+{name:'1.4 Keyboard shortcuts and typing',
+obj:['Use Ctrl+C, V, X, Z, A, S, F without thinking','Use Ctrl+T, Ctrl+W, Ctrl+Tab for browser control','Use Alt+Tab to switch between apps','Know Backspace vs Delete, Enter, Tab, Caps Lock, Escape, Home, End','Begin home row typing: fingers on ASDF JKL;','Type at least 15 words per minute by end of module'],
+teach:['Shortcut bingo — teacher calls an action, students race to press correct keys','Typing challenge: type a paragraph using only keyboard, fix all errors with shortcuts only','Home row intro: feel the bumps on F and J, practise ASDF JKL; pattern','3-minute typing races on approved typing game site'],
+tlms:['Shortcut bingo cards (one per student)','Shortcut reference poster (wall display)','Approved typing game site pre-loaded','Typing challenge paragraph worksheet'],
+act:['Shortcut bingo — first to correctly use 5 shortcuts wins','No-mouse paragraph: type and edit a text using only keyboard and shortcuts','3-minute typing race: record WPM on day 1 and end of module'],
+files:[{ext:'.docx',icon:'ti-file-text',desc:'Typing challenge doc'},{ext:'.txt',icon:'ti-file',desc:'Shortcut practice text'},{ext:'.pdf',icon:'ti-file-description',desc:'Shortcuts reference'}],
+hw:{
+  title:'30-day typing mission (compressed to 1 week)',
+  mission:'You are training to become a speed typist. Over 5 days, log your progress and complete daily missions.',
+  reqs:['Day 1–5: Each day, do a 5-minute typing test on an approved site. Record your WPM and accuracy in a log table.','Create a "Shortcut Challenge Card": design a card listing 15 shortcuts you now know. Add a star rating (1–3) for how confident you are with each one.','Type a full short story (minimum 150 words) entirely without using the mouse. Use shortcuts to select, cut, copy, undo, and save.','Teach a family member 5 shortcuts. Write their reaction and whether they found them useful.','Bonus: Research the world record for fastest typing speed. Who holds it? How many WPM? Could a human ever reach 300 WPM?'],
+  deliver:['5-day WPM log table','Shortcut challenge card','150-word story (submit the file)','Family teaching report','Bonus: world record research']
+}
+},
+{name:'1.5 Files, folders and organising your computer',
+obj:['Understand what a file and folder are (filing cabinet analogy)','Create folders and nested subfolders','Move, copy, rename, delete files using right-click and shortcuts','Understand the Desktop, Downloads, Documents structure','Empty the Recycle Bin / Trash','Recognise a well-organised vs messy file system'],
+teach:['Live file explorer tour on projector: Desktop → Documents → Downloads','Students build a full folder structure: My School Work → subject subfolders → files','Messy desktop challenge: teacher shows a chaotic screenshot, students write how to fix it','File management race: who can complete 10 file operations fastest and most accurately'],
+tlms:['Projector for file explorer live tour','Pre-made chaotic desktop screenshot for analysis','Step-by-step folder creation guide','Practice files ZIP to download and organise'],
+act:['Build the full folder structure from scratch','Organise a teacher-provided folder of 20 random files into logical categories','Analyse messy desktop screenshot and write a reorganisation plan'],
+files:[{ext:'.zip',icon:'ti-file-zip',desc:'20 mixed files to sort'},{ext:'.docx',icon:'ti-file-text',desc:'Organisation plan template'},{ext:'.pdf',icon:'ti-file-description',desc:'Folder structure guide'}],
+hw:{
+  title:'Operation: clean desktop',
+  mission:'You are a digital organiser hired to fix the most chaotic computer on earth. That computer is at your home.',
+  reqs:['Go to the Downloads and Documents folders on a home computer. Count how many files are there. Screenshot the before state.','Create a logical folder system and move every file into the correct place. Screenshot the after state.','Write a "filing system guide" — a short document explaining your folder structure so someone else could use it','Find 3 files you did not even know existed on the computer. What are they? What do they do?','Bonus: Research — how do professional companies organise their digital files? Find one example of a file naming convention used in a real workplace.'],
+  deliver:['Before/after screenshots','Completed folder system','Filing system guide document','3 mystery file report','Bonus: professional naming convention research']
+}
+},
+{name:'1.6 Document types and file extensions',
+obj:['Match extensions to their type: .txt .docx .pptx .xlsx .pdf .html .jpg .png .mp3 .mp4 .zip','Choose the right file type for a given task','Understand .pdf = final/share, .docx = editable, .html = webpage','Know .jpg vs .png vs .gif differences','Open each file type in its correct application','Understand that the same content saved in different formats behaves differently'],
+teach:['Scenario card game: read a situation, choose the right extension and app','Live demo: same content saved as .txt, .docx, .pdf — open each and compare','Open a .html file in the browser — "This is a webpage! We will build one later!"','File type decision tree worksheet — students trace the path to find the right format'],
+tlms:['File type scenario cards (20+ situations)','Sample files of every type for students to open','Extension reference poster (wall display all term)','File type decision tree worksheet'],
+act:['Scenario card game in pairs — fastest correct match wins','Open 8 different sample files and identify what app opened each one','Complete the decision tree worksheet choosing the right format for 10 tasks'],
+files:[{ext:'.txt',icon:'ti-file',desc:'Plain text sample'},{ext:'.docx',icon:'ti-file-text',desc:'Word doc sample'},{ext:'.pptx',icon:'ti-presentation',desc:'Slides sample'},{ext:'.xlsx',icon:'ti-table',desc:'Spreadsheet sample'},{ext:'.pdf',icon:'ti-file-description',desc:'PDF sample'},{ext:'.html',icon:'ti-world',desc:'Webpage sample'},{ext:'.jpg',icon:'ti-photo',desc:'Photo sample'},{ext:'.png',icon:'ti-photo',desc:'PNG with transparency'},{ext:'.mp3',icon:'ti-music',desc:'Audio sample'},{ext:'.mp4',icon:'ti-video',desc:'Video sample'},{ext:'.zip',icon:'ti-file-zip',desc:'Archive sample'}],
+hw:{
+  title:'The file type field guide',
+  mission:'You are writing a field guide to help a new student who has never used a computer understand file types. It must be clear, creative, and useful.',
+  reqs:['Create a "File Type Field Guide" — one page per file type you have learned (minimum 8 types). For each type include: the extension, the icon, what app opens it, when you use it, and one real example from your own life.','Present the same piece of information (e.g. a short story you write) saved as .txt, .docx, and .pdf. Submit all three. Write: what is different about each one? Which would you send to a teacher? Which would you keep for yourself to edit?','Design a "Which file should I use?" flowchart (on paper or using any digital tool) with at least 10 decision points','Bonus: Find a real file on your home computer that is in an unusual or unexpected format. Research what it is, what created it, and what software can open it.'],
+  deliver:['File Type Field Guide (8+ pages/sections)','Same story in 3 formats (.txt, .docx, .pdf)','Flowchart','Bonus: mystery file investigation']
+}
+}
+]},
+{id:'m2',phase:'foundation',badge:'Module 2',name:'What is AI? Free exploration',sessions:'2–3 sessions',
+subsections:[
+{name:'2.1 First contact with AI',
+obj:['Interact freely with an AI chatbot for 20 minutes with no instructions','Observe: AI can write, answer, make mistakes, change its mind','Form first opinions: what surprised you? What confused you? What seemed wrong?'],
+teach:['Open exploration session — no guidelines given first, pure discovery','Debrief circle: wall of wonders — what did your AI say that surprised you?','Teacher facilitates, does not instruct during exploration'],
+tlms:['Tablets/computers with approved AI interface','Observation worksheet (fill in after exploration)','Class "wall of wonders" display board'],
+act:['Free exploration session (20 min)','Wall of wonders: each student adds one surprising output','Class debrief: most interesting, most wrong, most useful outputs'],
+files:[{ext:'.docx',icon:'ti-file-text',desc:'Observation worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'AI exploration log'}],
+hw:{
+  title:'AI explorer diary — 3 days, 3 missions',
+  mission:'You are one of the first explorers to make contact with a new kind of intelligence. Document your expedition.',
+  reqs:['Day 1 — Curiosity mission: Ask the AI 10 questions about something you are deeply curious about. Document every question and response. Rate each answer: Impressive / OK / Wrong / Weird.','Day 2 — Trap mission: Try to confuse or trick the AI 5 times. What happens? Does it admit it does not know? Does it make something up? Screenshot the funniest or most surprising result.','Day 3 — Useful mission: Use the AI to actually help you with something real — homework, a hobby, planning something. Did it help? What worked and what did not?','Write a final expedition report (1 page): What is AI good at? What is it bad at? Would you trust it? Why or why not?'],
+  deliver:['3-day exploration diary with screenshots','10 rated Q&A from Day 1','Trap results from Day 2','Useful task documentation from Day 3','Final expedition report']
+}
+}
+]},
+{id:'m3',phase:'foundation',badge:'Module 3',name:'How AI thinks — LLMs explained',sessions:'2 sessions',
+subsections:[
+{name:'3.1 What is an LLM?',
+obj:['Explain what a large language model is using the next-word-prediction analogy','Understand training data and why it matters','Know why LLMs can be confidently wrong (hallucination)','Distinguish LLMs from search engines'],
+teach:['Next-word prediction game with the class: "The cat sat on the ___"','Phone autocomplete demo: build sentences together','Show hallucination live: ask AI something it gets wrong confidently','LLM vs search engine comparison activity'],
+tlms:['Phone for autocomplete demo','LLM vs search engine comparison worksheet','Hallucination examples (teacher-prepared)','Short explainer video (optional)'],
+act:['Next-word prediction card game','Hallucination hunt: find 3 wrong answers in AI output','LLM vs search: same question to both, compare answers'],
+files:[{ext:'.docx',icon:'ti-file-text',desc:'Comparison worksheet'},{ext:'.pptx',icon:'ti-presentation',desc:'LLM explainer slides'},{ext:'.pdf',icon:'ti-file-description',desc:'Hallucination examples'}],
+hw:{
+  title:'The AI fact-checker challenge',
+  mission:'AI can sound completely confident while being completely wrong. Your mission is to catch it.',
+  reqs:['Choose a topic you know well (your favourite sport, a country, an animal, a game). Ask the AI 15 questions about it.','For every answer the AI gives, research whether it is correct using a different source (encyclopedia, official website, textbook). Record: Correct / Partially correct / Wrong.','Find at least 3 clear errors. Screenshot each one. Write: what did the AI say? What is the real answer? Why do you think the AI got it wrong?','Create a "How to spot AI hallucinations" mini-guide (poster, slide, or short document) to help other students.','Bonus: Ask the AI about an event that happened recently. Does it know about it? What does it say when it does not know?'],
+  deliver:['15 Q&A with research verification','3+ error screenshots with analysis','Mini hallucination-spotting guide','Bonus: recent events test']
+}
+}
+]},
+{id:'m4',phase:'exploration',badge:'Module 4',name:'The art of prompting',sessions:'3 sessions',
+subsections:[
+{name:'4.1–4.3 Prompting strategy, types, and ethics',
+obj:['Define a prompt and explain why specificity matters','Use 4+ prompt types: instructional, creative, role-based, chain-of-thought','Apply the CTFC framework: Context, Task, Format, Constraints','Evaluate and iterate on prompts to improve output','Identify inappropriate prompts and practise responsible use'],
+teach:['Vague vs specific prompt live experiment on projector','Prompt type card activity — each student draws a type and tries it','CTFC framework worked example together','Ethical scenario card sorting: appropriate vs inappropriate'],
+tlms:['Prompt type reference cards','CTFC poster (wall display)','Ethical scenario sorting cards','AI access for live experiments'],
+act:['Vague vs specific comparison experiment','Prompt type carousel: 4 stations, 4 types, 5 min each','Ethical scenario sort and class discussion'],
+files:[{ext:'.docx',icon:'ti-file-text',desc:'CTFC worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'Prompt types reference'},{ext:'.pptx',icon:'ti-presentation',desc:'Prompting strategy slides'}],
+hw:{
+  title:'Prompt engineer challenge',
+  mission:'Great AI output starts with a great prompt. You are being hired as a junior prompt engineer. Prove your skills.',
+  choices:[
+    {title:'Option A — The prompt duel',body:'Choose 5 tasks (e.g. write a poem, explain black holes, make a quiz, plan a trip, create a recipe). For each task, write a weak prompt and a strong prompt using CTFC. Submit both outputs. Write an analysis: what specifically made the strong prompt better?'},
+    {title:'Option B — The prompt cookbook',body:'Create a "Prompt Cookbook" — a beautifully designed document (use any tool: Word, slides, Canva, etc.) containing 10 prompt recipes. Each recipe must include: the dish (goal), the ingredients (CTFC elements), the method (the actual prompt), and the result (the AI output). Include at least 3 different prompt types.'},
+    {title:'Option C — Teach a robot',body:'You are writing the instruction manual for a robot that has never used an AI before. Create a beginner\'s guide to prompting (minimum 8 pages or slides) that explains: what a prompt is, why specificity matters, the 4 main prompt types with examples, the CTFC framework, and 3 things you should never prompt an AI to do. Use real screenshots of prompts you tested.'}
+  ],
+  deliver:['Chosen project (A, B, or C)','Real AI output screenshots as evidence','Written analysis or reflection']
+}
+}
+]},
+{id:'m5',phase:'exploration',badge:'Module 5',name:'Testing AI — benchmarking',sessions:'4 sessions',
+subsections:[
+{name:'5.1–5.4 Benchmarking all AI modes',
+obj:['Design and run benchmarks across: creative writing, logic, maths, image generation, voice, speech-to-text','Use a scoring rubric to compare outputs across 2+ AI tools','Identify patterns: what is AI consistently good/bad at?','Compare multimodal tools (text, image, voice modes in one tool e.g. Google AI Studio)'],
+teach:['Each session focuses on one benchmark category','Students design their own test questions then run them','Class results compiled on shared chart to find patterns','Discussion: why does AI struggle with reasoning but excel at writing?'],
+tlms:['Scoring rubric for each category','Access to 2+ AI tools','Shared class results spreadsheet','Logic puzzle and maths challenge cards'],
+act:['Design-your-own AI trap: create a question you think will fool it','Class benchmarking leaderboard: which AI wins each category?','Gallery walk of image generation results with critique notes'],
+files:[{ext:'.xlsx',icon:'ti-table',desc:'Benchmarking results sheet'},{ext:'.docx',icon:'ti-file-text',desc:'Scoring rubric'},{ext:'.pdf',icon:'ti-file-description',desc:'Test design guide'},{ext:'.pptx',icon:'ti-presentation',desc:'Results presentation template'}],
+hw:{
+  title:'The AI Olympics — you are the judge',
+  mission:'The AI Olympics are happening and you are the head judge. You must test 3 AI tools across 5 events and declare an overall winner.',
+  reqs:['Choose 3 AI tools to compete (e.g. Claude, ChatGPT, Gemini, DeepSeek, or others).','Design 5 competition events, one for each category: creative writing, logical reasoning, maths, image generation (if available), and one category you invent yourself.','For each event, give every AI the exact same prompt or challenge. Score each one 1–10 on accuracy, creativity, usefulness, and presentation. Show your scoring in a table.','Write a competition report: who won each event? Who was the overall champion? Were you surprised? What would you change about your test design if you did it again?','Create a 2-minute presentation (slides or video) announcing the results as if you were presenting at an awards ceremony. Be creative!'],
+  deliver:['Scoring tables for all 5 events across 3 tools','AI Olympics report','Presentation slides or video','Screenshots of all AI outputs as evidence']
+}
+}
+]},
+{id:'m6',phase:'creation',badge:'Module 6',name:'Build a web app through prompting',sessions:'4–5 sessions',
+subsections:[
+{name:'6.1–6.4 Problem → design → build → showcase',
+obj:['Define a real problem using a design brief','Use prompt-to-HTML workflow to build a working app','Iterate and improve using AI feedback loops','Present and explain a completed app to an audience'],
+teach:['Design thinking intro: empathy maps, problem statements','Teacher live-codes by prompting on projector','Iteration mindset: "that is not right — how do we describe the fix?"','Peer review pairs with structured feedback form'],
+tlms:['Empathy map templates','AI tool with code generation','Browser for live testing','Peer review form'],
+act:['Problem interview with a classmate','Build your first working page live in class','Peer review and fix session','Mini showcase presentation'],
+files:[{ext:'.docx',icon:'ti-file-text',desc:'Design brief template'},{ext:'.html',icon:'ti-world',desc:'Starter HTML template'},{ext:'.pdf',icon:'ti-file-description',desc:'Peer review form'},{ext:'.pptx',icon:'ti-presentation',desc:'Showcase template'}],
+hw:{
+  title:'Build your dream app — full project',
+  mission:'Choose ONE of the following two missions. Next class, we will push your code to GitHub.',
+  choices:[
+    {title:'Mission A — Vocabulary Survival Island',body:'You are trapped on a desert island and must survive by answering word challenges. Build a game with: resource tracking (food, water), word questions (correct = gain resources, wrong = lose resources), game over when resources hit 0, days-survived counter, and at least one bonus feature (weather events, difficulty levels, leaderboard, pet companion). The game must be fully playable in a browser.'},
+    {title:'Mission B — Dream Pet Academy',body:'Adopt a virtual pet and train it to be a champion. Build an app with: full pet customisation (name, appearance, personality), status tracking (hunger, happiness, energy — all must decrease over time), learning tasks that earn coins and experience, at least one upgrade or unlock system, and an achievements screen. The pet must feel alive — status bars must change! Bonus: pet battles, rare pets, daily rewards.'}
+  ],
+  deliver:['Working HTML/CSS/JS app file','Prompt log: list every AI prompt you used to build it','Reflection: what was hardest? What prompt worked best?','60-second pitch prepared for next class']
+}
+}
+]},
+{id:'m7',phase:'creation',badge:'Module 7',name:'GitHub and deploying your app',sessions:'2 sessions',
+subsections:[
+{name:'7.1–7.2 Version control, upload and GitHub Pages',
+obj:['Create a GitHub account and first repository','Upload HTML app and understand: file, commit, README','Enable GitHub Pages and get a live shareable URL','Share the live link for peer testing'],
+teach:['Analogy: GitHub = Google Drive for code with memory','Live guided upload on projector, students follow along','Enable Pages settings together — live URL moment','Swap live links with classmates for testing'],
+tlms:['GitHub account setup guide','Step-by-step Pages deployment guide','Example teacher repo to explore','Projector for live walkthrough'],
+act:['Create account and first repo together','Upload app file — get a live URL','Peer link swap and 5-minute live testing session'],
+files:[{ext:'.pdf',icon:'ti-file-description',desc:'GitHub setup guide'},{ext:'.docx',icon:'ti-file-text',desc:'Deployment checklist'},{ext:'.html',icon:'ti-world',desc:'Your app from M6'}],
+hw:{
+  title:'Launch, test, and report',
+  mission:'Your app is live on the internet. Now you need real users to test it and you need to act on their feedback.',
+  reqs:['Share your live GitHub Pages link with at least 3 people outside class (family, friends, neighbours). Ask them to use it for at least 5 minutes.','Create a feedback form (you can use paper, a Google Form, or build one in your app!) with at least 5 questions. Collect responses from all 3 testers.','Analyse the feedback: what did all 3 people say? What was the most common complaint? What surprised you?','Make at least 2 improvements to your app based on the feedback. Use AI to help you. Document each change: what was the problem? What prompt did you use? What changed?','Bonus: Record a short screen-recording video (60–90 seconds) demonstrating your app as if presenting it to investors. Upload it or share the link.'],
+  deliver:['3 completed feedback forms','Feedback analysis (written)','Updated app with 2 improvements on GitHub','Before/after screenshots of changes','Bonus: demo video']
+}
+}
+]},
+{id:'m8',phase:'exploration',badge:'Module 8',name:'NotebookLM and AI research tools',sessions:'2–3 sessions',
+subsections:[
+{name:'8.1–8.2 Grounded AI, audio overviews, study tools',
+obj:['Upload documents to NotebookLM and ask grounded questions','Generate audio overviews and study guides from sources','Compare grounded AI (answers from your documents) vs general AI','Evaluate: when is NotebookLM the right tool?'],
+teach:['Teacher uploads class topic document on projector','Students ask the same question to NotebookLM vs general AI — compare','Generate audio overview together and listen as a class','Students create their own notebook from provided materials'],
+tlms:['NotebookLM access','Teacher-prepared source documents in ZIP','Comparison worksheet','Audio playback capability (speaker or headphones)'],
+act:['Upload provided ZIP and ask 10 questions','Generate audio overview and write 5 key points from listening','NotebookLM vs Google comparison for 5 queries'],
+files:[{ext:'.zip',icon:'ti-file-zip',desc:'Mars lecture materials (Chinese + English)'},{ext:'.pdf',icon:'ti-file-description',desc:'Lecture notes PDF'},{ext:'.docx',icon:'ti-file-text',desc:'Supplementary reading'},{ext:'.pptx',icon:'ti-presentation',desc:'Lecture slides'}],
+hw:{
+  title:'Deep space learning — the astronaut challenge',
+  mission:'You dream of becoming an astronaut. You attended a Mars lecture and received a folder of materials in both Chinese and English. Use NotebookLM to go as deep as possible.',
+  reqs:['Upload all materials from the provided ZIP file into NotebookLM. Explore every feature available.','Generate at least 30 questions about Mars using NotebookLM\'s question feature. Keep going deeper — use answers to form follow-up questions. Document your entire question chain.','Generate the audio overview. Listen to it at least twice. Write a summary in your own words.','Create a mind map of everything you learned (use any tool: paper, MindMeister, Canva, PowerPoint, etc.). It must have at least 4 main branches with sub-branches.','Write a blog post (minimum 300 words) as if you are reporting from a Mars mission briefing. Use only what you learned through NotebookLM.','Bonus: Record a short video (1–2 min) explaining one Mars concept you found most interesting, as if teaching it to a younger student.'],
+  deliver:['Screenshots of your NotebookLM session','30+ question chain document','Audio overview summary','Mind map (submitted as image or file)','Blog post (300+ words)','Bonus: teaching video']
+}
+}
+]},
+{id:'m9',phase:'advanced',badge:'Module 9',name:'Agents, APIs and advanced AI tools',sessions:'4–5 sessions',
+subsections:[
+{name:'9.1–9.4 APIs, agents, Claude Code, Cowork, API keys',
+obj:['Explain what an API is using the waiter analogy','Distinguish an agent (multi-step task) from a chatbot (single response)','Use Claude Code or Cowork to make a real edit to a project','Add a simple API call to a web app using a test key','Reflect on the difference between prompting and programming with AI'],
+teach:['API analogy: you are the customer, AI is the kitchen, API is the waiter','Live agent demo: watch AI complete a multi-step task autonomously','Teacher demo of Claude Code editing a file — students observe then try','Walk through a simple API call in code together — no need to write, just understand and run'],
+tlms:['API analogy card','Live agent demo (Claude or AI Studio)','Test API key (teacher-provided)','Starter code snippet with API call pre-written','Claude Code / Cowork demo account'],
+act:['Paper agent design: draw your dream agent with goal, tools, and steps','Add a new feature to M6 app using Claude Code','Run the API starter code and see the AI respond in your own app'],
+files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
+hw:{
+  title:'Build your own AI-powered tool — final project',
+  mission:'This is your capstone. Use everything you have learned — prompting, HTML building, GitHub, APIs — to create something real.',
+  choices:[
+    {title:'Option A — AI-powered web app',body:'Extend your app from Module 6 to include a real AI feature using an API call. The AI must do something useful inside your app — answer questions, generate content, give advice. Deploy the final version to GitHub Pages. Record a 2-minute demo video walking through every feature.'},
+    {title:'Option B — My own AI agent design',body:'Design (on paper or digitally) a complete AI agent for a problem you care about. Include: the problem it solves, the tools it would need (search, calendar, email, etc.), a flowchart of how it works step by step, a prototype prompt sequence showing how you would instruct it, and a reflection on what could go wrong and how you would prevent it.'},
+    {title:'Option C — AI tools field guide',body:'Create the ultimate guide to AI tools for a student your age who has never used them. Cover: what LLMs are, the best 5 tools and what each one does best, how to prompt well, how to build an app, how to use NotebookLM, and what APIs and agents are. This guide must be at least 15 pages/slides, include real screenshots, and be something you would actually give to a friend.'}
+  ],
+  deliver:['Completed project (A, B, or C)','Evidence of process (screenshots, prompt logs, drafts)','Final reflection: what do you want to build next?']
+}
+}
+]}
+];
+
+modules.push({
+  id:'m10',
+  phase:'creation',
+  badge:'Module 10',
+  name:'Group project — build an educational web app or AI agent',
+  sessions:'4–6 sessions',
+  subsections:[
+    {
+      name:'10.1–10.4 Group capstone: solve a real learning problem',
+      obj:[
+        'Work in a team to identify a pressing educational problem that affects real learners',
+        'Choose and justify a solution format: web app, AI agent, or hybrid learning tool',
+        'Build a usable prototype that other students can use to improve their learning process',
+        'Test the tool with real users and improve it based on feedback',
+        'Present the final product with evidence of learning impact, responsible AI use, and team contribution'
+      ],
+      teach:[
+        'Run a group formation and role-setting workshop: product lead, prompt/design lead, builder, tester, presenter',
+        'Use problem interviews to move teams away from vague ideas and toward real learner needs',
+        'Model how to write a product brief with user, problem, outcome, constraints, and success measures',
+        'Hold build sprints with teacher checkpoints for scope, safety, usability, and evidence',
+        'End with a public showcase where teams demonstrate the product and explain what changed after testing'
+      ],
+      tlms:[
+        'Group project brief template',
+        'Learner interview script',
+        'Team role cards',
+        'Prototype planning board',
+        'AI/web app safety checklist',
+        'User testing feedback form',
+        'Showcase presentation template'
+      ],
+      act:[
+        'Problem gallery: teams list learning struggles and vote on urgent, solvable problems',
+        'User interview sprint: each team interviews at least 3 learners',
+        'Prototype sprint: teams build a web app or AI agent with teacher checkpoints',
+        'Peer testing carousel: teams test each other\'s tools and collect structured feedback',
+        'Impact showcase: teams demonstrate the final tool and defend design decisions'
+      ],
+      files:[
+        {ext:'.docx',icon:'ti-file-text',desc:'Group project brief'},
+        {ext:'.pdf',icon:'ti-file-description',desc:'AI/web app safety checklist'},
+        {ext:'.xlsx',icon:'ti-table',desc:'User testing tracker'},
+        {ext:'.pptx',icon:'ti-presentation',desc:'Final showcase template'},
+        {ext:'.html',icon:'ti-world',desc:'Web app starter'},
+        {ext:'.txt',icon:'ti-file',desc:'AI agent prompt template'}
+      ],
+      hw:{
+        title:'Group capstone — learning tool for real users',
+        mission:'In your group, build a web app or AI agent that solves a pressing educational problem and can be used by other learners to improve their learning process.',
+        reqs:[
+          'Choose one real educational problem. It must be specific, important, and connected to how students learn, revise, practise, understand, organise, or get feedback.',
+          'Interview at least 3 potential users. Record what problem they have, what they currently do, and what would make learning easier for them.',
+          'Decide whether your solution should be a web app, an AI agent, or a hybrid tool. Write a short explanation of why this format is the best fit.',
+          'Build a working prototype that other learners can actually use. It must include clear instructions, useful feedback or guidance, and at least one feature that responds to user input.',
+          'Test your prototype with at least 3 users. Collect feedback, identify the most important problem, and make at least 3 improvements.',
+          'Prepare a final showcase: demonstrate the tool, explain the educational problem, show evidence from testing, describe each team member\'s contribution, and reflect on what you would improve next.',
+          'Responsible AI requirement: if your tool uses AI, explain what data is sent to the AI, what users should not enter, how you reduce wrong answers, and how users can check important information.'
+        ],
+        deliver:[
+          'Working group prototype',
+          'Problem brief and user interview notes',
+          'Prompt log or build log',
+          'User testing evidence',
+          '3+ documented improvements',
+          'Final showcase slides or video',
+          'Team contribution reflection',
+          'Responsible AI statement'
+        ]
+      }
+    }
+  ]
+});
+
+const sessionGuide = [
+  [
+    "1.1",
+    "Computer systems, not just parts",
+    "Students examine a real device as a working system: input, processing, memory, storage, output, network, power, heat, and sensors.",
+    "MacBook-style cutaway on a lab bench with layered callouts for data flow, power flow, heat, ports, camera, wireless chip, storage, RAM, CPU/GPU, and battery health indicators."
+  ],
+  [
+    "1.2",
+    "Hardware, software, and operating systems",
+    "Students classify physical components, applications, operating systems, cloud services, and hybrid cases such as printers and phones.",
+    "Professional infographic showing a student device ecosystem: laptop, phone, printer, browser, cloud drive, app store, OS layer, and connected accounts."
+  ],
+  [
+    "1.3",
+    "Precision mouse control",
+    "Students practise click accuracy, selection, drag paths, context menus, and error recovery in realistic desktop tasks.",
+    "Overhead workstation image with cursor trails, selection boxes, file icons, context menu, and numbered action targets like a training simulator."
+  ],
+  [
+    "1.4",
+    "Managing files by action",
+    "Students rename, duplicate, move, delete, recover, compress, and sort files while explaining what each action changes.",
+    "Before-and-after desktop organization scene: messy downloads folder transforming into a clean folder hierarchy with visible timestamps and file type badges."
+  ],
+  [
+    "1.5",
+    "Browser anatomy and navigation",
+    "Students use tabs, windows, address bars, bookmarks, history, refresh, downloads, permissions, and browser profiles.",
+    "Annotated browser dashboard with realistic tabs, lock icon, URL, search suggestion dropdown, download bubble, extension area, and bookmark bar."
+  ],
+  [
+    "1.6",
+    "Search, URLs, and source judgment",
+    "Students compare direct navigation, search queries, ads, snippets, official pages, and unreliable results.",
+    "Search results page shown as a detective board, with official source, ad, snippet, copied content, and suspicious result tagged in different colors."
+  ],
+  [
+    "1.7",
+    "Keyboard shortcuts as workflow",
+    "Students use shortcuts to select, edit, save, switch apps, control tabs, search within pages, and undo mistakes.",
+    "Keyboard command map with highlighted shortcut clusters connected to real on-screen outcomes: copy text, save file, switch tab, find word, undo."
+  ],
+  [
+    "1.8",
+    "Typing fluency and accuracy",
+    "Students practise home row, rhythm, correction habits, WPM tracking, and accuracy reflection.",
+    "Typing dashboard with hands on keyboard, WPM trend line, accuracy meter, and common error heat map."
+  ],
+  [
+    "1.9",
+    "Folder systems and naming conventions",
+    "Students design a reusable folder system and apply naming rules for school and project work.",
+    "Clean file management blueprint with nested folders, naming examples, version numbers, dates, and archive zone."
+  ],
+  [
+    "1.10",
+    "File extensions and format choices",
+    "Students choose file formats based on editability, sharing, media type, compression, and final submission needs.",
+    "Museum-style wall of file specimens: editable document, final PDF, HTML webpage, transparent PNG, compressed ZIP, spreadsheet, video, and audio with use-case labels."
+  ],
+  [
+    "2.1",
+    "First contact with AI",
+    "Students explore an approved AI tool, collect surprises, and record what feels useful, wrong, strange, or impressive.",
+    "Classroom exploration scene with multiple student screens showing different AI outputs, a wall of sticky-note discoveries, and teacher observation prompts."
+  ],
+  [
+    "2.2",
+    "Trust, privacy, and AI limits",
+    "Students discuss what should never be shared, where AI can be wrong, and how trust must be earned with evidence.",
+    "Split-panel AI conversation: one side helpful study support, the other warning symbols for private data, fabricated facts, and overconfident answers."
+  ],
+  [
+    "3.1",
+    "Language prediction and training data",
+    "Students model next-token prediction and connect it to patterns learned from large text collections.",
+    "Probability tree for a sentence with weighted word choices, training-text fragments in the background, and a visible uncertainty meter."
+  ],
+  [
+    "3.2",
+    "LLM vs search engine",
+    "Students compare generated answers with source-based search, then verify claims and identify hallucinations.",
+    "Two workstations side by side: search engine returning sources and an AI assistant synthesizing an answer, with a fact-check layer over both."
+  ],
+  [
+    "4.1",
+    "Prompt clarity and CTFC",
+    "Students transform vague prompts into structured prompts using context, task, format, and constraints.",
+    "Prompt engineering desk with four labeled CTFC cards feeding into a polished AI output preview."
+  ],
+  [
+    "4.2",
+    "Prompt types and iteration",
+    "Students test instructional, creative, role-based, example-based, and step-by-step prompts, then revise outputs.",
+    "Carousel of prompt cards connected to output versions 1, 2, and 3, showing visible improvement after each iteration."
+  ],
+  [
+    "4.3",
+    "Responsible prompting",
+    "Students sort safe, risky, and inappropriate requests, then rewrite risky prompts into responsible alternatives.",
+    "Digital ethics control room with green, amber, and red prompt lanes, privacy lock, citation badge, and bias-check magnifier."
+  ],
+  [
+    "5.1",
+    "Benchmark design and fairness",
+    "Students create fair tests with the same prompt, same scoring criteria, and evidence capture.",
+    "AI testing lab with identical test packets going to different models, judges using rubrics, and a fairness checklist on the wall."
+  ],
+  [
+    "5.2",
+    "Creative and image benchmarks",
+    "Students compare creativity, originality, visual quality, prompt following, and revision quality.",
+    "Gallery critique wall of generated posters with scoring stickers for originality, accuracy, prompt fit, and visual composition."
+  ],
+  [
+    "5.3",
+    "Logic and maths benchmarks",
+    "Students design traps, multi-step reasoning tests, arithmetic checks, and explanation-quality scores.",
+    "Tournament board with puzzle cards, equations, model score columns, error flags, and a referee checking reasoning steps."
+  ],
+  [
+    "5.4",
+    "Voice and multimodal benchmarks",
+    "Students test speech-to-text, voice response, image understanding, and multimodal tool reliability.",
+    "Multimodal command center with microphone waveform, uploaded image, transcript, generated answer, and comparison score meters."
+  ],
+  [
+    "6.1",
+    "Problem discovery and design brief",
+    "Students interview users, define needs, choose a problem, and write success criteria for an app.",
+    "Design studio table with empathy map, user quotes, problem statement, sketches, and feature priority matrix."
+  ],
+  [
+    "6.2",
+    "Prompt-to-HTML first build",
+    "Students generate a working first version and learn to test it immediately in the browser.",
+    "Dual-screen scene: structured prompt on one display, live HTML app preview on the other, with visible feature checklist."
+  ],
+  [
+    "6.3",
+    "Iteration, debugging, and polish",
+    "Students describe bugs clearly, ask AI for targeted fixes, and compare before/after app behavior.",
+    "Three-stage app evolution board: broken version, debug notes, polished version, with arrows labeled test, prompt, fix, retest."
+  ],
+  [
+    "6.4",
+    "Showcase and peer review",
+    "Students present apps, collect feedback, and decide which changes matter most.",
+    "Student app expo with laptops open, feedback cards, QR codes, and peers testing playable projects."
+  ],
+  [
+    "7.1",
+    "Repositories, commits, and README",
+    "Students create a repository, upload files, write a README, and understand commit history.",
+    "Code repository interface visualized as a project folder with commit timeline, README panel, and file status markers."
+  ],
+  [
+    "7.2",
+    "GitHub Pages deployment and testing",
+    "Students publish a live URL, test on multiple devices, and gather outside feedback.",
+    "Launch dashboard with code folder becoming a public web link, phone and laptop previews, and tester feedback bubbles."
+  ],
+  [
+    "8.1",
+    "Grounded research with NotebookLM",
+    "Students upload documents, ask source-grounded questions, and compare cited answers with general AI.",
+    "Research notebook interface with source documents flowing into cited answer cards and highlighted evidence excerpts."
+  ],
+  [
+    "8.2",
+    "Question chains, audio overviews, and mind maps",
+    "Students deepen inquiry through follow-up questions, audio summaries, and visual knowledge mapping.",
+    "Mars research board with branching question chain, audio waveform, source cards, and bilingual mind map branches."
+  ],
+  [
+    "9.1",
+    "APIs as controlled requests",
+    "Students learn request, response, endpoint, key, rate limit, and why keys must be protected.",
+    "Restaurant/API analogy in a modern service diagram: user request, waiter/API, kitchen/model, response, locked key vault."
+  ],
+  [
+    "9.2",
+    "Agents vs chatbots",
+    "Students compare one-turn answers with multi-step agents that use tools, memory, plans, and checks.",
+    "Side-by-side workflow: chatbot bubble answering once, agent board completing research, file edit, test, and report steps."
+  ],
+  [
+    "9.3",
+    "AI coding assistants in a project",
+    "Students use a coding assistant to inspect a file, make a controlled change, and verify the result.",
+    "Project editor with AI assistant proposing changes, highlighted diff, test checklist, and human approval step."
+  ],
+  [
+    "9.4",
+    "Adding an AI feature safely",
+    "Students run a simple API-powered feature, understand data flow, and avoid publishing secrets.",
+    "Student web app with embedded AI helper, request/response arrows, server boundary, secret key warning, and user-facing output."
+  ],
+  [
+    "9.5",
+    "Capstone portfolio showcase",
+    "Students present final product, process evidence, prompt log, deployment link, and responsible-use reflection.",
+    "Portfolio review wall with app demo, QR code, prompt log, GitHub link, video thumbnail, rubric, and reflection card."
+  ],
+  [
+    "10.1",
+    "Group formation and educational problem discovery",
+    "Teams identify a pressing learning problem, interview real learners, choose a target user, and define what success would look like.",
+    "Collaborative classroom design sprint: students around a table with interview notes, learner personas, sticky-note pain points, and an education problem statement board."
+  ],
+  [
+    "10.2",
+    "Solution design: web app or AI agent",
+    "Teams decide whether the best solution is a usable web app or an AI agent, then map features, user flow, safety rules, and learning outcomes.",
+    "Product planning board with two paths: web app prototype and AI agent workflow, connected to learner goals, feature cards, safety checks, and success metrics."
+  ],
+  [
+    "10.3",
+    "Group build sprint and user testing",
+    "Teams build a working prototype, divide roles, test with peers, record feedback, and revise based on evidence.",
+    "Team build room with laptops, prototype screens, role badges, feedback forms, bug list, and a visible test-revise-test cycle."
+  ],
+  [
+    "10.4",
+    "Public launch and learning impact showcase",
+    "Teams present the finished tool, demonstrate how others can use it, explain impact evidence, and reflect on collaboration.",
+    "Final showcase booth with a live educational app or AI agent, QR code, student presenters, user testimonials, impact chart, and reflection wall."
+  ]
+];
+const moduleIcons = {foundation:'ti-device-laptop', exploration:'ti-sparkles', creation:'ti-code', advanced:'ti-rocket'};
+const moduleSessionMap = {
+  m1:['1.1','1.2','1.3','1.4','1.5','1.6','1.7','1.8','1.9','1.10'],
+  m2:['2.1','2.2'],
+  m3:['3.1','3.2'],
+  m4:['4.1','4.2','4.3'],
+  m5:['5.1','5.2','5.3','5.4'],
+  m6:['6.1','6.2','6.3','6.4'],
+  m7:['7.1','7.2'],
+  m8:['8.1','8.2'],
+  m9:['9.1','9.2','9.3','9.4','9.5'],
+  m10:['10.1','10.2','10.3','10.4']
+};
+const moduleVisuals = {
+  m1:{title:'Digital foundations',words:['FILES','BROWSER','KEYS'],hue:352,icon:'laptop'},
+  m2:{title:'First AI exploration',words:['ASK','NOTICE','TRUST'],hue:198,icon:'chat'},
+  m3:{title:'How LLMs work',words:['TOKENS','DATA','CHECK'],hue:265,icon:'network'},
+  m4:{title:'Prompting craft',words:['CTFC','ITERATE','ETHICS'],hue:38,icon:'prompt'},
+  m5:{title:'Benchmarking AI',words:['TEST','SCORE','EVIDENCE'],hue:150,icon:'chart'},
+  m6:{title:'Build a web app',words:['DESIGN','HTML','DEMO'],hue:222,icon:'app'},
+  m7:{title:'Deploy online',words:['REPO','PAGES','LIVE'],hue:18,icon:'rocket'},
+  m8:{title:'Grounded research',words:['SOURCES','AUDIO','MINDMAP'],hue:176,icon:'research'},
+  m9:{title:'Agents and APIs',words:['API','AGENT','CAPSTONE'],hue:286,icon:'agent'},
+  m10:{title:'Group learning tool',words:['TEAM','LEARN','IMPACT'],hue:128,icon:'group'}
+};
+const phaseNames = {all:'All',foundation:'Foundation',exploration:'Exploration',creation:'Creation',advanced:'Advanced'};
+
+const visualKeywords = {
+  '1.1':['SYSTEM','CPU','POWER'],'1.2':['OS','APPS','CLOUD'],'1.3':['CLICK','DRAG','MENU'],'1.4':['MOVE','RENAME','SORT'],'1.5':['TABS','URL','BOOKMARK'],'1.6':['SEARCH','SOURCE','TRUST'],'1.7':['CTRL','SAVE','UNDO'],'1.8':['WPM','ACCURACY','FLOW'],'1.9':['FOLDERS','DATES','VERSION'],'1.10':['DOCX','PDF','HTML'],
+  '2.1':['ASK','NOTICE','WONDER'],'2.2':['PRIVACY','TRUST','LIMITS'],'3.1':['PATTERN','TOKEN','DATA'],'3.2':['SEARCH','SOURCE','CHECK'],
+  '4.1':['CONTEXT','TASK','FORMAT'],'4.2':['ROLE','EXAMPLE','REVISE'],'4.3':['SAFE','RISK','REWRITE'],
+  '5.1':['FAIR','RUBRIC','EVIDENCE'],'5.2':['IMAGE','CRITIQUE','SCORE'],'5.3':['LOGIC','MATHS','ERROR'],'5.4':['VOICE','IMAGE','TEXT'],
+  '6.1':['USER','NEED','BRIEF'],'6.2':['PROMPT','HTML','PREVIEW'],'6.3':['BUG','FIX','RETEST'],'6.4':['DEMO','FEEDBACK','POLISH'],
+  '7.1':['REPO','COMMIT','README'],'7.2':['PAGES','LIVE','TEST'],
+  '8.1':['SOURCES','CITES','NOTES'],'8.2':['MARS','AUDIO','MINDMAP'],
+  '9.1':['API','KEY','REQUEST'],'9.2':['PLAN','TOOLS','STEPS'],'9.3':['DIFF','EDIT','VERIFY'],'9.4':['AI APP','SECRET','FLOW'],'9.5':['CAPSTONE','LINK','REFLECT'],
+  '10.1':['TEAM','PROBLEM','USERS'],'10.2':['APP','AGENT','FLOW'],'10.3':['BUILD','TEST','REVISE'],'10.4':['LAUNCH','IMPACT','SHOW']
+};
+
+/* ---------- Config ---------- */
+const phaseColor = {foundation:'#3a5d86', exploration:'#1d7d6b', creation:'#a26a14', advanced:'#6b3c72'};
+const phaseTint  = {foundation:'#eaf0f6', exploration:'#e4f1ee', creation:'#f4ecdc', advanced:'#efe7f1'};
+const phaseLabel = {foundation:'Foundation', exploration:'Exploration', creation:'Creation', advanced:'Advanced'};
+
+let active = 'all';
+let query = '';
+let allOpen = false;
+
+/* ---------- Helpers ---------- */
+function escapeHTML(str){return String(str).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function list(items){return '<ul class="list">'+items.map(i=>'<li>'+escapeHTML(i)+'</li>').join('')+'</ul>'}
+function chips(items){return '<div class="chips">'+items.map(i=>{
+  if(i && i.ext){const ic=i.icon?'<i class="ti '+i.icon+'"></i>':'';return '<span class="chip">'+ic+'<span class="ext">'+escapeHTML(i.ext)+'</span> '+escapeHTML(i.desc)+'</span>';}
+  return '<span class="chip">'+escapeHTML(i)+'</span>';
+}).join('')+'</div>'}
+function sessionByCode(code){return sessionGuide.find(s=>s[0]===code)}
+function adjustedObjectives(sub){return sub.obj.map(o=>o.replace('chain-of-thought','step-by-step reasoning'))}
+
+/* ---------- Clean line-art glyphs ---------- */
+function glyph(icon){
+  const G={
+    laptop:'<rect x="26" y="30" width="48" height="32" rx="4"/><path d="M20 68h60l-5-6H25z" fill="currentColor" stroke="none"/><path d="M38 41h24M38 50h14"/>',
+    chat:'<rect x="24" y="28" width="52" height="36" rx="10"/><circle cx="40" cy="46" r="2.6" fill="currentColor" stroke="none"/><circle cx="50" cy="46" r="2.6" fill="currentColor" stroke="none"/><circle cx="60" cy="46" r="2.6" fill="currentColor" stroke="none"/><path d="M40 64l-8 9 2-9"/>',
+    network:'<circle cx="34" cy="38" r="7"/><circle cx="66" cy="34" r="6"/><circle cx="56" cy="66" r="8"/><path d="M40 41l20-4M39 44l13 16M60 39l-5 19"/>',
+    prompt:'<rect x="24" y="28" width="52" height="40" rx="6"/><path d="M34 41h32M34 50h22"/><path d="M32 64l9-9"/>',
+    chart:'<rect x="24" y="26" width="52" height="44" rx="5"/><path d="M34 58l10-10 8 5 14-16"/><path d="M33 64h34"/>',
+    app:'<rect x="34" y="22" width="32" height="54" rx="7"/><rect x="41" y="31" width="18" height="9" rx="3" fill="currentColor" stroke="none" opacity=".4"/><rect x="41" y="46" width="8" height="8" rx="2"/><rect x="55" y="46" width="8" height="8" rx="2"/><rect x="41" y="59" width="8" height="8" rx="2"/>',
+    rocket:'<path d="M50 22c10 8 13 22 9 36-9 4-19 4-28 0 4-14 9-28 19-36z"/><circle cx="50" cy="40" r="5"/><path d="M34 60l-6 10 9-3M66 60l6 10-9-3"/>',
+    research:'<rect x="26" y="24" width="34" height="42" rx="4"/><path d="M33 36h20M33 45h14"/><circle cx="60" cy="58" r="11"/><path d="M68 66l8 8"/>',
+    agent:'<rect x="32" y="34" width="36" height="28" rx="8"/><circle cx="43" cy="48" r="2.8" fill="currentColor" stroke="none"/><circle cx="57" cy="48" r="2.8" fill="currentColor" stroke="none"/><path d="M50 34v-9M44 62v8M56 62v8"/>',
+    group:'<circle cx="38" cy="40" r="8"/><circle cx="62" cy="40" r="8"/><path d="M26 70c0-9 6-15 12-15s12 6 12 15M50 70c0-9 6-15 12-15s12 6 12 15"/>'
+  };
+  return G[icon]||G.laptop;
+}
+
+function moduleTile(mod){
+  const v=moduleVisuals[mod.id]||{icon:'laptop'};
+  const c=phaseColor[mod.phase], t=phaseTint[mod.phase];
+  const gid='mt_'+mod.id;
+  return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+escapeHTML(mod.name)+'">'
+    +'<defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+t+'"/><stop offset="1" stop-color="#fffdf8"/></linearGradient></defs>'
+    +'<rect width="100" height="100" rx="14" fill="url(#'+gid+')"/>'
+    +'<rect x="2.5" y="2.5" width="95" height="95" rx="12" fill="none" stroke="'+c+'" stroke-opacity=".18"/>'
+    +'<circle cx="84" cy="18" r="16" fill="'+c+'" opacity=".08"/>'
+    +'<g stroke="'+c+'" stroke-width="4.4" fill="none" stroke-linecap="round" stroke-linejoin="round" color="'+c+'">'+glyph(v.icon)+'</g>'
+    +'</svg>';
+}
+
+const sessionMotifs=[
+  '<rect x="30" y="34" width="40" height="28" rx="4"/><path d="M38 44h24M38 52h12"/>',
+  '<circle cx="50" cy="48" r="16"/><path d="M50 32v32M34 48h32"/>',
+  '<path d="M34 60l11-11 8 6 13-15"/><path d="M33 66h34"/>',
+  '<rect x="32" y="32" width="24" height="18" rx="3"/><rect x="48" y="50" width="22" height="16" rx="3"/><path d="M44 50l12 0"/>',
+  '<circle cx="50" cy="36" r="6"/><path d="M50 42v22M50 50l-12 8M50 50l12 8"/>',
+  '<rect x="34" y="30" width="32" height="40" rx="5"/><path d="M42 42h16M42 51h11"/>'
+];
+function sessionTile(code,phase){
+  const idx=sessionGuide.findIndex(x=>x[0]===code);
+  const c=phaseColor[phase]||'#3a5d86', t=phaseTint[phase]||'#eaf0f6';
+  const gid='st_'+code.replace('.','_');
+  const motif=sessionMotifs[idx%sessionMotifs.length];
+  return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Session '+escapeHTML(code)+'">'
+    +'<defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+t+'"/><stop offset="1" stop-color="#fffdf8"/></linearGradient></defs>'
+    +'<rect width="100" height="100" rx="12" fill="url(#'+gid+')"/>'
+    +'<g stroke="'+c+'" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">'+motif+'</g>'
+    +'</svg>';
+}
+
+/* ---------- Homework ---------- */
+function renderHomework(hw){
+  if(!hw) return '';
+  let inner='';
+  if(hw.choices){
+    inner=hw.choices.map(c=>'<div class="choice"><small>Choose one option</small><strong>'+escapeHTML(c.title)+'</strong><div>'+escapeHTML(c.body)+'</div></div>').join('');
+  }else{
+    inner='<div class="hw-label" style="margin-top:6px"><i class="ti ti-list-check"></i>Requirements</div>'+hw.reqs.map(r=>'<div class="req">'+escapeHTML(r)+'</div>').join('');
+  }
+  const deliver=hw.deliver?'<div class="hw-label" style="margin-top:18px"><i class="ti ti-upload"></i>What to submit</div><div class="deliver">'+hw.deliver.map(d=>'<span>'+escapeHTML(d)+'</span>').join('')+'</div>':'';
+  return '<div class="panel full"><div class="homework">'
+    +'<span class="hw-tag"><i class="ti ti-lock"></i>Unchanged</span>'
+    +'<div class="hw-label"><i class="ti ti-notebook"></i>Homework assignment</div>'
+    +'<h3 class="serif">'+escapeHTML(hw.title)+'</h3>'
+    +'<p class="mission">'+escapeHTML(hw.mission)+'</p>'+inner+deliver+'</div></div>';
+}
+
+/* ---------- Lesson (subsection) ---------- */
+function renderSub(sub,index,phase){
+  const number=String(index+1).padStart(2,'0');
+  const accessibility=['Key vocabulary box before the activity','Worked example before the independent task','Exit ticket with one skill question and one reflection question','Extension challenge for fast finishers'];
+  const assessment=['Observable skill performance during class','Saved file, screenshot, prompt log, or comparison table as evidence','Short reflection explaining what changed or improved'];
+  return '<article class="subsection">'
+    +'<button class="sub-head" type="button" onclick="toggleSub(this)" aria-expanded="false">'
+    +'<span class="sub-num">'+number+'</span>'
+    +'<span class="sub-t"><strong>'+escapeHTML(sub.name)+'</strong><span>Objectives · teaching moves · tools · accessibility · assessment · files · homework</span></span>'
+    +'<i class="ti ti-chevron-down mini-chev"></i></button>'
+    +'<div class="sub-body" hidden><div class="grid">'
+    +'<div class="panel"><div class="label"><i class="ti ti-target"></i>Learning objectives</div>'+list(adjustedObjectives(sub))+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-chalkboard"></i>How to teach it</div>'+list(sub.teach)+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-tools"></i>Materials &amp; tools</div>'+chips(sub.tlms)+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-device-gamepad-2"></i>Classroom activities</div>'+list(sub.act)+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-universal-access"></i>Accessibility supports</div>'+list(accessibility)+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-checkup-list"></i>Assessment evidence</div>'+list(assessment)+'</div>'
+    +(sub.files?'<div class="panel full"><div class="label"><i class="ti ti-folder-open"></i>Sample file pack</div>'+chips(sub.files)+'</div>':'')
+    +renderHomework(sub.hw)
+    +'</div></div></article>';
+}
+
+/* ---------- Sessions overview ---------- */
+function renderSessionCard(s,phase){
+  return '<div class="session-card">'
+    +'<span class="s-tile">'+sessionTile(s[0],phase)+'</span>'
+    +'<div class="s-body"><div class="s-code">Session '+escapeHTML(s[0])+'</div>'
+    +'<strong>'+escapeHTML(s[1])+'</strong><p>'+escapeHTML(s[2])+'</p>'
+    +'<details class="s-brief"><summary><i class="ti ti-chevron-right"></i>Visual brief</summary><p>'+escapeHTML(s[3])+'</p></details>'
+    +'</div></div>';
+}
+function renderSessions(mod){
+  const codes=moduleSessionMap[mod.id]||[];
+  if(!codes.length) return '';
+  return '<div class="sessions"><div class="sessions-label"><i class="ti ti-list-details"></i>Session sequence · '+codes.length+' lessons</div>'
+    +'<div class="session-grid">'+codes.map(c=>{const s=sessionByCode(c);return s?renderSessionCard(s,mod.phase):'';}).join('')+'</div></div>';
+}
+
+/* ---------- Search matching ---------- */
+function moduleMatches(mod,q){
+  if(!q) return true;
+  const hay=[mod.name,mod.badge,phaseLabel[mod.phase]];
+  (moduleSessionMap[mod.id]||[]).forEach(c=>{const s=sessionByCode(c);if(s){hay.push(s[1],s[2]);}});
+  mod.subsections.forEach(sub=>{
+    hay.push(sub.name);
+    sub.obj.forEach(o=>hay.push(o));
+    (sub.tlms||[]).forEach(t=>hay.push(t));
+    if(sub.hw){hay.push(sub.hw.title);hay.push(sub.hw.mission);}
+  });
+  return hay.join(' ').toLowerCase().includes(q);
+}
+
+/* ---------- Render modules ---------- */
+function renderModules(){
+  const q=query.trim().toLowerCase();
+  let filtered = active==='all'?modules:modules.filter(m=>m.phase===active);
+  filtered = filtered.filter(m=>moduleMatches(m,q));
+  const container=document.getElementById('container');
+
+  if(!filtered.length){
+    container.innerHTML='<div class="empty-state"><i class="ti ti-mood-search"></i><p>No modules match “'+escapeHTML(query)+'”. Try a different word or clear the filter.</p></div>';
+    return;
+  }
+
+  container.innerHTML=filtered.map(mod=>{
+    const c=phaseColor[mod.phase];
+    const sessionN=(moduleSessionMap[mod.id]||[]).length;
+    const forceOpen = allOpen || (q && true); // expand matches when searching
+    return '<section class="module'+(forceOpen?' open':'')+'" style="--pc:'+c+'">'
+      +'<button class="module-head" type="button" onclick="toggleModule(this)" aria-expanded="'+(forceOpen?'true':'false')+'">'
+      +'<span class="m-tile">'+moduleTile(mod)+'</span>'
+      +'<span class="m-meta">'
+        +'<span class="m-kicker"><span class="m-num">'+escapeHTML(mod.badge)+'</span><span class="m-phase">'+escapeHTML(phaseLabel[mod.phase])+'</span></span>'
+        +'<h3 class="serif">'+escapeHTML(mod.name)+'</h3>'
+        +'<span class="m-sub"><span><i class="ti ti-clock-hour-4"></i>'+escapeHTML(mod.sessions)+'</span><span><i class="ti ti-stack-2"></i>'+sessionN+' lessons</span><span><i class="ti ti-notebook"></i>homework included</span></span>'
+      +'</span>'
+      +'<span class="m-chev"><i class="ti ti-chevron-down"></i></span>'
+      +'</button>'
+      +'<div class="module-body"'+(forceOpen?'':' hidden')+'><div class="module-body-inner reveal">'
+        +renderSessions(mod)
+        +'<div class="lessons">'+mod.subsections.map((sub,i)=>renderSub(sub,i,mod.phase)).join('')+'</div>'
+      +'</div></div>'
+    +'</section>';
+  }).join('');
+}
+
+/* ---------- Interactions ---------- */
+function toggleModule(btn){
+  const mod=btn.closest('.module');
+  const body=mod.querySelector(':scope > .module-body');
+  const open=!mod.classList.contains('open');
+  mod.classList.toggle('open',open);
+  if(body){body.hidden=!open;if(open){const inner=body.querySelector('.module-body-inner');if(inner){inner.classList.remove('reveal');void inner.offsetWidth;inner.classList.add('reveal');}}}
+  btn.setAttribute('aria-expanded',String(open));
+}
+function toggleSub(btn){
+  const sub=btn.closest('.subsection');
+  const body=sub.querySelector(':scope > .sub-body');
+  const open=!sub.classList.contains('open');
+  sub.classList.toggle('open',open);
+  if(body) body.hidden=!open;
+  btn.setAttribute('aria-expanded',String(open));
+}
+
+function renderNav(){
+  const nav=document.getElementById('nav');
+  const order=['all','foundation','exploration','creation','advanced'];
+  nav.innerHTML=order.map(p=>{
+    const dot=p==='all'?'var(--ink-3)':phaseColor[p];
+    const lbl=p==='all'?'All modules':phaseLabel[p];
+    return '<button class="chip-btn'+(active===p?' active':'')+'" type="button" onclick="setActive(\''+p+'\')" style="--cdot:'+dot+'"><span class="dot"></span>'+lbl+'</button>';
+  }).join('');
+}
+function setActive(p){active=p;renderNav();renderModules()}
+
+function setExpandAll(state){
+  allOpen=state;
+  const t=document.getElementById('expandToggle');
+  t.innerHTML=allOpen?'<i class="ti ti-arrows-diagonal-minimize-2"></i><span>Collapse all</span>':'<i class="ti ti-arrows-diagonal"></i><span>Expand all</span>';
+  renderModules();
+}
+
+/* ---------- Init ---------- */
+function init(){
+  const moduleCount=document.getElementById('moduleCount');
+  const sessionCount=document.getElementById('sessionCount');
+  const footMeta=document.getElementById('footMeta');
+  if(moduleCount) moduleCount.textContent=modules.length;
+  if(sessionCount) sessionCount.textContent=sessionGuide.length;
+  if(footMeta) footMeta.innerHTML=modules.length+' modules · '+sessionGuide.length+' sessions · 4 phases';
+  renderNav();
+  renderModules();
+
+  const search=document.getElementById('searchInput');
+  let tmr;
+  search.addEventListener('input',e=>{query=e.target.value;clearTimeout(tmr);tmr=setTimeout(renderModules,120);});
+
+  document.getElementById('expandToggle').addEventListener('click',()=>setExpandAll(!allOpen));
+
+  const toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',()=>{toTop.classList.toggle('show',window.scrollY>600);},{passive:true});
+  toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+}
+init();
+</script>
+</body>
+</html>
