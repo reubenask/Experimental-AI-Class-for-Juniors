@@ -362,6 +362,16 @@ img,svg,canvas,video{max-width:100%;height:auto}
 .portal-menu,.phase-legend{gap:18px}
 @media (max-width:900px){:root{--shell-x:18px;--shell-top:28px}.header-inner{padding-left:var(--shell-x);padding-right:var(--shell-x)}.home-actions{right:var(--shell-x)}}
 @media (max-width:640px){:root{--shell-x:16px;--shell-top:22px;--shell-gap:14px}.home-screen{padding:12px var(--shell-x)}.home-actions{top:18px;left:var(--shell-x);right:var(--shell-x);justify-content:flex-end}.home-entry{min-height:calc(100dvh - 24px)}.header-inner{min-height:64px}.site-header{min-height:64px}.page-nav{gap:8px}.hero,.simple-main,.phases-page,.rubric-page,.main{padding-left:var(--shell-x);padding-right:var(--shell-x)}}
+
+/* Uniform AI CURRICULUM header dimensions across every page. */
+.site-header{height:var(--header-h);min-height:var(--header-h);display:flex;align-items:center}
+.site-header .header-inner{width:100%;max-width:none;height:var(--header-h);min-height:var(--header-h);padding:0 var(--shell-x);display:flex;align-items:center}
+.site-header .wordmark{gap:14px;min-height:48px}
+.site-header .crest{width:42px;height:48px;font-size:20px}
+.site-header .wordmark-title{font-size:23px;letter-spacing:.12em;line-height:1;white-space:nowrap}
+.site-header .header-actions{min-height:48px}
+@media (max-width:900px){.site-header .wordmark-title{font-size:20px;letter-spacing:.1em}.site-header .crest{width:38px;height:44px;font-size:18px}}
+@media (max-width:640px){.site-header{height:64px;min-height:64px}.site-header .header-inner{height:64px;min-height:64px}.site-header .wordmark{gap:10px}.site-header .crest{width:34px;height:40px;font-size:16px}.site-header .wordmark-title{font-size:16px;letter-spacing:.07em}.site-header .header-actions{min-height:40px}}
 </style>
 </head>
 <body>
