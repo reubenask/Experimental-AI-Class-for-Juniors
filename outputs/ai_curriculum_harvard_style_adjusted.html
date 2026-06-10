@@ -7,16 +7,16 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 :root{
-  --crimson:#a72b35;
-  --crimson-dark:#7f1d27;
-  --crimson-soft:#fff1f2;
+  --crimson:#0D1B3E;
+  --crimson-dark:#0D1B3E;
+  --crimson-soft:#EEF3FA;
   --ink:#202124;
   --muted:#5f6368;
   --line:#e5e7eb;
   --soft:#f7f7f8;
   --panel:#ffffff;
   --green:#1f6f5b;
-  --gold:#8a5b12;
+  --gold:#C9A84C;
   --blue:#345995;
 }
 *{box-sizing:border-box}
@@ -27,16 +27,18 @@ button{font:inherit}
 .home-entry{display:grid;place-items:center}
 .home-brand{transform:translateY(-2vh)}
 .home-actions{position:absolute;top:42px;right:52px;display:flex;align-items:center;gap:8px}
-.home-guide,.lang-link{display:flex;align-items:center;gap:0;border:0;background:#fff;color:#2d2d2f;font-weight:700;font-size:12px;cursor:pointer;padding:8px 10px;border-radius:8px;text-decoration:none}
-.home-guide:hover,.lang-link:hover{background:#f7f7f8}
-.lang-link{border:1px solid var(--line);min-width:36px;justify-content:center}
+.home-guide,.lang-link{display:flex;align-items:center;gap:0;border:1px solid var(--line);background:#fff;color:var(--crimson);font-weight:700;font-size:12px;cursor:pointer;padding:8px 10px;border-radius:8px;text-decoration:none}
+.home-guide:hover,.lang-link:hover{background:var(--crimson-soft)}
+.lang-link{min-width:36px;justify-content:center}
 .lang-link.active{background:var(--crimson);border-color:var(--crimson);color:#fff}
 .home-guide i{display:none}
 .guide-shell[hidden]{display:none}
 .shell{min-height:100vh;background:linear-gradient(#fff,#fff 220px,#fafafa)}
 .topbar{height:86px;display:flex;align-items:center;justify-content:space-between;padding:0 44px}
 .brand{display:flex;align-items:center;gap:14px;font-weight:800;letter-spacing:.08em;font-size:24px}
+.home-brand{color:var(--crimson)}
 .shield{width:58px;height:68px;background:var(--crimson);color:#fff;display:grid;place-items:center;font-weight:900;border-radius:7px 7px 24px 24px;font-size:24px;letter-spacing:-.06em}
+.home-brand .shield{background:var(--crimson);color:#fff;box-shadow:0 18px 38px rgba(13,27,62,.14)}
 .help{display:flex;align-items:center;gap:9px;font-weight:650;font-size:18px;color:#2d2d2f}
 .wrap{max-width:980px;margin:64px auto 80px;padding:0 24px}
 .hero h1{font-size:34px;line-height:1.15;margin:0 0 28px;font-weight:760}
@@ -46,7 +48,7 @@ button{font:inherit}
 .notice h2{font-size:10px;margin:12px 0 8px}
 .notice p{font-size:10px;margin:0;color:#333;max-width:760px}
 .notice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-.metric{background:#fff;border:1px solid #ead1d4;border-radius:10px;padding:14px 16px}
+.metric{background:#fff;border:1px solid #D8E0EE;border-radius:10px;padding:14px 16px}
 .metric b{display:block;font-size:10px;color:var(--crimson-dark)}
 .metric span{font-size:10px;color:var(--muted)}
 .nav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 20px}
@@ -103,11 +105,11 @@ button{font:inherit}
 .homework h3{margin:0 0 7px;font-size:20px}
 .homework .mission{font-size:16px;color:#333;margin:0 0 16px}
 .req{border-left:3px solid var(--crimson);padding:9px 0 9px 14px;margin:8px 0;background:rgba(255,255,255,.55)}
-.choice{background:#fff;border:1px solid #efd2d5;border-radius:10px;padding:15px;margin:10px 0}
+.choice{background:#fff;border:1px solid #D8E0EE;border-radius:10px;padding:15px;margin:10px 0}
 .choice small{display:block;text-transform:uppercase;letter-spacing:.08em;color:var(--crimson);font-weight:800;margin-bottom:5px}
 .choice strong{display:block;margin-bottom:5px}
 .deliver{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
-.deliver span{background:#fff;border:1px solid #efd2d5;color:var(--crimson-dark);border-radius:999px;padding:6px 10px;font-size:13px;font-weight:650}
+.deliver span{background:#fff;border:1px solid #D8E0EE;color:var(--crimson-dark);border-radius:999px;padding:6px 10px;font-size:13px;font-weight:650}
 .divider{display:flex;align-items:center;gap:20px;margin:34px 0;color:#333;font-weight:700}
 .divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}
 .rubric table{width:100%;border-collapse:collapse;font-size:14px}

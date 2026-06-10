@@ -15,15 +15,15 @@
   --ink-3:#938777;
   --line:#e7dccb;
   --line-2:#d9cbb4;
-  --accent:#8a2331;
-  --accent-deep:#5f141f;
-  --accent-soft:#f6e7e4;
-  --gold:#9a6a1c;
+  --accent:#0D1B3E;
+  --accent-deep:#0D1B3E;
+  --accent-soft:#EEF3FA;
+  --gold:#C9A84C;
 
-  --foundation:#3a5d86;
-  --exploration:#1d7d6b;
-  --creation:#a26a14;
-  --advanced:#6b3c72;
+  --foundation:#0D1B3E;
+  --exploration:#0D1B3E;
+  --creation:#0D1B3E;
+  --advanced:#0D1B3E;
 
   --shadow-sm:0 1px 2px rgba(53,33,18,.05),0 2px 6px rgba(53,33,18,.04);
   --shadow-md:0 6px 24px -10px rgba(53,33,18,.22),0 2px 6px rgba(53,33,18,.05);
@@ -105,11 +105,11 @@ a{color:inherit}
 
 .callout{
   display:flex;gap:15px;align-items:flex-start;margin-top:26px;padding:18px 22px;
-  background:var(--accent-soft);border:1px solid #ecc9c5;border-left:4px solid var(--accent);
+  background:var(--accent-soft);border:1px solid #D8E0EE;border-left:4px solid var(--accent);
   border-radius:12px;
 }
 .callout i{font-size:21px;color:var(--accent);margin-top:1px}
-.callout p{margin:0;font-size:14.5px;color:#5e3a3a}
+.callout p{margin:0;font-size:14.5px;color:#334155}
 .callout p b{color:var(--accent-deep)}
 
 /* ---------- Phase legend ---------- */
@@ -226,19 +226,19 @@ a{color:inherit}
 .chip .ext{font-weight:800;color:var(--pc)}
 
 /* ---------- Homework ---------- */
-.homework{border:1px solid #ecc9c5;background:linear-gradient(180deg,var(--accent-soft),#fdf6f4);border-radius:15px;padding:22px 24px;position:relative}
-.hw-tag{position:absolute;top:18px;right:20px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:#fff;border:1px solid #ecc9c5;border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:5px}
+.homework{border:1px solid #D8E0EE;background:linear-gradient(180deg,var(--accent-soft),#F5F7FB);border-radius:15px;padding:22px 24px;position:relative}
+.hw-tag{position:absolute;top:18px;right:20px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:#fff;border:1px solid #D8E0EE;border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:5px}
 .hw-label{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:10px}
 .hw-label i{font-size:17px}
 .homework h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:21px;margin:0 0 8px;max-width:80%}
-.homework .mission{font-size:15px;color:#4a3530;margin:0 0 18px;line-height:1.55}
+.homework .mission{font-size:15px;color:#334155;margin:0 0 18px;line-height:1.55}
 .req{border-left:3px solid var(--accent);padding:10px 0 10px 15px;margin:9px 0;background:rgba(255,255,255,.65);border-radius:0 8px 8px 0;font-size:14px;line-height:1.55}
-.choice{background:#fff;border:1px solid #efd2cf;border-radius:12px;padding:16px 18px;margin:11px 0}
+.choice{background:#fff;border:1px solid #D8E0EE;border-radius:12px;padding:16px 18px;margin:11px 0}
 .choice small{display:block;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:800;margin-bottom:6px;font-size:10.5px}
 .choice strong{display:block;margin-bottom:6px;font-size:15.5px;font-weight:700}
-.choice div{font-size:14px;color:#4a3530;line-height:1.55}
+.choice div{font-size:14px;color:#334155;line-height:1.55}
 .deliver{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.deliver span{background:#fff;border:1px solid #efd2cf;color:var(--accent-deep);border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:600}
+.deliver span{background:#fff;border:1px solid #D8E0EE;color:var(--accent-deep);border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:600}
 
 /* ---------- Assessment section ---------- */
 .section-head{display:flex;align-items:center;gap:18px;margin:54px 0 24px}
@@ -987,8 +987,8 @@ const visualKeywords = {
 };
 
 /* ---------- Config ---------- */
-const phaseColor = {foundation:'#3a5d86', exploration:'#1d7d6b', creation:'#a26a14', advanced:'#6b3c72'};
-const phaseTint  = {foundation:'#eaf0f6', exploration:'#e4f1ee', creation:'#f4ecdc', advanced:'#efe7f1'};
+const phaseColor = {foundation:'#0D1B3E', exploration:'#0D1B3E', creation:'#0D1B3E', advanced:'#0D1B3E'};
+const phaseTint  = {foundation:'#EEF3FA', exploration:'#EEF3FA', creation:'#EEF3FA', advanced:'#EEF3FA'};
 const phaseLabel = {foundation:'Foundation', exploration:'Exploration', creation:'Creation', advanced:'Advanced'};
 
 let active = 'all';
@@ -1046,7 +1046,7 @@ const sessionMotifs=[
 ];
 function sessionTile(code,phase){
   const idx=sessionGuide.findIndex(x=>x[0]===code);
-  const c=phaseColor[phase]||'#3a5d86', t=phaseTint[phase]||'#eaf0f6';
+  const c=phaseColor[phase]||'#0D1B3E', t=phaseTint[phase]||'#EEF3FA';
   const gid='st_'+code.replace('.','_');
   const motif=sessionMotifs[idx%sessionMotifs.length];
   return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Session '+escapeHTML(code)+'">'

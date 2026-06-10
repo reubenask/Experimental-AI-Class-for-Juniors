@@ -4,479 +4,323 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI 素养课程 · 教学门户</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f3ede1;
-  --paper-2:#f8f3e9;
-  --card:#fffefb;
-  --ink:#221b15;
-  --ink-2:#5d534a;
-  --ink-3:#938777;
-  --line:#e7dccb;
-  --line-2:#d9cbb4;
-  --accent:#8a2331;
-  --accent-deep:#5f141f;
-  --accent-soft:#f6e7e4;
-  --gold:#9a6a1c;
-
-  --foundation:#3a5d86;
-  --exploration:#1d7d6b;
-  --creation:#a26a14;
-  --advanced:#6b3c72;
-
-  --shadow-sm:0 1px 2px rgba(53,33,18,.05),0 2px 6px rgba(53,33,18,.04);
-  --shadow-md:0 6px 24px -10px rgba(53,33,18,.22),0 2px 6px rgba(53,33,18,.05);
-  --shadow-lg:0 24px 60px -24px rgba(53,33,18,.35);
-  --radius:18px;
-  --maxw:1120px;
+  --navy:#0D1B3E;
+  --navy-rgb:13,27,62;
+  --gold:#C9A84C;
+  --cream:#FAF8F3;
+  --white:#FFFFFF;
+  --ink:#101828;
+  --slate:#475467;
+  --muted:#667085;
+  --line:#E7DCC4;
+  --shadow:0 18px 40px rgba(var(--navy-rgb),.10);
+  --max:1120px;
 }
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  background:var(--cream);
   color:var(--ink);
-  background:var(--paper);
-  line-height:1.55;
+  font-family:"Inter","Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.7;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
-/* subtle paper grain */
-body:before{
-  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
-  background-image:radial-gradient(rgba(120,90,50,.05) 1px,transparent 1px);
-  background-size:4px 4px;
-}
-body>*{position:relative;z-index:1}
-button{font:inherit;color:inherit}
-a{color:inherit}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.serif{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
 
-/* ---------- Header ---------- */
+a{color:inherit}
+
+a:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:4px;
+}
+
+.skip-link{
+  position:absolute;
+  left:1rem;
+  top:-4rem;
+  z-index:100;
+  background:var(--gold);
+  color:var(--navy);
+  padding:.65rem .9rem;
+  border-radius:.35rem;
+  font:700 13px/1 "Inter",sans-serif;
+  text-decoration:none;
+}
+
+.skip-link:focus{top:1rem}
+
 .site-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(243,237,225,.82);
-  backdrop-filter:saturate(140%) blur(12px);
+  position:sticky;
+  top:0;
+  z-index:50;
+  height:74px;
+  background:var(--cream);
   border-bottom:1px solid var(--line);
 }
-.header-inner{
-  max-width:var(--maxw);margin:0 auto;padding:14px 26px;
-  display:flex;align-items:center;justify-content:space-between;gap:18px;
+
+.site-header nav{
+  height:74px;
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 2rem;
+  display:flex;
+  align-items:center;
 }
-.wordmark{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);font-weight:800;letter-spacing:.08em}
+
+.wordmark{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+  color:var(--navy);
+  font-weight:800;
+}
+
 .crest{
-  width:42px;height:48px;flex:0 0 auto;border-radius:7px 7px 18px 18px;
-  background:linear-gradient(160deg,var(--accent),var(--accent-deep));
-  color:#fff;display:grid;place-items:center;position:relative;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),var(--shadow-sm);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
-  font-size:20px;font-weight:800;letter-spacing:-.04em;
-}
-.wordmark-title{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:23px;font-weight:800;letter-spacing:.12em}
-.header-actions{display:flex;align-items:center;gap:8px}
-.ghost-link{
-  display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;
-  border:1px solid var(--line-2);background:var(--card);font-weight:600;font-size:13.5px;
-  cursor:pointer;text-decoration:none;transition:.18s;
-}
-.ghost-link:hover{border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow-sm)}
-.ghost-link i{font-size:16px}
-
-/* ---------- Hero ---------- */
-.hero{max-width:var(--maxw);margin:0 auto;padding:64px 26px 30px}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
-.eyebrow .bar{width:26px;height:2px;background:var(--accent);border-radius:2px}
-.hero h1{
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:500;font-size:clamp(38px,6vw,68px);
-  line-height:1.02;letter-spacing:-.015em;margin:0 0 22px;max-width:16ch;
-}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero-lead{font-size:18.5px;line-height:1.6;color:var(--ink-2);max-width:62ch;margin:0 0 34px}
-.hero-lead b{color:var(--ink);font-weight:700}
-
-.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow-sm)}
-.stat{padding:22px 24px;border-right:1px solid var(--line)}
-.stat:last-child{border-right:0}
-.stat .num{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:38px;line-height:1;color:var(--ink)}
-.stat .lbl{font-size:13px;color:var(--ink-2);margin-top:7px;font-weight:600}
-.stat .lbl b{color:var(--accent);font-weight:800}
-
-.callout{
-  display:flex;gap:15px;align-items:flex-start;margin-top:26px;padding:18px 22px;
-  background:var(--accent-soft);border:1px solid #ecc9c5;border-left:4px solid var(--accent);
-  border-radius:12px;
-}
-.callout i{font-size:21px;color:var(--accent);margin-top:1px}
-.callout p{margin:0;font-size:14.5px;color:#5e3a3a}
-.callout p b{color:var(--accent-deep)}
-
-/* ---------- Phase legend ---------- */
-.phase-legend{max-width:var(--maxw);margin:38px auto 0;padding:0 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.legend-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--lc);border-radius:14px;padding:16px 18px}
-.legend-card .tag{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lc)}
-.legend-card h4{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:17px;margin:7px 0 5px}
-.legend-card p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.45}
-
-/* ---------- Controls ---------- */
-.controls-wrap{position:sticky;top:73px;z-index:40;background:rgba(243,237,225,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:46px}
-.controls{max-width:var(--maxw);margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.search{position:relative;flex:1;min-width:230px}
-.search i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:18px}
-.search input{
-  width:100%;padding:11px 14px 11px 42px;border:1px solid var(--line-2);border-radius:999px;
-  background:var(--card);font-size:14.5px;color:var(--ink);transition:.18s;
-}
-.search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.filters{display:flex;gap:7px;flex-wrap:wrap}
-.chip-btn{
-  border:1px solid var(--line-2);background:var(--card);border-radius:999px;padding:9px 15px;
-  font-weight:600;font-size:13.5px;cursor:pointer;transition:.16s;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
-}
-.chip-btn .dot{width:8px;height:8px;border-radius:50%;background:var(--cdot,var(--ink-3))}
-.chip-btn:hover{border-color:var(--ink-2)}
-.chip-btn.active{background:var(--ink);border-color:var(--ink);color:#fff}
-.chip-btn.active .dot{background:#fff}
-.expand-toggle{margin-left:auto;border:0;background:none;color:var(--accent);font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:8px 4px}
-.expand-toggle:hover{text-decoration:underline}
-
-/* ---------- Main ---------- */
-.main{max-width:var(--maxw);margin:0 auto;padding:40px 26px 90px}
-.empty-state{text-align:center;padding:70px 20px;color:var(--ink-2)}
-.empty-state i{font-size:42px;color:var(--ink-3)}
-.empty-state p{margin:14px 0 0;font-size:16px}
-
-/* ---------- Module card ---------- */
-.module{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  margin:0 0 20px;box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .2s,border-color .2s;
-}
-.module.open{box-shadow:var(--shadow-md);border-color:var(--line-2)}
-.module-head{
-  width:100%;border:0;background:none;display:flex;align-items:center;gap:20px;
-  padding:22px 26px;cursor:pointer;text-align:left;position:relative;
-}
-.module-head:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pc)}
-.module-head:hover{background:linear-gradient(90deg,rgba(0,0,0,.012),transparent 40%)}
-.m-tile{width:74px;height:74px;flex:0 0 auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
-.m-tile svg{display:block;width:100%;height:100%}
-.m-meta{flex:1;min-width:0}
-.m-kicker{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.m-num{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pc)}
-.m-phase{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:2px 9px;border:1px solid var(--line-2);border-radius:999px}
-.m-meta h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:22px;line-height:1.2;margin:0;letter-spacing:-.01em}
-.m-sub{display:flex;align-items:center;gap:14px;margin-top:7px;color:var(--ink-2);font-size:13.5px;flex-wrap:wrap}
-.m-sub span{display:inline-flex;align-items:center;gap:6px}
-.m-sub i{font-size:15px;color:var(--ink-3)}
-.m-chev{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-2);transition:.22s;font-size:20px}
-.module.open .m-chev{transform:rotate(180deg);background:var(--ink);color:#fff;border-color:var(--ink)}
-.module-body{border-top:1px solid var(--line)}
-.module-body[hidden]{display:none}
-.module-body-inner{padding:8px 26px 22px}
-.reveal{animation:reveal .35s ease both}
-@keyframes reveal{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-
-/* session overview strip */
-.sessions{margin:18px 0 6px}
-.sessions-label{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
-.sessions-label i{font-size:16px;color:var(--pc)}
-.session-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.session-card{display:flex;gap:13px;border:1px solid var(--line);border-radius:13px;background:var(--paper-2);padding:13px;transition:.16s}
-.session-card:hover{border-color:var(--line-2);background:var(--card);box-shadow:var(--shadow-sm)}
-.s-tile{width:52px;height:52px;flex:0 0 auto;border-radius:10px;overflow:hidden}
-.s-tile svg{display:block;width:100%;height:100%}
-.s-body{min-width:0;flex:1}
-.s-code{font-size:11px;font-weight:800;color:var(--pc);letter-spacing:.04em}
-.s-body strong{display:block;font-size:14.5px;line-height:1.3;margin:2px 0 4px;font-weight:700}
-.s-body p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.45}
-.s-brief{margin-top:9px}
-.s-brief summary{cursor:pointer;font-size:11.5px;font-weight:700;color:var(--ink-3);list-style:none;display:inline-flex;align-items:center;gap:5px;letter-spacing:.04em;text-transform:uppercase}
-.s-brief summary::-webkit-details-marker{display:none}
-.s-brief summary i{font-size:14px;transition:.2s}
-.s-brief[open] summary i{transform:rotate(90deg)}
-.s-brief p{margin:8px 0 0;font-size:12.5px;color:var(--ink-2);font-style:italic;border-left:2px solid var(--line-2);padding-left:10px;line-height:1.5}
-
-/* ---------- Subsection (lesson detail) ---------- */
-.lessons{margin-top:24px;border-top:1px dashed var(--line-2);padding-top:8px}
-.subsection{border-bottom:1px solid var(--line)}
-.subsection:last-child{border-bottom:0}
-.sub-head{width:100%;border:0;background:none;display:flex;align-items:center;gap:15px;padding:18px 4px;cursor:pointer;text-align:left}
-.sub-head:hover .sub-num{background:var(--pc);color:#fff;border-color:var(--pc)}
-.sub-num{width:40px;height:40px;flex:0 0 auto;border-radius:11px;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line-2);color:var(--pc);font-weight:800;font-size:14px;transition:.18s}
-.sub-head .sub-t{flex:1;min-width:0}
-.sub-head .sub-t strong{display:block;font-size:16.5px;font-weight:700;line-height:1.3}
-.sub-head .sub-t span{display:block;color:var(--ink-3);font-size:12.5px;margin-top:2px}
-.sub-head .mini-chev{font-size:20px;color:var(--ink-3);transition:.2s}
-.subsection.open .mini-chev{transform:rotate(180deg);color:var(--pc)}
-.sub-body{padding:0 4px 24px}
-.sub-body[hidden]{display:none}
-
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:6px}
-.panel{border:1px solid var(--line);border-radius:13px;background:var(--paper-2);padding:18px}
-.panel.full{grid-column:1/-1}
-.label{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:800;color:var(--ink-3);margin-bottom:13px}
-.label i{font-size:17px;color:var(--pc)}
-.list{display:grid;gap:9px;margin:0;padding:0;list-style:none}
-.list li{padding-left:20px;position:relative;color:var(--ink);font-size:14px;line-height:1.5}
-.list li:before{content:"";position:absolute;left:2px;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--pc)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-2);background:var(--card);border-radius:9px;padding:8px 12px;font-size:13px;color:var(--ink)}
-.chip i{font-size:15px;color:var(--pc)}
-.chip .ext{font-weight:800;color:var(--pc)}
-
-/* ---------- Homework ---------- */
-.homework{border:1px solid #ecc9c5;background:linear-gradient(180deg,var(--accent-soft),#fdf6f4);border-radius:15px;padding:22px 24px;position:relative}
-.hw-tag{position:absolute;top:18px;right:20px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:#fff;border:1px solid #ecc9c5;border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:5px}
-.hw-label{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:10px}
-.hw-label i{font-size:17px}
-.homework h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:21px;margin:0 0 8px;max-width:80%}
-.homework .mission{font-size:15px;color:#4a3530;margin:0 0 18px;line-height:1.55}
-.req{border-left:3px solid var(--accent);padding:10px 0 10px 15px;margin:9px 0;background:rgba(255,255,255,.65);border-radius:0 8px 8px 0;font-size:14px;line-height:1.55}
-.choice{background:#fff;border:1px solid #efd2cf;border-radius:12px;padding:16px 18px;margin:11px 0}
-.choice small{display:block;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:800;margin-bottom:6px;font-size:10.5px}
-.choice strong{display:block;margin-bottom:6px;font-size:15.5px;font-weight:700}
-.choice div{font-size:14px;color:#4a3530;line-height:1.55}
-.deliver{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.deliver span{background:#fff;border:1px solid #efd2cf;color:var(--accent-deep);border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:600}
-
-/* ---------- Assessment section ---------- */
-.section-head{display:flex;align-items:center;gap:18px;margin:54px 0 24px}
-.section-head .line{flex:1;height:1px;background:var(--line-2)}
-.section-head h2{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:30px;margin:0;letter-spacing:-.01em}
-.rubric-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden}
-.rubric-card .rc-head{padding:22px 26px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:16px}
-.rubric-card .rc-head .ico{width:48px;height:48px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:24px;flex:0 0 auto}
-.rubric-card .rc-head h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:20px;margin:0 0 4px}
-.rubric-card .rc-head p{margin:0;color:var(--ink-2);font-size:14px}
-.rubric-scroll{overflow-x:auto}
-.rubric table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
-.rubric th,.rubric td{border:1px solid var(--line);padding:13px 15px;text-align:left;vertical-align:top}
-.rubric thead th{background:var(--ink);color:#fff;font-weight:700;letter-spacing:.02em;border-color:var(--ink)}
-.rubric thead th:first-child{border-top-left-radius:0}
-.rubric tbody td:first-child{font-weight:700;background:var(--paper-2);color:var(--ink)}
-.rubric tbody tr:nth-child(even) td:not(:first-child){background:#fdfbf7}
-.rubric td:nth-child(5){color:var(--accent-deep)}
-
-/* ---------- Footer ---------- */
-.site-footer{border-top:1px solid var(--line);background:var(--paper-2)}
-.footer-inner{max-width:var(--maxw);margin:0 auto;padding:34px 26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--ink-2);font-size:13px}
-.footer-inner .fw{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:800;letter-spacing:.08em}
-.footer-inner .fw .crest{width:32px;height:37px;font-size:15px}
-.footer-wordmark-title{font-size:18px;letter-spacing:.12em}
-
-/* ---------- Back to top ---------- */
-.to-top{position:fixed;right:24px;bottom:24px;z-index:60;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;border:0;cursor:pointer;display:grid;place-items:center;font-size:20px;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;transition:.25s}
-.to-top.show{opacity:1;transform:none;pointer-events:auto}
-.to-top:hover{background:var(--accent)}
-
-@media(max-width:860px){
-  .phase-legend,.stat-row{grid-template-columns:repeat(2,1fr)}
-  .stat{border-bottom:1px solid var(--line)}
-  .stat:nth-child(odd){border-right:1px solid var(--line)}
-  .stat:nth-child(even){border-right:0}
-  .session-grid,.grid{grid-template-columns:1fr}
-}
-@media(max-width:560px){
-  .header-inner{padding:12px 18px}
-  .wordmark-text .name{font-size:17px}
-  .ghost-link span{display:none}
-  .hero{padding:42px 18px 24px}
-  .controls-wrap{top:65px}
-  .controls{padding:12px 18px}
-  .expand-toggle{margin-left:0}
-  .main{padding:30px 18px 70px}
-  .module-head{padding:18px 18px 18px 20px;gap:15px}
-  .m-tile{width:58px;height:58px}
-  .module-body-inner{padding:6px 18px 18px}
-  .phase-legend{grid-template-columns:1fr}
-  .homework h3{max-width:100%}
-  .hw-tag{position:static;display:inline-flex;margin-bottom:12px}
+  width:42px;
+  height:48px;
+  flex:0 0 auto;
+  border-radius:7px 7px 18px 18px;
+  background:var(--navy);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 1px 2px rgba(var(--navy-rgb),.08);
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:-.04em;
 }
 
-.portal-menu{max-width:var(--maxw);margin:34px auto 90px;padding:0 26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.portal-card{display:flex;align-items:flex-start;gap:16px;min-height:160px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow-sm);text-decoration:none;transition:.18s}
-.portal-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--accent)}
-.portal-card .ico{width:52px;height:52px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:27px;flex:0 0 auto}
-.portal-card h2{margin:0 0 8px;font-size:24px;line-height:1.1;font-weight:800}
-.portal-card p{margin:0;color:var(--ink-2);font-size:14.5px;line-height:1.5}
-.simple-main{max-width:var(--maxw);margin:0 auto;padding:54px 26px 90px}
-.simple-title{font-size:42px;line-height:1.1;margin:0 0 14px;font-weight:800;letter-spacing:-.03em}
-.simple-lead{font-size:18px;color:var(--ink-2);max-width:720px;margin:0 0 32px}
-@media(max-width:860px){.portal-menu{grid-template-columns:1fr}}
-
-/* ---------- Compact portal home ---------- */
-body.portal-hub{min-height:100vh;overflow:hidden}
-.portal-hub .site-header{position:relative}
-.portal-hub .header-inner{padding:12px 26px}
-.portal-hub .header-actions{display:none}
-.portal-hub .hero{padding:28px 26px 12px}
-.portal-hub .eyebrow{font-size:10px;margin-bottom:10px}
-.portal-hub .eyebrow .bar{width:22px}
-.portal-hub .hero h1{font-size:clamp(30px,4.3vw,46px);line-height:1.02;margin-bottom:10px;max-width:18ch}
-.portal-hub .hero-lead{font-size:14px;line-height:1.45;max-width:980px;margin-bottom:16px}
-.portal-hub .portal-menu{margin:10px auto 0;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.portal-hub .portal-card{
-  min-height:176px;
-  padding:16px;
-  gap:12px;
-  border-radius:16px;
-  flex-direction:column;
-  justify-content:space-between;
-}
-.portal-hub .portal-card .ico{width:44px;height:44px;border-radius:13px;font-size:22px}
-.portal-hub .portal-card h2{font-size:20px;margin-bottom:3px}
-.portal-hub .portal-card p{font-size:12.5px;line-height:1.35}
-.portal-hub .metric-top{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%}
-.portal-hub .metric-number{font-size:34px;line-height:1;font-weight:800;color:var(--accent-deep);letter-spacing:-.03em}
-.portal-hub .metric-number small{font-size:19px}
-.portal-hub .site-footer,.portal-hub .to-top{display:none}
-@media(max-width:860px){
-  .portal-hub .portal-menu{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .portal-hub .portal-card{min-height:168px;padding:14px}
-  .portal-hub .portal-card .ico{width:38px;height:38px;font-size:19px}
-  .portal-hub .metric-number{font-size:30px}
-  .portal-hub .portal-card h2{font-size:17px}
-  .portal-hub .portal-card p{font-size:11.5px}
-}
-@media(max-width:680px){
-  body.portal-hub{overflow:auto}
-  .portal-hub .portal-menu{grid-template-columns:repeat(2,minmax(0,1fr))}
+.wordmark-title{
+  color:var(--navy);
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:23px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  white-space:nowrap;
 }
 
-/* Chinese copy needs a more balanced 2-by-2 dashboard layout. */
-.zh-hub .hero{padding:30px 26px 18px}
-.zh-hub .hero h1{
-  max-width:900px;
-  font-size:clamp(34px,4.2vw,44px);
-  line-height:1.08;
+.hero{
+  background:var(--navy);
+  color:var(--white);
+}
+
+.hero-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:80px 2rem;
+}
+
+.eyebrow{
+  display:block;
+  margin:0 0 1.15rem;
+  color:var(--gold);
+  font-size:13px;
+  line-height:1.3;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+h1{
+  max-width:920px;
+  margin:0;
+  color:var(--white);
+  font-family:"Inter","Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+  font-size:clamp(2.45rem,5.5vw,3.35rem);
+  line-height:1.12;
+  font-weight:800;
   letter-spacing:0;
 }
-.zh-hub .hero-lead{max-width:1020px;font-size:14.5px;line-height:1.55;margin-bottom:0}
-.zh-hub .portal-menu{
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-  margin-top:16px;
-}
-.zh-hub .portal-card{
-  min-height:174px;
-  padding:20px 22px;
-}
-.zh-hub .portal-card h2{font-size:22px}
-.zh-hub .portal-card p{font-size:13.5px;line-height:1.45}
-.zh-hub .metric-number{font-size:38px}
-.zh-hub .portal-card .ico{width:46px;height:46px}
-@media(max-width:860px){
-  .zh-hub .portal-menu{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .zh-hub .portal-card{min-height:168px;padding:18px}
-  .zh-hub .portal-card h2{font-size:21px}
-  .zh-hub .portal-card p{font-size:13px}
-}
-@media(max-width:560px){
-  .zh-hub .portal-menu{grid-template-columns:1fr}
+
+h1 em{
+  color:var(--gold);
+  font-style:normal;
 }
 
-/* Unified typography: match the clean CURRICULUM wordmark style across English and Chinese. */
-:root{--ui-font:Inter,"Noto Sans SC","Microsoft YaHei","PingFang SC","Hiragino Sans GB",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-body,button,input,select,textarea,.serif,.simple-title,.hero h1,.module-title strong,.m-meta h3,.legend-card h4,.section-head h2,.rubric-card .rc-head h3,.portal-card h2{font-family:var(--ui-font)}
-body{letter-spacing:0}
-.hero h1,.simple-title,.m-meta h3,.section-head h2,.rubric-card .rc-head h3{letter-spacing:0}
-.hero h1 em{font-style:normal}
-.wordmark,.brand,.wordmark-title,.footer-wordmark-title{font-family:var(--ui-font)}
+.hero-lead{
+  max-width:900px;
+  margin:1.35rem 0 0;
+  color:rgba(255,255,255,.72);
+  font-size:16px;
+  line-height:1.7;
+}
 
-/* Responsive deployment polish for phone and iPad. */
-html{overflow-x:hidden}
-body{overflow-x:hidden}
-img,svg,canvas,video{max-width:100%;height:auto}
+.hero-lead b{
+  color:var(--white);
+  font-weight:700;
+}
+
+main{background:var(--cream)}
+
+.portal-menu{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:3rem 2rem 4.5rem;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1rem;
+}
+
+.portal-card{
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:1.4rem;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-bottom:4px solid transparent;
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  text-decoration:none;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+
+.portal-card:hover{
+  transform:translateY(-3px);
+  border-bottom-color:var(--gold);
+  box-shadow:0 24px 48px rgba(var(--navy-rgb),.14);
+}
+
+.metric-number{
+  display:block;
+  color:var(--navy);
+  font-family:"DM Serif Display",Georgia,serif;
+  font-size:36px;
+  line-height:1;
+  font-weight:400;
+}
+
+.metric-number small{
+  font-family:"DM Serif Display",Georgia,serif;
+  font-size:.55em;
+}
+
+.portal-card h2{
+  margin:1.35rem 0 .25rem;
+  color:var(--slate);
+  font-family:"Inter","Noto Sans SC","Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+  font-size:11px;
+  line-height:1.2;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.portal-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.55;
+}
+
+.site-footer{
+  background:var(--navy);
+  padding:40px 2rem;
+  text-align:center;
+}
+
+.site-footer span{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+
 @media (max-width:900px){
-  .header-inner,.topbar{padding-left:18px;padding-right:18px}
-  .wordmark-title{font-size:18px;letter-spacing:.08em}
-  .page-nav,.controls,.filters{gap:8px}
-  .page-nav a,.chip-btn,.ghost-link{font-size:12px;padding:8px 11px}
-  .simple-main,.main,.rubric-page,.phases-page,.hero,.portal-menu{padding-left:18px;padding-right:18px}
-}
-@media (max-width:640px){
-  .wordmark{gap:10px}.crest{width:34px;height:40px;font-size:16px}.wordmark-title{font-size:16px;letter-spacing:.06em}
-  .home-screen{padding:18px}.home-actions{left:18px;right:18px;justify-content:flex-end;gap:6px}.home-guide,.lang-link{font-size:11px;padding:7px 8px}.home-brand.brand{font-size:20px;gap:10px}.home-brand .shield{width:48px;height:58px;font-size:20px}
-  .portal-hub,.phase-dashboard,.rubric-fit,.rubric-zh{overflow:auto}
-  .portal-hub .hero,.zh-hub .hero,.en-hub .hero{padding:22px 18px 14px}
-  .portal-hub .hero h1,.zh-hub .hero h1,.en-hub .hero h1{font-size:30px;line-height:1.1;max-width:100%}
-  .portal-hub .hero-lead,.zh-hub .hero-lead,.en-hub .hero-lead{font-size:13px;line-height:1.48}
-  .portal-hub .portal-menu,.zh-hub .portal-menu,.en-hub .portal-menu{grid-template-columns:1fr;gap:12px;margin-top:10px}
-  .portal-hub .portal-card,.zh-hub .portal-card,.en-hub .portal-card{min-height:132px;padding:16px}
-  .phase-dashboard .phases-page{padding:18px}.phase-dashboard .phase-legend{grid-template-columns:1fr}.phase-dashboard .legend-card{min-height:150px}.phase-dashboard .legend-card p{max-width:90%}
-  .rubric-fit .rubric-page,.rubric-zh .rubric-page{padding:18px;min-height:auto}.rubric-fit .rubric-scroll,.rubric-zh .rubric-scroll{overflow-x:auto}.rubric-fit .rubric table,.rubric-zh .rubric table{min-width:760px}
-  .simple-title{font-size:34px}.simple-lead{font-size:15px}
-  .controls{align-items:stretch}.search{min-width:100%;flex-basis:100%}.expand-toggle{margin-left:0}
-  .module-head{display:grid;grid-template-columns:auto 1fr auto;gap:12px;padding:16px}.m-tile{width:54px;height:54px}.m-meta h3{font-size:18px}.m-sub{font-size:12px;gap:8px}
-  .session-grid,.grid{grid-template-columns:1fr}.homework{padding:16px}.homework h3{max-width:100%;font-size:18px}
+  .portal-menu{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
-/* Shared shell spacing: exact page rhythm across home, portal, phases, modules, and rubric. */
-:root{--shell-max:1120px;--shell-x:26px;--shell-top:40px;--shell-gap:18px;--header-h:74px}
-.site-header{min-height:var(--header-h)}
-.header-inner{min-height:var(--header-h);padding-top:13px;padding-bottom:13px}
-.home-screen{padding:14px var(--shell-x);min-height:100dvh}
-.home-actions{top:42px;right:max(var(--shell-x),calc((100vw - var(--shell-max))/2 + var(--shell-x)));height:48px}
-.home-entry{min-height:calc(100dvh - 28px)}
-.home-brand{transform:none}
-.hero,.simple-main,.phases-page,.rubric-page,.main{max-width:var(--shell-max);padding-left:var(--shell-x);padding-right:var(--shell-x)}
-.portal-hub .hero,.en-hub .hero,.zh-hub .hero{padding-top:var(--shell-top);padding-bottom:18px}
-.simple-main,.phases-page,.rubric-page{padding-top:var(--shell-top)}
-.page-nav{margin:0 0 var(--shell-gap)}
-.controls-wrap{margin-top:0}
-.phase-dashboard .phases-page,.rubric-fit .rubric-page,.rubric-zh .rubric-page{padding-top:var(--shell-top)}
-.portal-menu,.phase-legend{gap:18px}
-@media (max-width:900px){:root{--shell-x:18px;--shell-top:28px}.header-inner{padding-left:var(--shell-x);padding-right:var(--shell-x)}.home-actions{right:var(--shell-x)}}
-@media (max-width:640px){:root{--shell-x:16px;--shell-top:22px;--shell-gap:14px}.home-screen{padding:12px var(--shell-x)}.home-actions{top:18px;left:var(--shell-x);right:var(--shell-x);justify-content:flex-end}.home-entry{min-height:calc(100dvh - 24px)}.header-inner{min-height:64px}.site-header{min-height:64px}.page-nav{gap:8px}.hero,.simple-main,.phases-page,.rubric-page,.main{padding-left:var(--shell-x);padding-right:var(--shell-x)}}
-
-/* Uniform AI CURRICULUM header dimensions across every page. */
-.site-header{height:var(--header-h);min-height:var(--header-h);display:flex;align-items:center}
-.site-header .header-inner{width:100%;max-width:none;height:var(--header-h);min-height:var(--header-h);padding:0 var(--shell-x);display:flex;align-items:center}
-.site-header .wordmark{gap:14px;min-height:48px}
-.site-header .crest{width:42px;height:48px;font-size:20px}
-.site-header .wordmark-title{font-size:23px;letter-spacing:.12em;line-height:1;white-space:nowrap}
-.site-header .header-actions{min-height:48px}
-@media (max-width:900px){.site-header .wordmark-title{font-size:20px;letter-spacing:.1em}.site-header .crest{width:38px;height:44px;font-size:18px}}
-@media (max-width:640px){.site-header{height:64px;min-height:64px}.site-header .header-inner{height:64px;min-height:64px}.site-header .wordmark{gap:10px}.site-header .crest{width:34px;height:40px;font-size:16px}.site-header .wordmark-title{font-size:16px;letter-spacing:.07em}.site-header .header-actions{min-height:40px}}
+@media (max-width:600px){
+  .site-header nav{padding:0 1.25rem}
+  .crest{width:34px;height:40px;font-size:16px}
+  .wordmark{gap:10px}
+  .wordmark-title{font-size:16px;letter-spacing:.07em}
+  .hero-inner{padding:64px 1.25rem}
+  .portal-menu{
+    padding:2rem 1.25rem 3rem;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.8rem;
+  }
+  .portal-card{
+    min-height:168px;
+    padding:1.1rem;
+  }
+  .metric-number{font-size:32px}
+  .hero-lead{font-size:15px}
+}
 </style>
 </head>
-<body class="portal-hub zh-hub">
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
 <header class="site-header">
-  <div class="header-inner">
+  <nav aria-label="Primary">
     <a class="wordmark" href="ai_curriculum_harvard_style_adjusted.html">
       <span class="crest">AI</span>
       <span class="wordmark-title">CURRICULUM</span>
     </a>
-  </div>
+  </nav>
 </header>
 
-<a id="top"></a>
-<section class="hero">
-  <span class="eyebrow"><span class="bar"></span>教学门户 · 4–9 年级</span>
-  <h1 class="serif">完整的 <em>AI 素养</em> 学习路径：从第一次点击到最终作品。</h1>
-  <p class="hero-lead">十个模块带领学生从<b>数字基础</b>进入<b>提示词、评估，以及真实 AI 工具的设计与制作</b>。每节课都包含学习目标、教学步骤、课堂活动、无障碍支持、评估证据和可直接布置的作业说明。</p>
-</section>
-<nav class="portal-menu" aria-label="Curriculum sections">
-  <a class="portal-card" href="ai_curriculum_modules_zh.html"><span class="metric-top"><span class="metric-number">10</span><span class="ico"><i class="ti ti-books"></i></span></span><span><h2>模块</h2><p>打开完整模块列表和保留的作业说明。</p></span></a>
-  <a class="portal-card" href="ai_curriculum_modules_zh.html"><span class="metric-top"><span class="metric-number">38</span><span class="ico"><i class="ti ti-list-details"></i></span></span><span><h2>课时</h2><p>浏览课程、活动、文件和评估证据。</p></span></a>
-  <a class="portal-card" href="ai_curriculum_phases_zh.html"><span class="metric-top"><span class="metric-number">4</span><span class="ico"><i class="ti ti-layout-grid"></i></span></span><span><h2>阶段</h2><p>查看四个学习阶段和每个阶段的目标。</p></span></a>
-  <a class="portal-card" href="ai_curriculum_rubric_zh.html"><span class="metric-top"><span class="metric-number">35<small>+</small></span><span class="ico"><i class="ti ti-clipboard-check"></i></span></span><span><h2>课时 + 量规</h2><p>用于项目、制作和展示的通用评价量规。</p></span></a>
-</nav>
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="fw">
-      <span class="crest">AI</span>
-      <span class="footer-wordmark-title">CURRICULUM</span>
+<main id="main">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-inner">
+      <span class="eyebrow">教学门户 · 4–9 年级</span>
+      <h1 id="page-title">完整的 <em>AI 素养</em> 学习路径：从第一次点击到最终作品。</h1>
+      <p class="hero-lead">十个模块带领学生从 <b>数字基础</b> 进入 <b>提示词、评估，以及真实 AI 工具的设计与制作</b>。每节课都包含学习目标、教学步骤、课堂活动、无障碍支持、评估证据和可直接布置的作业说明。</p>
     </div>
-    <div id="footMeta"></div>
-  </div>
+  </section>
+
+  <nav class="portal-menu" aria-label="课程栏目">
+    <a class="portal-card" href="ai_curriculum_modules_zh.html">
+      <span class="metric-number">10</span>
+      <span>
+        <h2>模块</h2>
+        <p>打开完整模块列表和保留的作业说明。</p>
+      </span>
+    </a>
+    <a class="portal-card" href="ai_curriculum_modules_zh.html">
+      <span class="metric-number">38</span>
+      <span>
+        <h2>课时</h2>
+        <p>浏览课程、活动、文件和评估证据。</p>
+      </span>
+    </a>
+    <a class="portal-card" href="ai_curriculum_phases_zh.html">
+      <span class="metric-number">4</span>
+      <span>
+        <h2>阶段</h2>
+        <p>查看四个学习阶段和每个阶段的目标。</p>
+      </span>
+    </a>
+    <a class="portal-card" href="ai_curriculum_rubric_zh.html">
+      <span class="metric-number">35<small>+</small></span>
+      <span>
+        <h2>课时 + 量规</h2>
+        <p>用于项目、制作和展示的通用评价量规。</p>
+      </span>
+    </a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <span>AI CURRICULUM</span>
 </footer>
-<button class="to-top" id="toTop" aria-label="Back to top"><i class="ti ti-arrow-up"></i></button>
-<script>
-const toTop=document.getElementById('toTop');
-window.addEventListener('scroll',()=>toTop.classList.toggle('show',window.scrollY>500));
-toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-</script>
 </body>
 </html>
