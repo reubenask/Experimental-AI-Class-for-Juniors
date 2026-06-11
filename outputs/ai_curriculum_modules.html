@@ -620,22 +620,22 @@ hw:{
 }
 }
 ]},
-{id:'m9',phase:'advanced',badge:'Module 9',name:'Codex, agents, APIs, and automation systems',sessions:'5 sessions',
+{id:'m9',phase:'advanced',badge:'Module 9',name:'Codex, Claude Code, agents, APIs, and automation systems',sessions:'6 sessions',
 subsections:[
-{name:'9.1–9.5 APIs, agents, Codex, n8n, and automation workflows',
-obj:['Explain APIs using the waiter analogy: request, response, endpoint, key, and permission','Distinguish chatbots, agents, Codex-style coding assistants, and n8n/Make/Zapier automation workflows','Observe Codex or Claude Code reading a project, editing a file, showing a diff, and verifying the result','Design an n8n-style automation workflow with trigger, steps, conditions, outputs, and human approval','Understand automation risks: privacy, error spread, secret keys, repeated runs, and human confirmation'],
-teach:['API analogy: user = customer, AI = kitchen, API = waiter, key = pass','Live Codex demo: inspect a web file, propose a change, show the diff, and wait for human approval','Live n8n / Make / Zapier demo: trigger → AI node → condition → email/spreadsheet/notification output','Compare systems: chatbot for answers, Codex for code changes, n8n for connecting tools and automating workflows','Safety discussion: what must require human approval? What data should never enter automation?'],
-tlms:['API analogy card','Codex or Claude Code demo environment','n8n / Make / Zapier workflow screenshots or demo account','Teacher-provided test API key','Prewritten API starter code','Automation safety checklist'],
-act:['Paper agent design: draw a learning agent with goal, tools, steps, memory, and checkpoints','Use Codex or Claude Code to add a small feature to the Module 6 app; record prompts and before/after changes','Design an n8n automation flow, for example: collect learning feedback → AI summary → send to teacher → write to spreadsheet','Run the API starter code and identify request, response, and key-protection boundary','Risk-mark an automation workflow: where can it fail, and where does a human need to approve?'],
-files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n automation workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
+{name:'9.1–9.6 APIs, agents, Codex, Claude Code, n8n, and automation workflows',
+obj:['Explain APIs using the waiter analogy: request, response, endpoint, key, and permission','Distinguish chatbots, agents, Codex, Claude Code, and n8n/Make/Zapier automation workflows','Observe Codex reading a project, editing a file, showing a diff, and verifying the result','Observe Claude Code handling a coding task and compare its workflow with Codex','Design an n8n-style automation workflow with trigger, steps, conditions, outputs, and human approval','Understand automation risks: privacy, error spread, secret keys, repeated runs, and human confirmation'],
+teach:['API analogy: user = customer, AI = kitchen, API = waiter, key = pass','Live Codex demo: inspect a web file, propose a change, show the diff, and wait for human approval','Live Claude Code demo: ask it to explain a small project, edit one controlled feature, and summarize what changed','Live n8n / Make / Zapier demo: trigger → AI node → condition → email/spreadsheet/notification output','Compare systems: chatbot for answers, Codex and Claude Code for code changes, n8n for connecting tools and automating workflows','Safety discussion: what must require human approval? What data should never enter automation?'],
+tlms:['API analogy card','Codex demo environment','Claude Code demo environment','n8n / Make / Zapier workflow screenshots or demo account','Teacher-provided test API key','Prewritten API starter code','Automation safety checklist'],
+act:['Paper agent design: draw a learning agent with goal, tools, steps, memory, and checkpoints','Use Codex to add a small feature to the Module 6 app; record prompts, before/after changes, diff, and test result','Use Claude Code on the same or a similar task; compare setup, explanation quality, code changes, and verification process','Design an n8n automation flow, for example: collect learning feedback → AI summary → send to teacher → write to spreadsheet','Run the API starter code and identify request, response, and key-protection boundary','Risk-mark an automation workflow: where can it fail, and where does a human need to approve?'],
+files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'Codex vs Claude Code comparison sheet'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n automation workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
 hw:{
   title:'Build your own AI tool, agent, or automation workflow',
-  mission:'This is your advanced project. Use prompting, web building, GitHub, APIs, Codex-style coding assistants, agent design, or n8n-style automation to create something real and demonstrable.',
+  mission:'This is your advanced project. Use prompting, web building, GitHub, APIs, Codex, Claude Code, agent design, or n8n-style automation to create something real and demonstrable.',
   choices:[
     {title:'Option A — AI-powered web app',body:'Extend your Module 6 app with a useful AI feature using an API call: answer questions, generate content, give advice, summarise materials, etc. You may use Codex / Claude Code / ChatGPT to modify the code, but you must record prompts, code changes, and test results. Deploy the final version to GitHub Pages and record a 2-minute demo.'},
     {title:'Option B — My own AI agent design',body:'Design a complete AI agent for a problem you care about. Include: the problem it solves, tools it needs (search, calendar, email, spreadsheet, web, files, etc.), workflow diagram, prompt sequence, memory/checking mechanism, and a safety note explaining what must require human approval.'},
     {title:'Option C — n8n automation for learning',body:'Design an n8n / Make / Zapier-style automation workflow that improves learning. Example: collect mistakes → AI summary → generate review list → send to student/teacher → write to spreadsheet. Include trigger, every node, conditions, outputs, what happens if it fails, and privacy/safety checks.'},
-    {title:'Option D — AI tools field guide',body:'Create a practical AI tools guide for students your age. Cover: LLMs, prompting, NotebookLM, Codex/AI coding assistants, APIs, agents, n8n or another automation system. Minimum 15 pages/slides with real screenshots. Explain when each tool is useful and when it is not.'}
+    {title:'Option D — AI tools field guide',body:'Create a practical AI tools guide for students your age. Cover: LLMs, prompting, NotebookLM, Codex, Claude Code, AI coding assistants, APIs, agents, n8n or another automation system. Minimum 15 pages/slides with real screenshots. Explain when each tool is useful and when it is not.'}
   ],
   deliver:['Completed project (A, B, C, or D)','Process evidence: screenshots, prompt logs, code diff, workflow diagram, or drafts','Safety note: data, keys, human approval, and failure handling','Final reflection: what do you want to automate or build next?']
 }
@@ -907,20 +907,26 @@ const sessionGuide = [
   [
     "9.3",
     "Codex and AI coding assistants",
-    "Students use Codex or a similar coding assistant to inspect a file, make a controlled change, review the diff, and verify the result.",
+    "Students use Codex to inspect a file, make a controlled change, review the diff, verify the result, and prepare the change for GitHub.",
     "Project editor with Codex-style AI assistant, highlighted code diff, test checklist, GitHub commit path, and human approval gate."
   ],
   [
     "9.4",
+    "Claude Code and coding assistant comparison",
+    "Students use Claude Code on a similar coding task, then compare setup, explanations, code changes, verification, and when each assistant is useful.",
+    "Side-by-side coding workspace comparing Codex and Claude Code: prompt panel, changed file, diff review, test result, strengths checklist, and teacher approval step."
+  ],
+  [
+    "9.5",
     "n8n automation workflows",
     "Students design an automation workflow with trigger, AI step, condition, output, error handling, and human confirmation.",
     "n8n-style workflow canvas with trigger node, AI summary node, spreadsheet/email output nodes, warning badges for privacy, keys, failures, and approval steps."
   ],
   [
-    "9.5",
+    "9.6",
     "Advanced tool showcase",
-    "Students present an AI web app, agent design, Codex-assisted code change, or n8n automation workflow with process evidence and responsible-use reflection.",
-    "Portfolio review wall with app demo, automation workflow diagram, Codex diff screenshot, QR code, GitHub link, video thumbnail, rubric, and reflection card."
+    "Students present an AI web app, agent design, Codex or Claude Code-assisted code change, or n8n automation workflow with process evidence and responsible-use reflection.",
+    "Portfolio review wall with app demo, automation workflow diagram, Codex and Claude Code diff screenshots, QR code, GitHub link, video thumbnail, rubric, and reflection card."
   ],
   [
     "10.1",
@@ -957,7 +963,7 @@ const moduleSessionMap = {
   m6:['6.1','6.2','6.3','6.4'],
   m7:['7.1','7.2'],
   m8:['8.1','8.2'],
-  m9:['9.1','9.2','9.3','9.4','9.5'],
+  m9:['9.1','9.2','9.3','9.4','9.5','9.6'],
   m10:['10.1','10.2','10.3','10.4']
 };
 const moduleVisuals = {

@@ -620,22 +620,22 @@ hw:{
 }
 }
 ]},
-{id:'m9',phase:'advanced',badge:'Module 9',name:'Codex、Agents、APIs 和自动化系统',sessions:'5 节课',
+{id:'m9',phase:'advanced',badge:'Module 9',name:'Codex、Claude Code、Agents、APIs 和自动化系统',sessions:'6 节课',
 subsections:[
-{name:'9.1–9.5 APIs、Agents、Codex、n8n 与自动化流程',
-obj:['用“服务员”类比解释 API：请求、响应、端点、密钥和权限','区分聊天机器人、Agent、Codex 编程助手和 n8n/Make/Zapier 自动化流程','观察 Codex 或 Claude Code 如何读取项目、修改文件、检查差异并验证结果','设计一个 n8n 风格的自动化流程：触发器、步骤、条件、输出和人工审批','理解自动化风险：隐私、错误传播、密钥泄露、重复执行和人工确认'],
-teach:['API 类比：用户是顾客，AI 是厨房，API 是服务员，密钥是通行证','现场演示 Codex：让它检查一个网页文件、提出修改、展示 diff，再由人类确认','现场演示 n8n / Make / Zapier：触发器 → AI 节点 → 条件判断 → 邮件/表格/通知输出','比较三种系统：聊天机器人适合回答，Codex 适合改代码，n8n 适合连接工具和自动流程','安全讨论：哪些步骤必须人工确认？哪些数据不能进入自动化？'],
-tlms:['API 类比卡','Codex 或 Claude Code 演示环境','n8n / Make / Zapier 自动化流程截图或演示账号','测试 API key（教师提供）','预写好的 API starter code','自动化安全检查清单'],
-act:['画出“我的学习 Agent”：目标、工具、步骤、记忆、检查点','用 Codex 或 Claude Code 给 M6 App 增加一个小功能，并记录提示词和修改前后','设计一个 n8n 自动化流程：例如收集学习反馈 → AI 总结 → 发给老师 → 写入表格','运行 API starter code，观察请求、响应和密钥保护位置','给一个自动化流程做风险标注：哪里可能出错？哪里需要人工确认？'],
-files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n automation workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
+{name:'9.1–9.6 APIs、Agents、Codex、Claude Code、n8n 与自动化流程',
+obj:['用“服务员”类比解释 API：请求、响应、端点、密钥和权限','区分聊天机器人、Agent、Codex、Claude Code 和 n8n/Make/Zapier 自动化流程','观察 Codex 如何读取项目、修改文件、检查差异并验证结果','观察 Claude Code 如何处理编程任务，并和 Codex 的流程进行比较','设计一个 n8n 风格的自动化流程：触发器、步骤、条件、输出和人工审批','理解自动化风险：隐私、错误传播、密钥泄露、重复执行和人工确认'],
+teach:['API 类比：用户是顾客，AI 是厨房，API 是服务员，密钥是通行证','现场演示 Codex：让它检查一个网页文件、提出修改、展示 diff，再由人类确认','现场演示 Claude Code：让它解释一个小项目、修改一个受控功能，并总结改了什么','现场演示 n8n / Make / Zapier：触发器 → AI 节点 → 条件判断 → 邮件/表格/通知输出','比较系统：聊天机器人适合回答，Codex 和 Claude Code 适合改代码，n8n 适合连接工具和自动流程','安全讨论：哪些步骤必须人工确认？哪些数据不能进入自动化？'],
+tlms:['API 类比卡','Codex 演示环境','Claude Code 演示环境','n8n / Make / Zapier 自动化流程截图或演示账号','测试 API key（教师提供）','预写好的 API starter code','自动化安全检查清单'],
+act:['画出“我的学习 Agent”：目标、工具、步骤、记忆、检查点','用 Codex 给 M6 App 增加一个小功能，并记录提示词、修改前后、diff 和测试结果','用 Claude Code 完成相同或类似任务；比较配置方式、解释质量、代码修改和验证过程','设计一个 n8n 自动化流程：例如收集学习反馈 → AI 总结 → 发给老师 → 写入表格','运行 API starter code，观察请求、响应和密钥保护位置','给一个自动化流程做风险标注：哪里可能出错？哪里需要人工确认？'],
+files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'Codex vs Claude Code comparison sheet'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n automation workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
 hw:{
   title:'构建自己的 AI 工具、Agent 或自动化流程',
-  mission:'这是你的高级项目。请综合使用提示词、网页制作、GitHub、API、Codex 编程助手、Agent 设计或 n8n 自动化流程，做出一个真实可展示的作品。',
+  mission:'这是你的高级项目。请综合使用提示词、网页制作、GitHub、API、Codex、Claude Code、Agent 设计或 n8n 自动化流程，做出一个真实可展示的作品。',
   choices:[
     {title:'选项 A：AI-powered Web App',body:'在 Module 6 的 App 基础上加入一个真正有用的 AI 功能，可以通过 API 调用实现：回答问题、生成内容、给建议、总结资料等。请用 Codex / Claude Code / ChatGPT 等帮助你修改代码，但必须记录提示词、修改内容和测试结果。最终部署到 GitHub Pages，并录制 2 分钟 demo。'},
     {title:'选项 B：我的 AI Agent 设计',body:'设计一个完整的 AI Agent，解决一个你关心的问题。必须包含：它解决的问题、需要使用的工具（搜索、日历、邮件、表格、网页、文件等）、工作流程图、提示词序列、记忆/检查机制，以及“哪些地方必须人工确认”的安全说明。'},
     {title:'选项 C：n8n 自动化学习流程',body:'设计一个 n8n / Make / Zapier 风格的自动化流程，帮助学习过程变得更高效。例如：收集错题 → AI 总结 → 生成复习清单 → 发给学生/老师 → 写入表格。必须包含触发器、每一步节点、条件判断、输出结果、失败时怎么办，以及隐私/安全检查。'},
-    {title:'选项 D：AI 工具实战指南',body:'创建一份给同龄学生使用的 AI 工具指南。必须覆盖：LLM、提示词、NotebookLM、Codex/AI 编程助手、API、Agent、n8n 或其他自动化系统。至少 15 页/张幻灯片，包含真实截图，并说明每个工具什么时候适合用、什么时候不适合用。'}
+    {title:'选项 D：AI 工具实战指南',body:'创建一份给同龄学生使用的 AI 工具指南。必须覆盖：LLM、提示词、NotebookLM、Codex、Claude Code、AI 编程助手、API、Agent、n8n 或其他自动化系统。至少 15 页/张幻灯片，包含真实截图，并说明每个工具什么时候适合用、什么时候不适合用。'}
   ],
   deliver:['完成的项目（A、B、C 或 D）','过程证据：截图、提示词记录、代码 diff、流程图或草稿','安全说明：数据、密钥、人工确认和失败处理','最终反思：你下一步想自动化或构建什么？']
 }
@@ -907,20 +907,26 @@ const sessionGuide = [
   [
     "9.3",
     "Codex and AI coding assistants",
-    "Students use Codex or a similar coding assistant to inspect a file, make a controlled change, review the diff, and verify the result.",
+    "Students use Codex to inspect a file, make a controlled change, review the diff, verify the result, and prepare the change for GitHub.",
     "Project editor with Codex-style AI assistant, highlighted code diff, test checklist, GitHub commit path, and human approval gate."
   ],
   [
     "9.4",
+    "Claude Code and coding assistant comparison",
+    "Students use Claude Code on a similar coding task, then compare setup, explanations, code changes, verification, and when each assistant is useful.",
+    "Side-by-side coding workspace comparing Codex and Claude Code: prompt panel, changed file, diff review, test result, strengths checklist, and teacher approval step."
+  ],
+  [
+    "9.5",
     "n8n automation workflows",
     "Students design an automation workflow with trigger, AI step, condition, output, error handling, and human confirmation.",
     "n8n-style workflow canvas with trigger node, AI summary node, spreadsheet/email output nodes, warning badges for privacy, keys, failures, and approval steps."
   ],
   [
-    "9.5",
+    "9.6",
     "Advanced tool showcase",
-    "Students present an AI web app, agent design, Codex-assisted code change, or n8n automation workflow with process evidence and responsible-use reflection.",
-    "Portfolio review wall with app demo, automation workflow diagram, Codex diff screenshot, QR code, GitHub link, video thumbnail, rubric, and reflection card."
+    "Students present an AI web app, agent design, Codex or Claude Code-assisted code change, or n8n automation workflow with process evidence and responsible-use reflection.",
+    "Portfolio review wall with app demo, automation workflow diagram, Codex and Claude Code diff screenshots, QR code, GitHub link, video thumbnail, rubric, and reflection card."
   ],
   [
     "10.1",
@@ -957,7 +963,7 @@ const moduleSessionMap = {
   m6:['6.1','6.2','6.3','6.4'],
   m7:['7.1','7.2'],
   m8:['8.1','8.2'],
-  m9:['9.1','9.2','9.3','9.4','9.5'],
+  m9:['9.1','9.2','9.3','9.4','9.5','9.6'],
   m10:['10.1','10.2','10.3','10.4']
 };
 const moduleVisuals = {
