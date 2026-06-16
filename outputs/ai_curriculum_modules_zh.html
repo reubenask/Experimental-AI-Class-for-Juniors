@@ -620,22 +620,38 @@ hw:{
 }
 }
 ]},
-{id:'m9',phase:'advanced',badge:'Module 9',name:'Codex、Claude Code、Agents、APIs 和自动化系统',sessions:'6 节课',
+{id:'m9',phase:'advanced',badge:'Module 9',name:'AI 应用构建器与工作流自动化',sessions:'5 节课',
 subsections:[
-{name:'9.1–9.6 APIs、Agents、Codex、Claude Code、n8n 与自动化流程',
-obj:['用“服务员”类比解释 API：请求、响应、端点、密钥和权限','区分聊天机器人、Agent、Codex、Claude Code 和 n8n/Make/Zapier 自动化流程','观察 Codex 如何读取项目、修改文件、检查差异并验证结果','观察 Claude Code 如何处理编程任务，并和 Codex 的流程进行比较','设计一个 n8n 风格的自动化流程：触发器、步骤、条件、输出和人工审批','理解自动化风险：隐私、错误传播、密钥泄露、重复执行和人工确认'],
-teach:['API 类比：用户是顾客，AI 是厨房，API 是服务员，密钥是通行证','现场演示 Codex：让它检查一个网页文件、提出修改、展示 diff，再由人类确认','现场演示 Claude Code：让它解释一个小项目、修改一个受控功能，并总结改了什么','现场演示 n8n / Make / Zapier：触发器 → AI 节点 → 条件判断 → 邮件/表格/通知输出','比较系统：聊天机器人适合回答，Codex 和 Claude Code 适合改代码，n8n 适合连接工具和自动流程','安全讨论：哪些步骤必须人工确认？哪些数据不能进入自动化？'],
-tlms:['API 类比卡','Codex 演示环境','Claude Code 演示环境','n8n / Make / Zapier 自动化流程截图或演示账号','测试 API key（教师提供）','预写好的 API starter code','自动化安全检查清单'],
-act:['画出“我的学习 Agent”：目标、工具、步骤、记忆、检查点','用 Codex 给 M6 App 增加一个小功能，并记录提示词、修改前后、diff 和测试结果','用 Claude Code 完成相同或类似任务；比较配置方式、解释质量、代码修改和验证过程','设计一个 n8n 自动化流程：例如收集学习反馈 → AI 总结 → 发给老师 → 写入表格','运行 API starter code，观察请求、响应和密钥保护位置','给一个自动化流程做风险标注：哪里可能出错？哪里需要人工确认？'],
-files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'Codex vs Claude Code comparison sheet'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n automation workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
+{name:'9.1-9.5 Opal 风格应用、n8n 工作流、触发器与自动化安全',
+obj:['把 AI 工作流解释为：触发器、输入、AI 步骤、条件、输出和人工复核','为一个学习任务构建简单的 Opal 风格 AI 小应用','设计 n8n 风格工作流：节点、数据传递、条件和输出','比较 AI 应用构建器、自动化工具和 Agent 之间的不同层级','识别自动化风险：隐私数据、重复错误、误发送、提示词不清和缺少审批点'],
+teach:['工作流模型：触发器 -> 输入 -> AI 步骤 -> 条件 -> 输出 -> 人工复核','演示 Opal 风格小应用：定义用户任务、串联提示词、测试输出，并让它可重复使用','演示 n8n / Make / Zapier 的工作流思维：触发器、AI 节点、条件、表格/邮件/通知输出','比较工具：AI 应用构建器适合做可复用界面，n8n 适合连接系统，Agent 适合计划和使用工具','安全检查点：哪些事情不能在无人确认的情况下自动执行？'],
+tlms:['Opal 风格 AI 小应用演示或截图','n8n / Make / Zapier 工作流截图或演示账号','工作流规划画布','自动化安全检查清单','示例表单输入和表格输出','教师批准的演示数据'],
+act:['把一个日常学习流程画成工作流：触发器、输入、AI 步骤、条件、输出、复核','构建或分镜设计一个 Opal 风格学习助手小应用，例如词汇教练、反馈助手或测验生成器','设计一个 n8n 自动化流程，例如：收集错题 -> AI 总结 -> 复习清单 -> 通知老师/学生','追踪数据如何穿过工作流，并标出隐私、错误或误发送可能发生的位置','给有风险的自动化加入人工审批点，并解释为什么需要它们'],
+files:[{ext:'.docx',icon:'ti-file-text',desc:'AI 工作流规划画布'},{ext:'.pdf',icon:'ti-file-description',desc:'Opal 风格小应用任务书'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n 工作流地图'},{ext:'.xlsx',icon:'ti-table',desc:'自动化测试数据表'},{ext:'.txt',icon:'ti-file',desc:'安全检查清单'}],
 hw:{
-  title:'构建自己的 AI 工具、Agent 或自动化流程',
-  mission:'这是你的高级项目。请综合使用提示词、网页制作、GitHub、API、Codex、Claude Code、Agent 设计或 n8n 自动化流程，做出一个真实可展示的作品。',
+  title:'设计一个 AI 小应用或学习自动化流程',
+  mission:'使用 Opal 风格应用构建器、n8n 风格工作流，或在没有工具权限时使用完整纸面原型，构建或设计一个小型 AI 学习工具。',
+  reqs:['选择一个可以被可复用 AI 小应用或自动化工作流帮助的学习问题。','定义用户、触发器、输入、AI 步骤、输出和成功标准。','如果有工具权限，请构建小应用/工作流；如果没有，请制作完整的界面或节点分镜图。','至少用 2 个例子测试，并记录成功之处、失败之处和你做出的修改。','加入安全说明：哪些数据不能输入，哪里需要人工审批，用户如何检查重要输出。'],
+  deliver:['小应用链接、工作流截图或完整分镜图','包含触发器、输入、AI 步骤、条件、输出和审批点的工作流图','2 个测试案例和结果','安全说明','简短反思：下一步你想自动化什么？']
+}
+}
+]},
+{id:'m10',phase:'advanced',badge:'Module 10',name:'Agents、APIs、Codex、Claude Code 与高级 AI 系统',sessions:'6 节课',
+subsections:[
+{name:'10.1-10.6 APIs、Agents、Codex、Claude Code 与高级 AI 系统',
+obj:['用“服务员”类比解释 API：请求、响应、端点、密钥和权限','区分聊天机器人、Agent、API、Codex、Claude Code 和自动化流程','观察 Codex 如何读取项目、修改文件、检查差异并验证结果','观察 Claude Code 如何处理编程任务，并和 Codex 的流程进行比较','设计一个高级 Agent 工作流：工具、记忆、计划、检查和人工审批','理解高级 AI 系统风险：隐私、错误传播、密钥泄露、重复执行和人工确认'],
+teach:['API 类比：用户是顾客，AI 是厨房，API 是服务员，密钥是通行证','现场演示 Codex：让它检查一个网页文件、提出修改、展示 diff，再由人类确认','现场演示 Claude Code：让它解释一个小项目、修改一个受控功能，并总结改了什么','Agent 工作流演示：目标 -> 计划 -> 使用工具 -> 检查 -> 修改 -> 汇报','比较系统：聊天机器人适合回答，Codex 和 Claude Code 适合改代码，工作流自动化适合连接工具，Agent 适合多步骤任务','安全讨论：哪些步骤必须人工确认？哪些数据不能进入 AI 系统？'],
+tlms:['API 类比卡','Codex 演示环境','Claude Code 演示环境','Agent 工作流截图或演示账号','测试 API key（教师提供）','预写好的 API starter code','高级 AI 安全检查清单'],
+act:['画出“我的学习 Agent”：目标、工具、步骤、记忆、检查点','用 Codex 给 M6 App 增加一个小功能，并记录提示词、修改前后、diff 和测试结果','用 Claude Code 完成相同或类似任务；比较配置方式、解释质量、代码修改和验证过程','设计一个至少使用两个工具和一个人工审批点的高级 Agent 工作流','运行 API starter code，观察请求、响应和密钥保护位置','给一个 AI 系统工作流做风险标注：哪里可能出错？哪里需要人工确认？'],
+files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'Codex vs Claude Code comparison sheet'},{ext:'.pdf',icon:'ti-file-description',desc:'Advanced AI workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
+hw:{
+  title:'构建自己的 AI 工具、Agent 或高级 AI 系统',
+  mission:'这是你的高级项目。请综合使用提示词、网页制作、GitHub、API、Codex、Claude Code、Agent 设计或工作流自动化，做出一个真实可展示的作品。',
   choices:[
     {title:'选项 A：AI-powered Web App',body:'在 Module 6 的 App 基础上加入一个真正有用的 AI 功能，可以通过 API 调用实现：回答问题、生成内容、给建议、总结资料等。请用 Codex / Claude Code / ChatGPT 等帮助你修改代码，但必须记录提示词、修改内容和测试结果。最终部署到 GitHub Pages，并录制 2 分钟 demo。'},
     {title:'选项 B：我的 AI Agent 设计',body:'设计一个完整的 AI Agent，解决一个你关心的问题。必须包含：它解决的问题、需要使用的工具（搜索、日历、邮件、表格、网页、文件等）、工作流程图、提示词序列、记忆/检查机制，以及“哪些地方必须人工确认”的安全说明。'},
-    {title:'选项 C：n8n 自动化学习流程',body:'设计一个 n8n / Make / Zapier 风格的自动化流程，帮助学习过程变得更高效。例如：收集错题 → AI 总结 → 生成复习清单 → 发给学生/老师 → 写入表格。必须包含触发器、每一步节点、条件判断、输出结果、失败时怎么办，以及隐私/安全检查。'},
-    {title:'选项 D：AI 工具实战指南',body:'创建一份给同龄学生使用的 AI 工具指南。必须覆盖：LLM、提示词、NotebookLM、Codex、Claude Code、AI 编程助手、API、Agent、n8n 或其他自动化系统。至少 15 页/张幻灯片，包含真实截图，并说明每个工具什么时候适合用、什么时候不适合用。'}
+    {title:'选项 C：高级学习自动化',body:'把 Module 9 的工作流想法扩展成一个高级自动化或 Agent 工作流，帮助学习过程变得更高效。例如：收集错题 -> AI 总结 -> 生成复习清单 -> 发给学生/老师 -> 写入表格。必须包含触发器、每一步、条件判断、输出结果、失败时怎么办，以及隐私/安全检查。'},
+    {title:'选项 D：AI 工具实战指南',body:'创建一份给同龄学生使用的 AI 工具指南。必须覆盖：LLM、提示词、NotebookLM、Opal 风格 AI 应用构建器、Codex、Claude Code、AI 编程助手、API、Agent、n8n 或其他自动化系统。至少 15 页/张幻灯片，包含真实截图，并说明每个工具什么时候适合用、什么时候不适合用。'}
   ],
   deliver:['完成的项目（A、B、C 或 D）','过程证据：截图、提示词记录、代码 diff、流程图或草稿','安全说明：数据、密钥、人工确认和失败处理','最终反思：你下一步想自动化或构建什么？']
 }
@@ -644,14 +660,14 @@ hw:{
 ];
 
 modules.push({
-  id:'m10',
+  id:'m11',
   phase:'creation',
-  badge:'Module 10',
-  name:'Group project — build an educational web app or AI agent',
+  badge:'Module 11',
+  name:'Group project — build an educational web app, automation, or AI agent',
   sessions:'4–6 sessions',
   subsections:[
     {
-      name:'10.1–10.4 Group capstone: solve a real learning problem',
+      name:'11.1-11.4 Group capstone: solve a real learning problem',
       obj:[
         'Work in a team to identify a pressing educational problem that affects real learners',
         'Choose and justify a solution format: web app, AI agent, or hybrid learning tool',
@@ -692,11 +708,11 @@ modules.push({
       ],
       hw:{
         title:'Group capstone — learning tool for real users',
-        mission:'In your group, build a web app or AI agent that solves a pressing educational problem and can be used by other learners to improve their learning process.',
+        mission:'In your group, build a web app, automation, or AI agent that solves a pressing educational problem and can be used by other learners to improve their learning process.',
         reqs:[
           'Choose one real educational problem. It must be specific, important, and connected to how students learn, revise, practise, understand, organise, or get feedback.',
           'Interview at least 3 potential users. Record what problem they have, what they currently do, and what would make learning easier for them.',
-          'Decide whether your solution should be a web app, an AI agent, or a hybrid tool. Write a short explanation of why this format is the best fit.',
+          'Decide whether your solution should be a web app, automation, an AI agent, or a hybrid tool. Write a short explanation of why this format is the best fit.',
           'Build a working prototype that other learners can actually use. It must include clear instructions, useful feedback or guidance, and at least one feature that responds to user input.',
           'Test your prototype with at least 3 users. Collect feedback, identify the most important problem, and make at least 3 improvements.',
           'Prepare a final showcase: demonstrate the tool, explain the educational problem, show evidence from testing, describe each team member\'s contribution, and reflect on what you would improve next.',
@@ -894,60 +910,90 @@ const sessionGuide = [
   ],
   [
     "9.1",
+    "什么是 AI 工作流？",
+    "学生在使用自动化工具前，先画出触发器、输入、AI 步骤、条件、输出和人工复核。",
+    "清晰的工作流图：触发器、输入表单、AI 节点、条件分支、输出目的地和人工复核检查点。"
+  ],
+  [
+    "9.2",
+    "Opal 风格 AI 小应用",
+    "学生为一个学习任务设计可复用的 AI 小应用，并测试输入、优化输出。",
+    "高级应用构建器画布：提示词模块、学生输入框、输出预览、测试案例和可复用学习工具界面。"
+  ],
+  [
+    "9.3",
+    "n8n 工作流基础",
+    "学生构建或分镜设计一个包含触发器、AI 节点、条件、输出和日志的自动化流程。",
+    "n8n 风格工作流画布：触发器节点、AI 总结节点、条件分支、表格/邮件输出节点和运行日志。"
+  ],
+  [
+    "9.4",
+    "数据传递与自动化安全",
+    "学生追踪数据如何在工具之间流动，并标记隐私、错误、发送和审批风险。",
+    "数据流图：敏感字段被遮挡，带有警告标记、审批门、错误路径和最终输出复核区。"
+  ],
+  [
+    "9.5",
+    "工作流小项目",
+    "学生展示一个小型 AI 应用或学习自动化流程，并提交测试证据和安全说明。",
+    "学生展示板：Opal 风格小应用界面、n8n 工作流图、两个测试案例卡、安全清单和反思记录。"
+  ],
+  [
+    "10.1",
     "APIs as controlled requests",
     "Students learn request, response, endpoint, key, rate limit, and why keys must be protected.",
     "Restaurant/API analogy in a modern service diagram: user request, waiter/API, kitchen/model, response, locked key vault."
   ],
   [
-    "9.2",
+    "10.2",
     "Agents vs chatbots",
     "Students compare one-turn answers with multi-step agents that use tools, memory, plans, and checks.",
     "Side-by-side workflow: chatbot bubble answering once, agent board completing research, file edit, test, and report steps."
   ],
   [
-    "9.3",
+    "10.3",
     "Codex and AI coding assistants",
     "Students use Codex to inspect a file, make a controlled change, review the diff, verify the result, and prepare the change for GitHub.",
     "Project editor with Codex-style AI assistant, highlighted code diff, test checklist, GitHub commit path, and human approval gate."
   ],
   [
-    "9.4",
+    "10.4",
     "Claude Code and coding assistant comparison",
     "Students use Claude Code on a similar coding task, then compare setup, explanations, code changes, verification, and when each assistant is useful.",
     "Side-by-side coding workspace comparing Codex and Claude Code: prompt panel, changed file, diff review, test result, strengths checklist, and teacher approval step."
   ],
   [
-    "9.5",
-    "n8n automation workflows",
-    "Students design an automation workflow with trigger, AI step, condition, output, error handling, and human confirmation.",
-    "n8n-style workflow canvas with trigger node, AI summary node, spreadsheet/email output nodes, warning badges for privacy, keys, failures, and approval steps."
+    "10.5",
+    "Advanced agent and tool workflows",
+    "Students design an advanced AI workflow with tools, memory, checks, error handling, and human confirmation.",
+    "Advanced agent workflow board with planning step, tool calls, memory notes, check loop, error branch, and approval checkpoint."
   ],
   [
-    "9.6",
+    "10.6",
     "Advanced tool showcase",
-    "Students present an AI web app, agent design, Codex or Claude Code-assisted code change, or n8n automation workflow with process evidence and responsible-use reflection.",
-    "Portfolio review wall with app demo, automation workflow diagram, Codex and Claude Code diff screenshots, QR code, GitHub link, video thumbnail, rubric, and reflection card."
+    "Students present an AI web app, agent design, Codex or Claude Code-assisted code change, or advanced workflow with process evidence and responsible-use reflection.",
+    "Portfolio review wall with app demo, agent workflow diagram, Codex and Claude Code diff screenshots, QR code, GitHub link, video thumbnail, rubric, and reflection card."
   ],
   [
-    "10.1",
+    "11.1",
     "Group formation and educational problem discovery",
     "Teams identify a pressing learning problem, interview real learners, choose a target user, and define what success would look like.",
     "Collaborative classroom design sprint: students around a table with interview notes, learner personas, sticky-note pain points, and an education problem statement board."
   ],
   [
-    "10.2",
+    "11.2",
     "Solution design: web app or AI agent",
     "Teams decide whether the best solution is a usable web app or an AI agent, then map features, user flow, safety rules, and learning outcomes.",
     "Product planning board with two paths: web app prototype and AI agent workflow, connected to learner goals, feature cards, safety checks, and success metrics."
   ],
   [
-    "10.3",
+    "11.3",
     "Group build sprint and user testing",
     "Teams build a working prototype, divide roles, test with peers, record feedback, and revise based on evidence.",
     "Team build room with laptops, prototype screens, role badges, feedback forms, bug list, and a visible test-revise-test cycle."
   ],
   [
-    "10.4",
+    "11.4",
     "Public launch and learning impact showcase",
     "Teams present the finished tool, demonstrate how others can use it, explain impact evidence, and reflect on collaboration.",
     "Final showcase booth with a live educational app or AI agent, QR code, student presenters, user testimonials, impact chart, and reflection wall."
@@ -963,8 +1009,9 @@ const moduleSessionMap = {
   m6:['6.1','6.2','6.3','6.4'],
   m7:['7.1','7.2'],
   m8:['8.1','8.2'],
-  m9:['9.1','9.2','9.3','9.4','9.5','9.6'],
-  m10:['10.1','10.2','10.3','10.4']
+  m9:['9.1','9.2','9.3','9.4','9.5'],
+  m10:['10.1','10.2','10.3','10.4','10.5','10.6'],
+  m11:['11.1','11.2','11.3','11.4']
 };
 const moduleVisuals = {
   m1:{title:'Digital foundations',words:['FILES','BROWSER','KEYS'],hue:352,icon:'laptop'},
@@ -975,8 +1022,9 @@ const moduleVisuals = {
   m6:{title:'Build a web app',words:['DESIGN','HTML','DEMO'],hue:222,icon:'app'},
   m7:{title:'Deploy online',words:['REPO','PAGES','LIVE'],hue:18,icon:'rocket'},
   m8:{title:'Grounded research',words:['SOURCES','AUDIO','MINDMAP'],hue:176,icon:'research'},
-  m9:{title:'Agents and APIs',words:['API','AGENT','CAPSTONE'],hue:286,icon:'agent'},
-  m10:{title:'Group learning tool',words:['TEAM','LEARN','IMPACT'],hue:128,icon:'group'}
+  m9:{title:'AI workflows',words:['OPAL','N8N','REVIEW'],hue:210,icon:'network'},
+  m10:{title:'Agents and APIs',words:['API','AGENT','CODE'],hue:286,icon:'agent'},
+  m11:{title:'Group learning tool',words:['TEAM','LEARN','IMPACT'],hue:128,icon:'group'}
 };
 const phaseNames = {all:'全部',foundation:'基础',exploration:'探索',creation:'创作',advanced:'进阶'};
 
@@ -988,8 +1036,9 @@ const visualKeywords = {
   '6.1':['USER','NEED','BRIEF'],'6.2':['PROMPT','HTML','PREVIEW'],'6.3':['BUG','FIX','RETEST'],'6.4':['DEMO','FEEDBACK','POLISH'],
   '7.1':['REPO','COMMIT','README'],'7.2':['PAGES','LIVE','TEST'],
   '8.1':['SOURCES','CITES','NOTES'],'8.2':['MARS','AUDIO','MINDMAP'],
-  '9.1':['API','KEY','REQUEST'],'9.2':['PLAN','TOOLS','STEPS'],'9.3':['DIFF','EDIT','VERIFY'],'9.4':['AI APP','SECRET','FLOW'],'9.5':['CAPSTONE','LINK','REFLECT'],
-  '10.1':['TEAM','PROBLEM','USERS'],'10.2':['APP','AGENT','FLOW'],'10.3':['BUILD','TEST','REVISE'],'10.4':['LAUNCH','IMPACT','SHOW']
+  '9.1':['TRIGGER','INPUT','REVIEW'],'9.2':['OPAL','APP','TEST'],'9.3':['N8N','NODE','OUTPUT'],'9.4':['DATA','RISK','APPROVE'],'9.5':['DEMO','FLOW','SAFETY'],
+  '10.1':['API','KEY','REQUEST'],'10.2':['PLAN','TOOLS','STEPS'],'10.3':['DIFF','EDIT','VERIFY'],'10.4':['CLAUDE','COMPARE','CODE'],'10.5':['TOOLS','CHECKS','MEMORY'],'10.6':['CAPSTONE','LINK','REFLECT'],
+  '11.1':['TEAM','PROBLEM','USERS'],'11.2':['APP','AGENT','FLOW'],'11.3':['BUILD','TEST','REVISE'],'11.4':['LAUNCH','IMPACT','SHOW']
 };
 
 /* ---------- Config ---------- */

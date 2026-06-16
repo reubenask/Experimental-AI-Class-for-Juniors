@@ -620,22 +620,38 @@ hw:{
 }
 }
 ]},
-{id:'m9',phase:'advanced',badge:'Module 9',name:'Codex, Claude Code, agents, APIs, and automation systems',sessions:'6 sessions',
+{id:'m9',phase:'advanced',badge:'Module 9',name:'AI app builders and workflow automation',sessions:'5 sessions',
 subsections:[
-{name:'9.1–9.6 APIs, agents, Codex, Claude Code, n8n, and automation workflows',
-obj:['Explain APIs using the waiter analogy: request, response, endpoint, key, and permission','Distinguish chatbots, agents, Codex, Claude Code, and n8n/Make/Zapier automation workflows','Observe Codex reading a project, editing a file, showing a diff, and verifying the result','Observe Claude Code handling a coding task and compare its workflow with Codex','Design an n8n-style automation workflow with trigger, steps, conditions, outputs, and human approval','Understand automation risks: privacy, error spread, secret keys, repeated runs, and human confirmation'],
-teach:['API analogy: user = customer, AI = kitchen, API = waiter, key = pass','Live Codex demo: inspect a web file, propose a change, show the diff, and wait for human approval','Live Claude Code demo: ask it to explain a small project, edit one controlled feature, and summarize what changed','Live n8n / Make / Zapier demo: trigger → AI node → condition → email/spreadsheet/notification output','Compare systems: chatbot for answers, Codex and Claude Code for code changes, n8n for connecting tools and automating workflows','Safety discussion: what must require human approval? What data should never enter automation?'],
-tlms:['API analogy card','Codex demo environment','Claude Code demo environment','n8n / Make / Zapier workflow screenshots or demo account','Teacher-provided test API key','Prewritten API starter code','Automation safety checklist'],
-act:['Paper agent design: draw a learning agent with goal, tools, steps, memory, and checkpoints','Use Codex to add a small feature to the Module 6 app; record prompts, before/after changes, diff, and test result','Use Claude Code on the same or a similar task; compare setup, explanation quality, code changes, and verification process','Design an n8n automation flow, for example: collect learning feedback → AI summary → send to teacher → write to spreadsheet','Run the API starter code and identify request, response, and key-protection boundary','Risk-mark an automation workflow: where can it fail, and where does a human need to approve?'],
-files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'Codex vs Claude Code comparison sheet'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n automation workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
+{name:'9.1-9.5 Opal-style apps, n8n workflows, triggers, and automation safety',
+obj:['Explain an AI workflow as trigger, input, AI step, condition, output, and human review','Build a simple Opal-style AI mini app for a learning task','Design an n8n-style workflow with nodes, data handoff, conditions, and outputs','Compare AI app builders, automation tools, and agents as different levels of AI tool use','Identify automation risks: private data, repeated mistakes, accidental sending, weak prompts, and missing approval gates'],
+teach:['Workflow model: trigger -> input -> AI step -> condition -> output -> human review','Demo an Opal-style mini app: define the user task, chain prompts, test outputs, and make it reusable','Demo n8n / Make / Zapier workflow thinking with trigger, AI node, condition, spreadsheet/email/notification output','Compare tools: AI app builder for reusable interfaces, n8n for connecting systems, agent for planning and tool use','Safety checkpoint: what should never be automated without a person approving it?'],
+tlms:['Opal-style AI mini app demo or screenshots','n8n / Make / Zapier workflow screenshots or demo account','Workflow planning canvas','Automation safety checklist','Sample form input and spreadsheet output','Teacher-approved demo data'],
+act:['Map a daily learning routine as a workflow: trigger, input, AI step, condition, output, review','Build or storyboard an Opal-style study helper mini app, such as vocabulary coach, feedback helper, or quiz generator','Design an n8n automation flow, for example: collect mistakes -> AI summary -> review list -> teacher/student notification','Trace data through a workflow and label where private information, errors, or accidental sending could happen','Add human approval gates to a risky automation and explain why they matter'],
+files:[{ext:'.docx',icon:'ti-file-text',desc:'AI workflow planning canvas'},{ext:'.pdf',icon:'ti-file-description',desc:'Opal-style mini app brief'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n workflow map'},{ext:'.xlsx',icon:'ti-table',desc:'Automation test data sheet'},{ext:'.txt',icon:'ti-file',desc:'Safety checklist'}],
 hw:{
-  title:'Build your own AI tool, agent, or automation workflow',
-  mission:'This is your advanced project. Use prompting, web building, GitHub, APIs, Codex, Claude Code, agent design, or n8n-style automation to create something real and demonstrable.',
+  title:'Design an AI mini app or learning automation',
+  mission:'Build or storyboard a small AI-powered learning tool using an Opal-style app builder, n8n-style workflow, or a clear paper prototype if access is limited.',
+  reqs:['Choose one learning problem that can be helped by a reusable AI mini app or automation workflow.','Define the user, trigger, input, AI step, output, and success measure.','Build the mini app/workflow if you have access to the tool, or create a complete storyboard with screens/nodes if access is limited.','Test it with at least 2 examples and record what worked, what failed, and what you changed.','Add a safety note explaining what data should not be entered, where a human should approve, and how users can check important outputs.'],
+  deliver:['Mini app link, workflow screenshot, or complete storyboard','Workflow diagram with trigger, inputs, AI step, conditions, outputs, and approval gate','2 test cases with results','Safety note','Short reflection: what would you automate next?']
+}
+}
+]},
+{id:'m10',phase:'advanced',badge:'Module 10',name:'Agents, APIs, Codex, Claude Code, and advanced AI systems',sessions:'6 sessions',
+subsections:[
+{name:'10.1-10.6 APIs, agents, Codex, Claude Code, and advanced AI systems',
+obj:['Explain APIs using the waiter analogy: request, response, endpoint, key, and permission','Distinguish chatbots, agents, APIs, Codex, Claude Code, and automation workflows','Observe Codex reading a project, editing a file, showing a diff, and verifying the result','Observe Claude Code handling a coding task and compare its workflow with Codex','Design an advanced agent workflow with tools, memory, plans, checks, and human approval','Understand advanced AI system risks: privacy, error spread, secret keys, repeated runs, and human confirmation'],
+teach:['API analogy: user = customer, AI = kitchen, API = waiter, key = pass','Live Codex demo: inspect a web file, propose a change, show the diff, and wait for human approval','Live Claude Code demo: ask it to explain a small project, edit one controlled feature, and summarize what changed','Agent workflow demo: goal -> plan -> tool use -> check -> revise -> report','Compare systems: chatbot for answers, Codex and Claude Code for code changes, workflow automation for connecting tools, agents for multi-step work','Safety discussion: what must require human approval? What data should never enter an AI system?'],
+tlms:['API analogy card','Codex demo environment','Claude Code demo environment','Agent workflow screenshots or demo account','Teacher-provided test API key','Prewritten API starter code','Advanced AI safety checklist'],
+act:['Paper agent design: draw a learning agent with goal, tools, steps, memory, and checkpoints','Use Codex to add a small feature to the Module 6 app; record prompts, before/after changes, diff, and test result','Use Claude Code on the same or a similar task; compare setup, explanation quality, code changes, and verification process','Design an advanced agent workflow that uses at least two tools and one human approval gate','Run the API starter code and identify request, response, and key-protection boundary','Risk-mark an AI system workflow: where can it fail, and where does a human need to approve?'],
+files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'Codex vs Claude Code comparison sheet'},{ext:'.pdf',icon:'ti-file-description',desc:'Advanced AI workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
+hw:{
+  title:'Build your own AI tool, agent, or advanced AI system',
+  mission:'This is your advanced project. Use prompting, web building, GitHub, APIs, Codex, Claude Code, agent design, or workflow automation to create something real and demonstrable.',
   choices:[
-    {title:'Option A — AI-powered web app',body:'Extend your Module 6 app with a useful AI feature using an API call: answer questions, generate content, give advice, summarise materials, etc. You may use Codex / Claude Code / ChatGPT to modify the code, but you must record prompts, code changes, and test results. Deploy the final version to GitHub Pages and record a 2-minute demo.'},
-    {title:'Option B — My own AI agent design',body:'Design a complete AI agent for a problem you care about. Include: the problem it solves, tools it needs (search, calendar, email, spreadsheet, web, files, etc.), workflow diagram, prompt sequence, memory/checking mechanism, and a safety note explaining what must require human approval.'},
-    {title:'Option C — n8n automation for learning',body:'Design an n8n / Make / Zapier-style automation workflow that improves learning. Example: collect mistakes → AI summary → generate review list → send to student/teacher → write to spreadsheet. Include trigger, every node, conditions, outputs, what happens if it fails, and privacy/safety checks.'},
-    {title:'Option D — AI tools field guide',body:'Create a practical AI tools guide for students your age. Cover: LLMs, prompting, NotebookLM, Codex, Claude Code, AI coding assistants, APIs, agents, n8n or another automation system. Minimum 15 pages/slides with real screenshots. Explain when each tool is useful and when it is not.'}
+    {title:'Option A - AI-powered web app',body:'Extend your Module 6 app with a useful AI feature using an API call: answer questions, generate content, give advice, summarise materials, etc. You may use Codex / Claude Code / ChatGPT to modify the code, but you must record prompts, code changes, and test results. Deploy the final version to GitHub Pages and record a 2-minute demo.'},
+    {title:'Option B - My own AI agent design',body:'Design a complete AI agent for a problem you care about. Include: the problem it solves, tools it needs (search, calendar, email, spreadsheet, web, files, etc.), workflow diagram, prompt sequence, memory/checking mechanism, and a safety note explaining what must require human approval.'},
+    {title:'Option C - Advanced learning automation',body:'Extend the Module 9 workflow idea into an advanced automation or agent workflow that improves learning. Example: collect mistakes -> AI summary -> generate review list -> send to student/teacher -> write to spreadsheet. Include trigger, every step, conditions, outputs, what happens if it fails, and privacy/safety checks.'},
+    {title:'Option D - AI tools field guide',body:'Create a practical AI tools guide for students your age. Cover: LLMs, prompting, NotebookLM, Opal-style AI app builders, Codex, Claude Code, AI coding assistants, APIs, agents, n8n or another automation system. Minimum 15 pages/slides with real screenshots. Explain when each tool is useful and when it is not.'}
   ],
   deliver:['Completed project (A, B, C, or D)','Process evidence: screenshots, prompt logs, code diff, workflow diagram, or drafts','Safety note: data, keys, human approval, and failure handling','Final reflection: what do you want to automate or build next?']
 }
@@ -644,14 +660,14 @@ hw:{
 ];
 
 modules.push({
-  id:'m10',
+  id:'m11',
   phase:'creation',
-  badge:'Module 10',
-  name:'Group project — build an educational web app or AI agent',
+  badge:'Module 11',
+  name:'Group project — build an educational web app, automation, or AI agent',
   sessions:'4–6 sessions',
   subsections:[
     {
-      name:'10.1–10.4 Group capstone: solve a real learning problem',
+      name:'11.1-11.4 Group capstone: solve a real learning problem',
       obj:[
         'Work in a team to identify a pressing educational problem that affects real learners',
         'Choose and justify a solution format: web app, AI agent, or hybrid learning tool',
@@ -692,11 +708,11 @@ modules.push({
       ],
       hw:{
         title:'Group capstone — learning tool for real users',
-        mission:'In your group, build a web app or AI agent that solves a pressing educational problem and can be used by other learners to improve their learning process.',
+        mission:'In your group, build a web app, automation, or AI agent that solves a pressing educational problem and can be used by other learners to improve their learning process.',
         reqs:[
           'Choose one real educational problem. It must be specific, important, and connected to how students learn, revise, practise, understand, organise, or get feedback.',
           'Interview at least 3 potential users. Record what problem they have, what they currently do, and what would make learning easier for them.',
-          'Decide whether your solution should be a web app, an AI agent, or a hybrid tool. Write a short explanation of why this format is the best fit.',
+          'Decide whether your solution should be a web app, automation, an AI agent, or a hybrid tool. Write a short explanation of why this format is the best fit.',
           'Build a working prototype that other learners can actually use. It must include clear instructions, useful feedback or guidance, and at least one feature that responds to user input.',
           'Test your prototype with at least 3 users. Collect feedback, identify the most important problem, and make at least 3 improvements.',
           'Prepare a final showcase: demonstrate the tool, explain the educational problem, show evidence from testing, describe each team member\'s contribution, and reflect on what you would improve next.',
@@ -894,60 +910,90 @@ const sessionGuide = [
   ],
   [
     "9.1",
+    "What is an AI workflow?",
+    "Students map trigger, input, AI step, condition, output, and human review before using automation tools.",
+    "Clean workflow diagram with trigger, input form, AI node, condition branch, output destination, and human review checkpoint."
+  ],
+  [
+    "9.2",
+    "Opal-style AI mini apps",
+    "Students design a reusable AI mini app for a learning task, then test inputs and refine outputs.",
+    "Premium app-builder canvas showing prompt blocks, student input fields, output preview, test examples, and reusable learning tool interface."
+  ],
+  [
+    "9.3",
+    "n8n workflow basics",
+    "Students build or storyboard an automation with trigger, AI node, condition, output, and log.",
+    "n8n-style workflow canvas with trigger node, AI summary node, condition split, spreadsheet/email output nodes, and run log."
+  ],
+  [
+    "9.4",
+    "Data handoff and automation safety",
+    "Students trace what data moves between tools and mark privacy, error, sending, and approval risks.",
+    "Data-flow map with private fields masked, warning badges, approval gates, error path, and final output review station."
+  ],
+  [
+    "9.5",
+    "Workflow mini project",
+    "Students present a small AI mini app or learning automation with test evidence and a safety note.",
+    "Student showcase board with Opal-style mini app screen, n8n workflow diagram, two test cards, safety checklist, and reflection note."
+  ],
+  [
+    "10.1",
     "APIs as controlled requests",
     "Students learn request, response, endpoint, key, rate limit, and why keys must be protected.",
     "Restaurant/API analogy in a modern service diagram: user request, waiter/API, kitchen/model, response, locked key vault."
   ],
   [
-    "9.2",
+    "10.2",
     "Agents vs chatbots",
     "Students compare one-turn answers with multi-step agents that use tools, memory, plans, and checks.",
     "Side-by-side workflow: chatbot bubble answering once, agent board completing research, file edit, test, and report steps."
   ],
   [
-    "9.3",
+    "10.3",
     "Codex and AI coding assistants",
     "Students use Codex to inspect a file, make a controlled change, review the diff, verify the result, and prepare the change for GitHub.",
     "Project editor with Codex-style AI assistant, highlighted code diff, test checklist, GitHub commit path, and human approval gate."
   ],
   [
-    "9.4",
+    "10.4",
     "Claude Code and coding assistant comparison",
     "Students use Claude Code on a similar coding task, then compare setup, explanations, code changes, verification, and when each assistant is useful.",
     "Side-by-side coding workspace comparing Codex and Claude Code: prompt panel, changed file, diff review, test result, strengths checklist, and teacher approval step."
   ],
   [
-    "9.5",
-    "n8n automation workflows",
-    "Students design an automation workflow with trigger, AI step, condition, output, error handling, and human confirmation.",
-    "n8n-style workflow canvas with trigger node, AI summary node, spreadsheet/email output nodes, warning badges for privacy, keys, failures, and approval steps."
+    "10.5",
+    "Advanced agent and tool workflows",
+    "Students design an advanced AI workflow with tools, memory, checks, error handling, and human confirmation.",
+    "Advanced agent workflow board with planning step, tool calls, memory notes, check loop, error branch, and approval checkpoint."
   ],
   [
-    "9.6",
+    "10.6",
     "Advanced tool showcase",
-    "Students present an AI web app, agent design, Codex or Claude Code-assisted code change, or n8n automation workflow with process evidence and responsible-use reflection.",
-    "Portfolio review wall with app demo, automation workflow diagram, Codex and Claude Code diff screenshots, QR code, GitHub link, video thumbnail, rubric, and reflection card."
+    "Students present an AI web app, agent design, Codex or Claude Code-assisted code change, or advanced workflow with process evidence and responsible-use reflection.",
+    "Portfolio review wall with app demo, agent workflow diagram, Codex and Claude Code diff screenshots, QR code, GitHub link, video thumbnail, rubric, and reflection card."
   ],
   [
-    "10.1",
+    "11.1",
     "Group formation and educational problem discovery",
     "Teams identify a pressing learning problem, interview real learners, choose a target user, and define what success would look like.",
     "Collaborative classroom design sprint: students around a table with interview notes, learner personas, sticky-note pain points, and an education problem statement board."
   ],
   [
-    "10.2",
+    "11.2",
     "Solution design: web app or AI agent",
     "Teams decide whether the best solution is a usable web app or an AI agent, then map features, user flow, safety rules, and learning outcomes.",
     "Product planning board with two paths: web app prototype and AI agent workflow, connected to learner goals, feature cards, safety checks, and success metrics."
   ],
   [
-    "10.3",
+    "11.3",
     "Group build sprint and user testing",
     "Teams build a working prototype, divide roles, test with peers, record feedback, and revise based on evidence.",
     "Team build room with laptops, prototype screens, role badges, feedback forms, bug list, and a visible test-revise-test cycle."
   ],
   [
-    "10.4",
+    "11.4",
     "Public launch and learning impact showcase",
     "Teams present the finished tool, demonstrate how others can use it, explain impact evidence, and reflect on collaboration.",
     "Final showcase booth with a live educational app or AI agent, QR code, student presenters, user testimonials, impact chart, and reflection wall."
@@ -963,8 +1009,9 @@ const moduleSessionMap = {
   m6:['6.1','6.2','6.3','6.4'],
   m7:['7.1','7.2'],
   m8:['8.1','8.2'],
-  m9:['9.1','9.2','9.3','9.4','9.5','9.6'],
-  m10:['10.1','10.2','10.3','10.4']
+  m9:['9.1','9.2','9.3','9.4','9.5'],
+  m10:['10.1','10.2','10.3','10.4','10.5','10.6'],
+  m11:['11.1','11.2','11.3','11.4']
 };
 const moduleVisuals = {
   m1:{title:'Digital foundations',words:['FILES','BROWSER','KEYS'],hue:352,icon:'laptop'},
@@ -975,8 +1022,9 @@ const moduleVisuals = {
   m6:{title:'Build a web app',words:['DESIGN','HTML','DEMO'],hue:222,icon:'app'},
   m7:{title:'Deploy online',words:['REPO','PAGES','LIVE'],hue:18,icon:'rocket'},
   m8:{title:'Grounded research',words:['SOURCES','AUDIO','MINDMAP'],hue:176,icon:'research'},
-  m9:{title:'Agents and APIs',words:['API','AGENT','CAPSTONE'],hue:286,icon:'agent'},
-  m10:{title:'Group learning tool',words:['TEAM','LEARN','IMPACT'],hue:128,icon:'group'}
+  m9:{title:'AI workflows',words:['OPAL','N8N','REVIEW'],hue:210,icon:'network'},
+  m10:{title:'Agents and APIs',words:['API','AGENT','CODE'],hue:286,icon:'agent'},
+  m11:{title:'Group learning tool',words:['TEAM','LEARN','IMPACT'],hue:128,icon:'group'}
 };
 const phaseNames = {all:'All',foundation:'Foundation',exploration:'Exploration',creation:'Creation',advanced:'Advanced'};
 
@@ -988,8 +1036,9 @@ const visualKeywords = {
   '6.1':['USER','NEED','BRIEF'],'6.2':['PROMPT','HTML','PREVIEW'],'6.3':['BUG','FIX','RETEST'],'6.4':['DEMO','FEEDBACK','POLISH'],
   '7.1':['REPO','COMMIT','README'],'7.2':['PAGES','LIVE','TEST'],
   '8.1':['SOURCES','CITES','NOTES'],'8.2':['MARS','AUDIO','MINDMAP'],
-  '9.1':['API','KEY','REQUEST'],'9.2':['PLAN','TOOLS','STEPS'],'9.3':['DIFF','EDIT','VERIFY'],'9.4':['AI APP','SECRET','FLOW'],'9.5':['CAPSTONE','LINK','REFLECT'],
-  '10.1':['TEAM','PROBLEM','USERS'],'10.2':['APP','AGENT','FLOW'],'10.3':['BUILD','TEST','REVISE'],'10.4':['LAUNCH','IMPACT','SHOW']
+  '9.1':['TRIGGER','INPUT','REVIEW'],'9.2':['OPAL','APP','TEST'],'9.3':['N8N','NODE','OUTPUT'],'9.4':['DATA','RISK','APPROVE'],'9.5':['DEMO','FLOW','SAFETY'],
+  '10.1':['API','KEY','REQUEST'],'10.2':['PLAN','TOOLS','STEPS'],'10.3':['DIFF','EDIT','VERIFY'],'10.4':['CLAUDE','COMPARE','CODE'],'10.5':['TOOLS','CHECKS','MEMORY'],'10.6':['CAPSTONE','LINK','REFLECT'],
+  '11.1':['TEAM','PROBLEM','USERS'],'11.2':['APP','AGENT','FLOW'],'11.3':['BUILD','TEST','REVISE'],'11.4':['LAUNCH','IMPACT','SHOW']
 };
 
 /* ---------- Config ---------- */
