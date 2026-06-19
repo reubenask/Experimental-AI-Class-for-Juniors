@@ -448,6 +448,10 @@ img,svg,canvas,video{max-width:100%;height:auto}
 .site-header .header-actions{min-height:48px}
 @media (max-width:900px){.site-header .wordmark-title{font-size:20px;letter-spacing:.1em}.site-header .crest{width:38px;height:44px;font-size:18px}}
 @media (max-width:640px){.site-header{height:64px;min-height:64px}.site-header .header-inner{height:64px;min-height:64px}.site-header .wordmark{gap:10px}.site-header .crest{width:34px;height:40px;font-size:16px}.site-header .wordmark-title{font-size:16px;letter-spacing:.07em}.site-header .header-actions{min-height:40px}}
+
+.rubric .weight{width:78px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rubric .bonus-row td{background:rgba(201,168,76,.09);font-weight:600}
+.rubric .bonus-row td:not(:first-child){font-weight:500}
 </style>
 </head>
 <body class="rubric-compact rubric-zh">
@@ -477,19 +481,21 @@ img,svg,canvas,video{max-width:100%;height:auto}
     <div class="rc-head">
       <span class="ico"><i class="ti ti-clipboard-check"></i></span>
       <div>
-        <h3 class="serif">课程基准量规</h3>
-        <p>对应数字基础、AI 研究、网页制作、GitHub 部署、自动化流程和负责任使用的可衡量标准。</p>
+        <h3 class="serif">小组项目评分量规</h3>
+        <p>核心成绩总计 100%。观众选择奖最多额外加 10%，不能替代学术评分标准。</p>
       </div>
     </div>
     <div class="rubric-scroll rubric">
       <table>
-        <thead><tr><th>标准</th><th>起步</th><th>发展中</th><th>稳固</th><th>进阶</th></tr></thead>
+        <thead><tr><th>评分项目</th><th class="weight">权重</th><th>起步</th><th>发展中</th><th>稳固</th><th>进阶</th></tr></thead>
         <tbody>
-          <tr><td>数字流程</td><td>打开浏览器/文件仍需帮助；文件名和文件夹不清楚。</td><td>能在提醒下创建文件夹、打开文件、使用快捷键。</td><td>能独立整理文件、使用标签页/书签，并提交正确文件类型。</td><td>建立清晰项目文件夹、命名、截图和备份，方便他人核验。</td></tr>
-          <tr><td>AI 研究</td><td>只问一次性问题，直接相信 AI 回答。</td><td>能使用基础提示词，保存部分截图或笔记。</td><td>能使用提示链、NotebookLM 来源提问，并引用材料证据。</td><td>能比较工具、发现弱答案，并说明何时用 NotebookLM/LLM/API。</td></tr>
-          <tr><td>构建部署</td><td>只能在逐步支持下修改 starter 页面。</td><td>借助 AI 做出部分 App，部分功能可运行。</td><td>能独立开发可运行网页/App，推送到 GitHub，并用 GitHub Pages 部署。</td><td>加入 AI/API/Codex 或 n8n 自动化，测试失败情况，并根据用户反馈改进。</td></tr>
-          <tr><td>过程证据</td><td>只提交最终作品，过程证明不足。</td><td>有一些提示词、截图或草稿。</td><td>包含提示词记录、来源截图、代码/文件、GitHub 链接、demo 和测试记录。</td><td>证据有标注：修改前后、diff、部署链接、用户反馈和修复说明。</td></tr>
-          <tr><td>安全反思</td><td>需要提醒隐私、信任和 AI 复制问题。</td><td>能说出基本安全规则，但应用不稳定。</td><td>保护个人数据/API key，检查输出，并解释成功与失败。</td><td>说明风险、偏见、人工确认点、自动化失败处理和下一步设计。</td></tr>
+          <tr><td>学习价值</td><td class="weight">30%</td><td>问题模糊；缺少目标学习者和证据。</td><td>说明了学习者和问题，但价值主要靠猜测，或访谈少于 3 人。</td><td>完成至少 3 次学习者访谈；3 位用户能完成学习任务，并说明工具如何帮助学习。</td><td>测试 5 位以上用户，并提供准确率、完成时间、信心或任务成功率等前后对比证据。</td></tr>
+          <tr><td>产品功能</td><td class="weight">20%</td><td>原型无法完成核心任务。</td><td>部分功能可用，但用户经常需要帮助或遇到阻断性错误。</td><td>核心流程可完整运行；可分享/已部署版本通过 3 次有记录的用户测试。</td><td>能处理边界情况、错误和恢复；关键功能通过 5 次以上真实输入测试。</td></tr>
+          <tr><td>易用性</td><td class="weight">15%</td><td>没有团队讲解时，用户不知道下一步做什么。</td><td>基本能导航，但标签、反馈、可读性或步骤让用户犹豫。</td><td>3 位用户无需帮助即可完成核心任务；文字清晰，并能在手机、平板和电脑上使用。</td><td>5 位以上用户可独立完成；无障碍、错误提示、新手引导和用户反馈体验完善。</td></tr>
+          <tr><td>AI 与技术质量</td><td class="weight">15%</td><td>使用生成内容，但无法解释提示词、代码、工作流或工具选择。</td><td>有部分提示词/构建证据；AI、代码、API 或自动化只能部分运行。</td><td>恰当使用 AI/技术工具，保留提示词/构建记录，进行代码版本管理，并验证重要输出。</td><td>比较不同方案，测试失败情况，解释技术取舍，并依据证据改进提示词、代码或工作流。</td></tr>
+          <tr><td>负责任 AI 与安全</td><td class="weight">10%</td><td>没有明确的隐私、准确性、密钥或用户安全保护。</td><td>能说出基本规则，但没有在产品中持续落实。</td><td>保护隐私数据和密钥，提示限制，检查重要输出，并标明人工复核点。</td><td>记录风险、偏见、失败处理、审批门、备用方案，以及用户纠正输出的方法。</td></tr>
+          <tr><td>展示与过程证据</td><td class="weight">10%</td><td>只展示最终作品，团队分工不清楚。</td><td>包含部分截图、提示词、反馈或草稿。</td><td>提供在线链接/GitHub 证据、提示词或构建记录、3 次用户测试、3 项有记录的改进和团队分工。</td><td>进行简洁现场演示，提供有标注的证据、可衡量影响、局限、设计决定和下一步计划。</td></tr>
+          <tr class="bonus-row"><td>观众选择奖加分</td><td class="weight">+0–10%</td><td>观众平均评分低于 3.0/5，或有效评分数量不足。</td><td>平均评分 3.0–3.7/5。</td><td>平均评分 3.8–4.4/5。</td><td>平均评分 4.5–5.0/5。匿名评分，每人一次，并必须写明该作品如何帮助学习。</td></tr>
         </tbody>
       </table>
     </div>

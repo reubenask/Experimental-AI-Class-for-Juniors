@@ -445,6 +445,10 @@ img,svg,canvas,video{max-width:100%;height:auto}
 .site-header .header-actions{min-height:48px}
 @media (max-width:900px){.site-header .wordmark-title{font-size:20px;letter-spacing:.1em}.site-header .crest{width:38px;height:44px;font-size:18px}}
 @media (max-width:640px){.site-header{height:64px;min-height:64px}.site-header .header-inner{height:64px;min-height:64px}.site-header .wordmark{gap:10px}.site-header .crest{width:34px;height:40px;font-size:16px}.site-header .wordmark-title{font-size:16px;letter-spacing:.07em}.site-header .header-actions{min-height:40px}}
+
+.rubric .weight{width:78px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rubric .bonus-row td{background:rgba(201,168,76,.09);font-weight:600}
+.rubric .bonus-row td:not(:first-child){font-weight:500}
 </style>
 </head>
 <body class="rubric-compact rubric-fit">
@@ -474,19 +478,21 @@ img,svg,canvas,video{max-width:100%;height:auto}
     <div class="rc-head">
       <span class="ico"><i class="ti ti-clipboard-check"></i></span>
       <div>
-        <h3 class="serif">Curriculum benchmark rubric</h3>
-        <p>Measurable benchmarks for digital foundations, AI research, web app building, GitHub deployment, automation, and responsible use.</p>
+        <h3 class="serif">Group project scoring rubric</h3>
+        <p>The core grade totals 100%. Audience Choice can add up to +10% and never replaces the academic criteria.</p>
       </div>
     </div>
     <div class="rubric-scroll rubric">
       <table>
-        <thead><tr><th>Criteria</th><th>Beginning</th><th>Developing</th><th>Secure</th><th>Advanced</th></tr></thead>
+        <thead><tr><th>Criterion</th><th class="weight">Weight</th><th>Beginning</th><th>Developing</th><th>Secure</th><th>Advanced</th></tr></thead>
         <tbody>
-          <tr><td>Digital workflow</td><td>Can open browser/files only with help; file names or folders are unclear.</td><td>Creates folders, opens files, and uses shortcuts with reminders.</td><td>Organises files, uses browser tabs/bookmarks, and submits correct file types independently.</td><td>Sets up clean project folders, naming, screenshots, and backups for others to verify.</td></tr>
-          <tr><td>AI research</td><td>Asks one-off AI questions; accepts answers without checking.</td><td>Uses basic prompts and saves some screenshots or notes.</td><td>Uses prompt chains, NotebookLM source questions, and cites evidence from materials.</td><td>Compares tools, identifies weak answers, and explains when NotebookLM/LLM/API is the right tool.</td></tr>
-          <tr><td>Build + deploy</td><td>Edits a starter page only with step-by-step support.</td><td>Builds a partial app with AI help; some features work.</td><td>Builds a working webpage/app independently, pushes to GitHub, and deploys with GitHub Pages.</td><td>Adds AI/API/Codex or n8n automation, tests failures, and improves from user feedback.</td></tr>
-          <tr><td>Evidence</td><td>Final product is submitted with little process proof.</td><td>Includes some prompts, screenshots, or drafts.</td><td>Includes prompt log, source screenshots, code/files, GitHub link, demo, and test notes.</td><td>Evidence is annotated: before/after changes, diff, deployment link, user feedback, and fixes.</td></tr>
-          <tr><td>Safety + reflection</td><td>Needs reminders about privacy, trust, and copied AI output.</td><td>States basic safety rules but applies them inconsistently.</td><td>Protects personal data/API keys, checks outputs, and explains what worked or failed.</td><td>Names risks, bias, human-approval points, automation failure handling, and next design steps.</td></tr>
+          <tr><td>Learning impact</td><td class="weight">30%</td><td>Problem is vague; target learner and evidence are missing.</td><td>Names a learner and problem, but usefulness is assumed or based on fewer than 3 interviews.</td><td>Uses 3+ learner interviews; 3 users complete the learning task and explain how the tool helps.</td><td>Uses 5+ users and before/after evidence such as accuracy, completion time, confidence, or task success.</td></tr>
+          <tr><td>Product functionality</td><td class="weight">20%</td><td>Prototype cannot complete its main task.</td><td>Some features work, but users need frequent help or encounter blocking errors.</td><td>Core journey works end-to-end; a shareable/deployed version passes 3 documented user tests.</td><td>Handles edge cases, errors, and recovery; key features pass 5+ documented tests across realistic inputs.</td></tr>
+          <tr><td>Usability</td><td class="weight">15%</td><td>Users do not know what to do without team explanation.</td><td>Navigation is partly clear, but labels, feedback, readability, or steps cause hesitation.</td><td>3 users complete the main task without help; text is readable and the product works on phone, tablet, and laptop.</td><td>5+ users complete it independently; accessibility, error messages, onboarding, and user feedback are polished.</td></tr>
+          <tr><td>AI + technical quality</td><td class="weight">15%</td><td>Uses generated work without explaining prompts, code, workflow, or tool choice.</td><td>Shows some prompt/build evidence; AI, code, API, or automation works only partially.</td><td>Uses appropriate AI/technical tools, keeps prompt/build logs, versions code, and verifies important outputs.</td><td>Compares approaches, tests failures, explains technical trade-offs, and improves prompts/code/workflows using evidence.</td></tr>
+          <tr><td>Responsible AI + safety</td><td class="weight">10%</td><td>No clear privacy, accuracy, key, or user-safety protections.</td><td>States basic rules but does not apply them consistently in the product.</td><td>Protects private data and keys, warns about limitations, checks important outputs, and identifies human-review points.</td><td>Documents risks, bias, failure handling, approval gates, fallback behavior, and how users can challenge or correct outputs.</td></tr>
+          <tr><td>Presentation + evidence</td><td class="weight">10%</td><td>Shows only the final product with unclear team contributions.</td><td>Includes some screenshots, prompts, feedback, or drafts.</td><td>Provides live link/GitHub evidence, prompt or build log, 3 user tests, 3 documented improvements, and team roles.</td><td>Delivers a concise live demo with annotated evidence, measurable impact, limitations, decisions, and next steps.</td></tr>
+          <tr class="bonus-row"><td>Audience Choice Bonus</td><td class="weight">+0–10%</td><td>Average audience rating below 3.0/5 or too few valid ratings.</td><td>Average 3.0–3.7/5.</td><td>Average 3.8–4.4/5.</td><td>Average 4.5–5.0/5. Ratings are anonymous, one per person, and each includes a reason describing learning value.</td></tr>
         </tbody>
       </table>
     </div>
