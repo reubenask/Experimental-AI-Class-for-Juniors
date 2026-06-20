@@ -336,45 +336,41 @@ a{color:inherit}
 @media(max-width:860px){.portal-menu{grid-template-columns:1fr}}
 
 /* English rubric: expand uniformly across the viewport. */
-.rubric-fit{min-height:100vh;overflow:hidden}
+.rubric-fit{min-height:100vh;overflow:auto}
 .rubric-fit .site-header{position:relative}
 .rubric-fit .rubric-page{
-  min-height:calc(100vh - 63px);
-  display:flex;
-  flex-direction:column;
-  padding:26px 26px 28px;
+  min-height:auto;
+  display:block;
+  padding:22px 26px 28px;
 }
 .rubric-fit .page-nav{margin-bottom:14px}
 .rubric-fit .section-head{margin:0 0 14px}
 .rubric-fit .section-head h2{font-size:30px;line-height:1}
 .rubric-fit .rubric-card{
-  flex:1;
-  display:flex;
-  flex-direction:column;
+  display:block;
   border-radius:18px;
   box-shadow:var(--shadow-md);
 }
 .rubric-fit .rubric-card .rc-head{
-  min-height:92px;
-  padding:20px 24px;
+  min-height:0;
+  padding:14px 18px;
 }
 .rubric-fit .rubric-card .rc-head .ico{display:grid;width:48px;height:48px}
 .rubric-fit .rubric-card .rc-head h3{font-size:21px;margin-bottom:5px}
 .rubric-fit .rubric-card .rc-head p{font-size:13.5px;line-height:1.45}
-.rubric-fit .rubric-scroll{flex:1;display:flex;overflow:visible}
+.rubric-fit .rubric-scroll{display:block;overflow:visible}
 .rubric-fit .rubric table{
-  flex:1;
-  height:100%;
+  width:100%;
+  height:auto;
   table-layout:fixed;
-  font-size:12.2px;
-  line-height:1.24;
+  font-size:10.7px;
+  line-height:1.28;
 }
-.rubric-fit .rubric th,.rubric-fit .rubric td{padding:10px 13px;overflow-wrap:anywhere}
-.rubric-fit .rubric th:first-child,.rubric-fit .rubric td:first-child{width:15%;font-size:11.8px;line-height:1.15;overflow-wrap:break-word}
-.rubric-fit .rubric th:nth-child(2),.rubric-fit .rubric td:nth-child(2){width:18%}
-.rubric-fit .rubric th:nth-child(3),.rubric-fit .rubric td:nth-child(3){width:20%}
-.rubric-fit .rubric th:nth-child(4),.rubric-fit .rubric td:nth-child(4){width:24%}
-.rubric-fit .rubric th:nth-child(5),.rubric-fit .rubric td:nth-child(5){width:22%}
+.rubric-fit .rubric thead,.rubric-fit .rubric tbody,.rubric-fit .rubric tr{height:auto}
+.rubric-fit .rubric th,.rubric-fit .rubric td{height:auto;padding:8px 9px;vertical-align:top;overflow-wrap:anywhere}
+.rubric-fit .rubric th:first-child,.rubric-fit .rubric td:first-child{width:13%;font-size:10.8px;line-height:1.2;overflow-wrap:break-word}
+.rubric-fit .rubric th:nth-child(2),.rubric-fit .rubric td:nth-child(2){width:7%}
+.rubric-fit .rubric th:nth-child(n+3),.rubric-fit .rubric td:nth-child(n+3){width:20%}
 @media(max-width:760px){
   .rubric-fit{overflow:auto}
   .rubric-fit .rubric-page{min-height:auto}
