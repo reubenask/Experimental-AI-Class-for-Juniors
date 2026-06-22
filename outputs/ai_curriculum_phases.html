@@ -445,6 +445,8 @@ img,svg,canvas,video{max-width:100%;height:auto}
 .site-header .header-actions{min-height:48px}
 @media (max-width:900px){.site-header .wordmark-title{font-size:20px;letter-spacing:.1em}.site-header .crest{width:38px;height:44px;font-size:18px}}
 @media (max-width:640px){.site-header{height:64px;min-height:64px}.site-header .header-inner{height:64px;min-height:64px}.site-header .wordmark{gap:10px}.site-header .crest{width:34px;height:40px;font-size:16px}.site-header .wordmark-title{font-size:16px;letter-spacing:.07em}.site-header .header-actions{min-height:40px}}
+.phase-dashboard .phase-legend{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.phase-dashboard .phase-legend{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="phases-bento phase-dashboard">
@@ -459,21 +461,11 @@ img,svg,canvas,video{max-width:100%;height:auto}
 
 <a id="top"></a>
 <main class="phases-page">
-  <nav class="page-nav" aria-label="Page navigation">
-    <a href="ai_curriculum_teaching_portal.html"><i class="ti ti-arrow-left"></i><span>Back to Portal</span></a>
-    <a class="active" href="ai_curriculum_phases.html"><i class="ti ti-layout-grid"></i><span>Phases</span></a>
-    <a href="ai_curriculum_modules.html"><i class="ti ti-books"></i><span>Modules</span></a>
-    <a href="ai_curriculum_rubric.html"><i class="ti ti-clipboard-check"></i><span>Rubric</span></a>
-  </nav>
-  <h1 class="simple-title">Learning Phases</h1>
-  <p class="simple-lead">The curriculum moves through four clear phases, from foundational digital skills to advanced AI-powered creation.</p>
-  <section class="phase-legend">
-    <div class="legend-card" data-num="1" style="--lc:var(--foundation)"><div class="tag">Phase 1</div><h4 class="serif">Foundation</h4><p>Core digital skills, first contact with AI, and how language models actually work.</p></div>
-    <div class="legend-card" data-num="2" style="--lc:var(--exploration)"><div class="tag">Phase 2</div><h4 class="serif">Exploration</h4><p>Prompting craft, benchmarking AI tools, and grounded research with sources.</p></div>
-    <div class="legend-card" data-num="3" style="--lc:var(--creation)"><div class="tag">Phase 3</div><h4 class="serif">Creation</h4><p>Designing, building, and deploying working web apps through prompting.</p></div>
-    <div class="legend-card" data-num="4" style="--lc:var(--advanced)"><div class="tag">Phase 4</div><h4 class="serif">Advanced</h4><p>APIs, agents, and a capstone that ships a real AI-powered tool.</p></div>
-  </section>
-  <div class="phases-action"><a class="ghost-link" href="ai_curriculum_modules.html"><i class="ti ti-books"></i><span>Open modules</span></a></div>
+  <nav class="page-nav" aria-label="Stage navigation"><a href="ai_curriculum_teaching_portal.html"><span>Portal</span></a><a href="ai_curriculum_modules.html"><span>Stage 1</span></a><a href="ai_curriculum_agents.html"><span>Stage 2</span></a><a href="ai_curriculum_models.html"><span>Stage 3</span></a><a href="ai_curriculum_rubric.html"><span>Rubric</span></a><a href="ai_curriculum_phases_zh.html"><span>中</span></a></nav>
+  <h1 class="simple-title">Three-Stage Learning Pathway</h1>
+  <p class="simple-lead">Each stage contains 10 practical teaching modules and one challenge: build applications, then agents, then customised open-model systems.</p>
+  <section class="phase-legend"><a class="legend-card" href="ai_curriculum_modules.html" data-num="1" style="--lc:var(--foundation);text-decoration:none"><div class="tag">Stage 1</div><h4 class="serif">AI Creator</h4><p>Digital foundations, prompting, evaluation, Codex, Claude Code, web apps, GitHub, and an agents/API bridge.</p></a><a class="legend-card" href="ai_curriculum_agents.html" data-num="2" style="--lc:var(--exploration);text-decoration:none"><div class="tag">Stage 2</div><h4 class="serif">AI Agent Builder</h4><p>Workflows, MCP servers, APIs, tools, memory, RAG, evaluation, safety, and controlled deployment.</p></a><a class="legend-card" href="ai_curriculum_models.html" data-num="3" style="--lc:var(--advanced);text-decoration:none"><div class="tag">Stage 3</div><h4 class="serif">Open Model Engineer</h4><p>Hugging Face, ModelScope, Ollama, GPU fit, student datasets, RAG, fine-tuning, and model release.</p></a></section>
+
 </main>
 <footer class="site-footer">
   <div class="footer-inner">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Literacy Curriculum · Modules</title>
+<title>AI Literacy Curriculum · Stage 1 AI Creator</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 :root{
@@ -372,6 +372,7 @@ img,svg,canvas,video{max-width:100%;height:auto}
 .site-header .header-actions{min-height:48px}
 @media (max-width:900px){.site-header .wordmark-title{font-size:20px;letter-spacing:.1em}.site-header .crest{width:38px;height:44px;font-size:18px}}
 @media (max-width:640px){.site-header{height:64px;min-height:64px}.site-header .header-inner{height:64px;min-height:64px}.site-header .wordmark{gap:10px}.site-header .crest{width:34px;height:40px;font-size:16px}.site-header .wordmark-title{font-size:16px;letter-spacing:.07em}.site-header .header-actions{min-height:40px}}
+@media(max-width:640px){.controls{width:100%;max-width:100%;align-items:stretch}.search{width:100%;min-width:0;flex:0 0 100%}.search input{max-width:100%}.filters{width:100%;min-width:0}.expand-toggle{margin-left:0}.main{width:100%;max-width:100%}.module{width:100%;max-width:100%}.module-head{display:grid;grid-template-columns:54px minmax(0,1fr) 38px;gap:12px;padding:16px}.m-tile{width:54px;height:54px}.m-meta{min-width:0}.m-meta h3{font-size:18px;overflow-wrap:anywhere}.m-sub{font-size:12px;gap:8px}}
 </style>
 </head>
 <body>
@@ -386,14 +387,9 @@ img,svg,canvas,video{max-width:100%;height:auto}
 
 <a id="top"></a>
 <main class="simple-main" style="padding-bottom:10px">
-  <nav class="page-nav" aria-label="Page navigation">
-    <a href="ai_curriculum_teaching_portal.html"><i class="ti ti-arrow-left"></i><span>Back to Portal</span></a>
-    <a href="ai_curriculum_phases.html"><i class="ti ti-layout-grid"></i><span>Phases</span></a>
-    <a class="active" href="ai_curriculum_modules.html"><i class="ti ti-books"></i><span>Modules</span></a>
-    <a href="ai_curriculum_rubric.html"><i class="ti ti-clipboard-check"></i><span>Rubric</span></a>
-  </nav>
-  <h1 class="simple-title">Modules</h1>
-  <p class="simple-lead">Browse, search, and expand the curriculum modules. Homework assignments remain preserved from the original syllabus.</p>
+  <nav class="page-nav" aria-label="Stage navigation"><a href="ai_curriculum_teaching_portal.html"><span>Portal</span></a><a class="active" href="ai_curriculum_modules.html"><span>Stage 1</span></a><a href="ai_curriculum_agents.html"><span>Stage 2</span></a><a href="ai_curriculum_models.html"><span>Stage 3</span></a><a href="ai_curriculum_rubric.html"><span>Rubric</span></a><a href="ai_curriculum_modules_zh.html"><span>中</span></a></nav>
+  <h1 class="simple-title">Stage 1 — AI Creator</h1>
+  <p class="simple-lead">Ten teaching modules progress from digital foundations to independent web-app development, ending with agents, APIs, and key safety before the AI Learning Impact Challenge.</p>
 </main>
 <div class="controls-wrap" style="margin-top:0">
   <div class="controls">
@@ -419,325 +415,1161 @@ img,svg,canvas,video{max-width:100%;height:auto}
 </footer>
 <button class="to-top" id="toTop" aria-label="Back to top"><i class="ti ti-arrow-up"></i></button>
 <script>
-const modules = [
-{id:'m1',phase:'foundation',badge:'Module 1',name:'Digital foundations — computers, browsers, files, mouse',sessions:'8–10 sessions',
-subsections:[
-{name:'1.1 Parts of a computer',
-obj:['Name and point to CPU, RAM, storage, monitor, keyboard, mouse, webcam','Explain what each part does in one sentence','Distinguish hardware from software with examples','Understand phones and tablets are computers too'],
-teach:['Show-and-tell with open laptop on projector','Hardware vs software sorting card game in pairs','Quick-fire: teacher points to part, students call the name','Analogy: CPU=brain, RAM=desk, storage=backpack'],
-tlms:['Open laptop for show-and-tell','Hardware vs software sorting cards (30+)','Blank computer outline worksheet','Crash Course CS ep.1 (teacher previews first)'],
-act:['Label the blank diagram — as many parts as possible','Sort 30 cards into Hardware / Software / Both','Quick-fire naming round — fastest correct answer wins'],
-files:[{ext:'.docx',icon:'ti-file-text',desc:'Hardware list doc'},{ext:'.pptx',icon:'ti-presentation',desc:'Parts slideshow'},{ext:'.pdf',icon:'ti-file-description',desc:'Parts reference PDF'},{ext:'.txt',icon:'ti-file',desc:'Notes template'}],
-hw:{
-  title:'My device blueprint',
-  mission:'Choose a computer, tablet, or phone you use at home. Your mission is to become the expert on that device.',
-  reqs:['Draw a detailed diagram of the device and label every part you can identify (aim for at least 8 parts)','Write one paragraph for each part: what does it do? What happens if it breaks?','Find the device specifications online (search "model name + specs"). Write down: processor name, RAM amount, storage size','Create a small poster or slide (using any tool) presenting your device as if you were selling it. Include the hardware specs.','Bonus: Find and list 5 pieces of software installed on the device and explain what each one does.'],
-  deliver:['Labelled diagram','Written paragraphs','Specs research','Mini poster or slide','Bonus: software list']
-}
-},
-{name:'1.2 Mouse skills and navigation',
-obj:['Left-click, double-click, right-click accurately','Click and drag objects to new positions','Use scroll wheel to navigate up and down','Use right-click context menu to rename, copy, delete'],
-teach:['Mouse skills warm-up game in browser (pre-loaded)','Teacher demonstrates each action live on projector','Rename / move / copy file challenge','Drag-and-drop sorting activity'],
-tlms:['Mouse skills practice site (pre-loaded)','Printed left/right/drag/scroll reference card','Projector for demo','Files pre-placed on Desktop for practice'],
-act:['Mouse obstacle course: click 20 targets in order as fast as possible','Rename 5 files using only right-click menu','Drag 10 icons into the correct labelled folder'],
-files:[{ext:'folder',icon:'ti-folder',desc:'Practice folder set'},{ext:'.txt',icon:'ti-file',desc:'5 files to rename'},{ext:'.jpg',icon:'ti-photo',desc:'Images to sort'}],
-hw:{
-  title:'My mouse skills journal',
-  mission:'Over 3 days, complete a mouse skills training log.',
-  reqs:['Day 1: Play a mouse accuracy game for 15 minutes. Screenshot your score and write: what was easy? What was hard?','Day 2: Organise the practice folder your teacher gave you — rename all files clearly and sort them into subfolders by type','Day 3: Right-click on 5 different things on your Desktop or in a folder. For each one, write down 3 options you see in the menu and what you think each option does','Write a short reflection (5–8 sentences): has your mouse control improved? What do you want to get better at?'],
-  deliver:['3-day journal with screenshots','Organised folder (submit the folder)','Right-click menu notes','Reflection paragraph']
-}
-},
-{name:'1.3 Browsers, tabs, windows, bookmarks',
-obj:['Open Chrome, Safari, Edge or Firefox and name the difference','Type a URL vs type a search query — understand the difference','Open and close tabs with + button and Ctrl+T / Ctrl+W','Switch between tabs; understand what a window is vs a tab','Bookmark a page and find it in the bookmarks bar','Use back, forward, refresh buttons correctly','Identify: address bar, search bar, bookmarks bar, tabs, extensions'],
-teach:['Browser anatomy tour on projector — label every part together','Tab challenge: 5 sites in 5 tabs in under 2 minutes','Bookmark race: bookmark 3 sites, find them again fastest','URL vs search demo: type a URL, then search the same thing — compare what happens'],
-tlms:['Projector for browser anatomy tour','Printed browser anatomy diagram (students label)','URL vs search comparison worksheet','List of 5 pre-approved sites for tab challenge'],
-act:['Label the browser anatomy diagram (10 features)','Tab challenge: open 5 sites, switch between them, close 2','Bookmark 3 educational sites and present them to a partner'],
-files:[{ext:'.pdf',icon:'ti-file-description',desc:'Browser anatomy PDF'},{ext:'.docx',icon:'ti-file-text',desc:'URL vs search worksheet'},{ext:'.html',icon:'ti-world',desc:'Practice webpage'}],
-hw:{
-  title:'Browser detective report',
-  mission:'You are a browser investigator. Your job is to test and document 3 different browsers.',
-  reqs:['Open 3 different browsers (e.g. Chrome, Edge, Firefox). For each one: screenshot the homepage and label 5 features you recognise','For each browser, open the same website. Do they look different? Write down any differences you notice.','Create a comparison table: Browser name | Speed (your opinion) | Features you like | Features you dislike','Find and use 2 keyboard shortcuts in each browser that you did not learn in class. Document what they do.','Bonus: Research — what is the most popular browser in the world this year? How many people use it? Use a search engine to find out and cite your source.'],
-  deliver:['3 browser screenshots with labels','Comparison table','Shortcut discoveries','Bonus: research paragraph with source']
-}
-},
-{name:'1.4 Keyboard shortcuts and typing',
-obj:['Use Ctrl+C, V, X, Z, A, S, F without thinking','Use Ctrl+T, Ctrl+W, Ctrl+Tab for browser control','Use Alt+Tab to switch between apps','Know Backspace vs Delete, Enter, Tab, Caps Lock, Escape, Home, End','Begin home row typing: fingers on ASDF JKL;','Type at least 15 words per minute by end of module'],
-teach:['Shortcut bingo — teacher calls an action, students race to press correct keys','Typing challenge: type a paragraph using only keyboard, fix all errors with shortcuts only','Home row intro: feel the bumps on F and J, practise ASDF JKL; pattern','3-minute typing races on approved typing game site'],
-tlms:['Shortcut bingo cards (one per student)','Shortcut reference poster (wall display)','Approved typing game site pre-loaded','Typing challenge paragraph worksheet'],
-act:['Shortcut bingo — first to correctly use 5 shortcuts wins','No-mouse paragraph: type and edit a text using only keyboard and shortcuts','3-minute typing race: record WPM on day 1 and end of module'],
-files:[{ext:'.docx',icon:'ti-file-text',desc:'Typing challenge doc'},{ext:'.txt',icon:'ti-file',desc:'Shortcut practice text'},{ext:'.pdf',icon:'ti-file-description',desc:'Shortcuts reference'}],
-hw:{
-  title:'30-day typing mission (compressed to 1 week)',
-  mission:'You are training to become a speed typist. Over 5 days, log your progress and complete daily missions.',
-  reqs:['Day 1–5: Each day, do a 5-minute typing test on an approved site. Record your WPM and accuracy in a log table.','Create a "Shortcut Challenge Card": design a card listing 15 shortcuts you now know. Add a star rating (1–3) for how confident you are with each one.','Type a full short story (minimum 150 words) entirely without using the mouse. Use shortcuts to select, cut, copy, undo, and save.','Teach a family member 5 shortcuts. Write their reaction and whether they found them useful.','Bonus: Research the world record for fastest typing speed. Who holds it? How many WPM? Could a human ever reach 300 WPM?'],
-  deliver:['5-day WPM log table','Shortcut challenge card','150-word story (submit the file)','Family teaching report','Bonus: world record research']
-}
-},
-{name:'1.5 Files, folders and organising your computer',
-obj:['Understand what a file and folder are (filing cabinet analogy)','Create folders and nested subfolders','Move, copy, rename, delete files using right-click and shortcuts','Understand the Desktop, Downloads, Documents structure','Empty the Recycle Bin / Trash','Recognise a well-organised vs messy file system'],
-teach:['Live file explorer tour on projector: Desktop → Documents → Downloads','Students build a full folder structure: My School Work → subject subfolders → files','Messy desktop challenge: teacher shows a chaotic screenshot, students write how to fix it','File management race: who can complete 10 file operations fastest and most accurately'],
-tlms:['Projector for file explorer live tour','Pre-made chaotic desktop screenshot for analysis','Step-by-step folder creation guide','Practice files ZIP to download and organise'],
-act:['Build the full folder structure from scratch','Organise a teacher-provided folder of 20 random files into logical categories','Analyse messy desktop screenshot and write a reorganisation plan'],
-files:[{ext:'.zip',icon:'ti-file-zip',desc:'20 mixed files to sort'},{ext:'.docx',icon:'ti-file-text',desc:'Organisation plan template'},{ext:'.pdf',icon:'ti-file-description',desc:'Folder structure guide'}],
-hw:{
-  title:'Operation: clean desktop',
-  mission:'You are a digital organiser hired to fix the most chaotic computer on earth. That computer is at your home.',
-  reqs:['Go to the Downloads and Documents folders on a home computer. Count how many files are there. Screenshot the before state.','Create a logical folder system and move every file into the correct place. Screenshot the after state.','Write a "filing system guide" — a short document explaining your folder structure so someone else could use it','Find 3 files you did not even know existed on the computer. What are they? What do they do?','Bonus: Research — how do professional companies organise their digital files? Find one example of a file naming convention used in a real workplace.'],
-  deliver:['Before/after screenshots','Completed folder system','Filing system guide document','3 mystery file report','Bonus: professional naming convention research']
-}
-},
-{name:'1.6 Document types and file extensions',
-obj:['Match extensions to their type: .txt .docx .pptx .xlsx .pdf .html .jpg .png .mp3 .mp4 .zip','Choose the right file type for a given task','Understand .pdf = final/share, .docx = editable, .html = webpage','Know .jpg vs .png vs .gif differences','Open each file type in its correct application','Understand that the same content saved in different formats behaves differently'],
-teach:['Scenario card game: read a situation, choose the right extension and app','Live demo: same content saved as .txt, .docx, .pdf — open each and compare','Open a .html file in the browser — "This is a webpage! We will build one later!"','File type decision tree worksheet — students trace the path to find the right format'],
-tlms:['File type scenario cards (20+ situations)','Sample files of every type for students to open','Extension reference poster (wall display all term)','File type decision tree worksheet'],
-act:['Scenario card game in pairs — fastest correct match wins','Open 8 different sample files and identify what app opened each one','Complete the decision tree worksheet choosing the right format for 10 tasks'],
-files:[{ext:'.txt',icon:'ti-file',desc:'Plain text sample'},{ext:'.docx',icon:'ti-file-text',desc:'Word doc sample'},{ext:'.pptx',icon:'ti-presentation',desc:'Slides sample'},{ext:'.xlsx',icon:'ti-table',desc:'Spreadsheet sample'},{ext:'.pdf',icon:'ti-file-description',desc:'PDF sample'},{ext:'.html',icon:'ti-world',desc:'Webpage sample'},{ext:'.jpg',icon:'ti-photo',desc:'Photo sample'},{ext:'.png',icon:'ti-photo',desc:'PNG with transparency'},{ext:'.mp3',icon:'ti-music',desc:'Audio sample'},{ext:'.mp4',icon:'ti-video',desc:'Video sample'},{ext:'.zip',icon:'ti-file-zip',desc:'Archive sample'}],
-hw:{
-  title:'The file type field guide',
-  mission:'You are writing a field guide to help a new student who has never used a computer understand file types. It must be clear, creative, and useful.',
-  reqs:['Create a "File Type Field Guide" — one page per file type you have learned (minimum 8 types). For each type include: the extension, the icon, what app opens it, when you use it, and one real example from your own life.','Present the same piece of information (e.g. a short story you write) saved as .txt, .docx, and .pdf. Submit all three. Write: what is different about each one? Which would you send to a teacher? Which would you keep for yourself to edit?','Design a "Which file should I use?" flowchart (on paper or using any digital tool) with at least 10 decision points','Bonus: Find a real file on your home computer that is in an unusual or unexpected format. Research what it is, what created it, and what software can open it.'],
-  deliver:['File Type Field Guide (8+ pages/sections)','Same story in 3 formats (.txt, .docx, .pdf)','Flowchart','Bonus: mystery file investigation']
-}
-}
-]},
-{id:'m2',phase:'foundation',badge:'Module 2',name:'What is AI? Free exploration',sessions:'2–3 sessions',
-subsections:[
-{name:'2.1 First contact with AI',
-obj:['Interact freely with an AI chatbot for 20 minutes with no instructions','Observe: AI can write, answer, make mistakes, change its mind','Form first opinions: what surprised you? What confused you? What seemed wrong?'],
-teach:['Open exploration session — no guidelines given first, pure discovery','Debrief circle: wall of wonders — what did your AI say that surprised you?','Teacher facilitates, does not instruct during exploration'],
-tlms:['Tablets/computers with approved AI interface','Observation worksheet (fill in after exploration)','Class "wall of wonders" display board'],
-act:['Free exploration session (20 min)','Wall of wonders: each student adds one surprising output','Class debrief: most interesting, most wrong, most useful outputs'],
-files:[{ext:'.docx',icon:'ti-file-text',desc:'Observation worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'AI exploration log'}],
-hw:{
-  title:'AI explorer diary — 3 days, 3 missions',
-  mission:'You are one of the first explorers to make contact with a new kind of intelligence. Document your expedition.',
-  reqs:['Day 1 — Curiosity mission: Ask the AI 10 questions about something you are deeply curious about. Document every question and response. Rate each answer: Impressive / OK / Wrong / Weird.','Day 2 — Trap mission: Try to confuse or trick the AI 5 times. What happens? Does it admit it does not know? Does it make something up? Screenshot the funniest or most surprising result.','Day 3 — Useful mission: Use the AI to actually help you with something real — homework, a hobby, planning something. Did it help? What worked and what did not?','Write a final expedition report (1 page): What is AI good at? What is it bad at? Would you trust it? Why or why not?'],
-  deliver:['3-day exploration diary with screenshots','10 rated Q&A from Day 1','Trap results from Day 2','Useful task documentation from Day 3','Final expedition report']
-}
-}
-]},
-{id:'m3',phase:'foundation',badge:'Module 3',name:'How AI thinks — LLMs explained',sessions:'2 sessions',
-subsections:[
-{name:'3.1 What is an LLM?',
-obj:['Explain what a large language model is using the next-word-prediction analogy','Understand training data and why it matters','Know why LLMs can be confidently wrong (hallucination)','Distinguish LLMs from search engines'],
-teach:['Next-word prediction game with the class: "The cat sat on the ___"','Phone autocomplete demo: build sentences together','Show hallucination live: ask AI something it gets wrong confidently','LLM vs search engine comparison activity'],
-tlms:['Phone for autocomplete demo','LLM vs search engine comparison worksheet','Hallucination examples (teacher-prepared)','Short explainer video (optional)'],
-act:['Next-word prediction card game','Hallucination hunt: find 3 wrong answers in AI output','LLM vs search: same question to both, compare answers'],
-files:[{ext:'.docx',icon:'ti-file-text',desc:'Comparison worksheet'},{ext:'.pptx',icon:'ti-presentation',desc:'LLM explainer slides'},{ext:'.pdf',icon:'ti-file-description',desc:'Hallucination examples'}],
-hw:{
-  title:'The AI fact-checker challenge',
-  mission:'AI can sound completely confident while being completely wrong. Your mission is to catch it.',
-  reqs:['Choose a topic you know well (your favourite sport, a country, an animal, a game). Ask the AI 15 questions about it.','For every answer the AI gives, research whether it is correct using a different source (encyclopedia, official website, textbook). Record: Correct / Partially correct / Wrong.','Find at least 3 clear errors. Screenshot each one. Write: what did the AI say? What is the real answer? Why do you think the AI got it wrong?','Create a "How to spot AI hallucinations" mini-guide (poster, slide, or short document) to help other students.','Bonus: Ask the AI about an event that happened recently. Does it know about it? What does it say when it does not know?'],
-  deliver:['15 Q&A with research verification','3+ error screenshots with analysis','Mini hallucination-spotting guide','Bonus: recent events test']
-}
-}
-]},
-{id:'m4',phase:'exploration',badge:'Module 4',name:'The art of prompting',sessions:'3 sessions',
-subsections:[
-{name:'4.1–4.3 Prompting strategy, types, and ethics',
-obj:['Define a prompt and explain why specificity matters','Use 4+ prompt types: instructional, creative, role-based, chain-of-thought','Apply the CTFC framework: Context, Task, Format, Constraints','Evaluate and iterate on prompts to improve output','Identify inappropriate prompts and practise responsible use'],
-teach:['Vague vs specific prompt live experiment on projector','Prompt type card activity — each student draws a type and tries it','CTFC framework worked example together','Ethical scenario card sorting: appropriate vs inappropriate'],
-tlms:['Prompt type reference cards','CTFC poster (wall display)','Ethical scenario sorting cards','AI access for live experiments'],
-act:['Vague vs specific comparison experiment','Prompt type carousel: 4 stations, 4 types, 5 min each','Ethical scenario sort and class discussion'],
-files:[{ext:'.docx',icon:'ti-file-text',desc:'CTFC worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'Prompt types reference'},{ext:'.pptx',icon:'ti-presentation',desc:'Prompting strategy slides'}],
-hw:{
-  title:'Prompt engineer challenge',
-  mission:'Great AI output starts with a great prompt. You are being hired as a junior prompt engineer. Prove your skills.',
-  choices:[
-    {title:'Option A — The prompt duel',body:'Choose 5 tasks (e.g. write a poem, explain black holes, make a quiz, plan a trip, create a recipe). For each task, write a weak prompt and a strong prompt using CTFC. Submit both outputs. Write an analysis: what specifically made the strong prompt better?'},
-    {title:'Option B — The prompt cookbook',body:'Create a "Prompt Cookbook" — a beautifully designed document (use any tool: Word, slides, Canva, etc.) containing 10 prompt recipes. Each recipe must include: the dish (goal), the ingredients (CTFC elements), the method (the actual prompt), and the result (the AI output). Include at least 3 different prompt types.'},
-    {title:'Option C — Teach a robot',body:'You are writing the instruction manual for a robot that has never used an AI before. Create a beginner\'s guide to prompting (minimum 8 pages or slides) that explains: what a prompt is, why specificity matters, the 4 main prompt types with examples, the CTFC framework, and 3 things you should never prompt an AI to do. Use real screenshots of prompts you tested.'}
-  ],
-  deliver:['Chosen project (A, B, or C)','Real AI output screenshots as evidence','Written analysis or reflection']
-}
-}
-]},
-{id:'m5',phase:'exploration',badge:'Module 5',name:'Testing AI — benchmarking',sessions:'4 sessions',
-subsections:[
-{name:'5.1–5.4 Benchmarking all AI modes',
-obj:['Design and run benchmarks across: creative writing, logic, maths, image generation, voice, speech-to-text','Use a scoring rubric to compare outputs across 2+ AI tools','Identify patterns: what is AI consistently good/bad at?','Compare multimodal tools (text, image, voice modes in one tool e.g. Google AI Studio)'],
-teach:['Each session focuses on one benchmark category','Students design their own test questions then run them','Class results compiled on shared chart to find patterns','Discussion: why does AI struggle with reasoning but excel at writing?'],
-tlms:['Scoring rubric for each category','Access to 2+ AI tools','Shared class results spreadsheet','Logic puzzle and maths challenge cards'],
-act:['Design-your-own AI trap: create a question you think will fool it','Class benchmarking leaderboard: which AI wins each category?','Gallery walk of image generation results with critique notes'],
-files:[{ext:'.xlsx',icon:'ti-table',desc:'Benchmarking results sheet'},{ext:'.docx',icon:'ti-file-text',desc:'Scoring rubric'},{ext:'.pdf',icon:'ti-file-description',desc:'Test design guide'},{ext:'.pptx',icon:'ti-presentation',desc:'Results presentation template'}],
-hw:{
-  title:'The AI Olympics — you are the judge',
-  mission:'The AI Olympics are happening and you are the head judge. You must test 3 AI tools across 5 events and declare an overall winner.',
-  reqs:['Choose 3 AI tools to compete (e.g. Claude, ChatGPT, Gemini, DeepSeek, or others).','Design 5 competition events, one for each category: creative writing, logical reasoning, maths, image generation (if available), and one category you invent yourself.','For each event, give every AI the exact same prompt or challenge. Score each one 1–10 on accuracy, creativity, usefulness, and presentation. Show your scoring in a table.','Write a competition report: who won each event? Who was the overall champion? Were you surprised? What would you change about your test design if you did it again?','Create a 2-minute presentation (slides or video) announcing the results as if you were presenting at an awards ceremony. Be creative!'],
-  deliver:['Scoring tables for all 5 events across 3 tools','AI Olympics report','Presentation slides or video','Screenshots of all AI outputs as evidence']
-}
-}
-]},
-{id:'m6',phase:'creation',badge:'Module 6',name:'Build a web app through prompting',sessions:'4–5 sessions',
-subsections:[
-{name:'6.1–6.4 Problem → design → build → showcase',
-obj:['Define a real problem using a design brief','Use prompt-to-HTML workflow to build a working app','Iterate and improve using AI feedback loops','Present and explain a completed app to an audience'],
-teach:['Design thinking intro: empathy maps, problem statements','Teacher live-codes by prompting on projector','Iteration mindset: "that is not right — how do we describe the fix?"','Peer review pairs with structured feedback form'],
-tlms:['Empathy map templates','AI tool with code generation','Browser for live testing','Peer review form'],
-act:['Problem interview with a classmate','Build your first working page live in class','Peer review and fix session','Mini showcase presentation'],
-files:[{ext:'.docx',icon:'ti-file-text',desc:'Design brief template'},{ext:'.html',icon:'ti-world',desc:'Starter HTML template'},{ext:'.pdf',icon:'ti-file-description',desc:'Peer review form'},{ext:'.pptx',icon:'ti-presentation',desc:'Showcase template'}],
-hw:{
-  title:'JOB JOB: AI App Design and Development',
-  mission:'Please choose one of the following two topics and design and develop an engaging app using your preferred AI large language model (e.g., DeepSeek, ChatGPT, Solo, etc.). In the next class, we are going to try the GitHub rollup process: upload your code to GitHub and record the version.',
-  choices:[
-    {title:'Assignment 1: Vocabulary Survival Island',body:'Mission: You are trapped on a desert island and must survive on a challenge of English words.\n\nRequirements:\nShow conditions for life, food, and water.\nAsk a word question: answer correctly to gain resources; answer incorrectly to lose resources.\nThe game can end when food or water reaches 0.\nShow the number of days alive.\n\nAlso available: weather events, pet companions, rankings, and different difficulties.\nObjective: survive while learning words.'},
-    {title:'Assignment 2: Dream Pet Academy',body:'Mission: Adopt a virtual pet and help it become a champion.\n\nRequirements:\nDesign all personal settings for your pet and track hunger, happiness, energy status, etc.\nDesign learning tasks to earn gold coins and experience.\nInclude pet upgrades, unlockable skills, and more.\nDisplay achievements and statistics.\n\nCan include: pet fights, decor, rare pets, daily rewards.\nObjective: learn while raising your pet and develop good habits.'}
-  ],
-  deliver:['Working app file or project folder','Prompt log from the AI large language model','Code ready for GitHub rollup next class','60-second showcase pitch']
-}
-}
-]},
-{id:'m7',phase:'creation',badge:'Module 7',name:'GitHub and deploying your app',sessions:'2 sessions',
-subsections:[
-{name:'7.1–7.2 Version control, upload and GitHub Pages',
-obj:['Create a GitHub account and first repository','Upload HTML app and understand: file, commit, README','Enable GitHub Pages and get a live shareable URL','Share the live link for peer testing'],
-teach:['Analogy: GitHub = Google Drive for code with memory','Live guided upload on projector, students follow along','Enable Pages settings together — live URL moment','Swap live links with classmates for testing'],
-tlms:['GitHub account setup guide','Step-by-step Pages deployment guide','Example teacher repo to explore','Projector for live walkthrough'],
-act:['Create account and first repo together','Upload app file — get a live URL','Peer link swap and 5-minute live testing session'],
-files:[{ext:'.pdf',icon:'ti-file-description',desc:'GitHub setup guide'},{ext:'.docx',icon:'ti-file-text',desc:'Deployment checklist'},{ext:'.html',icon:'ti-world',desc:'Your app from M6'}],
-hw:{
-  title:'Launch, test, and report',
-  mission:'Your app is live on the internet. Now you need real users to test it and you need to act on their feedback.',
-  reqs:['Share your live GitHub Pages link with at least 3 people outside class (family, friends, neighbours). Ask them to use it for at least 5 minutes.','Create a feedback form (you can use paper, a Google Form, or build one in your app!) with at least 5 questions. Collect responses from all 3 testers.','Analyse the feedback: what did all 3 people say? What was the most common complaint? What surprised you?','Make at least 2 improvements to your app based on the feedback. Use AI to help you. Document each change: what was the problem? What prompt did you use? What changed?','Bonus: Record a short screen-recording video (60–90 seconds) demonstrating your app as if presenting it to investors. Upload it or share the link.'],
-  deliver:['3 completed feedback forms','Feedback analysis (written)','Updated app with 2 improvements on GitHub','Before/after screenshots of changes','Bonus: demo video']
-}
-}
-]},
-{id:'m8',phase:'exploration',badge:'Module 8',name:'NotebookLM and AI research tools',sessions:'2–3 sessions',
-subsections:[
-{name:'8.1–8.2 Grounded AI, audio overviews, study tools',
-obj:['Upload documents to NotebookLM and ask grounded questions','Generate audio overviews and study guides from sources','Compare grounded AI (answers from your documents) vs general AI','Evaluate: when is NotebookLM the right tool?'],
-teach:['Teacher uploads class topic document on projector','Students ask the same question to NotebookLM vs general AI — compare','Generate audio overview together and listen as a class','Students create their own notebook from provided materials'],
-tlms:['NotebookLM access','Teacher-prepared source documents in ZIP','Comparison worksheet','Audio playback capability (speaker or headphones)'],
-act:['Upload provided ZIP and ask 10 questions','Generate audio overview and write 5 key points from listening','NotebookLM vs Google comparison for 5 queries'],
-files:[{ext:'.zip',icon:'ti-file-zip',desc:'Mars lecture materials (Chinese + English)'},{ext:'.pdf',icon:'ti-file-description',desc:'Lecture notes PDF'},{ext:'.docx',icon:'ti-file-text',desc:'Supplementary reading'},{ext:'.pptx',icon:'ti-presentation',desc:'Lecture slides'}],
-hw:{
-  title:'NotebookLM Mars Deep Understanding Task',
-  mission:'Imagine you dream of becoming an astronaut and attended a fascinating lecture about Mars. You asked the presenter for more materials. The materials include both Chinese and English content, and some parts are difficult to understand, so you decide to use NotebookLM to study them deeply.',
-  reqs:['Use NotebookLM to ask many questions and keep deepening your understanding. Follow the method learned in class today; you may review the PPT process to help you.','Use the materials and links provided in the ZIP as sources for NotebookLM.','Ask basic questions first, then use each answer to ask stronger follow-up questions. Keep a record of your question chain and operation process.','Try generating and organising NotebookLM outputs such as a blog/audio overview, video explanation, and mind map.','When finished, provide screenshots plus your recorded blog/audio overview, video, and mind map.'],
-  deliver:['NotebookLM process screenshots','Question-chain record','Blog/audio overview record','Recorded video','Mind map','Record of ZIP sources/links used']
-}
-}
-]},
-{id:'m9',phase:'advanced',badge:'Module 9',name:'AI app builders and workflow automation',sessions:'5 sessions',
-subsections:[
-{name:'9.1-9.5 Opal-style apps, n8n workflows, triggers, and automation safety',
-obj:['Explain an AI workflow as trigger, input, AI step, condition, output, and human review','Build a simple Opal-style AI mini app for a learning task','Design an n8n-style workflow with nodes, data handoff, conditions, and outputs','Compare AI app builders, automation tools, and agents as different levels of AI tool use','Identify automation risks: private data, repeated mistakes, accidental sending, weak prompts, and missing approval gates'],
-teach:['Workflow model: trigger -> input -> AI step -> condition -> output -> human review','Demo an Opal-style mini app: define the user task, chain prompts, test outputs, and make it reusable','Demo n8n / Make / Zapier workflow thinking with trigger, AI node, condition, spreadsheet/email/notification output','Compare tools: AI app builder for reusable interfaces, n8n for connecting systems, agent for planning and tool use','Safety checkpoint: what should never be automated without a person approving it?'],
-tlms:['Opal-style AI mini app demo or screenshots','n8n / Make / Zapier workflow screenshots or demo account','Workflow planning canvas','Automation safety checklist','Sample form input and spreadsheet output','Teacher-approved demo data'],
-act:['Map a daily learning routine as a workflow: trigger, input, AI step, condition, output, review','Build or storyboard an Opal-style study helper mini app, such as vocabulary coach, feedback helper, or quiz generator','Design an n8n automation flow, for example: collect mistakes -> AI summary -> review list -> teacher/student notification','Trace data through a workflow and label where private information, errors, or accidental sending could happen','Add human approval gates to a risky automation and explain why they matter'],
-files:[{ext:'.docx',icon:'ti-file-text',desc:'AI workflow planning canvas'},{ext:'.pdf',icon:'ti-file-description',desc:'Opal-style mini app brief'},{ext:'.pdf',icon:'ti-file-description',desc:'n8n workflow map'},{ext:'.xlsx',icon:'ti-table',desc:'Automation test data sheet'},{ext:'.txt',icon:'ti-file',desc:'Safety checklist'}],
-hw:{
-  title:'Design an AI mini app or learning automation',
-  mission:'Build or storyboard a small AI-powered learning tool using an Opal-style app builder, n8n-style workflow, or a clear paper prototype if access is limited.',
-  reqs:['Choose one learning problem that can be helped by a reusable AI mini app or automation workflow.','Define the user, trigger, input, AI step, output, and success measure.','Build the mini app/workflow if you have access to the tool, or create a complete storyboard with screens/nodes if access is limited.','Test it with at least 2 examples and record what worked, what failed, and what you changed.','Add a safety note explaining what data should not be entered, where a human should approve, and how users can check important outputs.'],
-  deliver:['Mini app link, workflow screenshot, or complete storyboard','Workflow diagram with trigger, inputs, AI step, conditions, outputs, and approval gate','2 test cases with results','Safety note','Short reflection: what would you automate next?']
-}
-}
-]},
-{id:'m10',phase:'advanced',badge:'Module 10',name:'Agents, APIs, Codex, Claude Code, and advanced AI systems',sessions:'6 sessions',
-subsections:[
-{name:'10.1-10.6 APIs, agents, Codex, Claude Code, and advanced AI systems',
-obj:['Explain APIs using the waiter analogy: request, response, endpoint, key, and permission','Distinguish chatbots, agents, APIs, Codex, Claude Code, and automation workflows','Observe Codex reading a project, editing a file, showing a diff, and verifying the result','Observe Claude Code handling a coding task and compare its workflow with Codex','Design an advanced agent workflow with tools, memory, plans, checks, and human approval','Understand advanced AI system risks: privacy, error spread, secret keys, repeated runs, and human confirmation'],
-teach:['API analogy: user = customer, AI = kitchen, API = waiter, key = pass','Live Codex demo: inspect a web file, propose a change, show the diff, and wait for human approval','Live Claude Code demo: ask it to explain a small project, edit one controlled feature, and summarize what changed','Agent workflow demo: goal -> plan -> tool use -> check -> revise -> report','Compare systems: chatbot for answers, Codex and Claude Code for code changes, workflow automation for connecting tools, agents for multi-step work','Safety discussion: what must require human approval? What data should never enter an AI system?'],
-tlms:['API analogy card','Codex demo environment','Claude Code demo environment','Agent workflow screenshots or demo account','Teacher-provided test API key','Prewritten API starter code','Advanced AI safety checklist'],
-act:['Paper agent design: draw a learning agent with goal, tools, steps, memory, and checkpoints','Use Codex to add a small feature to the Module 6 app; record prompts, before/after changes, diff, and test result','Use Claude Code on the same or a similar task; compare setup, explanation quality, code changes, and verification process','Design an advanced agent workflow that uses at least two tools and one human approval gate','Run the API starter code and identify request, response, and key-protection boundary','Risk-mark an AI system workflow: where can it fail, and where does a human need to approve?'],
-files:[{ext:'.html',icon:'ti-world',desc:'API starter template'},{ext:'.docx',icon:'ti-file-text',desc:'Agent design worksheet'},{ext:'.pdf',icon:'ti-file-description',desc:'API concepts guide'},{ext:'.pdf',icon:'ti-file-description',desc:'Codex vs Claude Code comparison sheet'},{ext:'.pdf',icon:'ti-file-description',desc:'Advanced AI workflow map'},{ext:'.txt',icon:'ti-file',desc:'Test API key instructions'}],
-hw:{
-  title:'Build your own AI tool, agent, or advanced AI system',
-  mission:'This is your advanced project. Use prompting, web building, GitHub, APIs, Codex, Claude Code, agent design, or workflow automation to create something real and demonstrable.',
-  choices:[
-    {title:'Option A - AI-powered web app',body:'Extend your Module 6 app with a useful AI feature using an API call: answer questions, generate content, give advice, summarise materials, etc. You may use Codex / Claude Code / ChatGPT to modify the code, but you must record prompts, code changes, and test results. Deploy the final version to GitHub Pages and record a 2-minute demo.'},
-    {title:'Option B - My own AI agent design',body:'Design a complete AI agent for a problem you care about. Include: the problem it solves, tools it needs (search, calendar, email, spreadsheet, web, files, etc.), workflow diagram, prompt sequence, memory/checking mechanism, and a safety note explaining what must require human approval.'},
-    {title:'Option C - Advanced learning automation',body:'Extend the Module 9 workflow idea into an advanced automation or agent workflow that improves learning. Example: collect mistakes -> AI summary -> generate review list -> send to student/teacher -> write to spreadsheet. Include trigger, every step, conditions, outputs, what happens if it fails, and privacy/safety checks.'},
-    {title:'Option D - AI tools field guide',body:'Create a practical AI tools guide for students your age. Cover: LLMs, prompting, NotebookLM, Opal-style AI app builders, Codex, Claude Code, AI coding assistants, APIs, agents, n8n or another automation system. Minimum 15 pages/slides with real screenshots. Explain when each tool is useful and when it is not.'}
-  ],
-  deliver:['Completed project (A, B, C, or D)','Process evidence: screenshots, prompt logs, code diff, workflow diagram, or drafts','Safety note: data, keys, human approval, and failure handling','Final reflection: what do you want to automate or build next?']
-}
-}
-]}
-];
-
-modules.push({
-  id:'m11',
-  phase:'creation',
-  badge:'Module 11',
-  name:'AI Learning Impact Challenge',
-  sessions:'4–6 sessions',
-  subsections:[
-    {
-      name:'11.1-11.4 Competition project: build a learning tool for real users',
-      obj:[
-        'Work in a team to identify a pressing educational problem that affects real learners',
-        'Choose and justify a solution format: web app, AI agent, or hybrid learning tool',
-        'Build a usable prototype that other students can use to improve their learning process',
-        'Test the tool with real users and improve it based on feedback',
-        'Present the final product with evidence of learning impact, responsible AI use, and team contribution'
-      ],
-      teach:[
-        'Run a group formation and role-setting workshop: product lead, prompt/design lead, builder, tester, presenter',
-        'Use problem interviews to move teams away from vague ideas and toward real learner needs',
-        'Model how to write a product brief with user, problem, outcome, constraints, and success measures',
-        'Hold build sprints with teacher checkpoints for scope, safety, usability, and evidence',
-        'End with a public showcase where teams demonstrate the product and explain what changed after testing'
-      ],
-      tlms:[
-        'Group project brief template',
-        'Learner interview script',
-        'Team role cards',
-        'Prototype planning board',
-        'AI/web app safety checklist',
-        'User testing feedback form',
-        'Showcase presentation template'
-      ],
-      act:[
-        'Problem gallery: teams list learning struggles and vote on urgent, solvable problems',
-        'User interview sprint: each team interviews at least 3 learners',
-        'Prototype sprint: teams build a web app or AI agent with teacher checkpoints',
-        'Peer testing carousel: teams test each other\'s tools and collect structured feedback',
-        'Impact showcase: teams demonstrate the final tool and defend design decisions'
-      ],
-      files:[
-        {ext:'.docx',icon:'ti-file-text',desc:'Group project brief'},
-        {ext:'.pdf',icon:'ti-file-description',desc:'AI/web app safety checklist'},
-        {ext:'.xlsx',icon:'ti-table',desc:'User testing tracker'},
-        {ext:'.pptx',icon:'ti-presentation',desc:'10-slide final showcase template'},
-        {ext:'.html',icon:'ti-world',desc:'Web app starter'},
-        {ext:'.txt',icon:'ti-file',desc:'AI agent prompt template'}
-      ],
-      hw:{
-        title:'AI Learning Impact Challenge — final competition project',
-        mission:'In your group, build a web app, automation, or AI agent that solves a pressing educational problem and can be used by other learners to improve their learning process.',
-        reqs:[
-          'Choose one real educational problem. It must be specific, important, and connected to how students learn, revise, practise, understand, organise, or get feedback.',
-          'Interview at least 3 potential users. Record what problem they have, what they currently do, and what would make learning easier for them.',
-          'Decide whether your solution should be a web app, automation, an AI agent, or a hybrid tool. Write a short explanation of why this format is the best fit.',
-          'Build a working prototype that other learners can actually use. It must include clear instructions, useful feedback or guidance, and at least one feature that responds to user input.',
-          'Test your prototype with at least 3 users. Collect feedback, identify the most important problem, and make at least 3 improvements.',
-          'Prepare a final showcase: demonstrate the tool, explain the educational problem, show evidence from testing, describe each team member\'s contribution, and reflect on what you would improve next.',
-          'The group presentation must contain exactly 10 slides. Slide 1: project title, team roles, and a one-sentence solution. Slide 2: the problem or pain point, why it matters, and evidence that it is real. Slide 3: the target user profile — who they are, what they need, and why they are the right priority audience or market target for this product. Slide 4: the proposed solution, how it addresses the pain point, and why this solution format was chosen. Slide 5: the solution framework as a clear flowchart showing the user journey, inputs, main steps, AI/data/tools, decisions, outputs, and any human checks. Slide 6: the existing Minimum Viable Product (MVP), with its essential features, functions, and interface evidence. Slide 7: the user-testing method — who tested, what tasks they attempted, what was observed, and what was measured. Slide 8: user-test feedback and the team\'s assessment — representative quotes, repeated patterns, which feedback matters most, and why. Slide 9: corrections and improvements made from the feedback, with before/after evidence and reasons, followed by the improved MVP. Slide 10: final MVP display or live demo, evidence of learning value, current limitations, and the next improvement.',
-          'Responsible AI requirement: if your tool uses AI, explain what data is sent to the AI, what users should not enter, how you reduce wrong answers, and how users can check important information.',
-          'Core scoring (100%): learning impact 30%; product functionality 20%; usability 15%; AI and technical quality 15%; responsible AI and safety 10%; presentation and evidence 10%. Usability means real users can understand the interface, complete the main task without team help, read the content clearly, recover from mistakes, and use the product on phone, tablet, and laptop.',
-          'Audience Choice Bonus (up to +10%): collect anonymous 1–5 star ratings, one vote per person, with a required written reason explaining learning value. The bonus is added after the 100% core grade and cannot replace any academic criterion.'
+const modules=[
+  {
+    "id": "m1",
+    "phase": "foundation",
+    "badge": "Module 1",
+    "name": "Digital foundations — computers, browsers, files, mouse",
+    "sessions": "8–10 sessions",
+    "subsections": [
+      {
+        "name": "1.1 Parts of a computer",
+        "obj": [
+          "Name and point to CPU, RAM, storage, monitor, keyboard, mouse, webcam",
+          "Explain what each part does in one sentence",
+          "Distinguish hardware from software with examples",
+          "Understand phones and tablets are computers too"
         ],
-        deliver:[
-          'Working group prototype',
-          'Problem brief and user interview notes',
-          'Prompt log or build log',
-          'User testing evidence',
-          '3+ documented improvements',
-          'Exactly 10-slide final showcase deck and live demo or video',
-          'Team contribution reflection',
-          'Responsible AI statement',
-          'Completed group project scoring sheet, including Audience Choice evidence'
-        ]
+        "teach": [
+          "Show-and-tell with open laptop on projector",
+          "Hardware vs software sorting card game in pairs",
+          "Quick-fire: teacher points to part, students call the name",
+          "Analogy: CPU=brain, RAM=desk, storage=backpack"
+        ],
+        "tlms": [
+          "Open laptop for show-and-tell",
+          "Hardware vs software sorting cards (30+)",
+          "Blank computer outline worksheet",
+          "Crash Course CS ep.1 (teacher previews first)"
+        ],
+        "act": [
+          "Label the blank diagram — as many parts as possible",
+          "Sort 30 cards into Hardware / Software / Both",
+          "Quick-fire naming round — fastest correct answer wins"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Hardware list doc"
+          },
+          {
+            "ext": ".pptx",
+            "icon": "ti-presentation",
+            "desc": "Parts slideshow"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Parts reference PDF"
+          },
+          {
+            "ext": ".txt",
+            "icon": "ti-file",
+            "desc": "Notes template"
+          }
+        ],
+        "hw": {
+          "title": "My device blueprint",
+          "mission": "Choose a computer, tablet, or phone you use at home. Your mission is to become the expert on that device.",
+          "reqs": [
+            "Draw a detailed diagram of the device and label every part you can identify (aim for at least 8 parts)",
+            "Write one paragraph for each part: what does it do? What happens if it breaks?",
+            "Find the device specifications online (search \"model name + specs\"). Write down: processor name, RAM amount, storage size",
+            "Create a small poster or slide (using any tool) presenting your device as if you were selling it. Include the hardware specs.",
+            "Bonus: Find and list 5 pieces of software installed on the device and explain what each one does."
+          ],
+          "deliver": [
+            "Labelled diagram",
+            "Written paragraphs",
+            "Specs research",
+            "Mini poster or slide",
+            "Bonus: software list"
+          ]
+        }
+      },
+      {
+        "name": "1.2 Mouse skills and navigation",
+        "obj": [
+          "Left-click, double-click, right-click accurately",
+          "Click and drag objects to new positions",
+          "Use scroll wheel to navigate up and down",
+          "Use right-click context menu to rename, copy, delete"
+        ],
+        "teach": [
+          "Mouse skills warm-up game in browser (pre-loaded)",
+          "Teacher demonstrates each action live on projector",
+          "Rename / move / copy file challenge",
+          "Drag-and-drop sorting activity"
+        ],
+        "tlms": [
+          "Mouse skills practice site (pre-loaded)",
+          "Printed left/right/drag/scroll reference card",
+          "Projector for demo",
+          "Files pre-placed on Desktop for practice"
+        ],
+        "act": [
+          "Mouse obstacle course: click 20 targets in order as fast as possible",
+          "Rename 5 files using only right-click menu",
+          "Drag 10 icons into the correct labelled folder"
+        ],
+        "files": [
+          {
+            "ext": "folder",
+            "icon": "ti-folder",
+            "desc": "Practice folder set"
+          },
+          {
+            "ext": ".txt",
+            "icon": "ti-file",
+            "desc": "5 files to rename"
+          },
+          {
+            "ext": ".jpg",
+            "icon": "ti-photo",
+            "desc": "Images to sort"
+          }
+        ],
+        "hw": {
+          "title": "My mouse skills journal",
+          "mission": "Over 3 days, complete a mouse skills training log.",
+          "reqs": [
+            "Day 1: Play a mouse accuracy game for 15 minutes. Screenshot your score and write: what was easy? What was hard?",
+            "Day 2: Organise the practice folder your teacher gave you — rename all files clearly and sort them into subfolders by type",
+            "Day 3: Right-click on 5 different things on your Desktop or in a folder. For each one, write down 3 options you see in the menu and what you think each option does",
+            "Write a short reflection (5–8 sentences): has your mouse control improved? What do you want to get better at?"
+          ],
+          "deliver": [
+            "3-day journal with screenshots",
+            "Organised folder (submit the folder)",
+            "Right-click menu notes",
+            "Reflection paragraph"
+          ]
+        }
+      },
+      {
+        "name": "1.3 Browsers, tabs, windows, bookmarks",
+        "obj": [
+          "Open Chrome, Safari, Edge or Firefox and name the difference",
+          "Type a URL vs type a search query — understand the difference",
+          "Open and close tabs with + button and Ctrl+T / Ctrl+W",
+          "Switch between tabs; understand what a window is vs a tab",
+          "Bookmark a page and find it in the bookmarks bar",
+          "Use back, forward, refresh buttons correctly",
+          "Identify: address bar, search bar, bookmarks bar, tabs, extensions"
+        ],
+        "teach": [
+          "Browser anatomy tour on projector — label every part together",
+          "Tab challenge: 5 sites in 5 tabs in under 2 minutes",
+          "Bookmark race: bookmark 3 sites, find them again fastest",
+          "URL vs search demo: type a URL, then search the same thing — compare what happens"
+        ],
+        "tlms": [
+          "Projector for browser anatomy tour",
+          "Printed browser anatomy diagram (students label)",
+          "URL vs search comparison worksheet",
+          "List of 5 pre-approved sites for tab challenge"
+        ],
+        "act": [
+          "Label the browser anatomy diagram (10 features)",
+          "Tab challenge: open 5 sites, switch between them, close 2",
+          "Bookmark 3 educational sites and present them to a partner"
+        ],
+        "files": [
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Browser anatomy PDF"
+          },
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "URL vs search worksheet"
+          },
+          {
+            "ext": ".html",
+            "icon": "ti-world",
+            "desc": "Practice webpage"
+          }
+        ],
+        "hw": {
+          "title": "Browser detective report",
+          "mission": "You are a browser investigator. Your job is to test and document 3 different browsers.",
+          "reqs": [
+            "Open 3 different browsers (e.g. Chrome, Edge, Firefox). For each one: screenshot the homepage and label 5 features you recognise",
+            "For each browser, open the same website. Do they look different? Write down any differences you notice.",
+            "Create a comparison table: Browser name | Speed (your opinion) | Features you like | Features you dislike",
+            "Find and use 2 keyboard shortcuts in each browser that you did not learn in class. Document what they do.",
+            "Bonus: Research — what is the most popular browser in the world this year? How many people use it? Use a search engine to find out and cite your source."
+          ],
+          "deliver": [
+            "3 browser screenshots with labels",
+            "Comparison table",
+            "Shortcut discoveries",
+            "Bonus: research paragraph with source"
+          ]
+        }
+      },
+      {
+        "name": "1.4 Keyboard shortcuts and typing",
+        "obj": [
+          "Use Ctrl+C, V, X, Z, A, S, F without thinking",
+          "Use Ctrl+T, Ctrl+W, Ctrl+Tab for browser control",
+          "Use Alt+Tab to switch between apps",
+          "Know Backspace vs Delete, Enter, Tab, Caps Lock, Escape, Home, End",
+          "Begin home row typing: fingers on ASDF JKL;",
+          "Type at least 15 words per minute by end of module"
+        ],
+        "teach": [
+          "Shortcut bingo — teacher calls an action, students race to press correct keys",
+          "Typing challenge: type a paragraph using only keyboard, fix all errors with shortcuts only",
+          "Home row intro: feel the bumps on F and J, practise ASDF JKL; pattern",
+          "3-minute typing races on approved typing game site"
+        ],
+        "tlms": [
+          "Shortcut bingo cards (one per student)",
+          "Shortcut reference poster (wall display)",
+          "Approved typing game site pre-loaded",
+          "Typing challenge paragraph worksheet"
+        ],
+        "act": [
+          "Shortcut bingo — first to correctly use 5 shortcuts wins",
+          "No-mouse paragraph: type and edit a text using only keyboard and shortcuts",
+          "3-minute typing race: record WPM on day 1 and end of module"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Typing challenge doc"
+          },
+          {
+            "ext": ".txt",
+            "icon": "ti-file",
+            "desc": "Shortcut practice text"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Shortcuts reference"
+          }
+        ],
+        "hw": {
+          "title": "30-day typing mission (compressed to 1 week)",
+          "mission": "You are training to become a speed typist. Over 5 days, log your progress and complete daily missions.",
+          "reqs": [
+            "Day 1–5: Each day, do a 5-minute typing test on an approved site. Record your WPM and accuracy in a log table.",
+            "Create a \"Shortcut Challenge Card\": design a card listing 15 shortcuts you now know. Add a star rating (1–3) for how confident you are with each one.",
+            "Type a full short story (minimum 150 words) entirely without using the mouse. Use shortcuts to select, cut, copy, undo, and save.",
+            "Teach a family member 5 shortcuts. Write their reaction and whether they found them useful.",
+            "Bonus: Research the world record for fastest typing speed. Who holds it? How many WPM? Could a human ever reach 300 WPM?"
+          ],
+          "deliver": [
+            "5-day WPM log table",
+            "Shortcut challenge card",
+            "150-word story (submit the file)",
+            "Family teaching report",
+            "Bonus: world record research"
+          ]
+        }
+      },
+      {
+        "name": "1.5 Files, folders and organising your computer",
+        "obj": [
+          "Understand what a file and folder are (filing cabinet analogy)",
+          "Create folders and nested subfolders",
+          "Move, copy, rename, delete files using right-click and shortcuts",
+          "Understand the Desktop, Downloads, Documents structure",
+          "Empty the Recycle Bin / Trash",
+          "Recognise a well-organised vs messy file system"
+        ],
+        "teach": [
+          "Live file explorer tour on projector: Desktop → Documents → Downloads",
+          "Students build a full folder structure: My School Work → subject subfolders → files",
+          "Messy desktop challenge: teacher shows a chaotic screenshot, students write how to fix it",
+          "File management race: who can complete 10 file operations fastest and most accurately"
+        ],
+        "tlms": [
+          "Projector for file explorer live tour",
+          "Pre-made chaotic desktop screenshot for analysis",
+          "Step-by-step folder creation guide",
+          "Practice files ZIP to download and organise"
+        ],
+        "act": [
+          "Build the full folder structure from scratch",
+          "Organise a teacher-provided folder of 20 random files into logical categories",
+          "Analyse messy desktop screenshot and write a reorganisation plan"
+        ],
+        "files": [
+          {
+            "ext": ".zip",
+            "icon": "ti-file-zip",
+            "desc": "20 mixed files to sort"
+          },
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Organisation plan template"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Folder structure guide"
+          }
+        ],
+        "hw": {
+          "title": "Operation: clean desktop",
+          "mission": "You are a digital organiser hired to fix the most chaotic computer on earth. That computer is at your home.",
+          "reqs": [
+            "Go to the Downloads and Documents folders on a home computer. Count how many files are there. Screenshot the before state.",
+            "Create a logical folder system and move every file into the correct place. Screenshot the after state.",
+            "Write a \"filing system guide\" — a short document explaining your folder structure so someone else could use it",
+            "Find 3 files you did not even know existed on the computer. What are they? What do they do?",
+            "Bonus: Research — how do professional companies organise their digital files? Find one example of a file naming convention used in a real workplace."
+          ],
+          "deliver": [
+            "Before/after screenshots",
+            "Completed folder system",
+            "Filing system guide document",
+            "3 mystery file report",
+            "Bonus: professional naming convention research"
+          ]
+        }
+      },
+      {
+        "name": "1.6 Document types and file extensions",
+        "obj": [
+          "Match extensions to their type: .txt .docx .pptx .xlsx .pdf .html .jpg .png .mp3 .mp4 .zip",
+          "Choose the right file type for a given task",
+          "Understand .pdf = final/share, .docx = editable, .html = webpage",
+          "Know .jpg vs .png vs .gif differences",
+          "Open each file type in its correct application",
+          "Understand that the same content saved in different formats behaves differently"
+        ],
+        "teach": [
+          "Scenario card game: read a situation, choose the right extension and app",
+          "Live demo: same content saved as .txt, .docx, .pdf — open each and compare",
+          "Open a .html file in the browser — \"This is a webpage! We will build one later!\"",
+          "File type decision tree worksheet — students trace the path to find the right format"
+        ],
+        "tlms": [
+          "File type scenario cards (20+ situations)",
+          "Sample files of every type for students to open",
+          "Extension reference poster (wall display all term)",
+          "File type decision tree worksheet"
+        ],
+        "act": [
+          "Scenario card game in pairs — fastest correct match wins",
+          "Open 8 different sample files and identify what app opened each one",
+          "Complete the decision tree worksheet choosing the right format for 10 tasks"
+        ],
+        "files": [
+          {
+            "ext": ".txt",
+            "icon": "ti-file",
+            "desc": "Plain text sample"
+          },
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Word doc sample"
+          },
+          {
+            "ext": ".pptx",
+            "icon": "ti-presentation",
+            "desc": "Slides sample"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "Spreadsheet sample"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "PDF sample"
+          },
+          {
+            "ext": ".html",
+            "icon": "ti-world",
+            "desc": "Webpage sample"
+          },
+          {
+            "ext": ".jpg",
+            "icon": "ti-photo",
+            "desc": "Photo sample"
+          },
+          {
+            "ext": ".png",
+            "icon": "ti-photo",
+            "desc": "PNG with transparency"
+          },
+          {
+            "ext": ".mp3",
+            "icon": "ti-music",
+            "desc": "Audio sample"
+          },
+          {
+            "ext": ".mp4",
+            "icon": "ti-video",
+            "desc": "Video sample"
+          },
+          {
+            "ext": ".zip",
+            "icon": "ti-file-zip",
+            "desc": "Archive sample"
+          }
+        ],
+        "hw": {
+          "title": "The file type field guide",
+          "mission": "You are writing a field guide to help a new student who has never used a computer understand file types. It must be clear, creative, and useful.",
+          "reqs": [
+            "Create a \"File Type Field Guide\" — one page per file type you have learned (minimum 8 types). For each type include: the extension, the icon, what app opens it, when you use it, and one real example from your own life.",
+            "Present the same piece of information (e.g. a short story you write) saved as .txt, .docx, and .pdf. Submit all three. Write: what is different about each one? Which would you send to a teacher? Which would you keep for yourself to edit?",
+            "Design a \"Which file should I use?\" flowchart (on paper or using any digital tool) with at least 10 decision points",
+            "Bonus: Find a real file on your home computer that is in an unusual or unexpected format. Research what it is, what created it, and what software can open it."
+          ],
+          "deliver": [
+            "File Type Field Guide (8+ pages/sections)",
+            "Same story in 3 formats (.txt, .docx, .pdf)",
+            "Flowchart",
+            "Bonus: mystery file investigation"
+          ]
+        }
       }
-    }
-  ]
-});
-
-const sessionGuide = [
+    ]
+  },
+  {
+    "id": "m2",
+    "phase": "foundation",
+    "badge": "Module 2",
+    "name": "What is AI? Free exploration",
+    "sessions": "2–3 sessions",
+    "subsections": [
+      {
+        "name": "2.1 First contact with AI",
+        "obj": [
+          "Interact freely with an AI chatbot for 20 minutes with no instructions",
+          "Observe: AI can write, answer, make mistakes, change its mind",
+          "Form first opinions: what surprised you? What confused you? What seemed wrong?"
+        ],
+        "teach": [
+          "Open exploration session — no guidelines given first, pure discovery",
+          "Debrief circle: wall of wonders — what did your AI say that surprised you?",
+          "Teacher facilitates, does not instruct during exploration"
+        ],
+        "tlms": [
+          "Tablets/computers with approved AI interface",
+          "Observation worksheet (fill in after exploration)",
+          "Class \"wall of wonders\" display board"
+        ],
+        "act": [
+          "Free exploration session (20 min)",
+          "Wall of wonders: each student adds one surprising output",
+          "Class debrief: most interesting, most wrong, most useful outputs"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Observation worksheet"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "AI exploration log"
+          }
+        ],
+        "hw": {
+          "title": "AI explorer diary — 3 days, 3 missions",
+          "mission": "You are one of the first explorers to make contact with a new kind of intelligence. Document your expedition.",
+          "reqs": [
+            "Day 1 — Curiosity mission: Ask the AI 10 questions about something you are deeply curious about. Document every question and response. Rate each answer: Impressive / OK / Wrong / Weird.",
+            "Day 2 — Trap mission: Try to confuse or trick the AI 5 times. What happens? Does it admit it does not know? Does it make something up? Screenshot the funniest or most surprising result.",
+            "Day 3 — Useful mission: Use the AI to actually help you with something real — homework, a hobby, planning something. Did it help? What worked and what did not?",
+            "Write a final expedition report (1 page): What is AI good at? What is it bad at? Would you trust it? Why or why not?"
+          ],
+          "deliver": [
+            "3-day exploration diary with screenshots",
+            "10 rated Q&A from Day 1",
+            "Trap results from Day 2",
+            "Useful task documentation from Day 3",
+            "Final expedition report"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m3",
+    "phase": "foundation",
+    "badge": "Module 3",
+    "name": "How AI thinks — LLMs explained",
+    "sessions": "2 sessions",
+    "subsections": [
+      {
+        "name": "3.1 What is an LLM?",
+        "obj": [
+          "Explain what a large language model is using the next-word-prediction analogy",
+          "Understand training data and why it matters",
+          "Know why LLMs can be confidently wrong (hallucination)",
+          "Distinguish LLMs from search engines"
+        ],
+        "teach": [
+          "Next-word prediction game with the class: \"The cat sat on the ___\"",
+          "Phone autocomplete demo: build sentences together",
+          "Show hallucination live: ask AI something it gets wrong confidently",
+          "LLM vs search engine comparison activity"
+        ],
+        "tlms": [
+          "Phone for autocomplete demo",
+          "LLM vs search engine comparison worksheet",
+          "Hallucination examples (teacher-prepared)",
+          "Short explainer video (optional)"
+        ],
+        "act": [
+          "Next-word prediction card game",
+          "Hallucination hunt: find 3 wrong answers in AI output",
+          "LLM vs search: same question to both, compare answers"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Comparison worksheet"
+          },
+          {
+            "ext": ".pptx",
+            "icon": "ti-presentation",
+            "desc": "LLM explainer slides"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Hallucination examples"
+          }
+        ],
+        "hw": {
+          "title": "The AI fact-checker challenge",
+          "mission": "AI can sound completely confident while being completely wrong. Your mission is to catch it.",
+          "reqs": [
+            "Choose a topic you know well (your favourite sport, a country, an animal, a game). Ask the AI 15 questions about it.",
+            "For every answer the AI gives, research whether it is correct using a different source (encyclopedia, official website, textbook). Record: Correct / Partially correct / Wrong.",
+            "Find at least 3 clear errors. Screenshot each one. Write: what did the AI say? What is the real answer? Why do you think the AI got it wrong?",
+            "Create a \"How to spot AI hallucinations\" mini-guide (poster, slide, or short document) to help other students.",
+            "Bonus: Ask the AI about an event that happened recently. Does it know about it? What does it say when it does not know?"
+          ],
+          "deliver": [
+            "15 Q&A with research verification",
+            "3+ error screenshots with analysis",
+            "Mini hallucination-spotting guide",
+            "Bonus: recent events test"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m4",
+    "phase": "exploration",
+    "badge": "Module 4",
+    "name": "The art of prompting",
+    "sessions": "3 sessions",
+    "subsections": [
+      {
+        "name": "4.1–4.3 Prompting strategy, types, and ethics",
+        "obj": [
+          "Define a prompt and explain why specificity matters",
+          "Use 4+ prompt types: instructional, creative, role-based, chain-of-thought",
+          "Apply the CTFC framework: Context, Task, Format, Constraints",
+          "Evaluate and iterate on prompts to improve output",
+          "Identify inappropriate prompts and practise responsible use"
+        ],
+        "teach": [
+          "Vague vs specific prompt live experiment on projector",
+          "Prompt type card activity — each student draws a type and tries it",
+          "CTFC framework worked example together",
+          "Ethical scenario card sorting: appropriate vs inappropriate"
+        ],
+        "tlms": [
+          "Prompt type reference cards",
+          "CTFC poster (wall display)",
+          "Ethical scenario sorting cards",
+          "AI access for live experiments"
+        ],
+        "act": [
+          "Vague vs specific comparison experiment",
+          "Prompt type carousel: 4 stations, 4 types, 5 min each",
+          "Ethical scenario sort and class discussion"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "CTFC worksheet"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Prompt types reference"
+          },
+          {
+            "ext": ".pptx",
+            "icon": "ti-presentation",
+            "desc": "Prompting strategy slides"
+          }
+        ],
+        "hw": {
+          "title": "Prompt engineer challenge",
+          "mission": "Great AI output starts with a great prompt. You are being hired as a junior prompt engineer. Prove your skills.",
+          "choices": [
+            {
+              "title": "Option A — The prompt duel",
+              "body": "Choose 5 tasks (e.g. write a poem, explain black holes, make a quiz, plan a trip, create a recipe). For each task, write a weak prompt and a strong prompt using CTFC. Submit both outputs. Write an analysis: what specifically made the strong prompt better?"
+            },
+            {
+              "title": "Option B — The prompt cookbook",
+              "body": "Create a \"Prompt Cookbook\" — a beautifully designed document (use any tool: Word, slides, Canva, etc.) containing 10 prompt recipes. Each recipe must include: the dish (goal), the ingredients (CTFC elements), the method (the actual prompt), and the result (the AI output). Include at least 3 different prompt types."
+            },
+            {
+              "title": "Option C — Teach a robot",
+              "body": "You are writing the instruction manual for a robot that has never used an AI before. Create a beginner's guide to prompting (minimum 8 pages or slides) that explains: what a prompt is, why specificity matters, the 4 main prompt types with examples, the CTFC framework, and 3 things you should never prompt an AI to do. Use real screenshots of prompts you tested."
+            }
+          ],
+          "deliver": [
+            "Chosen project (A, B, or C)",
+            "Real AI output screenshots as evidence",
+            "Written analysis or reflection"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m5",
+    "phase": "exploration",
+    "badge": "Module 5",
+    "name": "Testing AI — benchmarking",
+    "sessions": "4 sessions",
+    "subsections": [
+      {
+        "name": "5.1–5.4 Benchmarking all AI modes",
+        "obj": [
+          "Design and run benchmarks across: creative writing, logic, maths, image generation, voice, speech-to-text",
+          "Use a scoring rubric to compare outputs across 2+ AI tools",
+          "Identify patterns: what is AI consistently good/bad at?",
+          "Compare multimodal tools (text, image, voice modes in one tool e.g. Google AI Studio)"
+        ],
+        "teach": [
+          "Each session focuses on one benchmark category",
+          "Students design their own test questions then run them",
+          "Class results compiled on shared chart to find patterns",
+          "Discussion: why does AI struggle with reasoning but excel at writing?"
+        ],
+        "tlms": [
+          "Scoring rubric for each category",
+          "Access to 2+ AI tools",
+          "Shared class results spreadsheet",
+          "Logic puzzle and maths challenge cards"
+        ],
+        "act": [
+          "Design-your-own AI trap: create a question you think will fool it",
+          "Class benchmarking leaderboard: which AI wins each category?",
+          "Gallery walk of image generation results with critique notes"
+        ],
+        "files": [
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "Benchmarking results sheet"
+          },
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Scoring rubric"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Test design guide"
+          },
+          {
+            "ext": ".pptx",
+            "icon": "ti-presentation",
+            "desc": "Results presentation template"
+          }
+        ],
+        "hw": {
+          "title": "The AI Olympics — you are the judge",
+          "mission": "The AI Olympics are happening and you are the head judge. You must test 3 AI tools across 5 events and declare an overall winner.",
+          "reqs": [
+            "Choose 3 AI tools to compete (e.g. Claude, ChatGPT, Gemini, DeepSeek, or others).",
+            "Design 5 competition events, one for each category: creative writing, logical reasoning, maths, image generation (if available), and one category you invent yourself.",
+            "For each event, give every AI the exact same prompt or challenge. Score each one 1–10 on accuracy, creativity, usefulness, and presentation. Show your scoring in a table.",
+            "Write a competition report: who won each event? Who was the overall champion? Were you surprised? What would you change about your test design if you did it again?",
+            "Create a 2-minute presentation (slides or video) announcing the results as if you were presenting at an awards ceremony. Be creative!"
+          ],
+          "deliver": [
+            "Scoring tables for all 5 events across 3 tools",
+            "AI Olympics report",
+            "Presentation slides or video",
+            "Screenshots of all AI outputs as evidence"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m6",
+    "phase": "creation",
+    "badge": "Module 6",
+    "name": "Build a web app through prompting",
+    "sessions": "4–5 sessions",
+    "subsections": [
+      {
+        "name": "6.1–6.4 Problem → design → build → showcase",
+        "obj": [
+          "Define a real problem using a design brief",
+          "Use prompt-to-HTML workflow to build a working app",
+          "Iterate and improve using AI feedback loops",
+          "Present and explain a completed app to an audience"
+        ],
+        "teach": [
+          "Design thinking intro: empathy maps, problem statements",
+          "Teacher live-codes by prompting on projector",
+          "Iteration mindset: \"that is not right — how do we describe the fix?\"",
+          "Peer review pairs with structured feedback form"
+        ],
+        "tlms": [
+          "Empathy map templates",
+          "AI tool with code generation",
+          "Browser for live testing",
+          "Peer review form"
+        ],
+        "act": [
+          "Problem interview with a classmate",
+          "Build your first working page live in class",
+          "Peer review and fix session",
+          "Mini showcase presentation"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Design brief template"
+          },
+          {
+            "ext": ".html",
+            "icon": "ti-world",
+            "desc": "Starter HTML template"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Peer review form"
+          },
+          {
+            "ext": ".pptx",
+            "icon": "ti-presentation",
+            "desc": "Showcase template"
+          }
+        ],
+        "hw": {
+          "title": "JOB JOB: AI App Design and Development",
+          "mission": "Please choose one of the following two topics and design and develop an engaging app using your preferred AI large language model (e.g., DeepSeek, ChatGPT, Solo, etc.). In the next class, we are going to try the GitHub rollup process: upload your code to GitHub and record the version.",
+          "choices": [
+            {
+              "title": "Assignment 1: Vocabulary Survival Island",
+              "body": "Mission: You are trapped on a desert island and must survive on a challenge of English words.\n\nRequirements:\nShow conditions for life, food, and water.\nAsk a word question: answer correctly to gain resources; answer incorrectly to lose resources.\nThe game can end when food or water reaches 0.\nShow the number of days alive.\n\nAlso available: weather events, pet companions, rankings, and different difficulties.\nObjective: survive while learning words."
+            },
+            {
+              "title": "Assignment 2: Dream Pet Academy",
+              "body": "Mission: Adopt a virtual pet and help it become a champion.\n\nRequirements:\nDesign all personal settings for your pet and track hunger, happiness, energy status, etc.\nDesign learning tasks to earn gold coins and experience.\nInclude pet upgrades, unlockable skills, and more.\nDisplay achievements and statistics.\n\nCan include: pet fights, decor, rare pets, daily rewards.\nObjective: learn while raising your pet and develop good habits."
+            }
+          ],
+          "deliver": [
+            "Working app file or project folder",
+            "Prompt log from the AI large language model",
+            "Code ready for GitHub rollup next class",
+            "60-second showcase pitch"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m7",
+    "phase": "creation",
+    "badge": "Module 7",
+    "name": "GitHub and deploying your app",
+    "sessions": "2 sessions",
+    "subsections": [
+      {
+        "name": "7.1–7.2 Version control, upload and GitHub Pages",
+        "obj": [
+          "Create a GitHub account and first repository",
+          "Upload HTML app and understand: file, commit, README",
+          "Enable GitHub Pages and get a live shareable URL",
+          "Share the live link for peer testing"
+        ],
+        "teach": [
+          "Analogy: GitHub = Google Drive for code with memory",
+          "Live guided upload on projector, students follow along",
+          "Enable Pages settings together — live URL moment",
+          "Swap live links with classmates for testing"
+        ],
+        "tlms": [
+          "GitHub account setup guide",
+          "Step-by-step Pages deployment guide",
+          "Example teacher repo to explore",
+          "Projector for live walkthrough"
+        ],
+        "act": [
+          "Create account and first repo together",
+          "Upload app file — get a live URL",
+          "Peer link swap and 5-minute live testing session"
+        ],
+        "files": [
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "GitHub setup guide"
+          },
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Deployment checklist"
+          },
+          {
+            "ext": ".html",
+            "icon": "ti-world",
+            "desc": "Your app from M6"
+          }
+        ],
+        "hw": {
+          "title": "Launch, test, and report",
+          "mission": "Your app is live on the internet. Now you need real users to test it and you need to act on their feedback.",
+          "reqs": [
+            "Share your live GitHub Pages link with at least 3 people outside class (family, friends, neighbours). Ask them to use it for at least 5 minutes.",
+            "Create a feedback form (you can use paper, a Google Form, or build one in your app!) with at least 5 questions. Collect responses from all 3 testers.",
+            "Analyse the feedback: what did all 3 people say? What was the most common complaint? What surprised you?",
+            "Make at least 2 improvements to your app based on the feedback. Use AI to help you. Document each change: what was the problem? What prompt did you use? What changed?",
+            "Bonus: Record a short screen-recording video (60–90 seconds) demonstrating your app as if presenting it to investors. Upload it or share the link."
+          ],
+          "deliver": [
+            "3 completed feedback forms",
+            "Feedback analysis (written)",
+            "Updated app with 2 improvements on GitHub",
+            "Before/after screenshots of changes",
+            "Bonus: demo video"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m8",
+    "phase": "exploration",
+    "badge": "Module 8",
+    "name": "NotebookLM and AI research tools",
+    "sessions": "2–3 sessions",
+    "subsections": [
+      {
+        "name": "8.1–8.2 Grounded AI, audio overviews, study tools",
+        "obj": [
+          "Upload documents to NotebookLM and ask grounded questions",
+          "Generate audio overviews and study guides from sources",
+          "Compare grounded AI (answers from your documents) vs general AI",
+          "Evaluate: when is NotebookLM the right tool?"
+        ],
+        "teach": [
+          "Teacher uploads class topic document on projector",
+          "Students ask the same question to NotebookLM vs general AI — compare",
+          "Generate audio overview together and listen as a class",
+          "Students create their own notebook from provided materials"
+        ],
+        "tlms": [
+          "NotebookLM access",
+          "Teacher-prepared source documents in ZIP",
+          "Comparison worksheet",
+          "Audio playback capability (speaker or headphones)"
+        ],
+        "act": [
+          "Upload provided ZIP and ask 10 questions",
+          "Generate audio overview and write 5 key points from listening",
+          "NotebookLM vs Google comparison for 5 queries"
+        ],
+        "files": [
+          {
+            "ext": ".zip",
+            "icon": "ti-file-zip",
+            "desc": "Mars lecture materials (Chinese + English)"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Lecture notes PDF"
+          },
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Supplementary reading"
+          },
+          {
+            "ext": ".pptx",
+            "icon": "ti-presentation",
+            "desc": "Lecture slides"
+          }
+        ],
+        "hw": {
+          "title": "NotebookLM Mars Deep Understanding Task",
+          "mission": "Imagine you dream of becoming an astronaut and attended a fascinating lecture about Mars. You asked the presenter for more materials. The materials include both Chinese and English content, and some parts are difficult to understand, so you decide to use NotebookLM to study them deeply.",
+          "reqs": [
+            "Use NotebookLM to ask many questions and keep deepening your understanding. Follow the method learned in class today; you may review the PPT process to help you.",
+            "Use the materials and links provided in the ZIP as sources for NotebookLM.",
+            "Ask basic questions first, then use each answer to ask stronger follow-up questions. Keep a record of your question chain and operation process.",
+            "Try generating and organising NotebookLM outputs such as a blog/audio overview, video explanation, and mind map.",
+            "When finished, provide screenshots plus your recorded blog/audio overview, video, and mind map."
+          ],
+          "deliver": [
+            "NotebookLM process screenshots",
+            "Question-chain record",
+            "Blog/audio overview record",
+            "Recorded video",
+            "Mind map",
+            "Record of ZIP sources/links used"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m9",
+    "phase": "creation",
+    "badge": "Module 9",
+    "name": "Building web apps with Codex and Claude Code",
+    "sessions": "3 sessions",
+    "subsections": [
+      {
+        "name": "9.1–9.3 Inspect, change, review diffs, test, and deploy",
+        "obj": [
+          "Use Codex or Claude Code to read and explain an existing project",
+          "Request a bounded feature, review every diff, and test before accepting",
+          "Compare both assistants and deploy a verified GitHub change"
+        ],
+        "teach": [
+          "Live-model inspect → plan → edit → diff → test → approve",
+          "Compare both assistants on the same task",
+          "Require students to reject unsuitable AI changes"
+        ],
+        "tlms": [
+          "Codex",
+          "Claude Code",
+          "Web starter project and GitHub"
+        ],
+        "act": [
+          "Explain an existing project",
+          "Build one useful feature and review the diff",
+          "Test phone and laptop layouts, then push"
+        ],
+        "files": [
+          {
+            "ext": ".html",
+            "icon": "ti-world",
+            "desc": "Practical starter project"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Safety and testing checklist"
+          }
+        ],
+        "hw": {
+          "title": "AI coding assistant development sprint",
+          "mission": "Add one real, tested feature to a learning app.",
+          "reqs": [
+            "Plan before editing",
+            "Review accepted and rejected changes",
+            "Test responsively, commit, push, and deploy"
+          ],
+          "deliver": [
+            "Updated app",
+            "Prompt and diff log",
+            "Test evidence",
+            "GitHub link"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m10",
+    "phase": "advanced",
+    "badge": "Module 10",
+    "name": "From AI coding assistants to agents",
+    "sessions": "4 sessions",
+    "subsections": [
+      {
+        "name": "10.1–10.4 Agents, APIs, JSON, keys, tools, and approval",
+        "obj": [
+          "Distinguish chatbots, coding assistants, workflows, and agents",
+          "Explain the goal → plan → act → observe → revise → stop loop",
+          "Run controlled API requests and protect keys",
+          "Use a coding assistant to add one approved API feature"
+        ],
+        "teach": [
+          "Act out the agent loop",
+          "Inspect JSON success and error responses",
+          "Demonstrate environment variables and a teacher proxy",
+          "Build and test one controlled feature"
+        ],
+        "tlms": [
+          "Agent-loop cards",
+          "Approved or simulated API",
+          "Safe proxy and starter app"
+        ],
+        "act": [
+          "Draw an agent loop with stop rules",
+          "Run and debug an API request",
+          "Repair an exposed fake key",
+          "Build one controlled AI feature"
+        ],
+        "files": [
+          {
+            "ext": ".html",
+            "icon": "ti-world",
+            "desc": "Practical starter project"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Safety and testing checklist"
+          }
+        ],
+        "hw": {
+          "title": "Stage 2 readiness laboratory",
+          "mission": "Build a controlled API feature and design how it could become an agent.",
+          "reqs": [
+            "Explain why the feature is useful",
+            "Show request, response, and error handling",
+            "Protect the key and map data boundaries",
+            "Draw future tools, stop rules, and approvals"
+          ],
+          "deliver": [
+            "Working feature",
+            "API evidence",
+            "Key-safety check",
+            "Agent architecture sketch"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "m11",
+    "phase": "creation",
+    "badge": "Challenge",
+    "name": "AI Learning Impact Challenge",
+    "sessions": "4–6 sessions",
+    "subsections": [
+      {
+        "name": "11.1-11.4 Competition project: build a learning tool for real users",
+        "obj": [
+          "Work in a team to identify a pressing educational problem that affects real learners",
+          "Choose and justify a solution format: web app, AI agent, or hybrid learning tool",
+          "Build a usable prototype that other students can use to improve their learning process",
+          "Test the tool with real users and improve it based on feedback",
+          "Present the final product with evidence of learning impact, responsible AI use, and team contribution"
+        ],
+        "teach": [
+          "Run a group formation and role-setting workshop: product lead, prompt/design lead, builder, tester, presenter",
+          "Use problem interviews to move teams away from vague ideas and toward real learner needs",
+          "Model how to write a product brief with user, problem, outcome, constraints, and success measures",
+          "Hold build sprints with teacher checkpoints for scope, safety, usability, and evidence",
+          "End with a public showcase where teams demonstrate the product and explain what changed after testing"
+        ],
+        "tlms": [
+          "Group project brief template",
+          "Learner interview script",
+          "Team role cards",
+          "Prototype planning board",
+          "AI/web app safety checklist",
+          "User testing feedback form",
+          "Showcase presentation template"
+        ],
+        "act": [
+          "Problem gallery: teams list learning struggles and vote on urgent, solvable problems",
+          "User interview sprint: each team interviews at least 3 learners",
+          "Prototype sprint: teams build a web app or AI agent with teacher checkpoints",
+          "Peer testing carousel: teams test each other's tools and collect structured feedback",
+          "Impact showcase: teams demonstrate the final tool and defend design decisions"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Group project brief"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "AI/web app safety checklist"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "User testing tracker"
+          },
+          {
+            "ext": ".pptx",
+            "icon": "ti-presentation",
+            "desc": "10-slide final showcase template"
+          },
+          {
+            "ext": ".html",
+            "icon": "ti-world",
+            "desc": "Web app starter"
+          },
+          {
+            "ext": ".txt",
+            "icon": "ti-file",
+            "desc": "AI agent prompt template"
+          }
+        ],
+        "hw": {
+          "title": "AI Learning Impact Challenge — final competition project",
+          "mission": "In your group, build a web app, automation, or AI agent that solves a pressing educational problem and can be used by other learners to improve their learning process.",
+          "reqs": [
+            "Choose one real educational problem. It must be specific, important, and connected to how students learn, revise, practise, understand, organise, or get feedback.",
+            "Interview at least 3 potential users. Record what problem they have, what they currently do, and what would make learning easier for them.",
+            "Decide whether your solution should be a web app, automation, an AI agent, or a hybrid tool. Write a short explanation of why this format is the best fit.",
+            "Build a working prototype that other learners can actually use. It must include clear instructions, useful feedback or guidance, and at least one feature that responds to user input.",
+            "Test your prototype with at least 3 users. Collect feedback, identify the most important problem, and make at least 3 improvements.",
+            "Prepare a final showcase: demonstrate the tool, explain the educational problem, show evidence from testing, describe each team member's contribution, and reflect on what you would improve next.",
+            "The group presentation must contain exactly 10 slides. Slide 1: project title, team roles, and a one-sentence solution. Slide 2: the problem or pain point, why it matters, and evidence that it is real. Slide 3: the target user profile — who they are, what they need, and why they are the right priority audience or market target for this product. Slide 4: the proposed solution, how it addresses the pain point, and why this solution format was chosen. Slide 5: the solution framework as a clear flowchart showing the user journey, inputs, main steps, AI/data/tools, decisions, outputs, and any human checks. Slide 6: the existing Minimum Viable Product (MVP), with its essential features, functions, and interface evidence. Slide 7: the user-testing method — who tested, what tasks they attempted, what was observed, and what was measured. Slide 8: user-test feedback and the team's assessment — representative quotes, repeated patterns, which feedback matters most, and why. Slide 9: corrections and improvements made from the feedback, with before/after evidence and reasons, followed by the improved MVP. Slide 10: final MVP display or live demo, evidence of learning value, current limitations, and the next improvement.",
+            "Responsible AI requirement: if your tool uses AI, explain what data is sent to the AI, what users should not enter, how you reduce wrong answers, and how users can check important information.",
+            "Core scoring (100%): learning impact 30%; product functionality 20%; usability 15%; AI and technical quality 15%; responsible AI and safety 10%; presentation and evidence 10%. Usability means real users can understand the interface, complete the main task without team help, read the content clearly, recover from mistakes, and use the product on phone, tablet, and laptop.",
+            "Audience Choice Bonus (up to +10%): collect anonymous 1–5 star ratings, one vote per person, with a required written reason explaining learning value. The bonus is added after the 100% core grade and cannot replace any academic criterion."
+          ],
+          "deliver": [
+            "Working group prototype",
+            "Problem brief and user interview notes",
+            "Prompt log or build log",
+            "User testing evidence",
+            "3+ documented improvements",
+            "Exactly 10-slide final showcase deck and live demo or video",
+            "Team contribution reflection",
+            "Responsible AI statement",
+            "Completed group project scoring sheet, including Audience Choice evidence"
+          ]
+        }
+      }
+    ],
+    "challenge": true
+  }
+];
+const sessionGuide=[
   [
     "1.1",
     "Computer systems, not just parts",
@@ -913,72 +1745,6 @@ const sessionGuide = [
     "Mars research board with branching question chain, audio waveform, source cards, and bilingual mind map branches."
   ],
   [
-    "9.1",
-    "What is an AI workflow?",
-    "Students map trigger, input, AI step, condition, output, and human review before using automation tools.",
-    "Clean workflow diagram with trigger, input form, AI node, condition branch, output destination, and human review checkpoint."
-  ],
-  [
-    "9.2",
-    "Opal-style AI mini apps",
-    "Students design a reusable AI mini app for a learning task, then test inputs and refine outputs.",
-    "Premium app-builder canvas showing prompt blocks, student input fields, output preview, test examples, and reusable learning tool interface."
-  ],
-  [
-    "9.3",
-    "n8n workflow basics",
-    "Students build or storyboard an automation with trigger, AI node, condition, output, and log.",
-    "n8n-style workflow canvas with trigger node, AI summary node, condition split, spreadsheet/email output nodes, and run log."
-  ],
-  [
-    "9.4",
-    "Data handoff and automation safety",
-    "Students trace what data moves between tools and mark privacy, error, sending, and approval risks.",
-    "Data-flow map with private fields masked, warning badges, approval gates, error path, and final output review station."
-  ],
-  [
-    "9.5",
-    "Workflow mini project",
-    "Students present a small AI mini app or learning automation with test evidence and a safety note.",
-    "Student showcase board with Opal-style mini app screen, n8n workflow diagram, two test cards, safety checklist, and reflection note."
-  ],
-  [
-    "10.1",
-    "APIs as controlled requests",
-    "Students learn request, response, endpoint, key, rate limit, and why keys must be protected.",
-    "Restaurant/API analogy in a modern service diagram: user request, waiter/API, kitchen/model, response, locked key vault."
-  ],
-  [
-    "10.2",
-    "Agents vs chatbots",
-    "Students compare one-turn answers with multi-step agents that use tools, memory, plans, and checks.",
-    "Side-by-side workflow: chatbot bubble answering once, agent board completing research, file edit, test, and report steps."
-  ],
-  [
-    "10.3",
-    "Codex and AI coding assistants",
-    "Students use Codex to inspect a file, make a controlled change, review the diff, verify the result, and prepare the change for GitHub.",
-    "Project editor with Codex-style AI assistant, highlighted code diff, test checklist, GitHub commit path, and human approval gate."
-  ],
-  [
-    "10.4",
-    "Claude Code and coding assistant comparison",
-    "Students use Claude Code on a similar coding task, then compare setup, explanations, code changes, verification, and when each assistant is useful.",
-    "Side-by-side coding workspace comparing Codex and Claude Code: prompt panel, changed file, diff review, test result, strengths checklist, and teacher approval step."
-  ],
-  [
-    "10.5",
-    "Advanced agent and tool workflows",
-    "Students design an advanced AI workflow with tools, memory, checks, error handling, and human confirmation.",
-    "Advanced agent workflow board with planning step, tool calls, memory notes, check loop, error branch, and approval checkpoint."
-  ],
-  [
-    "10.6",
-    "Advanced tool showcase",
-    "Students present an AI web app, agent design, Codex or Claude Code-assisted code change, or advanced workflow with process evidence and responsible-use reflection.",
-    "Portfolio review wall with app demo, agent workflow diagram, Codex and Claude Code diff screenshots, QR code, GitHub link, video thumbnail, rubric, and reflection card."
-  ],
-  [
     "11.1",
     "Group formation and educational problem discovery",
     "Teams identify a pressing learning problem, interview real learners, choose a target user, and define what success would look like.",
@@ -1001,48 +1767,449 @@ const sessionGuide = [
     "Public launch and learning impact showcase",
     "Teams present the finished tool, demonstrate how others can use it, explain impact evidence, and reflect on collaboration.",
     "Final showcase booth with a live educational app or AI agent, QR code, student presenters, user testimonials, impact chart, and reflection wall."
+  ],
+  [
+    "9.1",
+    "Codex: inspect, plan, and change",
+    "Use Codex to understand a project, plan a change, and review the diff.",
+    "Hands-on Codex: inspect, plan, and change lab with students working in a real project, showing tools, steps, diffs, tests, and result evidence."
+  ],
+  [
+    "9.2",
+    "Claude Code: build and compare",
+    "Complete a similar task with Claude Code and compare its workflow.",
+    "Hands-on Claude Code: build and compare lab with students working in a real project, showing tools, steps, diffs, tests, and result evidence."
+  ],
+  [
+    "9.3",
+    "Testing, GitHub, and deployment",
+    "Verify on laptop and phone, then commit, push, and deploy.",
+    "Hands-on Testing, GitHub, and deployment lab with students working in a real project, showing tools, steps, diffs, tests, and result evidence."
+  ],
+  [
+    "10.1",
+    "What is an agent?",
+    "Compare chatbots, coding assistants, workflows, and agents.",
+    "Hands-on What is an agent? lab with students working in a real project, showing tools, steps, diffs, tests, and result evidence."
+  ],
+  [
+    "10.2",
+    "APIs, JSON, and errors",
+    "Run controlled requests and handle structured success and error responses.",
+    "Hands-on APIs, JSON, and errors lab with students working in a real project, showing tools, steps, diffs, tests, and result evidence."
+  ],
+  [
+    "10.3",
+    "Keys and security boundaries",
+    "Use environment variables or a teacher proxy; never expose keys.",
+    "Hands-on Keys and security boundaries lab with students working in a real project, showing tools, steps, diffs, tests, and result evidence."
+  ],
+  [
+    "10.4",
+    "Connect a controlled AI feature",
+    "Use Codex or Claude Code to add and test an API feature.",
+    "Hands-on Connect a controlled AI feature lab with students working in a real project, showing tools, steps, diffs, tests, and result evidence."
   ]
 ];
-const moduleIcons = {foundation:'ti-device-laptop', exploration:'ti-sparkles', creation:'ti-code', advanced:'ti-rocket'};
-const moduleSessionMap = {
-  m1:['1.1','1.2','1.3','1.4','1.5','1.6','1.7','1.8','1.9','1.10'],
-  m2:['2.1','2.2'],
-  m3:['3.1','3.2'],
-  m4:['4.1','4.2','4.3'],
-  m5:['5.1','5.2','5.3','5.4'],
-  m6:['6.1','6.2','6.3','6.4'],
-  m7:['7.1','7.2'],
-  m8:['8.1','8.2'],
-  m9:['9.1','9.2','9.3','9.4','9.5'],
-  m10:['10.1','10.2','10.3','10.4','10.5','10.6'],
-  m11:['11.1','11.2','11.3','11.4']
+const moduleIcons={"foundation":"ti-device-laptop","exploration":"ti-sparkles","creation":"ti-code","advanced":"ti-rocket"};
+const moduleSessionMap={
+  "m1": [
+    "1.1",
+    "1.2",
+    "1.3",
+    "1.4",
+    "1.5",
+    "1.6",
+    "1.7",
+    "1.8",
+    "1.9",
+    "1.10"
+  ],
+  "m2": [
+    "2.1",
+    "2.2"
+  ],
+  "m3": [
+    "3.1",
+    "3.2"
+  ],
+  "m4": [
+    "4.1",
+    "4.2",
+    "4.3"
+  ],
+  "m5": [
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4"
+  ],
+  "m6": [
+    "6.1",
+    "6.2",
+    "6.3",
+    "6.4"
+  ],
+  "m7": [
+    "7.1",
+    "7.2"
+  ],
+  "m8": [
+    "8.1",
+    "8.2"
+  ],
+  "m9": [
+    "9.1",
+    "9.2",
+    "9.3"
+  ],
+  "m10": [
+    "10.1",
+    "10.2",
+    "10.3",
+    "10.4"
+  ],
+  "m11": [
+    "11.1",
+    "11.2",
+    "11.3",
+    "11.4"
+  ]
 };
-const moduleVisuals = {
-  m1:{title:'Digital foundations',words:['FILES','BROWSER','KEYS'],hue:352,icon:'laptop'},
-  m2:{title:'First AI exploration',words:['ASK','NOTICE','TRUST'],hue:198,icon:'chat'},
-  m3:{title:'How LLMs work',words:['TOKENS','DATA','CHECK'],hue:265,icon:'network'},
-  m4:{title:'Prompting craft',words:['CTFC','ITERATE','ETHICS'],hue:38,icon:'prompt'},
-  m5:{title:'Benchmarking AI',words:['TEST','SCORE','EVIDENCE'],hue:150,icon:'chart'},
-  m6:{title:'Build a web app',words:['DESIGN','HTML','DEMO'],hue:222,icon:'app'},
-  m7:{title:'Deploy online',words:['REPO','PAGES','LIVE'],hue:18,icon:'rocket'},
-  m8:{title:'Grounded research',words:['SOURCES','AUDIO','MINDMAP'],hue:176,icon:'research'},
-  m9:{title:'AI workflows',words:['OPAL','N8N','REVIEW'],hue:210,icon:'network'},
-  m10:{title:'Agents and APIs',words:['API','AGENT','CODE'],hue:286,icon:'agent'},
-  m11:{title:'Group learning tool',words:['TEAM','LEARN','IMPACT'],hue:128,icon:'group'}
+const moduleVisuals={
+  "m1": {
+    "title": "Digital foundations",
+    "words": [
+      "FILES",
+      "BROWSER",
+      "KEYS"
+    ],
+    "hue": 352,
+    "icon": "laptop"
+  },
+  "m2": {
+    "title": "First AI exploration",
+    "words": [
+      "ASK",
+      "NOTICE",
+      "TRUST"
+    ],
+    "hue": 198,
+    "icon": "chat"
+  },
+  "m3": {
+    "title": "How LLMs work",
+    "words": [
+      "TOKENS",
+      "DATA",
+      "CHECK"
+    ],
+    "hue": 265,
+    "icon": "network"
+  },
+  "m4": {
+    "title": "Prompting craft",
+    "words": [
+      "CTFC",
+      "ITERATE",
+      "ETHICS"
+    ],
+    "hue": 38,
+    "icon": "prompt"
+  },
+  "m5": {
+    "title": "Benchmarking AI",
+    "words": [
+      "TEST",
+      "SCORE",
+      "EVIDENCE"
+    ],
+    "hue": 150,
+    "icon": "chart"
+  },
+  "m6": {
+    "title": "Build a web app",
+    "words": [
+      "DESIGN",
+      "HTML",
+      "DEMO"
+    ],
+    "hue": 222,
+    "icon": "app"
+  },
+  "m7": {
+    "title": "Deploy online",
+    "words": [
+      "REPO",
+      "PAGES",
+      "LIVE"
+    ],
+    "hue": 18,
+    "icon": "rocket"
+  },
+  "m8": {
+    "title": "Grounded research",
+    "words": [
+      "SOURCES",
+      "AUDIO",
+      "MINDMAP"
+    ],
+    "hue": 176,
+    "icon": "research"
+  },
+  "m9": {
+    "title": "Building web apps with Codex and Claude Code",
+    "words": [
+      "CODEX",
+      "CLAUDE",
+      "DEPLOY"
+    ],
+    "hue": 220,
+    "icon": "app"
+  },
+  "m10": {
+    "title": "From AI coding assistants to agents",
+    "words": [
+      "AGENT",
+      "API",
+      "KEYS"
+    ],
+    "hue": 280,
+    "icon": "agent"
+  },
+  "m11": {
+    "title": "Group learning tool",
+    "words": [
+      "TEAM",
+      "LEARN",
+      "IMPACT"
+    ],
+    "hue": 128,
+    "icon": "group"
+  }
 };
-const phaseNames = {all:'All',foundation:'Foundation',exploration:'Exploration',creation:'Creation',advanced:'Advanced'};
-
-const visualKeywords = {
-  '1.1':['SYSTEM','CPU','POWER'],'1.2':['OS','APPS','CLOUD'],'1.3':['CLICK','DRAG','MENU'],'1.4':['MOVE','RENAME','SORT'],'1.5':['TABS','URL','BOOKMARK'],'1.6':['SEARCH','SOURCE','TRUST'],'1.7':['CTRL','SAVE','UNDO'],'1.8':['WPM','ACCURACY','FLOW'],'1.9':['FOLDERS','DATES','VERSION'],'1.10':['DOCX','PDF','HTML'],
-  '2.1':['ASK','NOTICE','WONDER'],'2.2':['PRIVACY','TRUST','LIMITS'],'3.1':['PATTERN','TOKEN','DATA'],'3.2':['SEARCH','SOURCE','CHECK'],
-  '4.1':['CONTEXT','TASK','FORMAT'],'4.2':['ROLE','EXAMPLE','REVISE'],'4.3':['SAFE','RISK','REWRITE'],
-  '5.1':['FAIR','RUBRIC','EVIDENCE'],'5.2':['IMAGE','CRITIQUE','SCORE'],'5.3':['LOGIC','MATHS','ERROR'],'5.4':['VOICE','IMAGE','TEXT'],
-  '6.1':['USER','NEED','BRIEF'],'6.2':['PROMPT','HTML','PREVIEW'],'6.3':['BUG','FIX','RETEST'],'6.4':['DEMO','FEEDBACK','POLISH'],
-  '7.1':['REPO','COMMIT','README'],'7.2':['PAGES','LIVE','TEST'],
-  '8.1':['SOURCES','CITES','NOTES'],'8.2':['MARS','AUDIO','MINDMAP'],
-  '9.1':['TRIGGER','INPUT','REVIEW'],'9.2':['OPAL','APP','TEST'],'9.3':['N8N','NODE','OUTPUT'],'9.4':['DATA','RISK','APPROVE'],'9.5':['DEMO','FLOW','SAFETY'],
-  '10.1':['API','KEY','REQUEST'],'10.2':['PLAN','TOOLS','STEPS'],'10.3':['DIFF','EDIT','VERIFY'],'10.4':['CLAUDE','COMPARE','CODE'],'10.5':['TOOLS','CHECKS','MEMORY'],'10.6':['CAPSTONE','LINK','REFLECT'],
-  '11.1':['TEAM','PROBLEM','USERS'],'11.2':['APP','AGENT','FLOW'],'11.3':['BUILD','TEST','REVISE'],'11.4':['LAUNCH','IMPACT','SHOW']
+const phaseNames={"all":"All","foundation":"Foundation","exploration":"Exploration","creation":"Creation","advanced":"Advanced"};
+const visualKeywords={
+  "1.1": [
+    "SYSTEM",
+    "CPU",
+    "POWER"
+  ],
+  "1.2": [
+    "OS",
+    "APPS",
+    "CLOUD"
+  ],
+  "1.3": [
+    "CLICK",
+    "DRAG",
+    "MENU"
+  ],
+  "1.4": [
+    "MOVE",
+    "RENAME",
+    "SORT"
+  ],
+  "1.5": [
+    "TABS",
+    "URL",
+    "BOOKMARK"
+  ],
+  "1.6": [
+    "SEARCH",
+    "SOURCE",
+    "TRUST"
+  ],
+  "1.7": [
+    "CTRL",
+    "SAVE",
+    "UNDO"
+  ],
+  "1.8": [
+    "WPM",
+    "ACCURACY",
+    "FLOW"
+  ],
+  "1.9": [
+    "FOLDERS",
+    "DATES",
+    "VERSION"
+  ],
+  "1.10": [
+    "DOCX",
+    "PDF",
+    "HTML"
+  ],
+  "2.1": [
+    "ASK",
+    "NOTICE",
+    "WONDER"
+  ],
+  "2.2": [
+    "PRIVACY",
+    "TRUST",
+    "LIMITS"
+  ],
+  "3.1": [
+    "PATTERN",
+    "TOKEN",
+    "DATA"
+  ],
+  "3.2": [
+    "SEARCH",
+    "SOURCE",
+    "CHECK"
+  ],
+  "4.1": [
+    "CONTEXT",
+    "TASK",
+    "FORMAT"
+  ],
+  "4.2": [
+    "ROLE",
+    "EXAMPLE",
+    "REVISE"
+  ],
+  "4.3": [
+    "SAFE",
+    "RISK",
+    "REWRITE"
+  ],
+  "5.1": [
+    "FAIR",
+    "RUBRIC",
+    "EVIDENCE"
+  ],
+  "5.2": [
+    "IMAGE",
+    "CRITIQUE",
+    "SCORE"
+  ],
+  "5.3": [
+    "LOGIC",
+    "MATHS",
+    "ERROR"
+  ],
+  "5.4": [
+    "VOICE",
+    "IMAGE",
+    "TEXT"
+  ],
+  "6.1": [
+    "USER",
+    "NEED",
+    "BRIEF"
+  ],
+  "6.2": [
+    "PROMPT",
+    "HTML",
+    "PREVIEW"
+  ],
+  "6.3": [
+    "BUG",
+    "FIX",
+    "RETEST"
+  ],
+  "6.4": [
+    "DEMO",
+    "FEEDBACK",
+    "POLISH"
+  ],
+  "7.1": [
+    "REPO",
+    "COMMIT",
+    "README"
+  ],
+  "7.2": [
+    "PAGES",
+    "LIVE",
+    "TEST"
+  ],
+  "8.1": [
+    "SOURCES",
+    "CITES",
+    "NOTES"
+  ],
+  "8.2": [
+    "MARS",
+    "AUDIO",
+    "MINDMAP"
+  ],
+  "9.1": [
+    "TRIGGER",
+    "INPUT",
+    "REVIEW"
+  ],
+  "9.2": [
+    "OPAL",
+    "APP",
+    "TEST"
+  ],
+  "9.3": [
+    "N8N",
+    "NODE",
+    "OUTPUT"
+  ],
+  "9.4": [
+    "DATA",
+    "RISK",
+    "APPROVE"
+  ],
+  "9.5": [
+    "DEMO",
+    "FLOW",
+    "SAFETY"
+  ],
+  "10.1": [
+    "API",
+    "KEY",
+    "REQUEST"
+  ],
+  "10.2": [
+    "PLAN",
+    "TOOLS",
+    "STEPS"
+  ],
+  "10.3": [
+    "DIFF",
+    "EDIT",
+    "VERIFY"
+  ],
+  "10.4": [
+    "CLAUDE",
+    "COMPARE",
+    "CODE"
+  ],
+  "10.5": [
+    "TOOLS",
+    "CHECKS",
+    "MEMORY"
+  ],
+  "10.6": [
+    "CAPSTONE",
+    "LINK",
+    "REFLECT"
+  ],
+  "11.1": [
+    "TEAM",
+    "PROBLEM",
+    "USERS"
+  ],
+  "11.2": [
+    "APP",
+    "AGENT",
+    "FLOW"
+  ],
+  "11.3": [
+    "BUILD",
+    "TEST",
+    "REVISE"
+  ],
+  "11.4": [
+    "LAUNCH",
+    "IMPACT",
+    "SHOW"
+  ]
 };
 
 /* ---------- Config ---------- */
@@ -1261,7 +2428,7 @@ function init(){
   const footMeta=document.getElementById('footMeta');
   if(moduleCount) moduleCount.textContent=modules.length;
   if(sessionCount) sessionCount.textContent=sessionGuide.length;
-  if(footMeta) footMeta.innerHTML=modules.length+' modules · '+sessionGuide.length+' sessions · 4 phases';
+  if(footMeta) footMeta.innerHTML=modules.filter(m=>!m.challenge).length+' teaching modules · 1 challenge · '+sessionGuide.length+' sessions';
   renderNav();
   renderModules();
 

@@ -445,6 +445,8 @@ img,svg,canvas,video{max-width:100%;height:auto}
 .site-header .header-actions{min-height:48px}
 @media (max-width:900px){.site-header .wordmark-title{font-size:20px;letter-spacing:.1em}.site-header .crest{width:38px;height:44px;font-size:18px}}
 @media (max-width:640px){.site-header{height:64px;min-height:64px}.site-header .header-inner{height:64px;min-height:64px}.site-header .wordmark{gap:10px}.site-header .crest{width:34px;height:40px;font-size:16px}.site-header .wordmark-title{font-size:16px;letter-spacing:.07em}.site-header .header-actions{min-height:40px}}
+.phase-dashboard .phase-legend{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.phase-dashboard .phase-legend{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="phases-bento phase-dashboard">
@@ -459,21 +461,11 @@ img,svg,canvas,video{max-width:100%;height:auto}
 
 <a id="top"></a>
 <main class="phases-page">
-  <nav class="page-nav" aria-label="Page navigation">
-    <a href="ai_curriculum_teaching_portal_zh.html"><i class="ti ti-arrow-left"></i><span>返回门户</span></a>
-    <a class="active" href="ai_curriculum_phases_zh.html"><i class="ti ti-layout-grid"></i><span>阶段</span></a>
-    <a href="ai_curriculum_modules_zh.html"><i class="ti ti-books"></i><span>模块</span></a>
-    <a href="ai_curriculum_rubric_zh.html"><i class="ti ti-clipboard-check"></i><span>量规</span></a>
-  </nav>
-  <h1 class="simple-title">学习阶段</h1>
-  <p class="simple-lead">课程分为四个清晰阶段：从基础数字技能到高级 AI 创作。</p>
-  <section class="phase-legend">
-    <div class="legend-card" data-num="1" style="--lc:var(--foundation)"><div class="tag">阶段 1</div><h4 class="serif">基础</h4><p>核心数字技能、第一次接触 AI，以及理解语言模型如何工作。</p></div>
-    <div class="legend-card" data-num="2" style="--lc:var(--exploration)"><div class="tag">阶段 2</div><h4 class="serif">探索</h4><p>练习提示词、比较 AI 工具，并使用来源进行可靠研究。</p></div>
-    <div class="legend-card" data-num="3" style="--lc:var(--creation)"><div class="tag">阶段 3</div><h4 class="serif">创作</h4><p>通过提示词设计、制作并部署可用的网页应用。</p></div>
-    <div class="legend-card" data-num="4" style="--lc:var(--advanced)"><div class="tag">阶段 4</div><h4 class="serif">进阶</h4><p>API、智能体和最终项目：发布一个真实可用的 AI 工具。</p></div>
-  </section>
-  <div class="phases-action"><a class="ghost-link" href="ai_curriculum_modules_zh.html"><i class="ti ti-books"></i><span>打开模块</span></a></div>
+  <nav class="page-nav" aria-label="阶段导航"><a href="ai_curriculum_teaching_portal_zh.html"><span>门户</span></a><a href="ai_curriculum_modules_zh.html"><span>阶段 1</span></a><a href="ai_curriculum_agents_zh.html"><span>阶段 2</span></a><a href="ai_curriculum_models_zh.html"><span>阶段 3</span></a><a href="ai_curriculum_rubric_zh.html"><span>量规</span></a><a href="ai_curriculum_phases.html"><span>EN</span></a></nav>
+  <h1 class="simple-title">三阶段学习路径</h1>
+  <p class="simple-lead">每个阶段包含 10 个实践教学模块和一个挑战赛：先构建应用，再构建 Agent，最后定制与评估开放模型。</p>
+  <section class="phase-legend"><a class="legend-card" href="ai_curriculum_modules_zh.html" data-num="1" style="--lc:var(--foundation);text-decoration:none"><div class="tag">阶段 1</div><h4 class="serif">AI 创造者</h4><p>从数字基础、提示词和 AI 评估进入 Codex、Claude Code、网页应用、GitHub，以及 Agent/API 入门。</p></a><a class="legend-card" href="ai_curriculum_agents_zh.html" data-num="2" style="--lc:var(--exploration);text-decoration:none"><div class="tag">阶段 2</div><h4 class="serif">AI 智能体构建者</h4><p>构建工作流、MCP server、API、工具、记忆、RAG、评估、安全和受控部署。</p></a><a class="legend-card" href="ai_curriculum_models_zh.html" data-num="3" style="--lc:var(--advanced);text-decoration:none"><div class="tag">阶段 3</div><h4 class="serif">开放模型工程师</h4><p>使用 Hugging Face、ModelScope、Ollama、GPU 适配、学生数据集、RAG、微调和模型发布。</p></a></section>
+
 </main>
 <footer class="site-footer">
   <div class="footer-inner">

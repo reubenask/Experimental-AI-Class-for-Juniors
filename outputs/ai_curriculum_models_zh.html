@@ -1,0 +1,1881 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 素养课程 · 阶段 3 开放模型工程师</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root{
+  --paper:#f3ede1;
+  --paper-2:#f8f3e9;
+  --card:#fffefb;
+  --ink:#221b15;
+  --ink-2:#5d534a;
+  --ink-3:#938777;
+  --line:#e7dccb;
+  --line-2:#d9cbb4;
+  --accent:#0D1B3E;
+  --accent-deep:#0D1B3E;
+  --accent-soft:#EEF3FA;
+  --gold:#C9A84C;
+
+  --foundation:#0D1B3E;
+  --exploration:#0D1B3E;
+  --creation:#0D1B3E;
+  --advanced:#0D1B3E;
+
+  --shadow-sm:0 1px 2px rgba(53,33,18,.05),0 2px 6px rgba(53,33,18,.04);
+  --shadow-md:0 6px 24px -10px rgba(53,33,18,.22),0 2px 6px rgba(53,33,18,.05);
+  --shadow-lg:0 24px 60px -24px rgba(53,33,18,.35);
+  --radius:18px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+/* subtle paper grain */
+body:before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(120,90,50,.05) 1px,transparent 1px);
+  background-size:4px 4px;
+}
+body>*{position:relative;z-index:1}
+button{font:inherit;color:inherit}
+a{color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.serif{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(243,237,225,.82);
+  backdrop-filter:saturate(140%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.wordmark{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);font-weight:800;letter-spacing:.08em}
+.crest{
+  width:42px;height:48px;flex:0 0 auto;border-radius:7px 7px 18px 18px;
+  background:linear-gradient(160deg,var(--accent),var(--accent-deep));
+  color:#fff;display:grid;place-items:center;position:relative;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),var(--shadow-sm);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:20px;font-weight:800;letter-spacing:-.04em;
+}
+.wordmark-title{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:23px;font-weight:800;letter-spacing:.12em}
+.header-actions{display:flex;align-items:center;gap:8px}
+.ghost-link{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--card);font-weight:600;font-size:13.5px;
+  cursor:pointer;text-decoration:none;transition:.18s;
+}
+.ghost-link:hover{border-color:var(--accent);color:var(--accent);box-shadow:var(--shadow-sm)}
+.ghost-link i{font-size:16px}
+
+/* ---------- Hero ---------- */
+.hero{max-width:var(--maxw);margin:0 auto;padding:64px 26px 30px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.eyebrow .bar{width:26px;height:2px;background:var(--accent);border-radius:2px}
+.hero h1{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:500;font-size:clamp(38px,6vw,68px);
+  line-height:1.02;letter-spacing:-.015em;margin:0 0 22px;max-width:16ch;
+}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-lead{font-size:18.5px;line-height:1.6;color:var(--ink-2);max-width:62ch;margin:0 0 34px}
+.hero-lead b{color:var(--ink);font-weight:700}
+
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card);box-shadow:var(--shadow-sm)}
+.stat{padding:22px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .num{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:38px;line-height:1;color:var(--ink)}
+.stat .lbl{font-size:13px;color:var(--ink-2);margin-top:7px;font-weight:600}
+.stat .lbl b{color:var(--accent);font-weight:800}
+
+.callout{
+  display:flex;gap:15px;align-items:flex-start;margin-top:26px;padding:18px 22px;
+  background:var(--accent-soft);border:1px solid #D8E0EE;border-left:4px solid var(--accent);
+  border-radius:12px;
+}
+.callout i{font-size:21px;color:var(--accent);margin-top:1px}
+.callout p{margin:0;font-size:14.5px;color:#334155}
+.callout p b{color:var(--accent-deep)}
+
+/* ---------- Phase legend ---------- */
+.phase-legend{max-width:var(--maxw);margin:38px auto 0;padding:0 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.legend-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--lc);border-radius:14px;padding:16px 18px}
+.legend-card .tag{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lc)}
+.legend-card h4{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:17px;margin:7px 0 5px}
+.legend-card p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.45}
+
+/* ---------- Controls ---------- */
+.controls-wrap{position:sticky;top:73px;z-index:40;background:rgba(243,237,225,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:46px}
+.controls{max-width:var(--maxw);margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.search{position:relative;flex:1;min-width:230px}
+.search i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:18px}
+.search input{
+  width:100%;padding:11px 14px 11px 42px;border:1px solid var(--line-2);border-radius:999px;
+  background:var(--card);font-size:14.5px;color:var(--ink);transition:.18s;
+}
+.search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.chip-btn{
+  border:1px solid var(--line-2);background:var(--card);border-radius:999px;padding:9px 15px;
+  font-weight:600;font-size:13.5px;cursor:pointer;transition:.16s;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+}
+.chip-btn .dot{width:8px;height:8px;border-radius:50%;background:var(--cdot,var(--ink-3))}
+.chip-btn:hover{border-color:var(--ink-2)}
+.chip-btn.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip-btn.active .dot{background:#fff}
+.expand-toggle{margin-left:auto;border:0;background:none;color:var(--accent);font-weight:700;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:8px 4px}
+.expand-toggle:hover{text-decoration:underline}
+
+/* ---------- Main ---------- */
+.main{max-width:var(--maxw);margin:0 auto;padding:40px 26px 90px}
+.empty-state{text-align:center;padding:70px 20px;color:var(--ink-2)}
+.empty-state i{font-size:42px;color:var(--ink-3)}
+.empty-state p{margin:14px 0 0;font-size:16px}
+
+/* ---------- Module card ---------- */
+.module{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  margin:0 0 20px;box-shadow:var(--shadow-sm);overflow:hidden;transition:box-shadow .2s,border-color .2s;
+}
+.module.open{box-shadow:var(--shadow-md);border-color:var(--line-2)}
+.module-head{
+  width:100%;border:0;background:none;display:flex;align-items:center;gap:20px;
+  padding:22px 26px;cursor:pointer;text-align:left;position:relative;
+}
+.module-head:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pc)}
+.module-head:hover{background:linear-gradient(90deg,rgba(0,0,0,.012),transparent 40%)}
+.m-tile{width:74px;height:74px;flex:0 0 auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.m-tile svg{display:block;width:100%;height:100%}
+.m-meta{flex:1;min-width:0}
+.m-kicker{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.m-num{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pc)}
+.m-phase{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:2px 9px;border:1px solid var(--line-2);border-radius:999px}
+.m-meta h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:22px;line-height:1.2;margin:0;letter-spacing:-.01em}
+.m-sub{display:flex;align-items:center;gap:14px;margin-top:7px;color:var(--ink-2);font-size:13.5px;flex-wrap:wrap}
+.m-sub span{display:inline-flex;align-items:center;gap:6px}
+.m-sub i{font-size:15px;color:var(--ink-3)}
+.m-chev{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-2);transition:.22s;font-size:20px}
+.module.open .m-chev{transform:rotate(180deg);background:var(--ink);color:#fff;border-color:var(--ink)}
+.module-body{border-top:1px solid var(--line)}
+.module-body[hidden]{display:none}
+.module-body-inner{padding:8px 26px 22px}
+.reveal{animation:reveal .35s ease both}
+@keyframes reveal{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* session overview strip */
+.sessions{margin:18px 0 6px}
+.sessions-label{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+.sessions-label i{font-size:16px;color:var(--pc)}
+.session-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.session-card{display:flex;gap:13px;border:1px solid var(--line);border-radius:13px;background:var(--paper-2);padding:13px;transition:.16s}
+.session-card:hover{border-color:var(--line-2);background:var(--card);box-shadow:var(--shadow-sm)}
+.s-tile{width:52px;height:52px;flex:0 0 auto;border-radius:10px;overflow:hidden}
+.s-tile svg{display:block;width:100%;height:100%}
+.s-body{min-width:0;flex:1}
+.s-code{font-size:11px;font-weight:800;color:var(--pc);letter-spacing:.04em}
+.s-body strong{display:block;font-size:14.5px;line-height:1.3;margin:2px 0 4px;font-weight:700}
+.s-body p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.45}
+.s-brief{margin-top:9px}
+.s-brief summary{cursor:pointer;font-size:11.5px;font-weight:700;color:var(--ink-3);list-style:none;display:inline-flex;align-items:center;gap:5px;letter-spacing:.04em;text-transform:uppercase}
+.s-brief summary::-webkit-details-marker{display:none}
+.s-brief summary i{font-size:14px;transition:.2s}
+.s-brief[open] summary i{transform:rotate(90deg)}
+.s-brief p{margin:8px 0 0;font-size:12.5px;color:var(--ink-2);font-style:italic;border-left:2px solid var(--line-2);padding-left:10px;line-height:1.5}
+
+/* ---------- Subsection (lesson detail) ---------- */
+.lessons{margin-top:24px;border-top:1px dashed var(--line-2);padding-top:8px}
+.subsection{border-bottom:1px solid var(--line)}
+.subsection:last-child{border-bottom:0}
+.sub-head{width:100%;border:0;background:none;display:flex;align-items:center;gap:15px;padding:18px 4px;cursor:pointer;text-align:left}
+.sub-head:hover .sub-num{background:var(--pc);color:#fff;border-color:var(--pc)}
+.sub-num{width:40px;height:40px;flex:0 0 auto;border-radius:11px;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--line-2);color:var(--pc);font-weight:800;font-size:14px;transition:.18s}
+.sub-head .sub-t{flex:1;min-width:0}
+.sub-head .sub-t strong{display:block;font-size:16.5px;font-weight:700;line-height:1.3}
+.sub-head .sub-t span{display:block;color:var(--ink-3);font-size:12.5px;margin-top:2px}
+.sub-head .mini-chev{font-size:20px;color:var(--ink-3);transition:.2s}
+.subsection.open .mini-chev{transform:rotate(180deg);color:var(--pc)}
+.sub-body{padding:0 4px 24px}
+.sub-body[hidden]{display:none}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:6px}
+.panel{border:1px solid var(--line);border-radius:13px;background:var(--paper-2);padding:18px}
+.panel.full{grid-column:1/-1}
+.label{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:800;color:var(--ink-3);margin-bottom:13px}
+.label i{font-size:17px;color:var(--pc)}
+.list{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+.list li{padding-left:20px;position:relative;color:var(--ink);font-size:14px;line-height:1.5}
+.list li:before{content:"";position:absolute;left:2px;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--pc)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-2);background:var(--card);border-radius:9px;padding:8px 12px;font-size:13px;color:var(--ink)}
+.chip i{font-size:15px;color:var(--pc)}
+.chip .ext{font-weight:800;color:var(--pc)}
+
+/* ---------- Homework ---------- */
+.homework{border:1px solid #D8E0EE;background:linear-gradient(180deg,var(--accent-soft),#F5F7FB);border-radius:15px;padding:22px 24px;position:relative}
+.hw-tag{position:absolute;top:18px;right:20px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:#fff;border:1px solid #D8E0EE;border-radius:999px;padding:5px 11px;display:inline-flex;align-items:center;gap:5px}
+.hw-label{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:10px}
+.hw-label i{font-size:17px}
+.homework h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:21px;margin:0 0 8px;max-width:80%}
+.homework .mission{font-size:15px;color:#334155;margin:0 0 18px;line-height:1.55}
+.req{border-left:3px solid var(--accent);padding:10px 0 10px 15px;margin:9px 0;background:rgba(255,255,255,.65);border-radius:0 8px 8px 0;font-size:14px;line-height:1.55}
+.choice{background:#fff;border:1px solid #D8E0EE;border-radius:12px;padding:16px 18px;margin:11px 0}
+.choice small{display:block;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:800;margin-bottom:6px;font-size:10.5px}
+.choice strong{display:block;margin-bottom:6px;font-size:15.5px;font-weight:700}
+.choice div{font-size:14px;color:#334155;line-height:1.55}
+.deliver{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.deliver span{background:#fff;border:1px solid #D8E0EE;color:var(--accent-deep);border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:600}
+
+/* ---------- Assessment section ---------- */
+.section-head{display:flex;align-items:center;gap:18px;margin:54px 0 24px}
+.section-head .line{flex:1;height:1px;background:var(--line-2)}
+.section-head h2{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:30px;margin:0;letter-spacing:-.01em}
+.rubric-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden}
+.rubric-card .rc-head{padding:22px 26px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:16px}
+.rubric-card .rc-head .ico{width:48px;height:48px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:24px;flex:0 0 auto}
+.rubric-card .rc-head h3{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;font-size:20px;margin:0 0 4px}
+.rubric-card .rc-head p{margin:0;color:var(--ink-2);font-size:14px}
+.rubric-scroll{overflow-x:auto}
+.rubric table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
+.rubric th,.rubric td{border:1px solid var(--line);padding:13px 15px;text-align:left;vertical-align:top}
+.rubric thead th{background:var(--ink);color:#fff;font-weight:700;letter-spacing:.02em;border-color:var(--ink)}
+.rubric thead th:first-child{border-top-left-radius:0}
+.rubric tbody td:first-child{font-weight:700;background:var(--paper-2);color:var(--ink)}
+.rubric tbody tr:nth-child(even) td:not(:first-child){background:#fdfbf7}
+.rubric td:nth-child(5){color:var(--accent-deep)}
+
+/* ---------- Footer ---------- */
+.site-footer{border-top:1px solid var(--line);background:var(--paper-2)}
+.footer-inner{max-width:var(--maxw);margin:0 auto;padding:34px 26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--ink-2);font-size:13px}
+.footer-inner .fw{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:800;letter-spacing:.08em}
+.footer-inner .fw .crest{width:32px;height:37px;font-size:15px}
+.footer-wordmark-title{font-size:18px;letter-spacing:.12em}
+
+/* ---------- Back to top ---------- */
+.to-top{position:fixed;right:24px;bottom:24px;z-index:60;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;border:0;cursor:pointer;display:grid;place-items:center;font-size:20px;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;transition:.25s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:var(--accent)}
+
+@media(max-width:860px){
+  .phase-legend,.stat-row{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid var(--line)}
+  .stat:nth-child(odd){border-right:1px solid var(--line)}
+  .stat:nth-child(even){border-right:0}
+  .session-grid,.grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .header-inner{padding:12px 18px}
+  .wordmark-text .name{font-size:17px}
+  .ghost-link span{display:none}
+  .hero{padding:42px 18px 24px}
+  .controls-wrap{top:65px}
+  .controls{padding:12px 18px}
+  .expand-toggle{margin-left:0}
+  .main{padding:30px 18px 70px}
+  .module-head{padding:18px 18px 18px 20px;gap:15px}
+  .m-tile{width:58px;height:58px}
+  .module-body-inner{padding:6px 18px 18px}
+  .phase-legend{grid-template-columns:1fr}
+  .homework h3{max-width:100%}
+  .hw-tag{position:static;display:inline-flex;margin-bottom:12px}
+}
+
+.portal-menu{max-width:var(--maxw);margin:34px auto 90px;padding:0 26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.portal-card{display:flex;align-items:flex-start;gap:16px;min-height:160px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow-sm);text-decoration:none;transition:.18s}
+.portal-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--accent)}
+.portal-card .ico{width:52px;height:52px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:27px;flex:0 0 auto}
+.portal-card h2{margin:0 0 8px;font-size:24px;line-height:1.1;font-weight:800}
+.portal-card p{margin:0;color:var(--ink-2);font-size:14.5px;line-height:1.5}
+.page-nav{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 24px}
+.page-nav a{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;border:1px solid var(--line-2);background:var(--card);font-weight:700;font-size:13.5px;text-decoration:none;box-shadow:var(--shadow-sm)}
+.page-nav a:hover{border-color:var(--accent);color:var(--accent)}
+.page-nav a.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.simple-main{max-width:var(--maxw);margin:0 auto;padding:54px 26px 90px}
+.simple-title{font-size:42px;line-height:1.1;margin:0 0 14px;font-weight:800;letter-spacing:-.03em}
+.simple-lead{font-size:18px;color:var(--ink-2);max-width:720px;margin:0 0 32px}
+@media(max-width:860px){.portal-menu{grid-template-columns:1fr}}
+
+/* Unified typography: match the clean CURRICULUM wordmark style across English and Chinese. */
+:root{--ui-font:Inter,"Noto Sans SC","Microsoft YaHei","PingFang SC","Hiragino Sans GB",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+body,button,input,select,textarea,.serif,.simple-title,.hero h1,.module-title strong,.m-meta h3,.legend-card h4,.section-head h2,.rubric-card .rc-head h3,.portal-card h2{font-family:var(--ui-font)}
+body{letter-spacing:0}
+.hero h1,.simple-title,.m-meta h3,.section-head h2,.rubric-card .rc-head h3{letter-spacing:0}
+.hero h1 em{font-style:normal}
+.wordmark,.brand,.wordmark-title,.footer-wordmark-title{font-family:var(--ui-font)}
+
+/* Responsive deployment polish for phone and iPad. */
+html{overflow-x:hidden}
+body{overflow-x:hidden}
+img,svg,canvas,video{max-width:100%;height:auto}
+@media (max-width:900px){
+  .header-inner,.topbar{padding-left:18px;padding-right:18px}
+  .wordmark-title{font-size:18px;letter-spacing:.08em}
+  .page-nav,.controls,.filters{gap:8px}
+  .page-nav a,.chip-btn,.ghost-link{font-size:12px;padding:8px 11px}
+  .simple-main,.main,.rubric-page,.phases-page,.hero,.portal-menu{padding-left:18px;padding-right:18px}
+}
+@media (max-width:640px){
+  .wordmark{gap:10px}.crest{width:34px;height:40px;font-size:16px}.wordmark-title{font-size:16px;letter-spacing:.06em}
+  .home-screen{padding:18px}.home-actions{left:18px;right:18px;justify-content:flex-end;gap:6px}.home-guide,.lang-link{font-size:11px;padding:7px 8px}.home-brand.brand{font-size:20px;gap:10px}.home-brand .shield{width:48px;height:58px;font-size:20px}
+  .portal-hub,.phase-dashboard,.rubric-fit,.rubric-zh{overflow:auto}
+  .portal-hub .hero,.zh-hub .hero,.en-hub .hero{padding:22px 18px 14px}
+  .portal-hub .hero h1,.zh-hub .hero h1,.en-hub .hero h1{font-size:30px;line-height:1.1;max-width:100%}
+  .portal-hub .hero-lead,.zh-hub .hero-lead,.en-hub .hero-lead{font-size:13px;line-height:1.48}
+  .portal-hub .portal-menu,.zh-hub .portal-menu,.en-hub .portal-menu{grid-template-columns:1fr;gap:12px;margin-top:10px}
+  .portal-hub .portal-card,.zh-hub .portal-card,.en-hub .portal-card{min-height:132px;padding:16px}
+  .phase-dashboard .phases-page{padding:18px}.phase-dashboard .phase-legend{grid-template-columns:1fr}.phase-dashboard .legend-card{min-height:150px}.phase-dashboard .legend-card p{max-width:90%}
+  .rubric-fit .rubric-page,.rubric-zh .rubric-page{padding:18px;min-height:auto}.rubric-fit .rubric-scroll,.rubric-zh .rubric-scroll{overflow-x:auto}.rubric-fit .rubric table,.rubric-zh .rubric table{min-width:760px}
+  .simple-title{font-size:34px}.simple-lead{font-size:15px}
+  .controls{width:100%;max-width:100%;align-items:stretch}.search{width:100%;min-width:0;flex:0 0 100%}.search input{max-width:100%}.filters{width:100%;min-width:0}.expand-toggle{margin-left:0}
+  .main{width:100%;max-width:100%}.module{width:100%;max-width:100%}.module-head{display:grid;grid-template-columns:54px minmax(0,1fr) 38px;gap:12px;padding:16px}.m-tile{width:54px;height:54px}.m-meta{min-width:0}.m-meta h3{font-size:18px;overflow-wrap:anywhere}.m-sub{font-size:12px;gap:8px}
+  .session-grid,.grid{grid-template-columns:1fr}.homework{padding:16px}.homework h3{max-width:100%;font-size:18px}
+}
+
+/* Shared shell spacing: exact page rhythm across home, portal, phases, modules, and rubric. */
+:root{--shell-max:1120px;--shell-x:26px;--shell-top:40px;--shell-gap:18px;--header-h:74px}
+.site-header{min-height:var(--header-h)}
+.header-inner{min-height:var(--header-h);padding-top:13px;padding-bottom:13px}
+.home-screen{padding:14px var(--shell-x);min-height:100dvh}
+.home-actions{top:42px;right:max(var(--shell-x),calc((100vw - var(--shell-max))/2 + var(--shell-x)));height:48px}
+.home-entry{min-height:calc(100dvh - 28px)}
+.home-brand{transform:none}
+.hero,.simple-main,.phases-page,.rubric-page,.main{max-width:var(--shell-max);padding-left:var(--shell-x);padding-right:var(--shell-x)}
+.portal-hub .hero,.en-hub .hero,.zh-hub .hero{padding-top:var(--shell-top);padding-bottom:18px}
+.simple-main,.phases-page,.rubric-page{padding-top:var(--shell-top)}
+.page-nav{margin:0 0 var(--shell-gap)}
+.controls-wrap{margin-top:0}
+.phase-dashboard .phases-page,.rubric-fit .rubric-page,.rubric-zh .rubric-page{padding-top:var(--shell-top)}
+.portal-menu,.phase-legend{gap:18px}
+@media (max-width:900px){:root{--shell-x:18px;--shell-top:28px}.header-inner{padding-left:var(--shell-x);padding-right:var(--shell-x)}.home-actions{right:var(--shell-x)}}
+@media (max-width:640px){:root{--shell-x:16px;--shell-top:22px;--shell-gap:14px}.home-screen{padding:12px var(--shell-x)}.home-actions{top:18px;left:var(--shell-x);right:var(--shell-x);justify-content:flex-end}.home-entry{min-height:calc(100dvh - 24px)}.header-inner{min-height:64px}.site-header{min-height:64px}.page-nav{gap:8px}.hero,.simple-main,.phases-page,.rubric-page,.main{padding-left:var(--shell-x);padding-right:var(--shell-x)}}
+
+/* Uniform AI CURRICULUM header dimensions across every page. */
+.site-header{height:var(--header-h);min-height:var(--header-h);display:flex;align-items:center}
+.site-header .header-inner{width:100%;max-width:none;height:var(--header-h);min-height:var(--header-h);padding:0 var(--shell-x);display:flex;align-items:center}
+.site-header .wordmark{gap:14px;min-height:48px}
+.site-header .crest{width:42px;height:48px;font-size:20px}
+.site-header .wordmark-title{font-size:23px;letter-spacing:.12em;line-height:1;white-space:nowrap}
+.site-header .header-actions{min-height:48px}
+@media (max-width:900px){.site-header .wordmark-title{font-size:20px;letter-spacing:.1em}.site-header .crest{width:38px;height:44px;font-size:18px}}
+@media (max-width:640px){.site-header{height:64px;min-height:64px}.site-header .header-inner{height:64px;min-height:64px}.site-header .wordmark{gap:10px}.site-header .crest{width:34px;height:40px;font-size:16px}.site-header .wordmark-title{font-size:16px;letter-spacing:.07em}.site-header .header-actions{min-height:40px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="ai_curriculum_harvard_style_adjusted.html">
+      <span class="crest">AI</span>
+      <span class="wordmark-title">CURRICULUM</span>
+    </a>
+  </div>
+</header>
+
+<a id="top"></a>
+<main class="simple-main" style="padding-bottom:10px">
+  <nav class="page-nav" aria-label="阶段导航"><a href="ai_curriculum_teaching_portal_zh.html"><i class="ti ti-arrow-left"></i><span>门户</span></a><a href="ai_curriculum_modules_zh.html"><span>阶段 1</span></a><a href="ai_curriculum_agents_zh.html"><span>阶段 2</span></a><a class="active" href="ai_curriculum_models_zh.html"><span>阶段 3</span></a><a href="ai_curriculum_rubric_zh.html"><span>量规</span></a><a href="ai_curriculum_models.html"><span>EN</span></a></nav>
+  <h1 class="simple-title">阶段 3——开放模型工程师</h1>
+  <p class="simple-lead">十个实践模块从模型中心与 GPU 适配进入 Ollama、学生数据集、RAG、微调、评估和负责任发布，最后完成开放模型创新挑战赛。</p>
+</main>
+<div class="controls-wrap" style="margin-top:0">
+  <div class="controls">
+    <div class="search">
+      <i class="ti ti-search"></i>
+      <input id="searchInput" type="search" placeholder="搜索模块、课时、技能…" aria-label="搜索课程">
+    </div>
+    <div class="filters" id="nav" aria-label="按阶段筛选"></div>
+    <button class="expand-toggle" id="expandToggle" type="button"><i class="ti ti-arrows-diagonal"></i><span>全部展开</span></button>
+  </div>
+</div>
+<main class="main">
+  <section id="container"></section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="fw">
+      <span class="crest">AI</span>
+      <span class="footer-wordmark-title">CURRICULUM</span>
+    </div>
+    <div id="footMeta"></div>
+  </div>
+</footer>
+<button class="to-top" id="toTop" aria-label="返回顶部"><i class="ti ti-arrow-up"></i></button>
+<script>
+const modules = [
+  {
+    "id": "s3m1",
+    "phase": "foundation",
+    "badge": "模块 1",
+    "name": "开放模型中心与模型卡",
+    "sessions": "2 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "Hugging Face、ModelScope、Kaggle Models、许可证与模型试用",
+        "obj": [
+          "根据模型卡、许可证、预期用途和局限选择开放模型。",
+          "在同一多语言学习任务上比较三个批准模型，并给出有依据的候选清单。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "Hugging Face",
+          "ModelScope",
+          "模型卡比较表"
+        ],
+        "act": [
+          "在同一多语言学习任务上比较三个批准模型，并给出有依据的候选清单。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "开放模型中心与模型卡实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "开放模型中心与模型卡实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "开放模型中心与模型卡实践任务",
+          "mission": "在同一多语言学习任务上比较三个批准模型，并给出有依据的候选清单。",
+          "reqs": [
+            "根据模型卡、许可证、预期用途和局限选择开放模型。",
+            "在同一多语言学习任务上比较三个批准模型，并给出有依据的候选清单。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m2",
+    "phase": "foundation",
+    "badge": "模块 2",
+    "name": "硬件、GPU 显存与模型适配",
+    "sessions": "3 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "CPU、GPU、NPU、RAM、VRAM、量化与模型选择",
+        "obj": [
+          "让模型大小与精度适配真实机器，而不是凭感觉选择。",
+          "制作硬件护照，估算模型内存，运行基准测试并比较预测与实测。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "系统硬件面板",
+          "模型内存计算器",
+          "Ollama 基准表"
+        ],
+        "act": [
+          "制作硬件护照，估算模型内存，运行基准测试并比较预测与实测。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "硬件、GPU 显存与模型适配实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "硬件、GPU 显存与模型适配实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "硬件、GPU 显存与模型适配实践任务",
+          "mission": "制作硬件护照，估算模型内存，运行基准测试并比较预测与实测。",
+          "reqs": [
+            "让模型大小与精度适配真实机器，而不是凭感觉选择。",
+            "制作硬件护照，估算模型内存，运行基准测试并比较预测与实测。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m3",
+    "phase": "foundation",
+    "badge": "模块 3",
+    "name": "使用 Ollama 运行本地模型",
+    "sessions": "3 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "安装、下载、运行、比较与本地服务",
+        "obj": [
+          "理解本地隐私、资源使用，以及模型与应用之间的边界。",
+          "安装或使用 Ollama，比较两个模型，并通过 localhost API 从实际客户端调用。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "Ollama",
+          "批准的小模型",
+          "本地 API 起始应用"
+        ],
+        "act": [
+          "安装或使用 Ollama，比较两个模型，并通过 localhost API 从实际客户端调用。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "使用 Ollama 运行本地模型实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "使用 Ollama 运行本地模型实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "使用 Ollama 运行本地模型实践任务",
+          "mission": "安装或使用 Ollama，比较两个模型，并通过 localhost API 从实际客户端调用。",
+          "reqs": [
+            "理解本地隐私、资源使用，以及模型与应用之间的边界。",
+            "安装或使用 Ollama，比较两个模型，并通过 localhost API 从实际客户端调用。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m4",
+    "phase": "exploration",
+    "badge": "模块 4",
+    "name": "参数、上下文与机器记忆",
+    "sessions": "2 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "Modelfile、temperature、top-p、上下文预算与可重复行为",
+        "obj": [
+          "有意识地选择模型行为与上下文，因为更多记忆或创造性不一定更好。",
+          "开展单变量实验，创建 Ollama Modelfile，并测量质量、延迟、一致性和内存。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "Ollama Modelfile 模板",
+          "参数实验表",
+          "长短上下文样本"
+        ],
+        "act": [
+          "开展单变量实验，创建 Ollama Modelfile，并测量质量、延迟、一致性和内存。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "参数、上下文与机器记忆实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "参数、上下文与机器记忆实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "参数、上下文与机器记忆实践任务",
+          "mission": "开展单变量实验，创建 Ollama Modelfile，并测量质量、延迟、一致性和内存。",
+          "reqs": [
+            "有意识地选择模型行为与上下文，因为更多记忆或创造性不一定更好。",
+            "开展单变量实验，创建 Ollama Modelfile，并测量质量、延迟、一致性和内存。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m5",
+    "phase": "exploration",
+    "badge": "模块 5",
+    "name": "设计合乎伦理的学生数据集",
+    "sessions": "2 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "目的、同意、来源、隐私、平衡与数据集卡",
+        "obj": [
+          "任何定制之前都需要合法、相关且有记录的数据。",
+          "提出数据集方案，审核样本，定义纳入与脱敏规则，并完成数据集卡。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "数据集卡模板",
+          "同意与许可证清单",
+          "隐私脱敏练习集"
+        ],
+        "act": [
+          "提出数据集方案，审核样本，定义纳入与脱敏规则，并完成数据集卡。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "设计合乎伦理的学生数据集实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "设计合乎伦理的学生数据集实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "设计合乎伦理的学生数据集实践任务",
+          "mission": "提出数据集方案，审核样本，定义纳入与脱敏规则，并完成数据集卡。",
+          "reqs": [
+            "任何定制之前都需要合法、相关且有记录的数据。",
+            "提出数据集方案，审核样本，定义纳入与脱敏规则，并完成数据集卡。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m6",
+    "phase": "exploration",
+    "badge": "模块 6",
+    "name": "清洗与准备训练数据",
+    "sessions": "3 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "清洗、JSONL、训练/验证/测试划分与泄漏",
+        "obj": [
+          "重复、不一致、含隐私或泄漏的数据会使模型结果失去意义。",
+          "清洗混乱数据，创建验证后的指令—回答记录，并生成锁定的三类划分。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "混乱示例数据集",
+          "数据清洗 notebook",
+          "JSONL 验证器"
+        ],
+        "act": [
+          "清洗混乱数据，创建验证后的指令—回答记录，并生成锁定的三类划分。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "清洗与准备训练数据实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "清洗与准备训练数据实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "清洗与准备训练数据实践任务",
+          "mission": "清洗混乱数据，创建验证后的指令—回答记录，并生成锁定的三类划分。",
+          "reqs": [
+            "重复、不一致、含隐私或泄漏的数据会使模型结果失去意义。",
+            "清洗混乱数据，创建验证后的指令—回答记录，并生成锁定的三类划分。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m7",
+    "phase": "creation",
+    "badge": "模块 7",
+    "name": "Embedding 与本地 RAG",
+    "sessions": "3 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "切块、Embedding、检索、引用与本地知识评估",
+        "obj": [
+          "RAG 可以在不改变模型权重的情况下加入当前或私有知识。",
+          "创建本地索引，比较切块策略，返回引用，并分别评估检索和最终答案。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "本地 Embedding 模型",
+          "批准文档集合",
+          "RAG 起始项目"
+        ],
+        "act": [
+          "创建本地索引，比较切块策略，返回引用，并分别评估检索和最终答案。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "Embedding 与本地 RAG实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "Embedding 与本地 RAG实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "Embedding 与本地 RAG实践任务",
+          "mission": "创建本地索引，比较切块策略，返回引用，并分别评估检索和最终答案。",
+          "reqs": [
+            "RAG 可以在不改变模型权重的情况下加入当前或私有知识。",
+            "创建本地索引，比较切块策略，返回引用，并分别评估检索和最终答案。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m8",
+    "phase": "creation",
+    "badge": "模块 8",
+    "name": "使用学生数据进行微调",
+    "sessions": "3 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "基线、LoRA/QLoRA adapter、GPU 训练与比较",
+        "obj": [
+          "只有需要改变行为且提示词或 RAG 不足时才应微调。",
+          "记录基线，运行或完整复现教师控制的 adapter 训练，并用相同锁定测试比较。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "批准训练 notebook",
+          "准备好的学生数据集",
+          "教师管理 GPU 环境"
+        ],
+        "act": [
+          "记录基线，运行或完整复现教师控制的 adapter 训练，并用相同锁定测试比较。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "使用学生数据进行微调实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "使用学生数据进行微调实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "使用学生数据进行微调实践任务",
+          "mission": "记录基线，运行或完整复现教师控制的 adapter 训练，并用相同锁定测试比较。",
+          "reqs": [
+            "只有需要改变行为且提示词或 RAG 不足时才应微调。",
+            "记录基线，运行或完整复现教师控制的 adapter 训练，并用相同锁定测试比较。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m9",
+    "phase": "advanced",
+    "badge": "模块 9",
+    "name": "评估、红队测试与过拟合",
+    "sessions": "2 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "能力、安全、稳健性、隐私与泛化",
+        "obj": [
+          "定制系统必须通过未见与对抗测试，而不只是精选演示。",
+          "创建普通、边缘、未知和对抗测试，开展盲测，诊断失败并给出发布建议。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "评估工具",
+          "红队卡",
+          "结果面板"
+        ],
+        "act": [
+          "创建普通、边缘、未知和对抗测试，开展盲测，诊断失败并给出发布建议。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "评估、红队测试与过拟合实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "评估、红队测试与过拟合实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "评估、红队测试与过拟合实践任务",
+          "mission": "创建普通、边缘、未知和对抗测试，开展盲测，诊断失败并给出发布建议。",
+          "reqs": [
+            "定制系统必须通过未见与对抗测试，而不只是精选演示。",
+            "创建普通、边缘、未知和对抗测试，开展盲测，诊断失败并给出发布建议。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3m10",
+    "phase": "advanced",
+    "badge": "模块 10",
+    "name": "模型打包、服务与发布",
+    "sessions": "3 节课",
+    "challenge": false,
+    "subsections": [
+      {
+        "name": "Ollama 软件包、本地与在线服务器、模型卡、模型中心与回滚",
+        "obj": [
+          "只有别人能运行、理解并安全停止或替换的模型才真正有用。",
+          "版本化 Modelfile 或 adapter，从实际应用调用，比较本地与批准在线服务，并发布完整文档。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "Ollama 打包工具",
+          "批准的 Hugging Face 或 ModelScope 空间",
+          "发布清单"
+        ],
+        "act": [
+          "版本化 Modelfile 或 adapter，从实际应用调用，比较本地与批准在线服务，并发布完整文档。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "模型打包、服务与发布实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "模型打包、服务与发布实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "模型打包、服务与发布实践任务",
+          "mission": "版本化 Modelfile 或 adapter，从实际应用调用，比较本地与批准在线服务，并发布完整文档。",
+          "reqs": [
+            "只有别人能运行、理解并安全停止或替换的模型才真正有用。",
+            "版本化 Modelfile 或 adapter，从实际应用调用，比较本地与批准在线服务，并发布完整文档。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "s3c1",
+    "phase": "advanced",
+    "badge": "挑战赛",
+    "name": "开放模型创新挑战赛",
+    "sessions": "4 节课",
+    "challenge": true,
+    "subsections": [
+      {
+        "name": "Stage 3 挑战：定制并评估开放模型系统",
+        "obj": [
+          "展示负责任的模型选择、学生数据、硬件适配、可衡量改进和可复现性。",
+          "选择探索者 RAG、构建者 LoRA/QLoRA 或研究者比较路径，创建可运行本地系统，与基线比较并展示证据。",
+          "说明为什么选择这种方法，并用测量结果判断是否有效。"
+        ],
+        "teach": [
+          "教师先现场构建，再由学生在检查点支持下复现。",
+          "每节课必须产生可运行成果、测试记录或可核查数据。",
+          "全班比较成功、失败和修改，而不是只观看演示。"
+        ],
+        "tlms": [
+          "挑战任务书",
+          "GPU 与数据集清单",
+          "模型评估量规"
+        ],
+        "act": [
+          "选择探索者 RAG、构建者 LoRA/QLoRA 或研究者比较路径，创建可运行本地系统，与基线比较并展示证据。",
+          "至少运行一个正常案例、一个边缘案例和一个失败案例。",
+          "保存截图、日志、指标和修改前后证据。"
+        ],
+        "files": [
+          {
+            "ext": ".docx",
+            "icon": "ti-file-text",
+            "desc": "开放模型创新挑战赛实验工作表"
+          },
+          {
+            "ext": ".pdf",
+            "icon": "ti-file-description",
+            "desc": "开放模型创新挑战赛实践指南"
+          },
+          {
+            "ext": ".xlsx",
+            "icon": "ti-table",
+            "desc": "基准测试与证据记录表"
+          }
+        ],
+        "hw": {
+          "title": "开放模型创新挑战赛",
+          "mission": "选择探索者 RAG、构建者 LoRA/QLoRA 或研究者比较路径，创建可运行本地系统，与基线比较并展示证据。",
+          "reqs": [
+            "展示负责任的模型选择、学生数据、硬件适配、可衡量改进和可复现性。",
+            "选择探索者 RAG、构建者 LoRA/QLoRA 或研究者比较路径，创建可运行本地系统，与基线比较并展示证据。",
+            "提交可复现步骤、失败案例和至少一项改进。",
+            "说明数据、硬件、安全和局限。"
+          ],
+          "deliver": [
+            "可运行成果或完整实验",
+            "过程日志与截图",
+            "测试结果与指标",
+            "反思与下一步"
+          ]
+        }
+      }
+    ]
+  }
+];
+const sessionGuide = [
+  [
+    "1.1",
+    "浏览模型中心",
+    "找到模型、数据集、演示、许可证和文件。",
+    "开放模型中心与模型卡实践课视觉：学生在真实电脑上完成“浏览模型中心”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "1.2",
+    "基于证据的模型试用",
+    "运行相同任务并评分质量、速度、语言能力和适配度。",
+    "开放模型中心与模型卡实践课视觉：学生在真实电脑上完成“基于证据的模型试用”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "2.1",
+    "AI 电脑中的不同记忆",
+    "区分存储、RAM、VRAM、上下文记忆和模型状态。",
+    "硬件、GPU 显存与模型适配实践课视觉：学生在真实电脑上完成“AI 电脑中的不同记忆”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "2.2",
+    "模型大小与量化",
+    "计算参数和位精度如何改变内存与质量。",
+    "硬件、GPU 显存与模型适配实践课视觉：学生在真实电脑上完成“模型大小与量化”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "2.3",
+    "推理基准测试",
+    "测量加载时间、token 速度、内存压力和质量。",
+    "硬件、GPU 显存与模型适配实践课视觉：学生在真实电脑上完成“推理基准测试”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "3.1",
+    "安装与首次运行",
+    "安装、下载、运行、列出和删除批准模型。",
+    "使用 Ollama 运行本地模型实践课视觉：学生在真实电脑上完成“安装与首次运行”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "3.2",
+    "比较本地模型",
+    "比较质量、速度、内存和多语言表现。",
+    "使用 Ollama 运行本地模型实践课视觉：学生在真实电脑上完成“比较本地模型”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "3.3",
+    "提供本地模型 API",
+    "把应用连接到 Ollama，同时保持本地受控。",
+    "使用 Ollama 运行本地模型实践课视觉：学生在真实电脑上完成“提供本地模型 API”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "4.1",
+    "推理参数实验",
+    "测试 temperature、top-p、停止规则和重复输出。",
+    "参数、上下文与机器记忆实践课视觉：学生在真实电脑上完成“推理参数实验”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "4.2",
+    "Modelfile 与上下文设计",
+    "封装可重复行为并比较相关与嘈杂上下文。",
+    "参数、上下文与机器记忆实践课视觉：学生在真实电脑上完成“Modelfile 与上下文设计”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "5.1",
+    "目的与来源",
+    "把每个数据源连接到任务、许可和用户需求。",
+    "设计合乎伦理的学生数据集实践课视觉：学生在真实电脑上完成“目的与来源”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "5.2",
+    "隐私、偏差与文档",
+    "脱敏并记录代表性、排除项和局限。",
+    "设计合乎伦理的学生数据集实践课视觉：学生在真实电脑上完成“隐私、偏差与文档”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "6.1",
+    "清洗与标注",
+    "修复重复、隐私字段、缺失值和不一致标签。",
+    "清洗与准备训练数据实践课视觉：学生在真实电脑上完成“清洗与标注”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "6.2",
+    "指令数据格式化",
+    "创建有效的 instruction、input 和 response 记录。",
+    "清洗与准备训练数据实践课视觉：学生在真实电脑上完成“指令数据格式化”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "6.3",
+    "诚实的数据划分",
+    "建立无泄漏的训练、验证和锁定测试集。",
+    "清洗与准备训练数据实践课视觉：学生在真实电脑上完成“诚实的数据划分”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "7.1",
+    "Embedding 与相似度",
+    "创建并查询小型语义索引。",
+    "Embedding 与本地 RAG实践课视觉：学生在真实电脑上完成“Embedding 与相似度”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "7.2",
+    "切块与检索",
+    "测试文档切分如何改变证据检索。",
+    "Embedding 与本地 RAG实践课视觉：学生在真实电脑上完成“切块与检索”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "7.3",
+    "RAG 评估",
+    "衡量检索召回、答案正确性、引用和拒答。",
+    "Embedding 与本地 RAG实践课视觉：学生在真实电脑上完成“RAG 评估”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "8.1",
+    "提示词、RAG 还是微调？",
+    "选择能解决问题的最低复杂度方法。",
+    "使用学生数据进行微调实践课视觉：学生在真实电脑上完成“提示词、RAG 还是微调？”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "8.2",
+    "运行 LoRA 或 QLoRA",
+    "配置 adapter 并监控 GPU、VRAM、loss 和 checkpoint。",
+    "使用学生数据进行微调实践课视觉：学生在真实电脑上完成“运行 LoRA 或 QLoRA”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "8.3",
+    "基础与适配模型",
+    "测试变化能否泛化到训练样本之外。",
+    "使用学生数据进行微调实践课视觉：学生在真实电脑上完成“基础与适配模型”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "9.1",
+    "盲测评估",
+    "运行不偏袒定制系统的可重复测试。",
+    "评估、红队测试与过拟合实践课视觉：学生在真实电脑上完成“盲测评估”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "9.2",
+    "红队与过拟合",
+    "探测记忆、不安全行为、提示攻击和泛化不足。",
+    "评估、红队测试与过拟合实践课视觉：学生在真实电脑上完成“红队与过拟合”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "10.1",
+    "打包与版本",
+    "创建可复现软件包、版本、校验值和回滚点。",
+    "模型打包、服务与发布实践课视觉：学生在真实电脑上完成“打包与版本”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "10.2",
+    "本地与在线服务",
+    "比较 localhost、学校 GPU 服务器和批准托管端点。",
+    "模型打包、服务与发布实践课视觉：学生在真实电脑上完成“本地与在线服务”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "10.3",
+    "模型卡与发布",
+    "记录目的、数据、指标、许可证、局限和硬件。",
+    "模型打包、服务与发布实践课视觉：学生在真实电脑上完成“模型卡与发布”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "C.1",
+    "用途、硬件与模型选择",
+    "验证需求、检查硬件、试用模型中心并选基础模型。",
+    "开放模型创新挑战赛实践课视觉：学生在真实电脑上完成“用途、硬件与模型选择”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "C.2",
+    "数据集与定制冲刺",
+    "准备数据并实现 RAG、Modelfile 或 adapter。",
+    "开放模型创新挑战赛实践课视觉：学生在真实电脑上完成“数据集与定制冲刺”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "C.3",
+    "独立评估与红队测试",
+    "在锁定与对抗测试上比较基线和最终系统。",
+    "开放模型创新挑战赛实践课视觉：学生在真实电脑上完成“独立评估与红队测试”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ],
+  [
+    "C.4",
+    "开放模型展示",
+    "演示本地系统、证据、可复现性和局限。",
+    "开放模型创新挑战赛实践课视觉：学生在真实电脑上完成“开放模型展示”，画面清楚显示工具、操作步骤、测试证据和结果记录。"
+  ]
+];
+const moduleIcons={foundation:'ti-cpu',exploration:'ti-database',creation:'ti-adjustments-code',advanced:'ti-shield-check'};
+const moduleSessionMap={
+  "s3m1": [
+    "1.1",
+    "1.2"
+  ],
+  "s3m2": [
+    "2.1",
+    "2.2",
+    "2.3"
+  ],
+  "s3m3": [
+    "3.1",
+    "3.2",
+    "3.3"
+  ],
+  "s3m4": [
+    "4.1",
+    "4.2"
+  ],
+  "s3m5": [
+    "5.1",
+    "5.2"
+  ],
+  "s3m6": [
+    "6.1",
+    "6.2",
+    "6.3"
+  ],
+  "s3m7": [
+    "7.1",
+    "7.2",
+    "7.3"
+  ],
+  "s3m8": [
+    "8.1",
+    "8.2",
+    "8.3"
+  ],
+  "s3m9": [
+    "9.1",
+    "9.2"
+  ],
+  "s3m10": [
+    "10.1",
+    "10.2",
+    "10.3"
+  ],
+  "s3c1": [
+    "C.1",
+    "C.2",
+    "C.3",
+    "C.4"
+  ]
+};
+const moduleVisuals={
+  "s3m1": {
+    "title": "开放模型中心与模型卡",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "network"
+  },
+  "s3m2": {
+    "title": "硬件、GPU 显存与模型适配",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "network"
+  },
+  "s3m3": {
+    "title": "使用 Ollama 运行本地模型",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "network"
+  },
+  "s3m4": {
+    "title": "参数、上下文与机器记忆",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "research"
+  },
+  "s3m5": {
+    "title": "设计合乎伦理的学生数据集",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "research"
+  },
+  "s3m6": {
+    "title": "清洗与准备训练数据",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "research"
+  },
+  "s3m7": {
+    "title": "Embedding 与本地 RAG",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "app"
+  },
+  "s3m8": {
+    "title": "使用学生数据进行微调",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "app"
+  },
+  "s3m9": {
+    "title": "评估、红队测试与过拟合",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "agent"
+  },
+  "s3m10": {
+    "title": "模型打包、服务与发布",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "agent"
+  },
+  "s3c1": {
+    "title": "开放模型创新挑战赛",
+    "words": [
+      "实践",
+      "模型",
+      "证据"
+    ],
+    "hue": 220,
+    "icon": "group"
+  }
+};
+const phaseNames={"all":"全部","foundation":"模型与硬件","exploration":"数据与行为","creation":"定制","advanced":"评估与发布"};
+const visualKeywords={
+  "1.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "1.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "2.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "2.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "2.3": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "3.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "3.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "3.3": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "4.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "4.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "5.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "5.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "6.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "6.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "6.3": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "7.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "7.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "7.3": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "8.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "8.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "8.3": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "9.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "9.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "10.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "10.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "10.3": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "C.1": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "C.2": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "C.3": [
+    "实践",
+    "测试",
+    "证据"
+  ],
+  "C.4": [
+    "实践",
+    "测试",
+    "证据"
+  ]
+};
+
+/* ---------- Config ---------- */
+const phaseColor = {foundation:'#0D1B3E', exploration:'#0D1B3E', creation:'#0D1B3E', advanced:'#0D1B3E'};
+const phaseTint  = {foundation:'#EEF3FA', exploration:'#EEF3FA', creation:'#EEF3FA', advanced:'#EEF3FA'};
+const phaseLabel={"foundation":"模型与硬件","exploration":"数据与行为","creation":"定制","advanced":"评估与发布"};
+
+let active = 'all';
+let query = '';
+let allOpen = false;
+
+/* ---------- Helpers ---------- */
+function escapeHTML(str){return String(str).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function formatText(str){return escapeHTML(str).replace(/\n/g,'<br>')}
+function list(items){return '<ul class="list">'+items.map(i=>'<li>'+escapeHTML(i)+'</li>').join('')+'</ul>'}
+function chips(items){return '<div class="chips">'+items.map(i=>{
+  if(i && i.ext){const ic=i.icon?'<i class="ti '+i.icon+'"></i>':'';return '<span class="chip">'+ic+'<span class="ext">'+escapeHTML(i.ext)+'</span> '+escapeHTML(i.desc)+'</span>';}
+  return '<span class="chip">'+escapeHTML(i)+'</span>';
+}).join('')+'</div>'}
+function sessionByCode(code){return sessionGuide.find(s=>s[0]===code)}
+function adjustedObjectives(sub){return sub.obj.map(o=>o.replace('chain-of-thought','step-by-step reasoning'))}
+
+/* ---------- Clean line-art glyphs ---------- */
+function glyph(icon){
+  const G={
+    laptop:'<rect x="26" y="30" width="48" height="32" rx="4"/><path d="M20 68h60l-5-6H25z" fill="currentColor" stroke="none"/><path d="M38 41h24M38 50h14"/>',
+    chat:'<rect x="24" y="28" width="52" height="36" rx="10"/><circle cx="40" cy="46" r="2.6" fill="currentColor" stroke="none"/><circle cx="50" cy="46" r="2.6" fill="currentColor" stroke="none"/><circle cx="60" cy="46" r="2.6" fill="currentColor" stroke="none"/><path d="M40 64l-8 9 2-9"/>',
+    network:'<circle cx="34" cy="38" r="7"/><circle cx="66" cy="34" r="6"/><circle cx="56" cy="66" r="8"/><path d="M40 41l20-4M39 44l13 16M60 39l-5 19"/>',
+    prompt:'<rect x="24" y="28" width="52" height="40" rx="6"/><path d="M34 41h32M34 50h22"/><path d="M32 64l9-9"/>',
+    chart:'<rect x="24" y="26" width="52" height="44" rx="5"/><path d="M34 58l10-10 8 5 14-16"/><path d="M33 64h34"/>',
+    app:'<rect x="34" y="22" width="32" height="54" rx="7"/><rect x="41" y="31" width="18" height="9" rx="3" fill="currentColor" stroke="none" opacity=".4"/><rect x="41" y="46" width="8" height="8" rx="2"/><rect x="55" y="46" width="8" height="8" rx="2"/><rect x="41" y="59" width="8" height="8" rx="2"/>',
+    rocket:'<path d="M50 22c10 8 13 22 9 36-9 4-19 4-28 0 4-14 9-28 19-36z"/><circle cx="50" cy="40" r="5"/><path d="M34 60l-6 10 9-3M66 60l6 10-9-3"/>',
+    research:'<rect x="26" y="24" width="34" height="42" rx="4"/><path d="M33 36h20M33 45h14"/><circle cx="60" cy="58" r="11"/><path d="M68 66l8 8"/>',
+    agent:'<rect x="32" y="34" width="36" height="28" rx="8"/><circle cx="43" cy="48" r="2.8" fill="currentColor" stroke="none"/><circle cx="57" cy="48" r="2.8" fill="currentColor" stroke="none"/><path d="M50 34v-9M44 62v8M56 62v8"/>',
+    group:'<circle cx="38" cy="40" r="8"/><circle cx="62" cy="40" r="8"/><path d="M26 70c0-9 6-15 12-15s12 6 12 15M50 70c0-9 6-15 12-15s12 6 12 15"/>'
+  };
+  return G[icon]||G.laptop;
+}
+
+function moduleTile(mod){
+  const v=moduleVisuals[mod.id]||{icon:'laptop'};
+  const c=phaseColor[mod.phase], t=phaseTint[mod.phase];
+  const gid='mt_'+mod.id;
+  return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+escapeHTML(mod.name)+'">'
+    +'<defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+t+'"/><stop offset="1" stop-color="#fffdf8"/></linearGradient></defs>'
+    +'<rect width="100" height="100" rx="14" fill="url(#'+gid+')"/>'
+    +'<rect x="2.5" y="2.5" width="95" height="95" rx="12" fill="none" stroke="'+c+'" stroke-opacity=".18"/>'
+    +'<circle cx="84" cy="18" r="16" fill="'+c+'" opacity=".08"/>'
+    +'<g stroke="'+c+'" stroke-width="4.4" fill="none" stroke-linecap="round" stroke-linejoin="round" color="'+c+'">'+glyph(v.icon)+'</g>'
+    +'</svg>';
+}
+
+const sessionMotifs=[
+  '<rect x="30" y="34" width="40" height="28" rx="4"/><path d="M38 44h24M38 52h12"/>',
+  '<circle cx="50" cy="48" r="16"/><path d="M50 32v32M34 48h32"/>',
+  '<path d="M34 60l11-11 8 6 13-15"/><path d="M33 66h34"/>',
+  '<rect x="32" y="32" width="24" height="18" rx="3"/><rect x="48" y="50" width="22" height="16" rx="3"/><path d="M44 50l12 0"/>',
+  '<circle cx="50" cy="36" r="6"/><path d="M50 42v22M50 50l-12 8M50 50l12 8"/>',
+  '<rect x="34" y="30" width="32" height="40" rx="5"/><path d="M42 42h16M42 51h11"/>'
+];
+function sessionTile(code,phase){
+  const idx=sessionGuide.findIndex(x=>x[0]===code);
+  const c=phaseColor[phase]||'#0D1B3E', t=phaseTint[phase]||'#EEF3FA';
+  const gid='st_'+code.replace('.','_');
+  const motif=sessionMotifs[idx%sessionMotifs.length];
+  return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="课时 '+escapeHTML(code)+'">'
+    +'<defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+t+'"/><stop offset="1" stop-color="#fffdf8"/></linearGradient></defs>'
+    +'<rect width="100" height="100" rx="12" fill="url(#'+gid+')"/>'
+    +'<g stroke="'+c+'" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">'+motif+'</g>'
+    +'</svg>';
+}
+
+/* ---------- Homework ---------- */
+function renderHomework(hw){
+  if(!hw) return '';
+  let inner='';
+  if(hw.choices){
+    inner=hw.choices.map(c=>'<div class="choice"><small>任选一项</small><strong>'+escapeHTML(c.title)+'</strong><div>'+formatText(c.body)+'</div></div>').join('');
+  }else{
+    inner='<div class="hw-label" style="margin-top:6px"><i class="ti ti-list-check"></i>要求</div>'+hw.reqs.map(r=>'<div class="req">'+formatText(r)+'</div>').join('');
+  }
+  const deliver=hw.deliver?'<div class="hw-label" style="margin-top:18px"><i class="ti ti-upload"></i>提交内容</div><div class="deliver">'+hw.deliver.map(d=>'<span>'+escapeHTML(d)+'</span>').join('')+'</div>':'';
+  return '<div class="panel full"><div class="homework">'
+    +'<span class="hw-tag"><i class="ti ti-lock"></i>保留作业</span>'
+    +'<div class="hw-label"><i class="ti ti-notebook"></i>作业说明</div>'
+    +'<h3 class="serif">'+escapeHTML(hw.title)+'</h3>'
+    +'<p class="mission">'+formatText(hw.mission)+'</p>'+inner+deliver+'</div></div>';
+}
+
+/* ---------- Lesson (subsection) ---------- */
+function renderSub(sub,index,phase){
+  const number=String(index+1).padStart(2,'0');
+  const accessibility=['Key vocabulary box before the activity','Worked example before the independent task','Exit ticket with one skill question and one reflection question','Extension challenge for fast finishers'];
+  const assessment=['Observable skill performance during class','Saved file, screenshot, prompt log, or comparison table as evidence','Short reflection explaining what changed or improved'];
+  return '<article class="subsection">'
+    +'<button class="sub-head" type="button" onclick="toggleSub(this)" aria-expanded="false">'
+    +'<span class="sub-num">'+number+'</span>'
+    +'<span class="sub-t"><strong>'+escapeHTML(sub.name)+'</strong><span>目标 · 教学步骤 · 工具 · 无障碍支持 · 评估 · 文件 · 作业</span></span>'
+    +'<i class="ti ti-chevron-down mini-chev"></i></button>'
+    +'<div class="sub-body" hidden><div class="grid">'
+    +'<div class="panel"><div class="label"><i class="ti ti-target"></i>学习目标</div>'+list(adjustedObjectives(sub))+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-chalkboard"></i>教学方法</div>'+list(sub.teach)+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-tools"></i>材料与工具</div>'+chips(sub.tlms)+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-device-gamepad-2"></i>课堂活动</div>'+list(sub.act)+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-universal-access"></i>无障碍支持</div>'+list(accessibility)+'</div>'
+    +'<div class="panel"><div class="label"><i class="ti ti-checkup-list"></i>评估证据</div>'+list(assessment)+'</div>'
+    +(sub.files?'<div class="panel full"><div class="label"><i class="ti ti-folder-open"></i>示例文件包</div>'+chips(sub.files)+'</div>':'')
+    +renderHomework(sub.hw)
+    +'</div></div></article>';
+}
+
+/* ---------- Sessions overview ---------- */
+function renderSessionCard(s,phase){
+  return '<div class="session-card">'
+    +'<span class="s-tile">'+sessionTile(s[0],phase)+'</span>'
+    +'<div class="s-body"><div class="s-code">课时 '+escapeHTML(s[0])+'</div>'
+    +'<strong>'+escapeHTML(s[1])+'</strong><p>'+escapeHTML(s[2])+'</p>'
+    +'<details class="s-brief"><summary><i class="ti ti-chevron-right"></i>视觉说明</summary><p>'+escapeHTML(s[3])+'</p></details>'
+    +'</div></div>';
+}
+function renderSessions(mod){
+  const codes=moduleSessionMap[mod.id]||[];
+  if(!codes.length) return '';
+  return '<div class="sessions"><div class="sessions-label"><i class="ti ti-list-details"></i>课时顺序 · '+codes.length+' 节课</div>'
+    +'<div class="session-grid">'+codes.map(c=>{const s=sessionByCode(c);return s?renderSessionCard(s,mod.phase):'';}).join('')+'</div></div>';
+}
+
+/* ---------- Search matching ---------- */
+function moduleMatches(mod,q){
+  if(!q) return true;
+  const hay=[mod.name,mod.badge,phaseLabel[mod.phase]];
+  (moduleSessionMap[mod.id]||[]).forEach(c=>{const s=sessionByCode(c);if(s){hay.push(s[1],s[2]);}});
+  mod.subsections.forEach(sub=>{
+    hay.push(sub.name);
+    sub.obj.forEach(o=>hay.push(o));
+    (sub.tlms||[]).forEach(t=>hay.push(t));
+    if(sub.hw){hay.push(sub.hw.title);hay.push(sub.hw.mission);}
+  });
+  return hay.join(' ').toLowerCase().includes(q);
+}
+
+/* ---------- Render modules ---------- */
+function renderModules(){
+  const q=query.trim().toLowerCase();
+  let filtered = active==='all'?modules:modules.filter(m=>m.phase===active);
+  filtered = filtered.filter(m=>moduleMatches(m,q));
+  const container=document.getElementById('container');
+
+  if(!filtered.length){
+    container.innerHTML='<div class="empty-state"><i class="ti ti-mood-search"></i><p>没有找到匹配“'+escapeHTML(query)+'”的模块。请换一个关键词或清除筛选。</p></div>';
+    return;
+  }
+
+  container.innerHTML=filtered.map(mod=>{
+    const c=phaseColor[mod.phase];
+    const sessionN=(moduleSessionMap[mod.id]||[]).length;
+    const forceOpen = allOpen || (q && true); // expand matches when searching
+    return '<section class="module'+(forceOpen?' open':'')+'" style="--pc:'+c+'">'
+      +'<button class="module-head" type="button" onclick="toggleModule(this)" aria-expanded="'+(forceOpen?'true':'false')+'">'
+      +'<span class="m-tile">'+moduleTile(mod)+'</span>'
+      +'<span class="m-meta">'
+        +'<span class="m-kicker"><span class="m-num">'+escapeHTML(mod.badge)+'</span><span class="m-phase">'+escapeHTML(phaseLabel[mod.phase])+'</span></span>'
+        +'<h3 class="serif">'+escapeHTML(mod.name)+'</h3>'
+        +'<span class="m-sub"><span><i class="ti ti-clock-hour-4"></i>'+escapeHTML(mod.sessions)+'</span><span><i class="ti ti-stack-2"></i>'+sessionN+' 节课</span><span><i class="ti ti-notebook"></i>包含作业</span></span>'
+      +'</span>'
+      +'<span class="m-chev"><i class="ti ti-chevron-down"></i></span>'
+      +'</button>'
+      +'<div class="module-body"'+(forceOpen?'':' hidden')+'><div class="module-body-inner reveal">'
+        +renderSessions(mod)
+        +'<div class="lessons">'+mod.subsections.map((sub,i)=>renderSub(sub,i,mod.phase)).join('')+'</div>'
+      +'</div></div>'
+    +'</section>';
+  }).join('');
+}
+
+/* ---------- Interactions ---------- */
+function toggleModule(btn){
+  const mod=btn.closest('.module');
+  const body=mod.querySelector(':scope > .module-body');
+  const open=!mod.classList.contains('open');
+  mod.classList.toggle('open',open);
+  if(body){body.hidden=!open;if(open){const inner=body.querySelector('.module-body-inner');if(inner){inner.classList.remove('reveal');void inner.offsetWidth;inner.classList.add('reveal');}}}
+  btn.setAttribute('aria-expanded',String(open));
+}
+function toggleSub(btn){
+  const sub=btn.closest('.subsection');
+  const body=sub.querySelector(':scope > .sub-body');
+  const open=!sub.classList.contains('open');
+  sub.classList.toggle('open',open);
+  if(body) body.hidden=!open;
+  btn.setAttribute('aria-expanded',String(open));
+}
+
+function renderNav(){
+  const nav=document.getElementById('nav');
+  const order=['all','foundation','exploration','creation','advanced'];
+  nav.innerHTML=order.map(p=>{
+    const dot=p==='all'?'var(--ink-3)':phaseColor[p];
+    const lbl=p==='all'?'全部模块':phaseLabel[p];
+    return '<button class="chip-btn'+(active===p?' active':'')+'" type="button" onclick="setActive(\''+p+'\')" style="--cdot:'+dot+'"><span class="dot"></span>'+lbl+'</button>';
+  }).join('');
+}
+function setActive(p){active=p;renderNav();renderModules()}
+
+function setExpandAll(state){
+  allOpen=state;
+  const t=document.getElementById('expandToggle');
+  t.innerHTML=allOpen?'<i class="ti ti-arrows-diagonal-minimize-2"></i><span>全部收起</span>':'<i class="ti ti-arrows-diagonal"></i><span>全部展开</span>';
+  renderModules();
+}
+
+/* ---------- Init ---------- */
+function init(){
+  const moduleCount=document.getElementById('moduleCount');
+  const sessionCount=document.getElementById('sessionCount');
+  const footMeta=document.getElementById('footMeta');
+  if(moduleCount) moduleCount.textContent=modules.length;
+  if(sessionCount) sessionCount.textContent=sessionGuide.length;
+  if(footMeta) footMeta.innerHTML=modules.filter(m=>!m.challenge).length+' 个教学模块 · 1 个挑战赛 · '+sessionGuide.length+' 节课';
+  renderNav();
+  renderModules();
+
+  const search=document.getElementById('searchInput');
+  let tmr;
+  search.addEventListener('input',e=>{query=e.target.value;clearTimeout(tmr);tmr=setTimeout(renderModules,120);});
+
+  document.getElementById('expandToggle').addEventListener('click',()=>setExpandAll(!allOpen));
+
+  const toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',()=>{toTop.classList.toggle('show',window.scrollY>600);},{passive:true});
+  toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+}
+init();
+</script>
+</body>
+</html>
